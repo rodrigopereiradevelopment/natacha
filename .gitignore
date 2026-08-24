@@ -1,0 +1,14 @@
+# Build
+build/
+cmake-build-*/
+
+# GitNexus
+.gitnexus/
+.claude/
+
+# IDE
+.vscode/settings.json
+
+# OS
+.DS_Store
+Thumbs.db
