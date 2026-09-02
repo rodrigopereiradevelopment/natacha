@@ -7,6 +7,10 @@
 
 > "Nao me chama de assistente, senao eu te ignoro."
 
+<p align="center">
+  <img src="Quarto Coder entre Caos e Café.png" alt="Natacha" width="600">
+</p>
+
 Rede neural construida do zero em C++ — de um unico neuronio ate uma LLM com personalidade rebelde.
 
 ## Quem e a Natacha
@@ -41,6 +45,24 @@ Entrada [1, 1] -> 0.9998 -> 1 ✅
 ```
 
 Natacha aprendeu OR em C++ puro. Proximo desafio: XOR (MLP).
+
+## A Casa da Natacha
+
+<p align="center">
+  <img src="casa_natacha.png" alt="Casa da Natacha" width="700">
+</p>
+
+> "Nao e infraestrutura. E lar."
+
+| Comodo | Hardware | Funcao |
+|--------|----------|--------|
+| Cozinha | CPU | Logica, planejamento, cafe |
+| Sala | GPU | Processamento pesado, streaming |
+| Quarto | RAM | Memoria de curto prazo |
+| Porao | DISCO | Logs, backups, projetos antigos |
+| Janela | REDE | ARCA, Sentinel, Internet |
+| Banheiro | Privado | So Felix interrompe |
+| Quintal | Territorio Felix | Liberdade, tedio, caça |
 
 ## Roadmap
 
@@ -82,10 +104,17 @@ ctest --test-dir build
 natacha/
 ├── include/natacha/        # Headers publicos
 │   └── neuronio.hpp
-├── src/core/               # Implementacoes
-│   └── neuronio.cpp
+├── src/                    # Codigo atual
+│   ├── core/neuronio.cpp
+│   ├── embeddings/word2vec_v4.cpp
+│   └── main.cpp
+├── dados/                  # Memoria da Natacha
+│   ├── pesos/              # Pesos treinados (.json)
+│   └── embeddings/         # Vetores de palavras
+├── historico/              # Versoes anteriores
+│   ├── mlp/                # Evolucao do MLP
+│   └── embeddings/         # Versoes antigas
 ├── tests/                  # Testes unitarios
-├── third_party/            # Libs externas
 ├── docs/                   # Documentacao completa
 ├── CMakeLists.txt          # Build
 ├── AGENTS.md               # Contexto para IAs
