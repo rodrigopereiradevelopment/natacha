@@ -9,24 +9,24 @@
 
 Status: Em andamento
 
-## FASE 1: Neuronio Simples
-- [ ] Implementar Neuronio.hpp e Neuronio.cpp
-- [ ] Dataset: OR logico
-- [ ] Forward pass
-- [ ] Treinamento com gradiente descendente
-- [ ] Testes unitarios
+## FASE 1: Neuronio Simples ✅
+- [x] Implementar Neuronio.hpp e Neuronio.cpp
+- [x] Dataset: OR logico
+- [x] Forward pass
+- [x] Treinamento com gradiente descendente
+- [x] Testes unitarios
 
-Meta: Ver o neuronio aprender OR em C++
+## FASE 2: MLP ✅
+- [x] Camadas ocultas (N genericas)
+- [x] Backpropagation completo
+- [x] Dataset: XOR logico
+- [x] Funcoes de ativacao: Sigmoid, Leaky ReLU
+- [x] Serializacao JSON (salvar/carregar pesos)
 
-## FASE 2: MLP
-- [ ] Camadas ocultas
-- [ ] Backpropagation completo
-- [ ] Dataset: XOR logico
-- [ ] Funcoes de ativacao: ReLU, Sigmoid
-
-## FASE 3: Word Embeddings
-- [ ] Skip-gram
-- [ ] Corpus pequeno em pt-BR
+## FASE 3: Word Embeddings ✅
+- [x] Skip-gram
+- [x] Corpus pequeno em pt-BR
+- [x] Salvar/carregar embeddings em JSON
 
 ## FASE 4: RNN / LSTM
 - [ ] Rede recorrente
@@ -50,8 +50,7 @@ Meta: Ver o neuronio aprender OR em C++
 
 ## Prioridade Atual
 
-FASE 1: Neuronio Simples (OR logico)
-Comecar pelo codigo. Ver funcionar. Sentir o poder.
+FASE 4: RNN / LSTM — Processamento de sequencias, prever proxima palavra.
 
 ## Calendario Sugerido
 
