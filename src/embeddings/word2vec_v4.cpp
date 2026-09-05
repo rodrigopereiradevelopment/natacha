@@ -318,7 +318,7 @@ int main() {
     // ================================================================
     // PARTE 1: Treinar e salvar
     // ================================================================
-    string corpus = lerCorpus("corpus.txt");
+    string corpus = lerCorpus("../../dados/embeddings/corpus.txt");
     if (corpus.empty()) return 1;
 
     cout << endl << "Corpus lido: " << corpus.size() << " chars, ";
@@ -353,7 +353,7 @@ int main() {
     }
 
     // Salva embeddings
-    modelo.embeddings->salvar("natacha_embeddings.json", vocab);
+    modelo.embeddings->salvar("../../dados/embeddings/natacha_embeddings.json", vocab);
 
     // Teste antes de salvar
     cout << endl << "--- Similaridade ANTES de salvar ---" << endl;
@@ -372,7 +372,7 @@ int main() {
     // ================================================================
     cout << endl << "--- PARTE 2: Carregando embeddings salvos ---" << endl;
     EmbeddingTable tabelaCarregada;
-    if (!tabelaCarregada.carregar("natacha_embeddings.json")) return 1;
+    if (!tabelaCarregada.carregar("../../dados/embeddings/natacha_embeddings.json")) return 1;
 
     // Compara embedding de "natacha" antes e depois
     int idNatacha = vocab.id("natacha");
