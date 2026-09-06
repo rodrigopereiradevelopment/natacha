@@ -1,0 +1,9 @@
+============================================================
+  NATACHA - Fase 3: Embeddings + nlohmann/json (v4)
+============================================================
+
+Corpus lido: 23681 chars, 3696 tokens
+Vocabulario: 1055 palavras
+
+--- PARTE 1: Treinando ---
+  Epoca 0 | Perda: 6.96641
