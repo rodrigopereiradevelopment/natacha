@@ -124,7 +124,7 @@ public:
         if (vocab > 0 && dim > 0) {
             srand(semente);
             vetores.resize(vocabSize, vector<float>(dimensao));
-            float escala = sqrt(1.0f / dimensao);
+            float escala = sqrt(0.5f / dimensao);
             for (int i = 0; i < vocabSize; i++)
                 for (int j = 0; j < dimensao; j++)
                     vetores[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
@@ -212,7 +212,7 @@ public:
         embeddings = new EmbeddingTable(vocab, dim, semente);
         srand(semente + 1);
         pesosSaida.resize(vocabSize, vector<float>(dimensao));
-        float escala = sqrt(1.0f / dimensao);
+        float escala = sqrt(0.5f / dimensao);
         for (int i = 0; i < vocabSize; i++)
             for (int j = 0; j < dimensao; j++)
                 pesosSaida[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
@@ -336,7 +336,34 @@ vector<pair<int, int>> gerarPares(const vector<string>& tokens,
     }
     return pares;
 }
+// ============================================================
+//  SUBSAMPLING — remove palavras muito frequentes
+// ============================================================
+vector<string> aplicarSubsampling(const vector<string>& tokens, float t = 1e-4f) {
+    unordered_map<string, int> freq;
+    for (const string& token : tokens) freq[token]++;
 
+    int total = tokens.size();
+    vector<string> resultado;
+    srand(42);  // semente fixa
+
+    for (const string& token : tokens) {
+        float f = (float)freq[token] / total;
+        float prob = 1.0f - sqrt(t / f);
+        if (prob < 0) prob = 0;
+
+        float r = (float)rand() / (float)RAND_MAX;
+        if (r > prob) {
+            resultado.push_back(token);
+        }
+    }
+
+    cout << "  Subsampling: " << tokens.size() << " → " << resultado.size() << " tokens" << endl;
+    return resultado;
+}
+// ----------------------------------------------------------------------------
+// MAIN
+// ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // MAIN
 // ----------------------------------------------------------------------------
@@ -352,11 +379,14 @@ int main() {
     vector<string> tokens = tokenizar(corpus);
     cout << tokens.size() << " tokens" << endl;
 
+    // 🔥 SUBSAMPLING — remove palavras muito frequentes
+    tokens = aplicarSubsampling(tokens, 1e-4f);
+
     Vocabulario vocab;
     vocab.construir(tokens);
     cout << "Vocabulario: " << vocab.tamanho << " palavras" << endl;
 
-    int dim = 15, janela = 2, epocas = 2000, negativos = 5;
+    int dim = 32, janela = 5, epocas = 10000, negativos = 10;
 
     auto pares = gerarPares(tokens, vocab, janela);
     cout << "Pares por epoca: " << pares.size() << endl;
@@ -366,13 +396,30 @@ int main() {
     cout << endl << "--- Treinando " << epocas << " epocas ---" << endl;
     Word2Vec modelo(vocab.tamanho, dim, vocab.frequencias, negativos, 42);
 
+    // 🔥 DECAY CONTÍNUO DA TAXA DE APRENDIZADO
+    float alpha_inicial = 0.025f;
+    float alpha_min = alpha_inicial * 0.0001f;  // 0.0000025
+    int total_tokens_processados = 0;
+    int total_pares = pares.size();
+
     float melhorPerda = 1e9f;
     int semMelhora = 0;
     clock_t inicio = clock();
 
     for (int e = 0; e < epocas; e++) {
         float perdaTotal = 0.0f;
-        for (auto& par : pares) perdaTotal += modelo.treinar(par.first, par.second);
+        
+        for (auto& par : pares) {
+            // Taxa decrescente contínua
+            float alpha = alpha_inicial * (1.0f - (float)total_tokens_processados /
+                          (float)(epocas * total_pares));
+            if (alpha < alpha_min) alpha = alpha_min;
+            modelo.taxa = alpha;
+
+            perdaTotal += modelo.treinar(par.first, par.second);
+            total_tokens_processados++;
+        }
+        
         float perdaMedia = perdaTotal / pares.size();
         
         if (e % 100 == 0) {
@@ -385,7 +432,7 @@ int main() {
         if (perdaMedia < melhorPerda - 0.0001f) {
             melhorPerda = perdaMedia;
             semMelhora = 0;
-        } else if (++semMelhora >= 500) {
+        } else if (++semMelhora >= 5000) {
             cout << "  Early stopping na epoca " << e << endl;
             break;
         }
