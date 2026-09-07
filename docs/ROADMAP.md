@@ -23,10 +23,15 @@ Status: Em andamento
 - [x] Funcoes de ativacao: Sigmoid, Leaky ReLU
 - [x] Serializacao JSON (salvar/carregar pesos)
 
-## FASE 3: Word Embeddings ✅
-- [x] Skip-gram
-- [x] Corpus pequeno em pt-BR
-- [x] Salvar/carregar embeddings em JSON
+## FASE 3: Word Embeddings
+- [x] Skip-gram com Negative Sampling
+- [x] Corpus pt-BR (1186 palavras)
+- [x] Salvar/carregar binário (.bin)
+- [x] Hiperparâmetros configuráveis (dim, janela, taxa)
+- [x] Logs visuais (barra de progresso, curva de perda)
+- [x] natacha_embedder (interativo)
+- [x] word2vec_similaridade (análise)
+- [x] Exportar JSON
 
 ## FASE 4: RNN / LSTM
 - [ ] Rede recorrente

@@ -1,307 +1,396 @@
-// ============================================================================
-//  WORD2VEC COM NEGATIVE SAMPLING — VERSAO COMPLETA
-// ============================================================================
+// word2vec_neg_full.cpp — Word2Vec Negative Sampling (C++ puro)
+// Compilar: g++ -O3 -std=c++17 -o word2vec_neg word2vec_neg_full.cpp
 
 #include <iostream>
-#include <vector>
-#include <string>
-#include <unordered_map>
-#include <sstream>
 #include <fstream>
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
+#include <vector>
+#include <unordered_map>
+#include <string>
+#include <random>
 #include <algorithm>
+#include <cmath>
 #include <iomanip>
-#include "json.hpp"
+#include <chrono>
 
 using namespace std;
-using json = nlohmann::json;
 
-vector<string> tokenizar(const string& texto) {
-    vector<string> tokens;
-    stringstream ss(texto);
-    string palavra;
-    while (ss >> palavra) {
-        // Preserva c++, c#, etc.
-        string lower = palavra;
-        for (char& c : lower) c = tolower(c);
-        
-        if (lower == "c++" || lower == "c#") {
-            tokens.push_back(lower);
-            continue;
-        }
-        
-        string limpa;
-        for (char c : lower)
-            if (isalnum(c)) limpa += c;
-        if (!limpa.empty())
-            tokens.push_back(limpa);
-    }
-    return tokens;
-}
+struct ParTreino { int alvo; int contexto; };
 
-float cosseno(const vector<float>& a, const vector<float>& b) {
-    float produto = 0.0f, normaA = 0.0f, normaB = 0.0f;
-    for (size_t i = 0; i < a.size(); i++) {
-        produto += a[i] * b[i];
-        normaA  += a[i] * a[i];
-        normaB  += b[i] * b[i];
-    }
-    if (normaA == 0.0f || normaB == 0.0f) return 0.0f;
-    return produto / (sqrt(normaA) * sqrt(normaB));
-}
-
-string lerCorpus(const string& caminho) {
-    ifstream arquivo(caminho);
-    if (!arquivo.is_open()) {
-        cerr << "ERRO: Nao conseguiu abrir '" << caminho << "'" << endl;
-        return "";
-    }
-    string conteudo, linha;
-    while (getline(arquivo, linha))
-        conteudo += linha + " ";
-    arquivo.close();
-    return conteudo;
-}
-
-class Vocabulario {
-public:
-    unordered_map<string, int> palavraParaId;
-    vector<string> idParaPalavra;
-    vector<int> frequencias;
-    int tamanho = 0;
-
-    void construir(const vector<string>& tokens) {
-        unordered_map<string, int> freq;
-        for (const string& token : tokens) freq[token]++;
-        
-        vector<pair<int, string>> ordenado;
-        for (auto& [palavra, f] : freq) ordenado.push_back({f, palavra});
-        sort(ordenado.rbegin(), ordenado.rend());
-        
-        for (auto& [f, palavra] : ordenado) {
-            palavraParaId[palavra] = tamanho;
-            idParaPalavra.push_back(palavra);
-            frequencias.push_back(f);
-            tamanho++;
-        }
-    }
-
-    int id(const string& palavra) const {
-        auto it = palavraParaId.find(palavra);
-        if (it != palavraParaId.end()) return it->second;
-        return -1;
-    }
-
-    string palavra(int id) const {
-        if (id >= 0 && id < (int)idParaPalavra.size()) return idParaPalavra[id];
-        return "<OOV>";
-    }
-};
-
-class EmbeddingTable {
-public:
-    int vocabSize;
+class Word2VecNeg {
+private:
     int dimensao;
-    vector<vector<float>> vetores;
+    int negativos;
+    float taxaBase;
+    float taxaMinima;
+    float taxaAtual;
+    mt19937& rng;
+    vector<vector<float>> W1;  // embeddings de entrada
+    vector<vector<float>> W2;  // pesos de saida
 
-    EmbeddingTable(int vocab = 0, int dim = 0, unsigned int semente = 42) {
-        vocabSize = vocab;
-        dimensao  = dim;
-        if (vocab > 0 && dim > 0) {
-            srand(semente);
-            vetores.resize(vocabSize, vector<float>(dimensao));
-            float escala = sqrt(1.0f / dimensao);
-            for (int i = 0; i < vocabSize; i++)
-                for (int j = 0; j < dimensao; j++)
-                    vetores[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
-        }
+    float sigmoid(float x) {
+        if (x > 6.0f) return 1.0f;
+        if (x < -6.0f) return 0.0f;
+        return 1.0f / (1.0f + expf(-x));
     }
 
-    vector<float> get(int palavraId) const { return vetores[palavraId]; }
-
-    void update(int palavraId, const vector<float>& gradiente, float taxa) {
-        for (int j = 0; j < dimensao; j++)
-            vetores[palavraId][j] -= taxa * gradiente[j];
-    }
-
-    void salvar(const string& caminho, const Vocabulario& vocab) const {
-        json j;
-        j["vocabSize"] = vocabSize;
-        j["dimensao"]  = dimensao;
-        json arr = json::array();
-        for (int i = 0; i < vocabSize; i++) {
-            arr.push_back({{"palavra", vocab.palavra(i)}, {"vetor", vetores[i]}});
-        }
-        j["embeddings"] = arr;
-        ofstream arq(caminho);
-        arq << j.dump(2);
-        arq.close();
-        cout << "  Salvo em: " << caminho << endl;
-    }
-};
-
-class Word2Vec {
 public:
-    EmbeddingTable* embeddings;
-    vector<vector<float>> pesosSaida;
-    int dimensao, vocabSize, negativos;
-    float taxa;
-    vector<float> tabelaUnigram;
+    Word2VecNeg(int vocabTam, int dim, int neg, float taxa, mt19937& random)
+        : dimensao(dim), negativos(neg), taxaBase(taxa), taxaMinima(0.0001f),
+          taxaAtual(taxa), rng(random) {
 
-    Word2Vec(int vocab, int dim, const vector<int>& freq, int k = 5, unsigned int semente = 42) {
-        vocabSize = vocab; dimensao = dim; negativos = k; taxa = 0.01f;
-        embeddings = new EmbeddingTable(vocab, dim, semente);
-        srand(semente + 1);
-        pesosSaida.resize(vocabSize, vector<float>(dimensao));
+        // sqrt(1/dim) — escala comprovada
         float escala = sqrt(1.0f / dimensao);
-        for (int i = 0; i < vocabSize; i++)
-            for (int j = 0; j < dimensao; j++)
-                pesosSaida[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
 
+        W1.resize(vocabTam, vector<float>(dimensao));
+        W2.resize(vocabTam, vector<float>(dimensao));
+
+        for (auto& v : W1)
+            for (auto& x : v)
+                x = ((float)rng() / (float)rng.max() * 2.0f - 1.0f) * escala;
+        for (auto& v : W2)
+            for (auto& x : v)
+                x = ((float)rng() / (float)rng.max() * 2.0f - 1.0f) * escala;
+    }
+
+    void setTaxa(float novaTaxa) { taxaAtual = novaTaxa; }
+
+    float dot(const vector<float>& a, const vector<float>& b) {
+        float s = 0;
+        for (size_t i = 0; i < a.size(); i++) s += a[i] * b[i];
+        return s;
+    }
+
+    vector<float> pegarVetor(int idx) {
+        vector<float> v(dimensao);
+        for (int d = 0; d < dimensao; d++)
+            v[d] = W1[idx][d] + W2[idx][d];
+        return v;
+    }
+
+    float norma(const vector<float>& v) {
         float soma = 0;
-        for (int f : freq) soma += pow(f, 0.75f);
-        tabelaUnigram.resize(vocabSize);
-        float acc = 0;
-        for (int i = 0; i < vocabSize; i++) {
-            acc += pow(freq[i], 0.75f) / soma;
-            tabelaUnigram[i] = acc;
-        }
+        for (float x : v) soma += x * x;
+        return sqrt(soma);
     }
 
-    ~Word2Vec() { delete embeddings; }
-
-    int amostrarNegativo() {
-        float r = (float)rand() / (float)RAND_MAX;
-        auto it = lower_bound(tabelaUnigram.begin(), tabelaUnigram.end(), r);
-        return min((int)distance(tabelaUnigram.begin(), it), vocabSize - 1);
-    }
-
-    float treinar(int central, int contexto) {
-        vector<float> h = embeddings->get(central);
+    // Treina um par (alvo, contexto) — retorna perda
+    float treinarPar(int idxAlvo, int idxCtx, uniform_int_distribution<int>& distVocab) {
+        vector<float>& h = W1[idxAlvo];
         float perda = 0.0f;
         vector<float> gradIn(dimensao, 0.0f);
 
-        // Positiva
-        float dot = 0;
-        for (int j = 0; j < dimensao; j++) dot += pesosSaida[contexto][j] * h[j];
-        float sig = 1.0f / (1.0f + exp(-dot));
-        float g = (1.0f - sig) * taxa;
-        perda -= log(sig + 1e-9f);
-        for (int j = 0; j < dimensao; j++) {
-            pesosSaida[contexto][j] += g * h[j];
-            gradIn[j] += g * pesosSaida[contexto][j];
+        // Positiva: maximizar sig(w_ctx · h)
+        float dotPos = dot(W2[idxCtx], h);
+        float sigPos = sigmoid(dotPos);
+        float gPos = (1.0f - sigPos) * taxaAtual;
+        perda -= logf(sigPos + 1e-9f);
+
+        for (int d = 0; d < dimensao; d++) {
+            W2[idxCtx][d] += gPos * h[d];
+            gradIn[d] += gPos * W2[idxCtx][d];
         }
 
-        // Negativas
+        // Negativas: minimizar sig(w_neg · h)
         for (int n = 0; n < negativos; n++) {
-            int neg = amostrarNegativo();
-            if (neg == contexto) continue;
-            dot = 0;
-            for (int j = 0; j < dimensao; j++) dot += pesosSaida[neg][j] * h[j];
-            sig = 1.0f / (1.0f + exp(-dot));
-            g = -sig * taxa;
-            perda -= log(1.0f - sig + 1e-9f);
-            for (int j = 0; j < dimensao; j++) {
-                pesosSaida[neg][j] += g * h[j];
-                gradIn[j] += g * pesosSaida[neg][j];
+            int idxNeg;
+            do { idxNeg = distVocab(rng); } while (idxNeg == idxCtx);
+
+            float dotNeg = dot(W2[idxNeg], h);
+            float sigNeg = sigmoid(dotNeg);
+            float gNeg = -sigNeg * taxaAtual;
+            perda -= logf(1.0f - sigNeg + 1e-9f);
+
+            for (int d = 0; d < dimensao; d++) {
+                W2[idxNeg][d] += gNeg * h[d];
+                gradIn[d] += gNeg * W2[idxNeg][d];
             }
         }
 
-        embeddings->update(central, gradIn, 1.0f);
+        // Atualiza embedding de entrada
+        for (int d = 0; d < dimensao; d++)
+            h[d] -= gradIn[d];
+
         return perda;
     }
 
-    void topSimilares(const string& alvo, const Vocabulario& vocab, int n = 5) {
-        int idAlvo = vocab.id(alvo);
-        if (idAlvo == -1) { cout << "  \"" << alvo << "\" N/A" << endl; return; }
-        vector<float> emb = embeddings->get(idAlvo);
-        vector<pair<float, string>> sims;
-        for (int i = 0; i < vocabSize; i++) {
-            if (i == idAlvo) continue;
-            sims.push_back({cosseno(emb, embeddings->get(i)), vocab.palavra(i)});
+    void treinar(const vector<ParTreino>& pares, int epocas) {
+        int totalPares = pares.size();
+        uniform_int_distribution<int> distVocab(0, W1.size() - 1);
+
+        auto inicio = chrono::high_resolution_clock::now();
+        vector<pair<int,float>> historico;
+
+        for (int e = 0; e < epocas; e++) {
+            taxaAtual = max(taxaMinima, taxaBase * (1.0f - (float)e / epocas));
+            float perdaEpoca = 0;
+
+            for (int p = 0; p < totalPares; p++)
+                perdaEpoca += treinarPar(pares[p].alvo, pares[p].contexto, distVocab);
+
+            perdaEpoca /= totalPares;
+
+            if ((e + 1) % 500 == 0) {
+                auto agora = chrono::high_resolution_clock::now();
+                float segundos = chrono::duration<float>(agora - inicio).count();
+                float paresPorSeg = (float)((e + 1) * totalPares) / max(segundos, 0.01f);
+
+                int barras = 20;
+                float progresso = (float)(e + 1) / epocas;
+                int preenchido = (int)(progresso * barras);
+
+                cout << "\r\33[2K  Epoca " << setw(5) << (e+1) << "/" << epocas << " ";
+                for (int b = 0; b < barras; b++)
+                    cout << (b < preenchido ? "\033[32m█\033[0m" : "\033[90m░\033[0m");
+                cout << " Perda: " << fixed << setprecision(4) << perdaEpoca
+                     << " | Taxa: " << scientific << setprecision(2) << taxaAtual
+                     << " | " << (int)paresPorSeg << " pares/s\33[0m" << flush;
+
+                historico.push_back({e+1, perdaEpoca});
+            }
         }
-        sort(sims.rbegin(), sims.rend());
-        cout << "  " << alvo << ": ";
-        for (int i = 0; i < min(n, (int)sims.size()); i++)
-            cout << sims[i].second << "(" << fixed << setprecision(2) << sims[i].first << ") ";
-        cout << endl;
+
+        auto fim = chrono::high_resolution_clock::now();
+        float segundos = chrono::duration<float>(fim - inicio).count();
+        cout << "\n\033[32m✓\033[0m Treino concluido em " << fixed << setprecision(1)
+             << segundos << "s" << endl;
+
+        // Curva de perda
+        cout << "\n═══ Curva de Perda ═══" << endl;
+        float perdaMin = 1e9, perdaMax = 0;
+        for (auto& [ep, p] : historico) {
+            if (p < perdaMin) perdaMin = p;
+            if (p > perdaMax) perdaMax = p;
+        }
+        for (auto& [ep, p] : historico) {
+            int tamanho = (perdaMax - perdaMin > 0.001f)
+                ? (int)((p - perdaMin) / (perdaMax - perdaMin) * 50)
+                : 0;
+            cout << setw(5) << ep << " | ";
+            for (int i = 0; i < tamanho; i++) cout << "\033[31m#\033[0m";
+            cout << " " << fixed << setprecision(4) << p << endl;
+        }
+    }
+
+    float similaridade(const vector<float>& a, const vector<float>& b) {
+        float na = norma(a);
+        float nb = norma(b);
+        if (na < 1e-8f || nb < 1e-8f) return 0;
+        return dot(a, b) / (na * nb);
+    }
+
+    void testarPar(const string& w1, const string& w2,
+                   const unordered_map<string, int>& vocab,
+                   const string& descricao) {
+        if (vocab.find(w1) == vocab.end() || vocab.find(w2) == vocab.end()) {
+            cout << "  \033[33m?\033[0m " << w1 << " ou " << w2 << " nao encontrado" << endl;
+            return;
+        }
+        vector<float> v1 = pegarVetor(vocab.at(w1));
+        vector<float> v2 = pegarVetor(vocab.at(w2));
+        float sim = similaridade(v1, v2);
+
+        cout << "  " << w1 << " <-> " << w2 << ": " << fixed << setprecision(4) << sim
+             << " (esperado: " << descricao << ")";
+
+        if (sim > 0.5f) cout << " \033[32m\033[1m EXCELENTE\033[0m";
+        else if (sim > 0.3f) cout << " \033[32m BOM\033[0m";
+        else if (sim > 0.15f) cout << " \033[33m RAZOAVEL\033[0m";
+        else if (sim > 0.0f) cout << " \033[31m FRACO\033[0m";
+        else cout << " \033[31m\033[1m NEGATIVO\033[0m";
+
+        int barras = 15;
+        int preenchido = (int)(max(0.0f, min(1.0f, sim)) * barras);
+        cout << " \033[90m";
+        for (int i = 0; i < barras; i++)
+            cout << (i < preenchido ? "\033[32m▪\033[0m\033[90m" : "·");
+        cout << "\033[0m" << endl;
+    }
+
+    void relatorio(const unordered_map<string, int>& vocab,
+                   const unordered_map<string, int>& frequencias) {
+
+        cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
+        cout << "║         RELATORIO DE SIMILARIDADES                   ║" << endl;
+        cout << "╚═══════════════════════════════════════════════════════╝" << endl;
+
+        cout << "\n\033[1mTop 10 palavras mais frequentes:\033[0m" << endl;
+        vector<pair<string,int>> freq(frequencias.begin(), frequencias.end());
+        sort(freq.begin(), freq.end(), [](auto& a, auto& b){ return a.second > b.second; });
+        for (int i = 0; i < min(10, (int)freq.size()); i++)
+            cout << "  " << setw(2) << (i+1) << ". " << setw(12) << left << freq[i].first
+                 << " (" << freq[i].second << " ocorrencias)" << endl;
+
+        cout << "\n\033[1mPares de teste:\033[0m" << endl;
+        testarPar("cpu", "cozinha", vocab, "hardware e comodo");
+        testarPar("felix", "teclado", vocab, "comportamento do felix");
+        testarPar("natacha", "robo", vocab, "deve ser alto");
+        testarPar("cozinha", "gato", vocab, "felix frequenta");
+        testarPar("felix", "natacha", vocab, "moro junto");
+        testarPar("cpu", "gpu", vocab, "hardware");
+
+        cout << "\n\033[1mTop 5 mais similares a cada palavra-chave:\033[0m" << endl;
+        vector<string> alvos = {"felix", "natacha", "cozinha", "robo", "cpu", "teclado"};
+        for (const string& alvo : alvos) {
+            if (vocab.find(alvo) == vocab.end()) continue;
+            vector<float> vAlvo = pegarVetor(vocab.at(alvo));
+            vector<pair<string,float>> sims;
+            for (auto& [pal, idx] : vocab) {
+                if (pal == alvo) continue;
+                vector<float> v = pegarVetor(idx);
+                sims.push_back({pal, similaridade(vAlvo, v)});
+            }
+            sort(sims.begin(), sims.end(), [](auto& a, auto& b){ return a.second > b.second; });
+
+            cout << "\n  " << alvo << ":" << endl;
+            for (int i = 0; i < min(5, (int)sims.size()); i++) {
+                int barras = 20;
+                int preenchido = (int)(max(0.0f, sims[i].second) * barras);
+                cout << "    " << setw(12) << left << sims[i].first
+                     << " " << fixed << setprecision(4) << sims[i].second
+                     << " \033[90m";
+                for (int b = 0; b < barras; b++)
+                    cout << (b < preenchido ? "\033[32m▪\033[0m\033[90m" : "·");
+                cout << "\033[0m" << endl;
+            }
+        }
     }
 };
 
-vector<pair<int, int>> gerarPares(const vector<string>& tokens, const Vocabulario& vocab, int janela = 2) {
-    vector<pair<int, int>> pares;
-    int n = tokens.size();
-    for (int i = 0; i < n; i++) {
-        int c = vocab.id(tokens[i]);
-        for (int o = -janela; o <= janela; o++) {
-            if (o == 0) continue;
-            int j = i + o;
-            if (j >= 0 && j < n) pares.push_back({c, vocab.id(tokens[j])});
-        }
-    }
-    return pares;
+string paraMinusculo(const string& s) {
+    string r = s;
+    transform(r.begin(), r.end(), r.begin(), ::tolower);
+    return r;
 }
 
-int main() {
-    cout << "============================================================" << endl;
-    cout << "  NATACHA - Word2Vec Negative Sampling (otimizado)" << endl;
-    cout << "============================================================" << endl;
-
-    string corpus = lerCorpus("../../dados/embeddings/corpus.txt");
-    if (corpus.empty()) return 1;
-
-    vector<string> tokens = tokenizar(corpus);
-    Vocabulario vocab;
-    vocab.construir(tokens);
-    
-    auto pares = gerarPares(tokens, vocab, 2);
-    
-    cout << "Corpus: " << tokens.size() << " tokens | Vocab: " << vocab.tamanho 
-         << " | Pares/epoca: " << pares.size() << endl;
-
-    int epocas = 5000;
-    Word2Vec modelo(vocab.tamanho, 15, vocab.frequencias, 5, 42);
-
-    cout << endl << "Treinando " << epocas << " epocas..." << endl << endl;
-
-    float melhorPerda = 1e9f;
-    int semMelhora = 0;
-    clock_t inicio = clock();
-
-    for (int e = 0; e < epocas; e++) {
-        float perdaTotal = 0.0f;
-        for (auto& par : pares) perdaTotal += modelo.treinar(par.first, par.second);
-        float perdaMedia = perdaTotal / pares.size();
-        
-        if (e % 200 == 0) {
-            float elapsed = (float)(clock() - inicio) / CLOCKS_PER_SEC;
-            cout << "  Epoca " << setw(5) << e << " | Perda: " << fixed << setprecision(4) << perdaMedia
-                 << " | " << fixed << setprecision(1) << elapsed << "s" << endl;
+vector<string> tokenizar(const string& texto) {
+    vector<string> tokens;
+    string atual;
+    for (unsigned char c : texto) {
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '+' || c == '#') {
+            atual += tolower(c);
+        } else {
+            if (!atual.empty() && atual.size() > 2)
+                tokens.push_back(atual);
+            atual.clear();
         }
-        
-        if (perdaMedia < melhorPerda - 0.0001f) { melhorPerda = perdaMedia; semMelhora = 0; }
-        else if (++semMelhora >= 2000) { cout << "  Early stop epoca " << e << endl; break; }
+    }
+    if (!atual.empty() && atual.size() > 2)
+        tokens.push_back(atual);
+    return tokens;
+}
+
+int main(int argc, char* argv[]) {
+    string arquivoCorpus = "dados/embeddings/corpus.txt";
+    int epocas = 5000;
+    int dimensao = 64;
+    int janela = 5;
+    float taxaInicial = 0.05f;
+    int negativos = 5;
+
+    for (int i = 1; i < argc; i++) {
+        string arg = argv[i];
+        if (arg == "--arquivo" && i+1 < argc) arquivoCorpus = argv[++i];
+        else if (arg == "--epocas" && i+1 < argc) epocas = stoi(argv[++i]);
+        else if (arg == "--dim" && i+1 < argc) dimensao = stoi(argv[++i]);
+        else if (arg == "--janela" && i+1 < argc) janela = stoi(argv[++i]);
+        else if (arg == "--taxa" && i+1 < argc) taxaInicial = stof(argv[++i]);
+        else if (arg == "--neg" && i+1 < argc) negativos = stoi(argv[++i]);
+        else if (arg == "--ajuda" || arg == "-h") {
+            cout << "Uso: ./word2vec_neg [opcoes]" << endl;
+            cout << "  --arquivo <caminho>   Corpus (default: dados/embeddings/corpus.txt)" << endl;
+            cout << "  --epocas <N>          Epocas (default: 5000)" << endl;
+            cout << "  --dim <N>             Dimensao (default: 64)" << endl;
+            cout << "  --janela <N>          Janela de contexto (default: 5)" << endl;
+            cout << "  --taxa <F>            Taxa inicial (default: 0.05)" << endl;
+            cout << "  --neg <N>             Negativos (default: 5)" << endl;
+            return 0;
+        }
     }
 
-    float tempoTotal = (float)(clock() - inicio) / CLOCKS_PER_SEC;
-    cout << endl << "Concluido em " << fixed << setprecision(1) << tempoTotal << "s | Melhor perda: " << melhorPerda << endl;
+    cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
+    cout << "║     WORD2VEC NEGATIVE SAMPLING (v5)                 ║" << endl;
+    cout << "╚═══════════════════════════════════════════════════════╝" << endl;
+    cout << "  Arquivo:    " << arquivoCorpus << endl;
+    cout << "  Dimensao:   " << dimensao << endl;
+    cout << "  Negativos:  " << negativos << endl;
+    cout << "  Janela:     " << janela << endl;
+    cout << "  Taxa:       " << taxaInicial << " -> 0.0001 (decrescente)" << endl;
+    cout << "  Epocas:     " << epocas << endl;
 
-    modelo.embeddings->salvar("../../dados/embeddings/natacha_embeddings.json", vocab);
+    cout << "\nLendo corpus..." << endl;
+    ifstream arquivo(arquivoCorpus);
+    if (!arquivo.is_open()) {
+        cerr << "\033[31mErro: nao encontrei " << arquivoCorpus << "\033[0m" << endl;
+        return 1;
+    }
+    string linha, texto;
+    while (getline(arquivo, linha)) texto += linha + " ";
+    arquivo.close();
+    cout << "Lido: " << texto.size() << " caracteres" << endl;
 
-    cout << endl << "=== SIMILARIDADES ===" << endl << endl;
-    modelo.topSimilares("natacha", vocab, 8);
-    modelo.topSimilares("felix", vocab, 8);
-    modelo.topSimilares("cpu", vocab, 8);
-    modelo.topSimilares("quarto", vocab, 5);
-    modelo.topSimilares("banho", vocab, 5);
-    modelo.topSimilares("aprende", vocab, 5);
-    modelo.topSimilares("c++", vocab, 5);
-    modelo.topSimilares("rodrigo", vocab, 5);
+    cout << "Tokenizando..." << endl;
+    vector<string> tokens = tokenizar(texto);
+    cout << "Tokens: " << tokens.size() << endl;
 
-    cout << endl << "============================================================" << endl;
-    cout << "  FIM - " << epocas << " epocas em " << fixed << setprecision(1) << tempoTotal << "s" << endl;
-    cout << "============================================================" << endl;
+    if (tokens.size() < 10) {
+        cerr << "\033[31mCorpus muito pequeno\033[0m" << endl;
+        return 1;
+    }
+
+    cout << "Construindo vocabulario..." << endl;
+    unordered_map<string, int> freq;
+    for (auto& t : tokens) freq[t]++;
+
+    unordered_map<string, int> vocab;
+    unordered_map<int, string> idxParaPalavra;
+    int idx = 0;
+    for (auto& [palavra, f] : freq) {
+        vocab[palavra] = idx;
+        idxParaPalavra[idx] = palavra;
+        idx++;
+    }
+    cout << "Vocabulario: " << vocab.size() << " palavras" << endl;
+
+    cout << "Gerando pares de treino..." << endl;
+    vector<ParTreino> pares;
+    for (size_t i = 0; i < tokens.size(); i++) {
+        int alvo = vocab[tokens[i]];
+        for (int j = max(0, (int)i - janela); j <= min((int)tokens.size()-1, (int)i + janela); j++) {
+            if (i == (size_t)j) continue;
+            pares.push_back({alvo, vocab[tokens[j]]});
+        }
+    }
+    cout << "Pares gerados: " << pares.size() << endl;
+
+    mt19937 rng(42);
+
+    cout << "\n═══ INICIANDO TREINO ═══" << endl;
+
+    Word2VecNeg modelo(vocab.size(), dimensao, negativos, taxaInicial, rng);
+    modelo.treinar(pares, epocas);
+
+    cout << "\n═══ SALVANDO ═══" << endl;
+    string saida = "dados/embeddings/vetores_word2vec.bin";
+    ofstream out(saida, ios::binary);
+    out.write((char*)&dimensao, sizeof(int));
+    for (auto& [palavra, palavraIdx] : vocab) {
+        uint32_t tam = palavra.size();
+        out.write((char*)&tam, sizeof(uint32_t));
+        out.write(palavra.c_str(), tam);
+        vector<float> v = modelo.pegarVetor(palavraIdx);
+        out.write((char*)v.data(), dimensao * sizeof(float));
+    }
+    out.close();
+    cout << "\033[32m✓\033[0m Vetores salvos em " << saida << endl;
+
+    modelo.relatorio(vocab, freq);
+
+    cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
+    cout << "║              TREINO CONCLUIDO                        ║" << endl;
+    cout << "║  Proximos passos:                                    ║" << endl;
+    cout << "║  1. ./natacha_embedder                               ║" << endl;
+    cout << "║  2. ./word2vec_similaridade                          ║" << endl;
+    cout << "╚═══════════════════════════════════════════════════════╝\n" << endl;
+
     return 0;
 }

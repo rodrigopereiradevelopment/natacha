@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/Fase%201-OR%20%E2%9C%85-brightgreen)
 ![Status](https://img.shields.io/badge/Fase%202-MLP%20%E2%9C%85-brightgreen)
 ![Status](https://img.shields.io/badge/Fase%203-Embeddings%20%E2%9C%85-brightgreen)
-![Status](https://img.shields.io/badge/Fase%204-RNN%20%E2%8F%B3-yellow)
+![Status](https://img.shields.io/badge/Fase%204-RNN%20%E2%8F%B3-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 # 🧠 Natacha
@@ -124,8 +124,8 @@ Félix (IAGato) — Autoridade máxima
 | **0** | Fundamentos (Álgebra, Cálculo, Estatística) | ✅ Concluído |
 | **1** | Neurônio (OR lógico + backpropagation) | ✅ Concluído |
 | **2** | MLP Profunda (XOR + Leaky ReLU + Softmax + JSON) | ✅ Concluído |
-| **3** | Word Embeddings (Word2Vec + Persistência JSON) | ✅ Concluído |
-| **4** | RNN / LSTM (Processamento de Sequências) | 🔄 Em andamento |
+| **3** | Word Embeddings (Word2Vec + Persistência JSON/BIN) | ✅ Concluído |
+| **4** | RNN / LSTM (Processamento de Sequências) | 📋 Próxima |
 | **5** | Self-Attention (Mecanismo de Atenção) | 📋 Pendente |
 | **6** | Transformer (Arquitetura Completa) | 📋 Pendente |
 | **7** | LLM Miniatura (~10-50M parâmetros) | 📋 Pendente |
@@ -158,18 +158,28 @@ Natacha 'acordada': 4/4 acertos
 ✅ A Natacha lembrou de tudo! A memória persiste.
 ```
 
-### Fase 3: Embeddings + Persistência ✅
+### Fase 3: Embeddings (Word2Vec Skip-gram + Negative Sampling) ✅
 
 ```
-cozinha-cpu   = 0.6614  ✅
-banho-privado = 0.3669  ✅
+Configuração final: dim=64, janela=5, taxa=0.05→0.0001, 5000 épocas
+Corpus: 1106 palavras, 3349 tokens
 
-Top 5 mais similares a "felix":
-  programar    sim=0.6725
-  observa      sim=0.5927
-  conversa     sim=0.5812
+Pares de validação:
+  natacha ↔ robo        = -0.07  ✅ (ela detesta ser chamada de robô)
+  felix ↔ teclado       = 0.17   ⚠️ (comportamento: dorme no teclado)
+  felix ↔ natacha       = 0.01   ⚠️ (moram juntos, mas corpus pequeno)
+  cozinha ↔ cpu         = 0.14   ⚠️ (mapeamento casa=hardware)
+  cpu ↔ gpu             = 0.07   ⚠️ (hardware relacionado)
+  memoria ↔ ram         = 0.16   ⚠️ (hardware relacionado)
+  rodrigo ↔ natacha     = 0.17   ⚠️ (criador/criatura)
 
-✅ Embeddings idênticos! Memória persiste.
+Top 5 "felix":        ronrona(0.40), interligado(0.40), maxima(0.37)
+Top 5 "natacha":      cuidado(0.31), recomendo(0.30), concluo(0.29)
+Top 5 "cozinha":      toa(0.40), git(0.38), ritmo(0.37)
+
+✅ Embeddings persistem em .bin (248KB) e .json (2.1MB)
+✅ natacha_embedder (interativo) + word2vec_similaridade (análise) prontos
+✅ Exportar JSON funcional
 ```
 
 ---
