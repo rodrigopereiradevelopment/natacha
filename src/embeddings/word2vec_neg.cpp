@@ -207,7 +207,7 @@ public:
         vocabSize  = vocab;
         dimensao   = dim;
         negativos  = k;
-        taxa       = 0.025f;
+        taxa       = 0.005f;
         
         embeddings = new EmbeddingTable(vocab, dim, semente);
         srand(semente + 1);
@@ -386,7 +386,7 @@ int main() {
     vocab.construir(tokens);
     cout << "Vocabulario: " << vocab.tamanho << " palavras" << endl;
 
-    int dim = 32, janela = 5, epocas = 10000, negativos = 10;
+    int dim = 64, janela = 5, epocas = 10000, negativos = 5;
 
     auto pares = gerarPares(tokens, vocab, janela);
     cout << "Pares por epoca: " << pares.size() << endl;
