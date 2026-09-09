@@ -1,9 +1,5 @@
 // ============================================================================
 //  WORD2VEC COM NEGATIVE SAMPLING — OTIMIZADO
-//  
-//  Softmax full: 1055 x 1055 = 1.1M ops/par x 14778 pares = ~16B ops/epoca
-//  Negative sampling (k=5): 6 x 15 = 90 ops/par x 14778 pares = ~1.3M ops/epoca
-//  Reducao: ~12000x mais rapido!
 // ============================================================================
 
 #include <iostream>
@@ -76,13 +72,11 @@ public:
     int tamanho = 0;
 
     void construir(const vector<string>& tokens) {
-        // Conta frequencias
         unordered_map<string, int> freq;
         for (const string& token : tokens) {
             freq[token]++;
         }
         
-        // Ordena por frequencia (desc) e atribui IDs
         vector<pair<int, string>> ordenado;
         for (auto& [palavra, f] : freq) {
             ordenado.push_back({f, palavra});
@@ -163,31 +157,6 @@ public:
         arquivo.close();
         cout << "  Embeddings salvos em: " << caminho << endl;
     }
-
-    bool carregar(const string& caminho) {
-        ifstream arquivo(caminho);
-        if (!arquivo.is_open()) {
-            cerr << "ERRO: nao conseguiu carregar de '" << caminho << "'" << endl;
-            return false;
-        }
-
-        json j;
-        arquivo >> j;
-        arquivo.close();
-
-        vocabSize = j.value("vocabSize", 0);
-        dimensao  = j.value("dimensao", 0);
-        vetores.clear();
-
-        for (const auto& item : j["embeddings"]) {
-            vector<float> vetor = item["vetor"].get<vector<float>>();
-            vetores.push_back(vetor);
-        }
-
-        cout << "  Embeddings carregados: " << vocabSize
-             << " palavras, dimensao " << dimensao << endl;
-        return true;
-    }
 };
 
 // ----------------------------------------------------------------------------
@@ -201,13 +170,13 @@ public:
     int vocabSize;
     float taxa;
     int negativos;
-    vector<float> tabelaUnigram; // Para sampling negativo
+    vector<float> tabelaUnigram;
 
     Word2Vec(int vocab, int dim, const vector<int>& frequencias, int k = 5, unsigned int semente = 42) {
         vocabSize  = vocab;
         dimensao   = dim;
         negativos  = k;
-        taxa       = 0.005f;
+        taxa       = 0.025f;
         
         embeddings = new EmbeddingTable(vocab, dim, semente);
         srand(semente + 1);
@@ -217,7 +186,6 @@ public:
             for (int j = 0; j < dimensao; j++)
                 pesosSaida[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
 
-        // Constroi tabela de unigram para negative sampling
         construirTabelaUnigram(frequencias);
     }
 
@@ -244,16 +212,11 @@ public:
         return min(idx, vocabSize - 1);
     }
 
-    // Treina um par (central, contexto) com negative sampling
     float treinar(int central, int contexto) {
         vector<float> h = embeddings->get(central);
-        
         float perda = 0.0f;
-        
-        // Treina com a palavra positiva (contexto = 1)
         vector<float> gradEntrada(dimensao, 0.0f);
         
-        // Forward para positiva
         float dot = 0.0f;
         for (int j = 0; j < dimensao; j++)
             dot += pesosSaida[contexto][j] * h[j];
@@ -262,13 +225,11 @@ public:
         float grad = (1.0f - sig) * taxa;
         perda -= log(sig + 1e-9f);
         
-        // Atualiza pesos de saida (positiva)
         for (int j = 0; j < dimensao; j++) {
             pesosSaida[contexto][j] += grad * h[j];
             gradEntrada[j] += grad * pesosSaida[contexto][j];
         }
         
-        // Treina com palavras negativas (target = 0)
         for (int n = 0; n < negativos; n++) {
             int neg = amostrarNegativo();
             if (neg == contexto) continue;
@@ -281,16 +242,13 @@ public:
             grad = -sig * taxa;
             perda -= log(1.0f - sig + 1e-9f);
             
-            // Atualiza pesos de saida (negativa)
             for (int j = 0; j < dimensao; j++) {
                 pesosSaida[neg][j] += grad * h[j];
                 gradEntrada[j] += grad * pesosSaida[neg][j];
             }
         }
         
-        // Atualiza embedding de entrada
         embeddings->update(central, gradEntrada, 1.0f);
-        
         return perda;
     }
 
@@ -336,16 +294,17 @@ vector<pair<int, int>> gerarPares(const vector<string>& tokens,
     }
     return pares;
 }
-// ============================================================
-//  SUBSAMPLING — remove palavras muito frequentes
-// ============================================================
-vector<string> aplicarSubsampling(const vector<string>& tokens, float t = 1e-4f) {
+
+// ----------------------------------------------------------------------------
+// SUBSAMPLING
+// ----------------------------------------------------------------------------
+vector<string> aplicarSubsampling(const vector<string>& tokens, float t = 1e-3f) {
     unordered_map<string, int> freq;
     for (const string& token : tokens) freq[token]++;
 
     int total = tokens.size();
     vector<string> resultado;
-    srand(42);  // semente fixa
+    srand(42);
 
     for (const string& token : tokens) {
         float f = (float)freq[token] / total;
@@ -361,9 +320,7 @@ vector<string> aplicarSubsampling(const vector<string>& tokens, float t = 1e-4f)
     cout << "  Subsampling: " << tokens.size() << " → " << resultado.size() << " tokens" << endl;
     return resultado;
 }
-// ----------------------------------------------------------------------------
-// MAIN
-// ----------------------------------------------------------------------------
+
 // ----------------------------------------------------------------------------
 // MAIN
 // ----------------------------------------------------------------------------
@@ -379,14 +336,13 @@ int main() {
     vector<string> tokens = tokenizar(corpus);
     cout << tokens.size() << " tokens" << endl;
 
-    // 🔥 SUBSAMPLING — remove palavras muito frequentes
-    tokens = aplicarSubsampling(tokens, 1e-4f);
+    tokens = aplicarSubsampling(tokens, 1e-3f);
 
     Vocabulario vocab;
     vocab.construir(tokens);
     cout << "Vocabulario: " << vocab.tamanho << " palavras" << endl;
 
-    int dim = 64, janela = 5, epocas = 10000, negativos = 5;
+    int dim = 64, janela = 5, epocas = 300, negativos = 5;
 
     auto pares = gerarPares(tokens, vocab, janela);
     cout << "Pares por epoca: " << pares.size() << endl;
@@ -396,11 +352,9 @@ int main() {
     cout << endl << "--- Treinando " << epocas << " epocas ---" << endl;
     Word2Vec modelo(vocab.tamanho, dim, vocab.frequencias, negativos, 42);
 
-    // 🔥 DECAY CONTÍNUO DA TAXA DE APRENDIZADO
     float alpha_inicial = 0.025f;
-    float alpha_min = alpha_inicial * 0.0001f;  // 0.0000025
+    float alpha_min = alpha_inicial * 0.0001f;
     int total_tokens_processados = 0;
-    int total_pares = pares.size();
 
     float melhorPerda = 1e9f;
     int semMelhora = 0;
@@ -409,23 +363,22 @@ int main() {
     for (int e = 0; e < epocas; e++) {
         float perdaTotal = 0.0f;
         
-        for (auto& par : pares) {
-            // Taxa decrescente contínua
-            float alpha = alpha_inicial * (1.0f - (float)total_tokens_processados /
-                          (float)(epocas * total_pares));
-            if (alpha < alpha_min) alpha = alpha_min;
-            modelo.taxa = alpha;
+        float alpha = alpha_inicial * (1.0f - (float)e / (float)epocas);
+        if (alpha < alpha_min) alpha = alpha_min;
+        modelo.taxa = alpha;
 
+        for (auto& par : pares) {
             perdaTotal += modelo.treinar(par.first, par.second);
             total_tokens_processados++;
         }
         
         float perdaMedia = perdaTotal / pares.size();
         
-        if (e % 100 == 0) {
+        if (e % 50 == 0) {
             float elapsed = (float)(clock() - inicio) / CLOCKS_PER_SEC;
             cout << "  Epoca " << setw(5) << e 
                  << " | Perda: " << fixed << setprecision(4) << perdaMedia
+                 << " | Alpha: " << fixed << setprecision(6) << alpha
                  << " | Tempo: " << fixed << setprecision(1) << elapsed << "s" << endl;
         }
         
