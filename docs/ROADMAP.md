@@ -25,7 +25,7 @@ Status: Em andamento
 
 ## FASE 3: Word Embeddings
 - [x] Skip-gram com Negative Sampling
-- [x] Corpus pt-BR (1186 palavras)
+- [x] Corpus pt-BR (`dados/embeddings/corpus.txt`, ~25k palavras em set/2026)
 - [x] Salvar/carregar binário (.bin)
 - [x] Hiperparâmetros configuráveis (dim, janela, taxa)
 - [x] Logs visuais (barra de progresso, curva de perda)

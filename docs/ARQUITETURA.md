@@ -48,22 +48,39 @@ FASE 8: Escalar
 - GPU (CUDA)
 - Modelos pre-treinados (llama.cpp)
 
+## Nucleo operacional (ego)
+
+O core neste repositorio e **C++17** (`CMakeLists.txt`), nao C++20: RAII, treino proprio (neuronio, MLP, skip-gram), persistencia JSON/bin. Dependencias ja usadas: nlohmann/json. Google Test, CUDA, llama.cpp, cpr e spdlog aparecem como intencao de stack — confirmar no CMake antes de tratar como entregue.
+
+No mapa da casa, esse nucleo e o **ego**: executa a logica; Felix+Sentinel sao o **superego**; o banheiro e o **id** (purga, pausa). Ver `CASA.md`.
+
+Falhas de treino atualizam a funcao de perda (vontade de potencia): nao apagam identidade nem codigo antigo.
+
 ## Stack Tecnologico
 
-| Camada | Tecnologia |
-|--------|------------|
-| Linguagem | C++17 |
-| Build System | CMake |
-| Testes | Google Test |
-| JSON | nlohmann/json |
-| HTTP | cpr |
-| Logging | spdlog |
-| GPU (futuro) | CUDA |
-| Modelo Local (futuro) | llama.cpp |
+| Camada | Tecnologia | Neste repo |
+|--------|------------|------------|
+| Linguagem | C++17 | Sim |
+| Build | CMake | Sim |
+| JSON | nlohmann/json | Sim |
+| Embeddings | Skip-gram + negative sampling (`word2vec_neg`, `--decay`) | Sim |
+| Corpus | `dados/embeddings/corpus.txt` (~25k palavras) | Sim |
+| Testes | Google Test | Planejado / parcial |
+| HTTP | cpr | Planejado |
+| Logging | spdlog | Planejado |
+| GPU | CUDA | Futuro |
+| Modelo local | llama.cpp | Futuro |
+| Sentinel | Rust | Outro projeto / planejamento |
+| ARCA | PWA (Ionic/Next), Mogi Mirim | Fora deste repo |
+| EditeCC | ABNT / Next+Tauri | Fora deste repo |
 
 ## Pipeline de Dados
 
-Texto bruto → Tokenizacao → Embeddings → Transformer → Saida → Detokenizacao → Resposta da Natacha
+Hoje (Fase 3): texto do corpus → tokens por espaco → skip-gram + negative sampling → vetores `.bin`/`.json`.
+
+Alvo: Texto bruto → Tokenizacao → Embeddings → Transformer → Saida → Detokenizacao → Resposta da Natacha.
+
+O corpus mistura identidade da Natacha, casa, Felix, C++/Python/Rust/Qiskit, folclore local e literatura (Dostoievski, Machado, Nietzsche, Raul Seixas). Acentos ainda nao sao uniformes.
 
 ## Regra de Ouro de Seguranca
 

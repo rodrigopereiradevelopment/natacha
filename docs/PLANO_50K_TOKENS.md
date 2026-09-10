@@ -1,8 +1,8 @@
 # 📋 PLANO PARA 50K TOKENS — ROADMAP DA NATACHA
 
-**Status atual:** ~3.5k tokens (corpus atual)
-**Meta:** 50k tokens
-**Prazo estimado:** 2-3 semanas (adicionando 2-3k por dia)
+**Status atual (set/2026):** `dados/embeddings/corpus.txt` — ~25,3k palavras, ~5,1k tipos, ~154 KB, 537 linhas com texto. UTF-8, português, **maioria** minúscula e sem pontuação; acentos **mistos** (`nao` convive com `é`). Não está “higienizado sem acentos”.
+**Meta:** 50k tokens (palavras do `wc -w` são o proxy atual; não confundir palavra com token de BPE).
+**Prazo estimado:** 2-3 semanas (adicionando 2-3k por dia) — calendário original; o corpus já passou da Fase 1 e da maior parte da expansão literária.
 
 ---
 
@@ -85,7 +85,7 @@
 |------|--------|------------|
 | 07/09/2026 | ~3.500 | Corpus base atual |
 | 07/09/2026 | ~8.500 | FASE 1 concluída (Python, JS, Rust, cenas) |
-| | | |
+| 09/09/2026 | ~25.300 palavras / ~5.090 tipos | Corpus atual: identidade, casa, Félix, ecossistema, Qiskit, literatura (Dostoiévski, Machado, Nietzsche, Raul Seixas), Freud |
 
 ---
 
@@ -112,7 +112,7 @@ cd src/embeddings
 
 | Fase | Tokens | Vocabulário estimado |
 |------|--------|----------------------|
-| Atual | 3.500 | ~1.100 |
+| Atual (medido) | ~25.300 palavras | ~5.090 |
 | FASE 1 | 8.500 | ~1.400 |
 | FASE 2 | 18.500 | ~2.500 |
 | FASE 3 | 28.500 | ~3.500 |

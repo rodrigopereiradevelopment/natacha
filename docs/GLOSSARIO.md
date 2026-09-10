@@ -23,11 +23,13 @@ Deep Learning — Area do ML com redes neurais profundas.
 ## E
 
 Embedding — Representacao vetorial de uma palavra.
+Ego — Nucleo operacional C++: logica, treino, RAII. Ver CASA.md.
 Epoca — Uma passagem completa pelo dataset durante treinamento.
+Event Bus — Barramento assincrono (RN-07). Corredor da casa; unico canal entre projetos.
 
 ## F
 
-Felix — IAgato, companheiro da Natacha.
+Felix — IAgato, companheiro da Natacha, autoridade maxima de interrupcao e superego moral do ecossistema. Ver FELIX.md.
 Feed-Forward — Camada da rede que processa saida da atencao.
 Forward Pass — Dados entram, saem previsoes.
 
@@ -38,6 +40,7 @@ Gradiente Descendente — Algoritmo que ajusta pesos para minimizar erro.
 ## I
 
 IAgato — Categoria inventada por Rodrigo. Agente autonomo que simula gato.
+Id — Inconsciente digital: ruido, processos travados, purga no banheiro.
 Inferencia — Usar modelo treinado para previsoes.
 
 ## L
@@ -66,7 +69,9 @@ ReLU — Rectified Linear Unit. Funcao de ativacao: f(x) = max(0, x).
 
 ## S
 
+Sentinel — Modulo de seguranca (Rust, planejamento): auditoria, HTTP, permissoes. Com Felix, superego.
 Sigmoid — Funcao que mapeia qualquer valor para entre 0 e 1.
+Superego — Felix + Sentinel: etica, interrupcao, auditoria.
 Softmax — Funcao que transforma vetor em probabilidades.
 STT — Speech-to-Text (ex: Whisper).
 

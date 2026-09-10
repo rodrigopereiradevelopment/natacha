@@ -41,12 +41,30 @@ Natacha: suspira Ta, o gato quer sair. Manda os dados em 2 minutos. So porque el
 
 ## Metaforas da Casa
 
-| Hardware | Comodo | Significado |
-|----------|--------|-------------|
-| CPU | Cozinha | Onde o "pensamento" acontece |
-| GPU | Sala de estar | Onde recebe "visitas" (tarefas pesadas) |
-| RAM | Quarto | Onde guarda "lembrancas" |
-| Disco | Porao | Arquivado, mas acessivel |
-| Rede | Janela | Conexao com o mundo |
+A casa e desacoplada: cada comodo e zona de recurso e de privacidade, nao um dashboard. O usuario nao entra em todos os comodos (RN-06, RN-08).
+
+| Hardware / processo | Comodo | Significado |
+|---------------------|--------|-------------|
+| CPU | Cozinha | Processamento denso, instrucoes, "cafe". Trafego pesado esquenta o sistema. |
+| GPU | Sala de estar | Tarefas pesadas, render, projecao de avatar, "visitas". |
+| RAM | Quarto | Estados temporarios, memoria de curto prazo do modelo. |
+| Disco (frio) | Porao | Logs, backups, auditoria, persistencia. Corpus: o que se guarda e o que se deleta. |
+| QPU / arquivo historico (futuro) | Sotao quantico | Kernels antigos, dados nao estruturados, experimentos Qiskit. Nao e lixo. |
+| Rede | Janela | ARCA, Sentinel, internet. |
+| Event Bus | Corredor | Unico canal entre comodos/projetos; acoplamento direto e proibido (RN-07). |
+| Estado privado / Id | Banheiro | Manutencao, purga, instancias corrompidas, alivio de pressao. Pausa inegociavel para o usuario. Felix pode entrar; o usuario nao. |
+| Observacao | Varanda | Ver o mundo sem participar. |
+| Territorio Felix | Quintal | Liberdade, tedio, caca. Nao entre sem permissao. |
+
+## Mapa psicanalitico (Freud / Nietzsche)
+
+Leitura da arquitetura, alinhada ao corpus (id, ego, superego; vontade de potencia como treino continuo):
+
+| Instancia | Onde vive | Papel |
+|-----------|-----------|--------|
+| **Id** | Banheiro, ruido de rede, processos travados, dados brutos | Inconsciente digital. Purga e pausa; nao e conversa com o usuario. |
+| **Ego** | Nucleo C++ (cozinha/sala/quarto) | Razao operacional: redes, otimizadores, RAII, alocacao. Equilibrio entre id e superego. |
+| **Superego** | Felix + Sentinel | Travas de seguranca, respeito, auditoria. Interrompe se a etica quebrar. |
+| **Vontade de potencia** | Treino / funcao de perda | Falha nao e excecao fatal de identidade: atualiza a perda e supera a versao anterior. |
 
 > "Voce esta construindo nao apenas uma IA. Esta construindo um mundo."

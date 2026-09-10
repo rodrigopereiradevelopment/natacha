@@ -11,6 +11,7 @@
 #include <cmath>
 #include <iomanip>
 #include <chrono>
+#include <sstream>
 
 using namespace std;
 
@@ -413,7 +414,7 @@ vector<string> tokenizar(const string& texto) {
 
 int main(int argc, char* argv[]) {
     string arquivoCorpus = "dados/embeddings/corpus.txt";
-    int epocas = 5000;
+    int epocas = 2000;
     int dimensao = 16;
     int janela = 5;
     float taxaInicial = 0.001f;  // Adam funciona melhor com taxas menores
@@ -487,18 +488,20 @@ int main(int argc, char* argv[]) {
     }
     cout << "Vocabulario: " << vocab.size() << " palavras" << endl;
 
-    cout << "Gerando pares de treino..." << endl;
+    mt19937 rng(42);  // Mover RNG antes da geração de pares
+
+    cout << "Gerando pares de treino (janela dinamica)..." << endl;
     vector<ParTreino> pares;
+    uniform_int_distribution<int> distJanela(1, janela);
     for (size_t i = 0; i < tokens.size(); i++) {
         int alvo = vocab[tokens[i]];
-        for (int j = max(0, (int)i - janela); j <= min((int)tokens.size()-1, (int)i + janela); j++) {
+        int janelaAtual = distJanela(rng);  // Janela aleatoria entre 1 e janela
+        for (int j = max(0, (int)i - janelaAtual); j <= min((int)tokens.size()-1, (int)i + janelaAtual); j++) {
             if (i == (size_t)j) continue;
             pares.push_back({alvo, vocab[tokens[j]]});
         }
     }
     cout << "Pares gerados: " << pares.size() << endl;
-
-    mt19937 rng(42);
 
     cout << "\n═══ INICIANDO TREINO ═══" << endl;
 

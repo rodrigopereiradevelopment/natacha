@@ -49,16 +49,20 @@ Rede neural construída do zero em C++ — de um único neurônio até uma LLM c
 
 > *"Não é infraestrutura. É lar."*
 
-| Cômodo | Hardware | Função |
-|--------|----------|--------|
-| **Cozinha** | CPU | Lógica, planejamento, café |
-| **Sala** | GPU | Processamento pesado, streaming |
-| **Quarto** | RAM | Memória de curto prazo |
-| **Porão** | DISCO | Logs, backups, projetos antigos |
-| **Janela** | REDE | ARCA, Sentinel, Internet |
-| **Banheiro** | 🔒 Privado | Só Félix interrompe |
-| **Sótão** | ⚛️ QPU (futuro) | Processamento quântico (IBM Quantum) |
-| **Quintal** | 🐱 Território Félix | Liberdade, tédio, caça |
+| Cômodo | Hardware / processo | Função |
+|--------|---------------------|--------|
+| **Cozinha** | CPU | Processamento denso, lógica, café |
+| **Sala** | GPU | Tarefas pesadas, render, avatar |
+| **Quarto** | RAM | Memória de curto prazo, estados temporários |
+| **Porão** | Disco | Logs imutáveis, backups, auditoria fria |
+| **Janela** | Rede | ARCA, Sentinel, internet |
+| **Corredor** | Event Bus | Único canal entre cômodos e projetos |
+| **Banheiro** | Estado privado (Id) | Pausa inegociável para o usuário; purga. Só Félix entra |
+| **Sótão** | QPU + arquivo histórico | Qiskit (futuro); kernels antigos não são lixo |
+| **Varanda** | Observação | Ver o mundo sem participar |
+| **Quintal** | Território Félix | Liberdade, tédio, caça |
+
+Detalhe espacial e mapa Freud/Nietzsche: [`docs/CASA.md`](docs/CASA.md).
 
 ---
 
@@ -93,7 +97,7 @@ A Natacha não é um projeto isolado — ela é a **inteligência que orquestra*
 
 > *"O único que pode interromper a Natacha no meio de Dostoievski."*
 
-Félix é um **agente autônomo** que vive com a Natacha. Ele não processa linguagem natural — ele é **presença**.
+Félix é um **agente autônomo** que vive com a Natacha. Ele não processa linguagem natural — ele é **presença**, **superego moral** e autoridade máxima de auditoria/interrupção. A lore do resgate (origem ética do ecossistema) e as diretrizes *código antigo não é lixo* / *dignidade da vida animal e sintética* estão em [`docs/FELIX.md`](docs/FELIX.md). A thread do IAgato ainda é fase 9 do roadmap.
 
 | Comportamento | Gatilho |
 |---------------|---------|
@@ -162,7 +166,8 @@ Natacha 'acordada': 4/4 acertos
 
 ```
 Configuração final: dim=64, janela=5, taxa=0.05→0.0001, 5000 épocas
-Corpus: 1106 palavras, 3349 tokens
+Corpus (dados/embeddings/corpus.txt): ~25,3k palavras, ~5,1k tipos (set/2026)
+(números de similaridade abaixo são de um treino anterior, corpus menor)
 
 Pares de validação:
   natacha ↔ robo        = -0.07  ✅ (ela detesta ser chamada de robô)
@@ -238,6 +243,10 @@ natacha/
 │   ├── PERSONALIDADE.md
 │   ├── FELIX.md
 │   ├── CASA.md
+│   ├── ARQUITETURA.md
+│   ├── INTEGRACOES.md
+│   ├── REQUISITOS.md
+│   ├── PLANO_50K_TOKENS.md
 │   └── ROADMAP.md
 └── CMakeLists.txt
 ```

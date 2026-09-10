@@ -25,14 +25,22 @@ ARCA → Natacha API → modelo escolhido → ferramentas → resposta
 | Natacha Sentinel | Analisa alertas | listar_alertas, consultar_ip, resumir_incidente |
 | Natacha EditeCC | Revisa texto | revisar_texto, sugerir_referencias, formatar_abnt |
 
-## Comunicacao com Sentinel (Rust)
+## Event Bus (canal canonico)
 
-Natacha (C++) e Sentinel (Rust) conversam via:
+Desenho (RN-07): JSON assincrono entre C++, Rust e os PWAs. Sem chamada sincrona entre Natacha, Felix, Casa e APIs. O corredor da casa e essa metafora.
+
+Transportes possiveis (ainda nao ha um barramento unico neste repo):
 - HTTP/gRPC (maquinas diferentes)
 - IPC (mesma maquina)
-- Message Queue (sistema distribuido)
+- fila / pub-sub
 
-Sentinel detecta → Natacha analisa → Natacha recomenda → Regra ou humano aprova
+## Comunicacao com Sentinel (Rust)
+
+Papel planejado: filtrar HTTP, permissoes em memoria, bloquear execucao nao autorizada, logs imutaveis. Com Felix, forma o **superego** (auditoria + interrupcao etica).
+
+Fluxo pretendido: Sentinel detecta → Natacha analisa → Natacha recomenda → regra ou humano aprova.
+
+Status no README: Sentinel em planejamento; nao documentar como modulo ja ligado ao `build/natacha`.
 
 ## Escolha Dinamica de Modelo
 
