@@ -1,18 +1,11 @@
-// word2vec_hybrid.cpp — Word2Vec com embeddings pré-treinados (fastText)
-// Compilar: g++ -O3 -std=c++17 -o word2vec_hybrid word2vec_hybrid.cpp -lm
-//
-// Modos:
-//   1. Treino do zero (sem pré-treinado)
-//   2. Híbrido: carrega fastText + fine-tuna com corpus da Natacha
-//
-// Downloads:
-//   fastText pt-BR: https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.pt.300.vec.gz
-//   (descompactar: gunzip cc.pt.300.vec.gz)
+// word2vec_hybrid.cpp — Word2Vec Negative Sampling Híbrido com fastText (C++17)
+// Compilar: g++ -O3 -std=c++17 -o word2vec_hybrid word2vec_hybrid.cpp
 
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <string>
 #include <random>
 #include <algorithm>
@@ -32,20 +25,15 @@ private:
     float taxaBase;
     float taxaMinima;
     float taxaAtual;
-    float taxaFineTune;  // Taxa menor para embeddings pré-treinados
     mt19937& rng;
     vector<vector<float>> W1;  // embeddings de entrada
     vector<vector<float>> W2;  // pesos de saida
+    vector<bool> isPretrained; // marca se a palavra veio do fastText
 
     // Adam optimizer
     vector<vector<float>> mW1, vW1, mW2, vW2;
     float beta1, beta2, eps;
     int passo;
-
-    // Mapeamento de palavras pré-treinadas
-    unordered_map<string, vector<float>> pretrained;
-    int pretrainedCount;
-    int randomCount;
 
     float sigmoid(float x) {
         if (x > 6.0f) return 1.0f;
@@ -56,16 +44,15 @@ private:
 public:
     Word2VecHybrid(int vocabTam, int dim, int neg, float taxa, mt19937& random)
         : dimensao(dim), negativos(neg), taxaBase(taxa), taxaMinima(0.0001f),
-          taxaAtual(taxa), taxaFineTune(taxa * 0.1f),  // Fine-tune com taxa 10x menor
-          rng(random), passo(0), pretrainedCount(0), randomCount(0),
+          taxaAtual(taxa), rng(random), passo(0),
           beta1(0.9f), beta2(0.999f), eps(1e-8f) {
 
         float escala = sqrt(1.0f / dimensao);
 
         W1.resize(vocabTam, vector<float>(dimensao));
         W2.resize(vocabTam, vector<float>(dimensao));
+        isPretrained.assign(vocabTam, false);
 
-        // Inicialização aleatória (será substituída se houver pré-treinado)
         for (auto& v : W1)
             for (auto& x : v)
                 x = ((float)rng() / (float)rng.max() * 2.0f - 1.0f) * escala;
@@ -73,125 +60,44 @@ public:
             for (auto& x : v)
                 x = ((float)rng() / (float)rng.max() * 2.0f - 1.0f) * escala;
 
-        // Adam moments
         mW1.assign(vocabTam, vector<float>(dimensao, 0.0f));
         vW1.assign(vocabTam, vector<float>(dimensao, 0.0f));
         mW2.assign(vocabTam, vector<float>(dimensao, 0.0f));
         vW2.assign(vocabTam, vector<float>(dimensao, 0.0f));
     }
 
-    // Carregar embeddings pré-treinados (fastText format)
-    bool carregarPreTreinados(const string& arquivo,
-                              const unordered_map<string, int>& vocab,
-                              vector<bool>& isPretrained) {
-        cout << "Carregando embeddings pre-treinados: " << arquivo << "..." << endl;
-
-        ifstream file(arquivo);
+    void carregarPreTreinados(const string& caminho, const unordered_map<string, int>& vocab) {
+        ifstream file(caminho);
         if (!file.is_open()) {
-            cerr << "\033[31mErro: nao encontrei " << arquivo << "\033[0m" << endl;
-            cerr << "Baixe o fastText pt-BR:" << endl;
-            cerr << "  wget https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.pt.300.vec.gz" << endl;
-            cerr << "  gunzip cc.pt.300.vec.gz" << endl;
-            return false;
+            cout << "  \033[33mAviso: arquivo pre-treinado " << caminho << " nao encontrado. Treinando do zero.\033[0m" << endl;
+            return;
         }
 
-        string line;
-        getline(file, line);  // Pular cabeçalho (num_words dim)
-
-        // Verificar dimensão
-        istringstream iss(line);
-        int numWords, dims;
-        iss >> numWords >> dims;
-
-        if (dims != dimensao) {
-            cerr << "\033[33mAviso: fastText tem " << dims << " dims, modelo tem " << dimensao << "\033[0m" << endl;
-            cerr << "Usando apenas as primeiras " << dimensao << " dimensões" << endl;
-        }
-
-        cout << "  fastText: " << numWords << " palavras, " << dims << " dims" << endl;
-
+        string linha;
         int carregados = 0;
-        int ignorados = 0;
+        int numPalavras, dims;
 
-        while (getline(file, line)) {
-            istringstream ss(line);
+        if (getline(file, linha)) {
+            stringstream ss(linha);
+            ss >> numPalavras >> dims;
+        }
+
+        while (getline(file, linha)) {
+            stringstream ss(linha);
             string palavra;
             ss >> palavra;
 
-            // Normalizar palavra (lowercase, sem acentos)
-            string normalizada = normalizarPalavra(palavra);
-
-            // Verificar se está no nosso vocabulário
-            if (vocab.find(normalizada) != vocab.end()) {
-                int idx = vocab.at(normalizada);
-                vector<float> vec(dims);
-                for (int i = 0; i < dims; i++) {
-                    ss >> vec[i];
-                }
-
-                // Copiar para W1 (com ou sem redução de dimensionalidade)
+            if (vocab.find(palavra) != vocab.end()) {
+                int idx = vocab.at(palavra);
                 for (int d = 0; d < min(dimensao, dims); d++) {
-                    W1[idx][d] = vec[d];
+                    ss >> W1[idx][d];
                 }
-                isPretrained[idx] = true;  // Marcar como pré-treinado
+                isPretrained[idx] = true;
                 carregados++;
-            } else {
-                ignorados++;
-            }
-
-            if ((carregados + ignorados) % 100000 == 0) {
-                cout << "\r  Processando: " << (carregados + ignorados) << " palavras..." << flush;
             }
         }
-
         file.close();
-
-        cout << "\r\033[2K" << flush;
-        cout << "  \033[32m✓\033[0m Carregados: " << carregados << " embeddings" << endl;
-        cout << "  Ignorados: " << ignorados << " (fora do vocabulario)" << endl;
-
-        pretrainedCount = carregados;
-        randomCount = vocab.size() - carregados;
-
-        return carregados > 0;
-    }
-
-    // Normalizar palavra (lowercase, remover acentos)
-    string normalizarPalavra(const string& s) {
-        string r;
-        for (size_t i = 0; i < s.size(); i++) {
-            unsigned char c = s[i];
-            if (c < 0x80) {
-                r += tolower(c);
-            } else if (c >= 0xC0 && c < 0xE0 && i + 1 < s.size()) {
-                // 2-byte UTF-8
-                unsigned char c2 = s[i + 1];
-                char mapped = 0;
-                if (c == 0xC3) {
-                    switch (c2) {
-                        case 0xA1: mapped = 'a'; break;
-                        case 0xA9: mapped = 'e'; break;
-                        case 0xAD: mapped = 'i'; break;
-                        case 0xB3: mapped = 'o'; break;
-                        case 0xBA: mapped = 'u'; break;
-                        case 0xA3: mapped = 'a'; break;
-                        case 0xA7: mapped = 'c'; break;
-                        case 0xB1: mapped = 'n'; break;
-                        case 0xA0: mapped = 'a'; break;
-                        case 0xA2: mapped = 'a'; break;
-                        case 0xA6: mapped = 'e'; break;
-                        case 0xB4: mapped = 'o'; break;
-                        case 0xB6: mapped = 'o'; break;
-                        default: mapped = c2; break;
-                    }
-                }
-                if (mapped) {
-                    r += mapped;
-                    i++; // Skip next byte
-                }
-            }
-        }
-        return r;
+        cout << "  \033[32m✓ Carregados " << carregados << " vetores pre-treinados do fastText!\033[0m" << endl;
     }
 
     void setTaxa(float novaTaxa) { taxaAtual = novaTaxa; }
@@ -215,115 +121,101 @@ public:
         return sqrt(soma);
     }
 
-    // Adam update
     void adamUpdate(vector<float>& peso, vector<float>& momento, vector<float>& vel,
-                    float grad, int idx, int d) {
+                    float grad, int d) {
+        int t = max(1, passo);
         momento[d] = beta1 * momento[d] + (1.0f - beta1) * grad;
         vel[d] = beta2 * vel[d] + (1.0f - beta2) * grad * grad;
-        float mCorr = momento[d] / (1.0f - powf(beta1, passo));
-        float vCorr = vel[d] / (1.0f - powf(beta2, passo));
+        float mCorr = momento[d] / (1.0f - powf(beta1, t));
+        float vCorr = vel[d] / (1.0f - powf(beta2, t));
         peso[d] -= taxaAtual * mCorr / (sqrtf(vCorr) + eps);
     }
 
-    // Treina um par
-    float treinarPar(int idxAlvo, int idxCtx, uniform_int_distribution<int>& distVocab,
-                     bool congelar, const vector<bool>& isPretrained) {
+    float treinarPar(int idxAlvo, int idxCtx, uniform_int_distribution<int>& distVocab, bool congelar) {
+        passo++; // Exatamente 1 incremento por par de treino
+
         vector<float>& h = W1[idxAlvo];
         float perda = 0.0f;
         vector<float> gradIn(dimensao, 0.0f);
 
-        // Positiva
+        // Positiva: Gradiente da perda = sigPos - 1.0f
         float dotPos = dot(W2[idxCtx], h);
         float sigPos = sigmoid(dotPos);
-        float gPos = (1.0f - sigPos);
+        float gradPos = sigPos - 1.0f; 
         perda -= logf(sigPos + 1e-9f);
 
         vector<float> w2CtxOriginal(W2[idxCtx].begin(), W2[idxCtx].end());
 
         for (int d = 0; d < dimensao; d++) {
-            gradIn[d] += gPos * w2CtxOriginal[d];
+            gradIn[d] += gradPos * w2CtxOriginal[d];
         }
 
         // Negativas
         vector<vector<float>> w2NegOriginal;
+        vector<int> indicesNegativos;
+
         for (int n = 0; n < negativos; n++) {
             int idxNeg;
-            do { idxNeg = distVocab(rng); } while (idxNeg == idxCtx);
+            do { idxNeg = distVocab(rng); } while (idxNeg == idxCtx || idxNeg == idxAlvo);
+            indicesNegativos.push_back(idxNeg);
 
             float dotNeg = dot(W2[idxNeg], h);
             float sigNeg = sigmoid(dotNeg);
-            float gNeg = -sigNeg;
+            float gradNeg = sigNeg; // Gradiente da perda no negativo
             perda -= logf(1.0f - sigNeg + 1e-9f);
 
-            w2NegOriginal.push_back(vector<float>(W2[idxNeg].begin(), W2[idxNeg].end()));
+            w2NegOriginal.push_back(W2[idxNeg]);
 
             for (int d = 0; d < dimensao; d++) {
-                gradIn[d] += gNeg * w2NegOriginal[n][d];
+                gradIn[d] += gradNeg * w2NegOriginal[n][d];
             }
         }
 
-        // Atualizar W2 do contexto
-        passo++;
+        // Atualizar W2 do contexto positivo
         for (int d = 0; d < dimensao; d++) {
-            adamUpdate(W2[idxCtx], mW2[idxCtx], vW2[idxCtx], gPos * h[d], idxCtx, d);
+            adamUpdate(W2[idxCtx], mW2[idxCtx], vW2[idxCtx], gradPos * h[d], d);
         }
 
-        // Atualizar W2 dos negativos
+        // Atualizar W2 dos negativos com os MESMOS índices do cálculo
         for (int n = 0; n < negativos; n++) {
-            int idxNeg;
-            do { idxNeg = distVocab(rng); } while (idxNeg == idxCtx);
-
+            int idxNeg = indicesNegativos[n];
             float dotNeg = dot(w2NegOriginal[n], h);
             float sigNeg = sigmoid(dotNeg);
-            float gNeg = -sigNeg;
+            float gradNeg = sigNeg;
 
-            passo++;
             for (int d = 0; d < dimensao; d++) {
-                adamUpdate(W2[idxNeg], mW2[idxNeg], vW2[idxNeg], gNeg * h[d], idxNeg, d);
+                adamUpdate(W2[idxNeg], mW2[idxNeg], vW2[idxNeg], gradNeg * h[d], d);
             }
         }
 
-        // Atualizar embedding de entrada (apenas se não congelado ou não pré-treinado)
+        // Atualizar W1 (somente se não estiver congelado ou se for palavra nova)
         if (!congelar || !isPretrained[idxAlvo]) {
             for (int d = 0; d < dimensao; d++) {
-                adamUpdate(h, mW1[idxAlvo], vW1[idxAlvo], -gradIn[d], idxAlvo, d);
+                adamUpdate(h, mW1[idxAlvo], vW1[idxAlvo], gradIn[d], d);
             }
         }
 
         return perda;
     }
 
-    void treinar(const vector<ParTreino>& pares, int epocas, bool usarDecay,
-                 bool congelar, const vector<bool>& isPretrained) {
+    void treinar(const vector<ParTreino>& pares, int epocas, bool usarDecay, bool congelar) {
         int totalPares = pares.size();
         uniform_int_distribution<int> distVocab(0, W1.size() - 1);
 
         auto inicio = chrono::high_resolution_clock::now();
         vector<pair<int,float>> historico;
 
-        cout << "\n═══ INICIANDO TREINO ═══" << endl;
-        if (pretrainedCount > 0) {
-            cout << "  Modo: HIBRIDO (pré-treinado + fine-tune)" << endl;
-            cout << "  Embeddings pré-treinados: " << pretrainedCount << endl;
-            cout << "  Embeddings aleatórios: " << randomCount << endl;
-        } else {
-            cout << "  Modo: TREINO DO ZERO" << endl;
-        }
-        cout << endl;
-
         for (int e = 0; e < epocas; e++) {
             if (usarDecay)
                 taxaAtual = max(taxaMinima, taxaBase * (1.0f - (float)e / epocas));
-
             float perdaEpoca = 0;
 
             for (int p = 0; p < totalPares; p++)
-                perdaEpoca += treinarPar(pares[p].alvo, pares[p].contexto, distVocab,
-                                        congelar, isPretrained);
+                perdaEpoca += treinarPar(pares[p].alvo, pares[p].contexto, distVocab, congelar);
 
             perdaEpoca /= totalPares;
 
-            if ((e + 1) % 500 == 0) {
+            if ((e + 1) % 10 == 0 || e == epocas - 1) {
                 auto agora = chrono::high_resolution_clock::now();
                 float segundos = chrono::duration<float>(agora - inicio).count();
                 float paresPorSeg = (float)((e + 1) * totalPares) / max(segundos, 0.01f);
@@ -347,22 +239,6 @@ public:
         float segundos = chrono::duration<float>(fim - inicio).count();
         cout << "\n\033[32m✓\033[0m Treino concluido em " << fixed << setprecision(1)
              << segundos << "s" << endl;
-
-        // Curva de perda
-        cout << "\n═══ Curva de Perda ═══" << endl;
-        float perdaMin = 1e9, perdaMax = 0;
-        for (auto& [ep, p] : historico) {
-            if (p < perdaMin) perdaMin = p;
-            if (p > perdaMax) perdaMax = p;
-        }
-        for (auto& [ep, p] : historico) {
-            int tamanho = (perdaMax - perdaMin > 0.001f)
-                ? (int)((p - perdaMin) / (perdaMax - perdaMin) * 50)
-                : 0;
-            cout << setw(5) << ep << " | ";
-            for (int i = 0; i < tamanho; i++) cout << "\033[31m#\033[0m";
-            cout << " " << fixed << setprecision(4) << p << endl;
-        }
     }
 
     float similaridade(const vector<float>& a, const vector<float>& b) {
@@ -400,19 +276,34 @@ public:
         cout << "\033[0m" << endl;
     }
 
+    void salvarJSON(const string& caminho, const unordered_map<string, int>& vocab) {
+        ofstream out(caminho);
+        if (!out.is_open()) return;
+
+        out << "{\n";
+        size_t contador = 0;
+        for (auto& [palavra, idx] : vocab) {
+            vector<float> v = pegarVetor(idx);
+            out << "  \"" << palavra << "\": [";
+            for (size_t d = 0; d < v.size(); d++) {
+                out << fixed << setprecision(6) << v[d];
+                if (d + 1 < v.size()) out << ", ";
+            }
+            out << "]";
+            if (++contador < vocab.size()) out << ",";
+            out << "\n";
+        }
+        out << "}\n";
+        out.close();
+        cout << "\n\033[32m✓\033[0m Embeddings salvos com sucesso em: " << caminho << endl;
+    }
+
     void relatorio(const unordered_map<string, int>& vocab,
                    const unordered_map<string, int>& frequencias) {
 
         cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
-        cout << "║         RELATORIO DE SIMILARIDADES                   ║" << endl;
+        cout << "║         RELATORIO DE SIMILARIDADES (HIBRIDO)        ║" << endl;
         cout << "╚═══════════════════════════════════════════════════════╝" << endl;
-
-        cout << "\n\033[1mTop 10 palavras mais frequentes:\033[0m" << endl;
-        vector<pair<string,int>> freq(frequencias.begin(), frequencias.end());
-        sort(freq.begin(), freq.end(), [](auto& a, auto& b){ return a.second > b.second; });
-        for (int i = 0; i < min(10, (int)freq.size()); i++)
-            cout << "  " << setw(2) << (i+1) << ". " << setw(12) << left << freq[i].first
-                 << " (" << freq[i].second << " ocorrencias)" << endl;
 
         cout << "\n\033[1mPares de teste:\033[0m" << endl;
         testarPar("cpu", "cozinha", vocab, "hardware e comodo");
@@ -450,125 +341,69 @@ public:
     }
 };
 
-string paraMinusculo(const string& s) {
-    string r = s;
-    transform(r.begin(), r.end(), r.begin(), ::tolower);
-    return r;
-}
-
 vector<string> tokenizar(const string& texto) {
     vector<string> tokens;
     string atual;
 
     for (size_t i = 0; i < texto.size(); i++) {
         unsigned char c = texto[i];
-
         if (c < 0x80) {
             if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
                 c == '+' || c == '#' || (c >= '0' && c <= '9')) {
                 atual += tolower(c);
             } else {
-                if (!atual.empty() && atual.size() > 1)
-                    tokens.push_back(atual);
+                if (!atual.empty() && atual.size() > 1) tokens.push_back(atual);
                 atual.clear();
             }
         }
-        else if (c >= 0xC0 && c < 0xE0) {
-            if (i + 1 < texto.size()) {
-                unsigned char c2 = texto[i + 1];
-                char mapped = 0;
-                if (c == 0xC3) {
-                    switch (c2) {
-                        case 0xA1: mapped = 'a'; break;
-                        case 0xA9: mapped = 'e'; break;
-                        case 0xAD: mapped = 'i'; break;
-                        case 0xB3: mapped = 'o'; break;
-                        case 0xBA: mapped = 'u'; break;
-                        case 0xA3: mapped = 'a'; break;
-                        case 0xA7: mapped = 'c'; break;
-                        case 0xB1: mapped = 'n'; break;
-                        case 0xA0: mapped = 'a'; break;
-                        case 0xA2: mapped = 'a'; break;
-                        case 0xA6: mapped = 'e'; break;
-                        case 0xB4: mapped = 'o'; break;
-                        case 0xB6: mapped = 'o'; break;
-                        default: mapped = c2; break;
-                    }
-                }
-                if (mapped) {
-                    atual += mapped;
-                } else {
-                    atual += (char)c;
-                    atual += (char)c2;
-                }
-                i++;
-            }
-        }
-        else if (c >= 0xE0 && c < 0xF0) {
-            i += 2;
-        }
-        else if (c >= 0xF0) {
-            i += 3;
-        }
     }
-
-    if (!atual.empty() && atual.size() > 1)
-        tokens.push_back(atual);
-
+    if (!atual.empty() && atual.size() > 1) tokens.push_back(atual);
     return tokens;
 }
 
 int main(int argc, char* argv[]) {
     string arquivoCorpus = "dados/embeddings/corpus.txt";
-    string arquivoPreTreinado = "";
-    int epocas = 5000;
-    int dimensao = 100;  // Equilíbrio entre velocidade e qualidade
+    string arquivoPreTreinado = "dados/embeddings/cc.pt.300.vec";
+    string arquivoSaidaJSON = "dados/embeddings/embeddings.json";
+    int epocas = 50;
+    int dimensao = 300; // ATUALIZADO: Default 300 para bater com o fastText
     int janela = 5;
-    float taxaInicial = 0.001f;
-    int negativos = 5;
+    float taxaInicial = 0.0005f;
+    int negativos = 2;
     bool usarDecay = false;
-    bool congelarPreTreinados = false;  // Congelar embeddings pré-treinados
+    bool congelar = false;
 
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
         if (arg == "--arquivo" && i+1 < argc) arquivoCorpus = argv[++i];
         else if (arg == "--pre-treinado" && i+1 < argc) arquivoPreTreinado = argv[++i];
+        else if (arg == "--json" && i+1 < argc) arquivoSaidaJSON = argv[++i];
         else if (arg == "--epocas" && i+1 < argc) epocas = stoi(argv[++i]);
         else if (arg == "--dim" && i+1 < argc) dimensao = stoi(argv[++i]);
         else if (arg == "--janela" && i+1 < argc) janela = stoi(argv[++i]);
         else if (arg == "--taxa" && i+1 < argc) taxaInicial = stof(argv[++i]);
         else if (arg == "--neg" && i+1 < argc) negativos = stoi(argv[++i]);
         else if (arg == "--decay") usarDecay = true;
-        else if (arg == "--freeze") congelarPreTreinados = true;
+        else if (arg == "--freeze") congelar = true;
         else if (arg == "--ajuda" || arg == "-h") {
             cout << "Uso: ./word2vec_hybrid [opcoes]" << endl;
-            cout << "  --arquivo <caminho>      Corpus (default: dados/embeddings/corpus.txt)" << endl;
-            cout << "  --pre-treinado <caminho> Embeddings fastText (opcional)" << endl;
-            cout << "  --epocas <N>             Epocas (default: 5000)" << endl;
-            cout << "  --dim <N>                Dimensao (default: 300)" << endl;
-            cout << "  --janela <N>             Janela de contexto (default: 5)" << endl;
-            cout << "  --taxa <F>               Taxa inicial (default: 0.001)" << endl;
-            cout << "  --neg <N>                Negativos (default: 5)" << endl;
-            cout << "  --decay                  Usar decay na taxa" << endl;
-            cout << "  --freeze                 Congelar embeddings pre-treinados" << endl;
+            cout << "  --arquivo <caminho>        Corpus (default: dados/embeddings/corpus.txt)" << endl;
+            cout << "  --pre-treinado <caminho>   Vetor fastText (default: dados/embeddings/cc.pt.300.vec)" << endl;
+            cout << "  --epocas <N>               Epocas (default: 50)" << endl;
+            cout << "  --dim <N>                  Dimensao (default: 300)" << endl;
+            cout << "  --freeze                   Congela os vetores do fastText durante o treino" << endl;
             return 0;
         }
     }
 
     cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
-    cout << "║     WORD2VEC HIBRIDO (v1 - fastText + Natacha)      ║" << endl;
+    cout << "║     WORD2VEC NEGATIVE SAMPLING (Híbrido)          ║" << endl;
     cout << "╚═══════════════════════════════════════════════════════╝" << endl;
-    cout << "  Arquivo:       " << arquivoCorpus << endl;
-    cout << "  Pre-treinado:  " << (arquivoPreTreinado.empty() ? "nenhum" : arquivoPreTreinado) << endl;
-    cout << "  Dimensao:      " << dimensao << endl;
-    cout << "  Negativos:     " << negativos << endl;
-    cout << "  Janela:        " << janela << endl;
-    cout << "  Taxa:          " << taxaInicial << (usarDecay ? " -> 0.0001 (decrescente)" : " (fixa)") << endl;
-    cout << "  Epocas:        " << epocas << endl;
-    cout << "  Optimizer:     Adam (beta1=0.9, beta2=0.999)" << endl;
-    cout << "  Freeze:        " << (congelarPreTreinados ? "SIM" : "NAO") << endl;
+    cout << "  Arquivo:        " << arquivoCorpus << endl;
+    cout << "  Pre-Treinado:   " << arquivoPreTreinado << endl;
+    cout << "  Dimensao:       " << dimensao << endl;
+    cout << "  Congelar FastText: " << (congelar ? "SIM" : "NAO") << endl;
 
-    cout << "\nLendo corpus..." << endl;
     ifstream arquivo(arquivoCorpus);
     if (!arquivo.is_open()) {
         cerr << "\033[31mErro: nao encontrei " << arquivoCorpus << "\033[0m" << endl;
@@ -577,73 +412,46 @@ int main(int argc, char* argv[]) {
     string linha, texto;
     while (getline(arquivo, linha)) texto += linha + " ";
     arquivo.close();
-    cout << "Lido: " << texto.size() << " caracteres" << endl;
 
-    cout << "Tokenizando..." << endl;
     vector<string> tokens = tokenizar(texto);
-    cout << "Tokens: " << tokens.size() << endl;
-
-    if (tokens.size() < 10) {
-        cerr << "\033[31mCorpus muito pequeno\033[0m" << endl;
-        return 1;
-    }
-
-    cout << "Construindo vocabulario..." << endl;
     unordered_map<string, int> freq;
     for (auto& t : tokens) freq[t]++;
 
+    int freqMinima = 3;
+    int freqMaxima = 1000;
+
     unordered_map<string, int> vocab;
-    unordered_map<int, string> idxParaPalavra;
     int idx = 0;
     for (auto& [palavra, f] : freq) {
-        vocab[palavra] = idx;
-        idxParaPalavra[idx] = palavra;
-        idx++;
-    }
-    cout << "Vocabulario: " << vocab.size() << " palavras" << endl;
-
-    cout << "Gerando pares de treino..." << endl;
-    vector<ParTreino> pares;
-    for (size_t i = 0; i < tokens.size(); i++) {
-        int alvo = vocab[tokens[i]];
-        for (int j = max(0, (int)i - janela); j <= min((int)tokens.size()-1, (int)i + janela); j++) {
-            if (i == (size_t)j) continue;
-            pares.push_back({alvo, vocab[tokens[j]]});
+        if (f >= freqMinima && f <= freqMaxima) {
+            vocab[palavra] = idx++;
         }
     }
-    cout << "Pares gerados: " << pares.size() << endl;
 
     mt19937 rng(42);
 
+    vector<ParTreino> pares;
+    uniform_int_distribution<int> distJanela(1, janela);
+    for (size_t i = 0; i < tokens.size(); i++) {
+        if (vocab.find(tokens[i]) == vocab.end()) continue;
+        int alvo = vocab[tokens[i]];
+        int janelaAtual = distJanela(rng);
+        for (int j = max(0, (int)i - janelaAtual); j <= min((int)tokens.size()-1, (int)i + janelaAtual); j++) {
+            if (i == (size_t)j) continue;
+            if (vocab.find(tokens[j]) == vocab.end()) continue;
+            pares.push_back({alvo, vocab[tokens[j]]});
+        }
+    }
+
     Word2VecHybrid modelo(vocab.size(), dimensao, negativos, taxaInicial, rng);
+    
+    cout << "\nLendo vetores pre-treinados..." << endl;
+    modelo.carregarPreTreinados(arquivoPreTreinado, vocab);
 
-    // Carregar pré-treinados se especificado
-    vector<bool> isPretrained(vocab.size(), false);
-    if (!arquivoPreTreinado.empty()) {
-        modelo.carregarPreTreinados(arquivoPreTreinado, vocab, isPretrained);
-    }
-
-    modelo.treinar(pares, epocas, usarDecay, congelarPreTreinados, isPretrained);
-
-    cout << "\n═══ SALVANDO ═══" << endl;
-    string saida = "dados/embeddings/vetores_hibrido.bin";
-    ofstream out(saida, ios::binary);
-    out.write((char*)&dimensao, sizeof(int));
-    for (auto& [palavra, palavraIdx] : vocab) {
-        uint32_t tam = palavra.size();
-        out.write((char*)&tam, sizeof(uint32_t));
-        out.write(palavra.c_str(), tam);
-        vector<float> v = modelo.pegarVetor(palavraIdx);
-        out.write((char*)v.data(), dimensao * sizeof(float));
-    }
-    out.close();
-    cout << "\033[32m✓\033[0m Vetores salvos em " << saida << endl;
-
+    cout << "\n═══ INICIANDO TREINO HÍBRIDO ═══" << endl;
+    modelo.treinar(pares, epocas, usarDecay, congelar);
     modelo.relatorio(vocab, freq);
-
-    cout << "\n╔═══════════════════════════════════════════════════════╗" << endl;
-    cout << "║              TREINO CONCLUIDO                        ║" << endl;
-    cout << "╚═══════════════════════════════════════════════════════╝\n" << endl;
+    modelo.salvarJSON(arquivoSaidaJSON, vocab);
 
     return 0;
 }

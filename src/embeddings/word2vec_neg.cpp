@@ -1,440 +1,1344 @@
 // ============================================================================
-//  WORD2VEC COM NEGATIVE SAMPLING — OTIMIZADO
+// NATACHA — WORD2VEC SKIP-GRAM COM NEGATIVE SAMPLING
+// Versão corrigida e otimizada
 // ============================================================================
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include <unordered_set>
 #include <sstream>
 #include <fstream>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 #include <algorithm>
 #include <iomanip>
+#include <random>
+#include <cctype>
+#include <chrono>
+
 #include "json.hpp"
 
 using namespace std;
 using json = nlohmann::json;
 
+
+// ============================================================================
+// CONFIGURAÇÕES
+// ============================================================================
+
+constexpr float EPSILON = 1e-8f;
+
+
+// ============================================================================
+// UTILITÁRIOS
+// ============================================================================
+
+string normalizarToken(const string& palavra) {
+
+    string resultado;
+
+    for (char c : palavra) {
+
+        unsigned char uc = static_cast<unsigned char>(c);
+
+        if (isalnum(uc) || c == '+' || c == '#' || c == '-' || c == '_') {
+            resultado += static_cast<char>(tolower(uc));
+        }
+    }
+
+    return resultado;
+}
+
+
 // ----------------------------------------------------------------------------
-// UTILITARIOS
+// TOKENIZAÇÃO
 // ----------------------------------------------------------------------------
+
 vector<string> tokenizar(const string& texto) {
+
     vector<string> tokens;
+
     stringstream ss(texto);
     string palavra;
+
     while (ss >> palavra) {
-        for (char& c : palavra) c = tolower(c);
-        string limpa;
-        for (char c : palavra)
-            if (isalnum(c)) limpa += c;
-        if (!limpa.empty())
-            tokens.push_back(limpa);
+
+        string token = normalizarToken(palavra);
+
+        if (!token.empty()) {
+            tokens.push_back(token);
+        }
     }
+
     return tokens;
 }
 
+
+// ----------------------------------------------------------------------------
+// COSSENO
+// ----------------------------------------------------------------------------
+
 float cosseno(const vector<float>& a, const vector<float>& b) {
-    float produto = 0.0f, normaA = 0.0f, normaB = 0.0f;
+
+    if (a.size() != b.size() || a.empty())
+        return 0.0f;
+
+    float produto = 0.0f;
+    float normaA = 0.0f;
+    float normaB = 0.0f;
+
     for (size_t i = 0; i < a.size(); i++) {
+
         produto += a[i] * b[i];
-        normaA  += a[i] * a[i];
-        normaB  += b[i] * b[i];
+        normaA += a[i] * a[i];
+        normaB += b[i] * b[i];
     }
-    if (normaA == 0.0f || normaB == 0.0f) return 0.0f;
+
+    if (normaA < EPSILON || normaB < EPSILON)
+        return 0.0f;
+
     return produto / (sqrt(normaA) * sqrt(normaB));
 }
 
+
+// ----------------------------------------------------------------------------
+// SIGMOIDE ESTÁVEL
+// ----------------------------------------------------------------------------
+
+float sigmoid(float x) {
+
+    if (x < -20.0f)
+        return 0.0f;
+
+    if (x > 20.0f)
+        return 1.0f;
+
+    return 1.0f / (1.0f + exp(-x));
+}
+
+
+// ----------------------------------------------------------------------------
+// LEITURA DO CORPUS
+// ----------------------------------------------------------------------------
+
 string lerCorpus(const string& caminho) {
+
     ifstream arquivo(caminho);
+
     if (!arquivo.is_open()) {
+
         cerr << "ERRO: Nao conseguiu abrir '" << caminho << "'" << endl;
+
         return "";
     }
-    string conteudo, linha;
-    while (getline(arquivo, linha))
-        conteudo += linha + " ";
+
+    string conteudo;
+    string linha;
+
+    while (getline(arquivo, linha)) {
+
+        conteudo += linha;
+        conteudo += " ";
+    }
+
     arquivo.close();
+
     return conteudo;
 }
 
-// ----------------------------------------------------------------------------
-// VOCABULARIO
-// ----------------------------------------------------------------------------
+
+// ============================================================================
+// VOCABULÁRIO
+// ============================================================================
+
 class Vocabulario {
+
 public:
+
     unordered_map<string, int> palavraParaId;
     vector<string> idParaPalavra;
     vector<int> frequencias;
+
     int tamanho = 0;
 
+
     void construir(const vector<string>& tokens) {
+
         unordered_map<string, int> freq;
+
         for (const string& token : tokens) {
             freq[token]++;
         }
-        
+
+
         vector<pair<int, string>> ordenado;
-        for (auto& [palavra, f] : freq) {
-            ordenado.push_back({f, palavra});
+
+        for (const auto& [palavra, frequencia] : freq) {
+
+            ordenado.push_back({
+                frequencia,
+                palavra
+            });
         }
-        sort(ordenado.rbegin(), ordenado.rend());
-        
-        for (auto& [f, palavra] : ordenado) {
+
+
+        sort(
+            ordenado.begin(),
+            ordenado.end(),
+            [](const auto& a, const auto& b) {
+
+                if (a.first != b.first)
+                    return a.first > b.first;
+
+                return a.second < b.second;
+            }
+        );
+
+
+        for (const auto& [frequencia, palavra] : ordenado) {
+
             palavraParaId[palavra] = tamanho;
+
             idParaPalavra.push_back(palavra);
-            frequencias.push_back(f);
+
+            frequencias.push_back(frequencia);
+
             tamanho++;
         }
     }
 
+
     int id(const string& palavra) const {
+
         auto it = palavraParaId.find(palavra);
-        if (it != palavraParaId.end()) return it->second;
+
+        if (it != palavraParaId.end())
+            return it->second;
+
         return -1;
     }
 
+
     string palavra(int id) const {
-        if (id >= 0 && id < (int)idParaPalavra.size()) return idParaPalavra[id];
+
+        if (id >= 0 && id < (int)idParaPalavra.size())
+            return idParaPalavra[id];
+
         return "<OOV>";
     }
 };
 
-// ----------------------------------------------------------------------------
+
+// ============================================================================
 // EMBEDDING TABLE
-// ----------------------------------------------------------------------------
+// ============================================================================
+
 class EmbeddingTable {
+
 public:
+
     int vocabSize;
     int dimensao;
+
     vector<vector<float>> vetores;
 
-    EmbeddingTable(int vocab = 0, int dim = 0, unsigned int semente = 42) {
+
+    EmbeddingTable(
+        int vocab = 0,
+        int dim = 0,
+        unsigned int semente = 42
+    ) {
+
         vocabSize = vocab;
-        dimensao  = dim;
-        if (vocab > 0 && dim > 0) {
-            srand(semente);
-            vetores.resize(vocabSize, vector<float>(dimensao));
-            float escala = sqrt(0.5f / dimensao);
-            for (int i = 0; i < vocabSize; i++)
-                for (int j = 0; j < dimensao; j++)
-                    vetores[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
+        dimensao = dim;
+
+        if (vocab <= 0 || dim <= 0)
+            return;
+
+
+        mt19937 gerador(semente);
+
+        uniform_real_distribution<float> distribuicao(-1.0f, 1.0f);
+
+        vetores.resize(
+            vocabSize,
+            vector<float>(dimensao)
+        );
+
+
+        float escala = 0.5f / sqrt(static_cast<float>(dimensao));
+
+
+        for (int i = 0; i < vocabSize; i++) {
+
+            for (int j = 0; j < dimensao; j++) {
+
+                vetores[i][j] =
+                    distribuicao(gerador) * escala;
+            }
         }
     }
 
-    vector<float> get(int palavraId) const {
+
+    const vector<float>& get(int palavraId) const {
+
         return vetores[palavraId];
     }
 
-    void update(int palavraId, const vector<float>& gradiente, float taxa) {
-        for (int j = 0; j < dimensao; j++)
-            vetores[palavraId][j] -= taxa * gradiente[j];
+
+    vector<float>& getMutavel(int palavraId) {
+
+        return vetores[palavraId];
     }
 
-    void salvar(const string& caminho, const Vocabulario& vocab) const {
+
+    void update(
+        int palavraId,
+        const vector<float>& gradiente,
+        float taxa
+    ) {
+
+        for (int j = 0; j < dimensao; j++) {
+
+            vetores[palavraId][j] -=
+                taxa * gradiente[j];
+        }
+    }
+
+
+    void salvar(
+        const string& caminho,
+        const Vocabulario& vocab
+    ) const {
+
         json j;
+
         j["vocabSize"] = vocabSize;
-        j["dimensao"]  = dimensao;
+        j["dimensao"] = dimensao;
+
 
         json embeddingsArray = json::array();
+
+
         for (int i = 0; i < vocabSize; i++) {
+
             json item;
+
             item["palavra"] = vocab.palavra(i);
-            item["vetor"]   = vetores[i];
+            item["vetor"] = vetores[i];
+
             embeddingsArray.push_back(item);
         }
+
+
         j["embeddings"] = embeddingsArray;
 
+
         ofstream arquivo(caminho);
+
         if (!arquivo.is_open()) {
-            cerr << "ERRO: nao conseguiu salvar em '" << caminho << "'" << endl;
+
+            cerr << "ERRO: nao conseguiu salvar em '"
+                 << caminho << "'" << endl;
+
             return;
         }
+
+
         arquivo << j.dump(2);
+
         arquivo.close();
-        cout << "  Embeddings salvos em: " << caminho << endl;
+
+
+        cout << "  Embeddings salvos em: "
+             << caminho << endl;
     }
 };
 
-// ----------------------------------------------------------------------------
-// WORD2VEC COM NEGATIVE SAMPLING
-// ----------------------------------------------------------------------------
+
+// ============================================================================
+// WORD2VEC
+// ============================================================================
+
 class Word2Vec {
+
 public:
+
     EmbeddingTable* embeddings;
+
     vector<vector<float>> pesosSaida;
+
     int dimensao;
     int vocabSize;
+
     float taxa;
+
     int negativos;
+
     vector<float> tabelaUnigram;
 
-    Word2Vec(int vocab, int dim, const vector<int>& frequencias, int k = 5, unsigned int semente = 42) {
-        vocabSize  = vocab;
-        dimensao   = dim;
-        negativos  = k;
-        taxa       = 0.025f;
-        
-        embeddings = new EmbeddingTable(vocab, dim, semente);
-        srand(semente + 1);
-        pesosSaida.resize(vocabSize, vector<float>(dimensao));
-        float escala = sqrt(0.5f / dimensao);
-        for (int i = 0; i < vocabSize; i++)
-            for (int j = 0; j < dimensao; j++)
-                pesosSaida[i][j] = ((float)rand() / (float)RAND_MAX * 2.0f - 1.0f) * escala;
+    mt19937 gerador;
+
+
+    Word2Vec(
+        int vocab,
+        int dim,
+        const vector<int>& frequencias,
+        int k = 5,
+        unsigned int semente = 42
+    )
+        : gerador(semente)
+    {
+
+        vocabSize = vocab;
+        dimensao = dim;
+        negativos = k;
+
+        taxa = 0.025f;
+
+
+        embeddings =
+            new EmbeddingTable(
+                vocab,
+                dim,
+                semente
+            );
+
+
+        pesosSaida.resize(
+            vocabSize,
+            vector<float>(dimensao)
+        );
+
+
+        uniform_real_distribution<float> distribuicao(-1.0f, 1.0f);
+
+        float escala = 0.5f / sqrt(static_cast<float>(dimensao));
+
+
+        for (int i = 0; i < vocabSize; i++) {
+
+            for (int j = 0; j < dimensao; j++) {
+
+                pesosSaida[i][j] =
+                    distribuicao(gerador) * escala;
+            }
+        }
+
 
         construirTabelaUnigram(frequencias);
     }
 
+
     ~Word2Vec() {
+
         delete embeddings;
     }
 
-    void construirTabelaUnigram(const vector<int>& frequencias) {
-        float soma = 0;
-        for (int f : frequencias) soma += pow(f, 0.75f);
-        
+
+    // ------------------------------------------------------------------------
+    // TABELA UNIGRAM
+    // ------------------------------------------------------------------------
+
+    void construirTabelaUnigram(
+        const vector<int>& frequencias
+    ) {
+
+        float soma = 0.0f;
+
+
+        for (int f : frequencias) {
+
+            soma += pow(static_cast<float>(f), 0.75f);
+        }
+
+
         tabelaUnigram.resize(vocabSize);
-        float acumulado = 0;
+
+
+        float acumulado = 0.0f;
+
+
         for (int i = 0; i < vocabSize; i++) {
-            acumulado += pow(frequencias[i], 0.75f) / soma;
+
+            acumulado +=
+                pow(static_cast<float>(frequencias[i]), 0.75f)
+                / soma;
+
             tabelaUnigram[i] = acumulado;
         }
+
+
+        tabelaUnigram.back() = 1.0f;
     }
 
-    int amostrarNegativo() {
-        float r = (float)rand() / (float)RAND_MAX;
-        auto it = lower_bound(tabelaUnigram.begin(), tabelaUnigram.end(), r);
-        int idx = distance(tabelaUnigram.begin(), it);
-        return min(idx, vocabSize - 1);
+
+    // ------------------------------------------------------------------------
+    // AMOSTRAGEM NEGATIVA
+    // ------------------------------------------------------------------------
+
+    int amostrarNegativo(int contexto) {
+
+        uniform_real_distribution<float> distribuicao(0.0f, 1.0f);
+
+        while (true) {
+
+            float r = distribuicao(gerador);
+
+            auto it = lower_bound(
+                tabelaUnigram.begin(),
+                tabelaUnigram.end(),
+                r
+            );
+
+
+            int idx = distance(
+                tabelaUnigram.begin(),
+                it
+            );
+
+
+            if (idx >= vocabSize)
+                idx = vocabSize - 1;
+
+
+            if (idx != contexto)
+                return idx;
+        }
     }
+
+
+    // ------------------------------------------------------------------------
+    // TREINAMENTO DE UM PAR
+    // ------------------------------------------------------------------------
 
     float treinar(int central, int contexto) {
-        vector<float> h = embeddings->get(central);
+
+        const vector<float> h =
+            embeddings->get(central);
+
+
+        vector<float> gradEntrada(
+            dimensao,
+            0.0f
+        );
+
+
         float perda = 0.0f;
-        vector<float> gradEntrada(dimensao, 0.0f);
-        
+
+
+        // ================================================================
+        // POSITIVO
+        // ================================================================
+
         float dot = 0.0f;
-        for (int j = 0; j < dimensao; j++)
-            dot += pesosSaida[contexto][j] * h[j];
-        float sig = 1.0f / (1.0f + exp(-dot));
-        
-        float grad = (1.0f - sig) * taxa;
-        perda -= log(sig + 1e-9f);
-        
+
+
         for (int j = 0; j < dimensao; j++) {
-            pesosSaida[contexto][j] += grad * h[j];
-            gradEntrada[j] += grad * pesosSaida[contexto][j];
+
+            dot += pesosSaida[contexto][j] * h[j];
         }
-        
+
+
+        float sig = sigmoid(dot);
+
+
+        perda -= log(max(sig, EPSILON));
+
+
+        // Derivada da BCE:
+        // sigmoid(dot) - 1
+        float erro = sig - 1.0f;
+
+
+        vector<float> gradSaidaPositivo(dimensao);
+
+
+        for (int j = 0; j < dimensao; j++) {
+
+            // Guardamos os pesos antigos para calcular
+            // corretamente o gradiente da entrada.
+
+            gradSaidaPositivo[j] =
+                erro * h[j];
+
+            gradEntrada[j] +=
+                erro * pesosSaida[contexto][j];
+        }
+
+
+        // Atualiza pesos de saída positivos
+
+        for (int j = 0; j < dimensao; j++) {
+
+            pesosSaida[contexto][j] -=
+                taxa * gradSaidaPositivo[j];
+        }
+
+
+        // ================================================================
+        // NEGATIVOS
+        // ================================================================
+
         for (int n = 0; n < negativos; n++) {
-            int neg = amostrarNegativo();
-            if (neg == contexto) continue;
-            
+
+            int neg = amostrarNegativo(contexto);
+
+
             dot = 0.0f;
-            for (int j = 0; j < dimensao; j++)
-                dot += pesosSaida[neg][j] * h[j];
-            sig = 1.0f / (1.0f + exp(-dot));
-            
-            grad = -sig * taxa;
-            perda -= log(1.0f - sig + 1e-9f);
-            
+
+
             for (int j = 0; j < dimensao; j++) {
-                pesosSaida[neg][j] += grad * h[j];
-                gradEntrada[j] += grad * pesosSaida[neg][j];
+
+                dot += pesosSaida[neg][j] * h[j];
+            }
+
+
+            sig = sigmoid(dot);
+
+
+            perda -= log(max(1.0f - sig, EPSILON));
+
+
+            // Para classe negativa:
+            // derivada = sigmoid(dot)
+
+            erro = sig;
+
+
+            vector<float> gradSaidaNegativo(dimensao);
+
+
+            for (int j = 0; j < dimensao; j++) {
+
+                gradSaidaNegativo[j] =
+                    erro * h[j];
+
+
+                gradEntrada[j] +=
+                    erro * pesosSaida[neg][j];
+            }
+
+
+            // Atualiza pesos negativos
+
+            for (int j = 0; j < dimensao; j++) {
+
+                pesosSaida[neg][j] -=
+                    taxa * gradSaidaNegativo[j];
             }
         }
-        
-        embeddings->update(central, gradEntrada, 1.0f);
+
+
+        // ================================================================
+        // ATUALIZA EMBEDDING CENTRAL
+        // ================================================================
+
+        embeddings->update(
+            central,
+            gradEntrada,
+            taxa
+        );
+
+
         return perda;
     }
 
-    void topSimilares(const string& alvo, const Vocabulario& vocab, int n = 5) {
+
+    // ------------------------------------------------------------------------
+    // SIMILARES
+    // ------------------------------------------------------------------------
+
+    void topSimilares(
+        const string& alvo,
+        const Vocabulario& vocab,
+        int n = 5
+    ) {
+
         int idAlvo = vocab.id(alvo);
+
+
         if (idAlvo == -1) {
-            cout << "  \"" << alvo << "\" nao esta no vocabulario." << endl;
+
+            cout << "  \"" << alvo
+                 << "\" nao esta no vocabulario."
+                 << endl;
+
             return;
         }
-        vector<float> embAlvo = embeddings->get(idAlvo);
+
+
+        vector<float> embAlvo =
+            embeddings->get(idAlvo);
+
+
         vector<pair<float, string>> sims;
+
+
         for (int i = 0; i < vocabSize; i++) {
-            if (i == idAlvo) continue;
-            float sim = cosseno(embAlvo, embeddings->get(i));
-            sims.push_back({sim, vocab.palavra(i)});
+
+            if (i == idAlvo)
+                continue;
+
+
+            float sim =
+                cosseno(
+                    embAlvo,
+                    embeddings->get(i)
+                );
+
+
+            sims.push_back({
+                sim,
+                vocab.palavra(i)
+            });
         }
-        sort(sims.rbegin(), sims.rend());
-        cout << "  Top " << n << " mais similares a \"" << alvo << "\":" << endl;
-        for (int i = 0; i < min(n, (int)sims.size()); i++)
-            cout << "    " << setw(12) << left << sims[i].second
-                 << " sim=" << fixed << setprecision(4) << sims[i].first << endl;
+
+
+        sort(
+            sims.rbegin(),
+            sims.rend()
+        );
+
+
+        cout << "  Top " << n
+             << " mais similares a \""
+             << alvo << "\":"
+             << endl;
+
+
+        for (int i = 0; i < min(n, (int)sims.size()); i++) {
+
+            cout << "    "
+                 << setw(15)
+                 << left
+                 << sims[i].second
+
+                 << " sim="
+                 << fixed
+                 << setprecision(4)
+                 << sims[i].first
+                 << endl;
+        }
     }
 };
 
-// ----------------------------------------------------------------------------
-// GERA PARES
-// ----------------------------------------------------------------------------
-vector<pair<int, int>> gerarPares(const vector<string>& tokens,
-                                   const Vocabulario& vocab,
-                                   int janela = 2) {
+
+// ============================================================================
+// GERAÇÃO DE PARES
+// ============================================================================
+
+vector<pair<int, int>> gerarPares(
+    const vector<string>& tokens,
+    const Vocabulario& vocab,
+    int janela = 2
+) {
+
     vector<pair<int, int>> pares;
-    int n = (int)tokens.size();
+
+    int n = static_cast<int>(tokens.size());
+
+
     for (int i = 0; i < n; i++) {
-        int central = vocab.id(tokens[i]);
-        for (int offset = -janela; offset <= janela; offset++) {
-            if (offset == 0) continue;
+
+        int central =
+            vocab.id(tokens[i]);
+
+
+        if (central == -1)
+            continue;
+
+
+        for (
+            int offset = -janela;
+            offset <= janela;
+            offset++
+        ) {
+
+            if (offset == 0)
+                continue;
+
+
             int j = i + offset;
-            if (j >= 0 && j < n) {
-                int contexto = vocab.id(tokens[j]);
-                pares.push_back({central, contexto});
-            }
+
+
+            if (j < 0 || j >= n)
+                continue;
+
+
+            int contexto =
+                vocab.id(tokens[j]);
+
+
+            if (contexto == -1)
+                continue;
+
+
+            pares.push_back({
+                central,
+                contexto
+            });
         }
     }
+
+
     return pares;
 }
 
-// ----------------------------------------------------------------------------
-// SUBSAMPLING
-// ----------------------------------------------------------------------------
-vector<string> aplicarSubsampling(const vector<string>& tokens, float t = 1e-3f) {
-    unordered_map<string, int> freq;
-    for (const string& token : tokens) freq[token]++;
 
-    int total = tokens.size();
-    vector<string> resultado;
-    srand(42);
+// ============================================================================
+// SUBSAMPLING
+// ============================================================================
+
+vector<string> aplicarSubsampling(
+    const vector<string>& tokens,
+    float t = 1e-3f,
+    unsigned int semente = 42
+) {
+
+    unordered_map<string, int> freq;
+
 
     for (const string& token : tokens) {
-        float f = (float)freq[token] / total;
-        float prob = 1.0f - sqrt(t / f);
-        if (prob < 0) prob = 0;
+        freq[token]++;
+    }
 
-        float r = (float)rand() / (float)RAND_MAX;
-        if (r > prob) {
+
+    int total = static_cast<int>(tokens.size());
+
+
+    vector<string> resultado;
+
+    resultado.reserve(tokens.size());
+
+
+    mt19937 gerador(semente);
+
+    uniform_real_distribution<float> distribuicao(0.0f, 1.0f);
+
+
+    for (const string& token : tokens) {
+
+        float f =
+            static_cast<float>(freq[token])
+            / static_cast<float>(total);
+
+
+        float probRemover =
+            1.0f - sqrt(t / f);
+
+
+        if (probRemover < 0.0f)
+            probRemover = 0.0f;
+
+
+        float r = distribuicao(gerador);
+
+
+        if (r > probRemover) {
+
             resultado.push_back(token);
         }
     }
 
-    cout << "  Subsampling: " << tokens.size() << " → " << resultado.size() << " tokens" << endl;
+
+    cout << "  Subsampling: "
+         << tokens.size()
+         << " -> "
+         << resultado.size()
+         << " tokens"
+         << endl;
+
+
     return resultado;
 }
 
-// ----------------------------------------------------------------------------
+
+// ============================================================================
 // MAIN
-// ----------------------------------------------------------------------------
+// ============================================================================
+
 int main() {
-    cout << "============================================================" << endl;
-    cout << "  NATACHA - Word2Vec com Negative Sampling (otimizado)" << endl;
-    cout << "============================================================" << endl;
 
-    string corpus = lerCorpus("../../dados/embeddings/corpus.txt");
-    if (corpus.empty()) return 1;
+    cout << "============================================================"
+         << endl;
 
-    cout << endl << "Corpus: " << corpus.size() << " chars, ";
-    vector<string> tokens = tokenizar(corpus);
-    cout << tokens.size() << " tokens" << endl;
+    cout << "  NATACHA - Word2Vec Skip-Gram Negative Sampling"
+         << endl;
 
-    tokens = aplicarSubsampling(tokens, 1e-3f);
+    cout << "============================================================"
+         << endl;
+
+
+    // Caminho relativo a partir da pasta build/src/embeddings
+    string caminhoCorpus =
+        "../../dados/embeddings/corpus.txt";
+
+
+    string corpus =
+        lerCorpus(caminhoCorpus);
+
+
+    if (corpus.empty())
+        return 1;
+
+
+    cout << endl
+         << "Corpus: "
+         << corpus.size()
+         << " caracteres";
+
+
+    vector<string> tokens =
+        tokenizar(corpus);
+
+
+    cout << ", "
+         << tokens.size()
+         << " tokens"
+         << endl;
+
+
+    // ================================================================
+    // SUBSAMPLING
+    // ================================================================
+
+    tokens =
+        aplicarSubsampling(
+            tokens,
+            1e-3f,
+            42
+        );
+
+
+    if (tokens.size() < 20) {
+
+        cerr << "ERRO: Corpus muito pequeno apos subsampling."
+             << endl;
+
+        return 1;
+    }
+
+
+    // ================================================================
+    // VOCABULARIO
+    // ================================================================
 
     Vocabulario vocab;
+
     vocab.construir(tokens);
-    cout << "Vocabulario: " << vocab.tamanho << " palavras" << endl;
 
-    int dim = 64, janela = 5, epocas = 300, negativos = 5;
 
-    auto pares = gerarPares(tokens, vocab, janela);
-    cout << "Pares por epoca: " << pares.size() << endl;
-    cout << "Negativos por par: " << negativos << endl;
-    cout << "Ops por epoca (estimado): " << pares.size() * (1 + negativos) * dim * 4 << endl;
+    cout << "Vocabulario: "
+         << vocab.tamanho
+         << " palavras"
+         << endl;
 
-    cout << endl << "--- Treinando " << epocas << " epocas ---" << endl;
-    Word2Vec modelo(vocab.tamanho, dim, vocab.frequencias, negativos, 42);
 
-    float alpha_inicial = 0.025f;
-    float alpha_min = alpha_inicial * 0.0001f;
-    int total_tokens_processados = 0;
+    // ================================================================
+    // CONFIGURAÇÕES DO MODELO
+    // ================================================================
 
-    float melhorPerda = 1e9f;
+    int dim = 64;
+    int janela = 5;
+    int epocas = 500;
+    int negativos = 5;
+
+
+    cout << endl
+         << "Configuracao:"
+         << endl;
+
+    cout << "  Dimensao: " << dim << endl;
+    cout << "  Janela: " << janela << endl;
+    cout << "  Epocas: " << epocas << endl;
+    cout << "  Negativos: " << negativos << endl;
+
+
+    // ================================================================
+    // GERA PARES
+    // ================================================================
+
+    auto pares =
+        gerarPares(
+            tokens,
+            vocab,
+            janela
+        );
+
+
+    if (pares.empty()) {
+
+        cerr << "ERRO: Nenhum par de treinamento gerado."
+             << endl;
+
+        return 1;
+    }
+
+
+    cout << "Pares por epoca: "
+         << pares.size()
+         << endl;
+
+
+    cout << "Operacoes estimadas: "
+         << static_cast<long long>(pares.size())
+            * (1 + negativos)
+            * dim
+            * 4
+         << endl;
+
+
+    // ================================================================
+    // MODELO
+    // ================================================================
+
+    Word2Vec modelo(
+        vocab.tamanho,
+        dim,
+        vocab.frequencias,
+        negativos,
+        42
+    );
+
+
+    // ================================================================
+    // TREINAMENTO
+    // ================================================================
+
+    float alphaInicial = 0.025f;
+    float alphaMinimo = 0.0001f;
+
+
+    float melhorPerda = numeric_limits<float>::max();
+
     int semMelhora = 0;
-    clock_t inicio = clock();
 
-    for (int e = 0; e < epocas; e++) {
+    int paciencia = 25;
+
+
+    mt19937 embaralhador(42);
+
+
+    auto inicio =
+        chrono::high_resolution_clock::now();
+
+
+    cout << endl
+         << "--- INICIANDO TREINAMENTO ---"
+         << endl;
+
+
+    for (int epoca = 0; epoca < epocas; epoca++) {
+
         float perdaTotal = 0.0f;
-        
-        float alpha = alpha_inicial * (1.0f - (float)e / (float)epocas);
-        if (alpha < alpha_min) alpha = alpha_min;
+
+
+        // ============================================================
+        // DECAY DA TAXA DE APRENDIZADO
+        // ============================================================
+
+        float progresso =
+            static_cast<float>(epoca)
+            / static_cast<float>(epocas);
+
+
+        float alpha =
+            alphaInicial
+            * (1.0f - progresso);
+
+
+        if (alpha < alphaMinimo)
+            alpha = alphaMinimo;
+
+
         modelo.taxa = alpha;
 
-        for (auto& par : pares) {
-            perdaTotal += modelo.treinar(par.first, par.second);
-            total_tokens_processados++;
+
+        // ============================================================
+        // EMBARALHA PARES
+        // ============================================================
+
+        shuffle(
+            pares.begin(),
+            pares.end(),
+            embaralhador
+        );
+
+
+        // ============================================================
+        // TREINA
+        // ============================================================
+
+        for (const auto& par : pares) {
+
+            perdaTotal +=
+                modelo.treinar(
+                    par.first,
+                    par.second
+                );
         }
-        
-        float perdaMedia = perdaTotal / pares.size();
-        
-        if (e % 50 == 0) {
-            float elapsed = (float)(clock() - inicio) / CLOCKS_PER_SEC;
-            cout << "  Epoca " << setw(5) << e 
-                 << " | Perda: " << fixed << setprecision(4) << perdaMedia
-                 << " | Alpha: " << fixed << setprecision(6) << alpha
-                 << " | Tempo: " << fixed << setprecision(1) << elapsed << "s" << endl;
+
+
+        float perdaMedia =
+            perdaTotal
+            / static_cast<float>(pares.size());
+
+
+        // ============================================================
+        // TEMPO
+        // ============================================================
+
+        auto agora =
+            chrono::high_resolution_clock::now();
+
+
+        float tempo =
+            chrono::duration<float>(
+                agora - inicio
+            ).count();
+
+
+        // ============================================================
+        // LOG
+        // ============================================================
+
+        if (
+            epoca == 0 ||
+            (epoca + 1) % 25 == 0 ||
+            epoca == epocas - 1
+        ) {
+
+            cout << "  Epoca "
+                 << setw(4)
+                 << epoca + 1
+                 << "/"
+                 << epocas
+
+                 << " | Perda: "
+                 << fixed
+                 << setprecision(4)
+                 << perdaMedia
+
+                 << " | Alpha: "
+                 << setprecision(6)
+                 << alpha
+
+                 << " | Tempo: "
+                 << setprecision(1)
+                 << tempo
+                 << "s"
+
+                 << endl;
         }
-        
-        if (perdaMedia < melhorPerda - 0.0001f) {
+
+
+        // ============================================================
+        // EARLY STOPPING
+        // ============================================================
+
+        if (perdaMedia < melhorPerda - 0.00001f) {
+
             melhorPerda = perdaMedia;
             semMelhora = 0;
-        } else if (++semMelhora >= 5000) {
-            cout << "  Early stopping na epoca " << e << endl;
+
+        } else {
+
+            semMelhora++;
+        }
+
+
+        if (semMelhora >= paciencia) {
+
+            cout << endl
+                 << "Early stopping na epoca "
+                 << epoca + 1
+                 << endl;
+
             break;
         }
     }
 
-    float tempoTotal = (float)(clock() - inicio) / CLOCKS_PER_SEC;
-    cout << endl << "Treinamento concluido em " << fixed << setprecision(1) << tempoTotal << "s" << endl;
-    cout << "Melhor perda: " << melhorPerda << endl;
 
-    cout << endl << "--- Salvando embeddings ---" << endl;
-    modelo.embeddings->salvar("../../dados/embeddings/natacha_embeddings.json", vocab);
+    auto fim =
+        chrono::high_resolution_clock::now();
 
-    cout << endl << "=== TESTE DE SIMILARIDADE ===" << endl << endl;
+
+    float tempoTotal =
+        chrono::duration<float>(
+            fim - inicio
+        ).count();
+
+
+    cout << endl
+         << "============================================================"
+         << endl;
+
+
+    cout << "Treinamento concluido!"
+         << endl;
+
+
+    cout << "Tempo total: "
+         << fixed
+         << setprecision(1)
+         << tempoTotal
+         << " segundos"
+         << endl;
+
+
+    cout << "Melhor perda: "
+         << fixed
+         << setprecision(6)
+         << melhorPerda
+         << endl;
+
+
+    // ================================================================
+    // SALVAMENTO
+    // ================================================================
+
+    cout << endl
+         << "--- SALVANDO EMBEDDINGS ---"
+         << endl;
+
+
+    modelo.embeddings->salvar(
+        "../../dados/embeddings/natacha_embeddings.json",
+        vocab
+    );
+
+
+    // ================================================================
+    // TESTES DE SIMILARIDADE
+    // ================================================================
+
+    cout << endl
+         << "============================================================"
+         << endl;
+
+    cout << "             TESTES DE SIMILARIDADE"
+         << endl;
+
+    cout << "============================================================"
+         << endl;
+
 
     auto testar = [&](const string& a, const string& b) {
-        int idA = vocab.id(a), idB = vocab.id(b);
-        if (idA == -1 || idB == -1) return;
-        float sim = cosseno(modelo.embeddings->get(idA), modelo.embeddings->get(idB));
-        cout << "  " << setw(12) << left << a << " <-> " << setw(12) << b << " = " << fixed << setprecision(4) << sim << endl;
+
+        int idA = vocab.id(a);
+        int idB = vocab.id(b);
+
+
+        if (idA == -1 || idB == -1) {
+
+            cout << "  "
+                 << a
+                 << " <-> "
+                 << b
+                 << " = palavra nao encontrada"
+                 << endl;
+
+            return;
+        }
+
+
+        float sim =
+            cosseno(
+                modelo.embeddings->get(idA),
+                modelo.embeddings->get(idB)
+            );
+
+
+        cout << "  "
+             << setw(12)
+             << left
+             << a
+
+             << " <-> "
+
+             << setw(12)
+             << left
+             << b
+
+             << " = "
+
+             << fixed
+             << setprecision(4)
+             << sim
+             << endl;
     };
+
 
     testar("natacha", "felix");
     testar("natacha", "rodrigo");
+
     testar("cozinha", "cpu");
     testar("quarto", "ram");
     testar("banho", "privado");
+
     testar("c++", "codigo");
     testar("mlp", "neuronio");
+
     testar("embeddings", "palavras");
     testar("cafe", "processamento");
+
     testar("felix", "gato");
 
-    cout << endl << "=== TOP SIMILARES ===" << endl << endl;
 
-    modelo.topSimilares("natacha", vocab, 8);
-    cout << endl;
-    modelo.topSimilares("felix", vocab, 8);
-    cout << endl;
-    modelo.topSimilares("cpu", vocab, 8);
-    cout << endl;
-    modelo.topSimilares("cafe", vocab, 8);
-    cout << endl;
-    modelo.topSimilares("aprende", vocab, 8);
+    // ================================================================
+    // TOP SIMILARES
+    // ================================================================
 
-    cout << endl << "============================================================" << endl;
-    cout << "  Natacha treinou " << epocas << " epocas com Negative Sampling" << endl;
-    cout << "  Vocabulario: " << vocab.tamanho << " palavras" << endl;
-    cout << "  Tempo total: " << fixed << setprecision(1) << tempoTotal << "s" << endl;
-    cout << "============================================================" << endl;
+    cout << endl
+         << "============================================================"
+         << endl;
+
+    cout << "                TOP SIMILARES"
+         << endl;
+
+    cout << "============================================================"
+         << endl;
+
+
+    modelo.topSimilares("natacha", vocab, 10);
+
+    cout << endl;
+
+    modelo.topSimilares("felix", vocab, 10);
+
+    cout << endl;
+
+    modelo.topSimilares("cpu", vocab, 10);
+
+    cout << endl;
+
+    modelo.topSimilares("cafe", vocab, 10);
+
+    cout << endl;
+
+    modelo.topSimilares("aprende", vocab, 10);
+
+
+    cout << endl
+         << "============================================================"
+         << endl;
+
+    cout << "Natacha treinou embeddings Word2Vec."
+         << endl;
+
+    cout << "Vocabulario: "
+         << vocab.tamanho
+         << " palavras"
+         << endl;
+
+    cout << "Dimensao: "
+         << dim
+         << endl;
+
+    cout << "============================================================"
+         << endl;
+
 
     return 0;
 }
