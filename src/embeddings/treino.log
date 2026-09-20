@@ -1,0 +1,130 @@
+nohup: ignoring input
+============================================================
+  NATACHA - Word2Vec Skip-Gram Negative Sampling
+============================================================
+
+Corpus: 293827 caracteres, 48159 tokens
+  Subsampling: 48159 -> 32571 tokens
+Vocabulario: 5854 palavras
+
+Configuracao:
+  Dimensao: 64
+  Janela: 5
+  Epocas: 500
+  Negativos: 5
+Pares por epoca: 325680
+Operacoes estimadas: 500244480
+
+--- INICIANDO TREINAMENTO ---
+  Epoca    1/500 | Perda: 3.7635 | Alpha: 0.025000 | Tempo: 2.0s
+  Epoca   25/500 | Perda: 1.1983 | Alpha: 0.023800 | Tempo: 50.0s
+  Epoca   50/500 | Perda: 1.1158 | Alpha: 0.022550 | Tempo: 105.2s
+  Epoca   75/500 | Perda: 1.0862 | Alpha: 0.021300 | Tempo: 156.6s
+  Epoca  100/500 | Perda: 1.0645 | Alpha: 0.020050 | Tempo: 205.8s
+  Epoca  125/500 | Perda: 1.0540 | Alpha: 0.018800 | Tempo: 253.8s
+  Epoca  150/500 | Perda: 1.0414 | Alpha: 0.017550 | Tempo: 311.0s
+  Epoca  175/500 | Perda: 1.0320 | Alpha: 0.016300 | Tempo: 363.7s
+  Epoca  200/500 | Perda: 1.0209 | Alpha: 0.015050 | Tempo: 414.8s
+  Epoca  225/500 | Perda: 1.0127 | Alpha: 0.013800 | Tempo: 465.0s
+  Epoca  250/500 | Perda: 1.0071 | Alpha: 0.012550 | Tempo: 513.7s
+  Epoca  275/500 | Perda: 1.0003 | Alpha: 0.011300 | Tempo: 563.5s
+  Epoca  300/500 | Perda: 0.9893 | Alpha: 0.010050 | Tempo: 612.6s
+  Epoca  325/500 | Perda: 0.9769 | Alpha: 0.008800 | Tempo: 663.8s
+  Epoca  350/500 | Perda: 0.9739 | Alpha: 0.007550 | Tempo: 719.9s
+  Epoca  375/500 | Perda: 0.9682 | Alpha: 0.006300 | Tempo: 773.7s
+  Epoca  400/500 | Perda: 0.9609 | Alpha: 0.005050 | Tempo: 823.6s
+  Epoca  425/500 | Perda: 0.9503 | Alpha: 0.003800 | Tempo: 872.3s
+  Epoca  450/500 | Perda: 0.9448 | Alpha: 0.002550 | Tempo: 923.9s
+  Epoca  475/500 | Perda: 0.9364 | Alpha: 0.001300 | Tempo: 973.6s
+  Epoca  500/500 | Perda: 0.9309 | Alpha: 0.000100 | Tempo: 1023.5s
+
+============================================================
+Treinamento concluido!
+Tempo total: 1023.5 segundos
+Melhor perda: 0.930164
+
+--- SALVANDO EMBEDDINGS ---
+  Embeddings salvos em: ../../dados/embeddings/natacha_embeddings.json
+
+============================================================
+             TESTES DE SIMILARIDADE
+============================================================
+  natacha      <-> felix        = 0.2964
+  natacha      <-> rodrigo      = 0.3020
+  cozinha      <-> cpu          = 0.9269
+  quarto       <-> ram          = 0.9626
+  banho        <-> privado      = 0.5202
+  c++          <-> codigo       = 0.3685
+  mlp          <-> neuronio     = 0.5003
+  embeddings   <-> palavras     = 0.3870
+  cafe         <-> processamento = 0.3391
+  felix        <-> gato         = 0.3931
+
+============================================================
+                TOP SIMILARES
+============================================================
+  Top 10 mais similares a "natacha":
+    motriz          sim=0.5824
+    revolucao       sim=0.5700
+    didatica        sim=0.5587
+    restries        sim=0.5538
+    experimento     sim=0.5481
+    materna         sim=0.5417
+    melhora         sim=0.5407
+    gostava         sim=0.5379
+    preto           sim=0.5377
+    miado           sim=0.5373
+
+  Top 10 mais similares a "felix":
+    recuperado      sim=0.6301
+    mexe            sim=0.6107
+    preto           sim=0.6044
+    etico           sim=0.6019
+    nietzschiana    sim=0.5997
+    tente           sim=0.5993
+    lide            sim=0.5983
+    miado           sim=0.5983
+    cabo            sim=0.5956
+    micro           sim=0.5907
+
+  Top 10 mais similares a "cpu":
+    cozinha         sim=0.9269
+    gpu             sim=0.6830
+    sala            sim=0.6354
+    esquenta        sim=0.6094
+    chip            sim=0.5719
+    massivos        sim=0.5514
+    minuculo        sim=0.5481
+    pipeline        sim=0.5406
+    paralelos       sim=0.5386
+    intensas        sim=0.5383
+
+  Top 10 mais similares a "cafe":
+    xicara          sim=0.6469
+    mesmos          sim=0.6113
+    ofereceu        sim=0.6085
+    entrou          sim=0.6052
+    desligou        sim=0.5959
+    agitada         sim=0.5819
+    serio           sim=0.5788
+    semaforos       sim=0.5781
+    convergido      sim=0.5689
+    pedisse         sim=0.5653
+
+  Top 10 mais similares a "aprende":
+    sequencias      sim=0.6646
+    ensinando       sim=0.5967
+    professora      sim=0.5947
+    erra            sim=0.5876
+    aluna           sim=0.5778
+    opencode        sim=0.5759
+    melhora         sim=0.5751
+    absorve         sim=0.5626
+    antecipar       sim=0.5500
+    decorados       sim=0.5458
+
+============================================================
+Natacha treinou embeddings Word2Vec.
+Vocabulario: 5854 palavras
+Dimensao: 64
+============================================================
