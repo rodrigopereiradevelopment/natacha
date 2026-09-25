@@ -15,6 +15,7 @@
 #include <random>
 #include <cctype>
 #include <chrono>
+#include <limits>
 
 #include "json.hpp"
 
@@ -938,8 +939,7 @@ int main() {
     // ================================================================
     // CONFIGURAÇÕES DO MODELO
     // ================================================================
-
-    int dim = 64;
+    int dim = 32;
     int janela = 5;
     int epocas = 500;
     int negativos = 5;
@@ -1014,7 +1014,7 @@ int main() {
 
     int semMelhora = 0;
 
-    int paciencia = 25;
+    int paciencia = 999999;
 
 
     mt19937 embaralhador(42);
@@ -1083,6 +1083,21 @@ int main() {
         float perdaMedia =
             perdaTotal
             / static_cast<float>(pares.size());
+
+
+        // === CHECKPOINT A CADA 100 EPOCAS ===
+        if ((epoca + 1) % 100 == 0 || epoca == epocas - 1) {
+            string pathCheckpoint =
+                "../../dados/embeddings/natacha_embeddings_"
+                + to_string(epoca + 1)
+                + "ep.json";
+
+            modelo.embeddings->salvar(pathCheckpoint, vocab);
+
+            cout << "  Checkpoint salvo: "
+                 << pathCheckpoint
+                 << endl;
+        }
 
 
         // ============================================================

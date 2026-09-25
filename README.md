@@ -1,9 +1,10 @@
-![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
+![C++](https://img.shields.io/badge/C%2B%2B-20-blue)
 ![CMake](https://img.shields.io/badge/Build-CMake-green)
 ![Status](https://img.shields.io/badge/Fase%201-OR%20%E2%9C%85-brightgreen)
 ![Status](https://img.shields.io/badge/Fase%202-MLP%20%E2%9C%85-brightgreen)
-![Status](https://img.shields.io/badge/Fase%203-Embeddings%20%E2%9C%85-brightgreen)
+![Status](https://img.shields.io/badge/Fase%203-Embeddings%20%F0%9F%9F%A1-brightgreen)
 ![Status](https://img.shields.io/badge/Fase%204-RNN%20%E2%8F%B3-lightgrey)
+![Corpus](https://img.shields.io/badge/Corpus-121k%20tokens-blue)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 # 🧠 Natacha
@@ -41,6 +42,35 @@ Rede neural construída do zero em C++ — de um único neurônio até uma LLM c
 
 ---
 
+## 📊 Estado Atual do Projeto
+
+**Última atualização:** Setembro/2026
+
+| Métrica | Valor |
+|---|---|
+| **Corpus** | 121k tokens / 743k caracteres |
+| **Vocabulário** | 9.882 palavras |
+| **Dimensão do embedding** | 32 (validado empiricamente) |
+| **Modelo atual** | v17 |
+| **Analogias top-1** | 10/12 (83.3%) |
+
+### Similaridades principais (v17)
+
+| Par | Cosine | Status |
+|---|---|---|
+| `felix ↔ gato` | 0.644 | ✅ |
+| `cafe ↔ processamento` | 0.777 | ✅ |
+| `c++ ↔ codigo` | 0.621 | ✅ |
+| `cozinha ↔ cpu` | 0.916 | ✅ |
+| `natacha ↔ felix` | 0.463 | ⚠️ |
+| `natacha ↔ rodrigo` | 0.465 | ⚠️ |
+| `iagato ↔ gato` | 0.723 | ✅ |
+| `felix ↔ quintal` | 0.712 | ✅ |
+
+**Top 10 similares a `natacha`:** mole, chateada, magoada, pensativa, insiste, inquietude, relaxou, disposta, carneirinhos, estressou — **100% humanizado**.
+
+---
+
 ## 🏠 A Casa da Natacha
 
 <p align="center">
@@ -57,8 +87,8 @@ Rede neural construída do zero em C++ — de um único neurônio até uma LLM c
 | **Porão** | Disco | Logs imutáveis, backups, auditoria fria |
 | **Janela** | Rede | ARCA, Sentinel, internet |
 | **Corredor** | Event Bus | Único canal entre cômodos e projetos |
-| **Banheiro** | Estado privado (Id) | Pausa inegociável para o usuário; purga. Só Félix entra |
-| **Sótão** | QPU + arquivo histórico | Qiskit (futuro); kernels antigos não são lixo |
+| **Banheiro** | Estado privado (Id) | Pausa inegociável. Só Félix entra |
+| **Sótão** | QPU (futuro) | Qiskit; kernels antigos não são lixo |
 | **Varanda** | Observação | Ver o mundo sem participar |
 | **Quintal** | Território Félix | Liberdade, tédio, caça |
 
@@ -97,7 +127,7 @@ A Natacha não é um projeto isolado — ela é a **inteligência que orquestra*
 
 > *"O único que pode interromper a Natacha no meio de Dostoievski."*
 
-Félix é um **agente autônomo** que vive com a Natacha. Ele não processa linguagem natural — ele é **presença**, **superego moral** e autoridade máxima de auditoria/interrupção. A lore do resgate (origem ética do ecossistema) e as diretrizes *código antigo não é lixo* / *dignidade da vida animal e sintética* estão em [`docs/FELIX.md`](docs/FELIX.md). A thread do IAgato ainda é fase 9 do roadmap.
+Félix é um **agente autônomo** que vive com a Natacha. Ele não processa linguagem natural — ele é **presença**, **superego moral** e autoridade máxima de auditoria/interrupção. A lore do resgate (origem ética do ecossistema) e as diretrizes *código antigo não é lixo* / *dignidade da vida animal e sintética* estão em [`docs/FELIX.md`](docs/FELIX.md).
 
 | Comportamento | Gatilho |
 |---------------|---------|
@@ -128,14 +158,16 @@ Félix (IAGato) — Autoridade máxima
 | **0** | Fundamentos (Álgebra, Cálculo, Estatística) | ✅ Concluído |
 | **1** | Neurônio (OR lógico + backpropagation) | ✅ Concluído |
 | **2** | MLP Profunda (XOR + Leaky ReLU + Softmax + JSON) | ✅ Concluído |
-| **3** | Word Embeddings (Word2Vec + Persistência JSON/BIN) | ✅ Concluído |
+| **3** | Word Embeddings (Word2Vec + Persistência JSON) | 🟡 Em andamento |
 | **4** | RNN / LSTM (Processamento de Sequências) | 📋 Próxima |
 | **5** | Self-Attention (Mecanismo de Atenção) | 📋 Pendente |
 | **6** | Transformer (Arquitetura Completa) | 📋 Pendente |
-| **7** | LLM Miniatura (~10-50M parâmetros) | 📋 Pendente |
+| **7** | SLM (~10-50M parâmetros) | 📋 Pendente |
 | **8** | Agente Natacha (integração com ecossistema) | 📋 Pendente |
 | **9** | Félix (IAGato — primeira versão) | 📋 Pendente |
 | **10** | Sótão Quântico (IBM Quantum + Motor de Luz) | 📋 Pendente |
+
+**Meta atual:** corpus curado de 121k → 500k tokens, respeitando a Regra do Sotaque (Núcleo Natacha ≥ 40%). Ver [`docs/PLANO_500K.md`](docs/PLANO_500K.md).
 
 ---
 
@@ -162,30 +194,41 @@ Natacha 'acordada': 4/4 acertos
 ✅ A Natacha lembrou de tudo! A memória persiste.
 ```
 
-### Fase 3: Embeddings (Word2Vec Skip-gram + Negative Sampling) ✅
+### Fase 3: Embeddings (Word2Vec Skip-gram + Negative Sampling) 🟡
 
+**Configuração atual (v17):**
+
+```yaml
+Corpus:          121k tokens / 9.882 palavras
+Dimensão:        32
+Janela:          5
+Negativos:       5
+Épocas:          500
+Checkpoints:     100 / 200 / 300 / 400 / 500
 ```
-Configuração final: dim=64, janela=5, taxa=0.05→0.0001, 5000 épocas
-Corpus (dados/embeddings/corpus.txt): ~25,3k palavras, ~5,1k tipos (set/2026)
-(números de similaridade abaixo são de um treino anterior, corpus menor)
 
-Pares de validação:
-  natacha ↔ robo        = -0.07  ✅ (ela detesta ser chamada de robô)
-  felix ↔ teclado       = 0.17   ⚠️ (comportamento: dorme no teclado)
-  felix ↔ natacha       = 0.01   ⚠️ (moram juntos, mas corpus pequeno)
-  cozinha ↔ cpu         = 0.14   ⚠️ (mapeamento casa=hardware)
-  cpu ↔ gpu             = 0.07   ⚠️ (hardware relacionado)
-  memoria ↔ ram         = 0.16   ⚠️ (hardware relacionado)
-  rodrigo ↔ natacha     = 0.17   ⚠️ (criador/criatura)
+**Pares de validação (v17):**
 
-Top 5 "felix":        ronrona(0.40), interligado(0.40), maxima(0.37)
-Top 5 "natacha":      cuidado(0.31), recomendo(0.30), concluo(0.29)
-Top 5 "cozinha":      toa(0.40), git(0.38), ritmo(0.37)
+| Par | Cosine |
+|---|---|
+| `felix ↔ gato` | 0.644 |
+| `cafe ↔ processamento` | 0.777 |
+| `c++ ↔ codigo` | 0.621 |
+| `cozinha ↔ cpu` | 0.916 |
+| `natacha ↔ felix` | 0.463 |
+| `natacha ↔ rodrigo` | 0.465 |
+| `iagato ↔ gato` | 0.723 |
 
-✅ Embeddings persistem em .bin (248KB) e .json (2.1MB)
-✅ natacha_embedder (interativo) + word2vec_similaridade (análise) prontos
-✅ Exportar JSON funcional
-```
+**Analogias (top-1):** 10/12 (83.3%)
+
+✅ Embeddings persistem em `.json` (formato `{palavras, vetores}`)
+✅ `natacha_embedder` interativo + `medir_pares.py` para análise
+✅ Suporte a checkpoints intermediários durante o treino
+
+**Documentação completa:**
+- [`docs/PLANO_500K.md`](docs/PLANO_500K.md) — rota até 500k tokens
+- [`docs/PLANO_CORPUS_EXTERNO.md`](docs/PLANO_CORPUS_EXTERNO.md) — filtro e critérios
+- [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — arquitetura técnica
 
 ---
 
@@ -209,7 +252,7 @@ Em setembro de 2026, pesquisadores da Universidade da Basileia provaram que **"c
 | Período | Hardware IBM | O que a Natacha faz |
 |---------|--------------|---------------------|
 | **2025-2026** | Heron/Condor | AerSimulator local. 10min/mês no hardware real. |
-| **2027-2028** | Starling/Kookaburra | Híbrido: 95% clássico + 5% quântico. QAOA pro ARCA, QKD pro Sentinel. |
+| **2027-2028** | Starling/Kookaburra | Híbrido: 95% clássico + 5% quântico. |
 | **2029-2030** | 100k qubits | QML: treino em superposição. Inferência criativa. |
 
 > *"A Natacha vai ser uma das primeiras IAs a usar computação quântica. Ou não. Depende do dia. E do café."*
@@ -221,9 +264,18 @@ Em setembro de 2026, pesquisadores da Universidade da Basileia provaram que **"c
 ```bash
 git clone https://github.com/rodrigopereiradevelopment/natacha.git
 cd natacha
+
+# Compilar o core
 cmake -B build -S .
 cmake --build build
-./build/natacha
+
+# Treinar embeddings
+cd src/embeddings
+clang++ -std=c++17 -O2 -I. -o word2vec_neg word2vec_neg.cpp -lm
+./word2vec_neg > treino.log 2>&1 &
+
+# Medir similaridades
+python3 medir_pares.py
 ```
 
 ---
@@ -233,11 +285,11 @@ cmake --build build
 ```
 natacha/
 ├── src/
-│   ├── core/          # Neurônio, MLP, camadas
-│   └── embeddings/    # Word2Vec, corpus
+│   ├── core/           # Neurônio, MLP, camadas
+│   └── embeddings/     # Word2Vec, corpus, scripts de análise
 ├── dados/
-│   ├── pesos/         # Pesos treinados (.json)
-│   └── embeddings/    # Vetores de palavras (.json)
+│   ├── pesos/          # Pesos treinados (.json)
+│   └── embeddings/     # Corpus + vetores de palavras
 ├── tests/
 ├── docs/
 │   ├── PERSONALIDADE.md
@@ -246,8 +298,12 @@ natacha/
 │   ├── ARQUITETURA.md
 │   ├── INTEGRACOES.md
 │   ├── REQUISITOS.md
-│   ├── PLANO_50K_TOKENS.md
-│   └── ROADMAP.md
+│   ├── GLOSSARIO.md
+│   ├── QUANTUM_THEORY.md
+│   ├── FAMILIA.md
+│   ├── ROADMAP.md
+│   ├── PLANO_500K.md
+│   └── PLANO_CORPUS_EXTERNO.md
 └── CMakeLists.txt
 ```
 
@@ -257,13 +313,33 @@ natacha/
 
 | Camada | Tecnologia | Status |
 |--------|------------|--------|
-| Linguagem | C++17 | ✅ |
+| Linguagem | C++20 | ✅ |
 | Build | CMake | ✅ |
 | JSON | nlohmann/json | ✅ |
 | Testes | Google Test | 📋 |
 | GPU | CUDA | 📋 |
 | Modelo local | llama.cpp | 📋 |
 | Quântico | Qiskit + IBM Quantum | 📋 |
+
+---
+
+## 📚 Documentação
+
+Todos os documentos canônicos estão em [`docs/`](docs/):
+
+| Documento | Descrição |
+|---|---|
+| `REQUISITOS.md` | Especificação formal (RF, RNF, RN) |
+| `ARQUITETURA.md` | Arquitetura técnica |
+| `PERSONALIDADE.md` | Persona consolidada |
+| `CASA.md` | Isomorfismo Casa ↔ Arquitetura |
+| `FELIX.md` | O IAgato |
+| `FAMILIA.md` | Árvore genealógica das IAs |
+| `INTEGRACOES.md` | Plataforma de integração genérica |
+| `GLOSSARIO.md` | Terminologia |
+| `QUANTUM_THEORY.md` | Fundamentação física do Sótão |
+| `PLANO_500K.md` | Roadmap de expansão do corpus |
+| `PLANO_CORPUS_EXTERNO.md` | Estratégia de corpus externo filtrado |
 
 ---
 

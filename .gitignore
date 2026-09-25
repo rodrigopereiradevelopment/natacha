@@ -1,23 +1,34 @@
-# Build
-build/
-cmake-build-*/
-*.o
-*.obj
+# === EMBEDDINGS (dados/) ===
+dados/embeddings/natacha_embeddings_*ep.json
+dados/embeddings/natacha_embeddings_v*.json
+dados/embeddings/natacha_embeddings.json
+!dados/embeddings/natacha_embeddings_v17_121k_32d_OFICIAL.json
+dados/embeddings/corpus_backup_*.txt
 
-# Binarios compilados
-src/core/mlp_*
-src/embeddings/word2vec
-
-# GitNexus
-.gitnexus/
-.claude/
-
-# IDE
-.vscode/settings.json
-
-# OS
-.DS_Store
-Thumbs.db
+# === BINARIOS COMPILADOS (src/embeddings) ===
 src/embeddings/word2vec_neg
-src/embeddings/word2vec_v4
 src/embeddings/word2vec_hybrid
+src/embeddings/_arquivado_word2vec_hybrid_v2
+src/embeddings/word2vec_v4
+src/embeddings/*.o
+src/embeddings/*.out
+
+# === LOGS DE TREINO ===
+src/embeddings/treino*.log
+src/embeddings/*.log
+
+# === C++ / BUILD ===
+build/
+*.o
+*.out
+*.obj
+*.exe
+CMakeFiles/
+CMakeCache.txt
+
+# === TEMPORÁRIOS ===
+*.tmp
+*.bak
+*.bak[0-9]
+*~
+.DS_Store
