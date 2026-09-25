@@ -32,3 +32,10 @@ CMakeCache.txt
 *.bak[0-9]
 *~
 .DS_Store
+
+# === BACKUPS DE FONTES ===
+src/embeddings/*.bak_*
+src/embeddings/*_64dims
+
+# === LOGS NA RAIZ ===
+treino_*.log
