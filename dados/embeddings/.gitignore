@@ -1,0 +1,21 @@
+# === EMBEDDINGS REGENERÁVEIS ===
+# Checkpoints intermediários (recriados a cada treino)
+natacha_embeddings_*ep.json
+
+# Embeddings antigos de versões anteriores
+natacha_embeddings_v*.json
+
+# Qualquer embedding não-oficial
+natacha_embeddings.json
+
+# === BACKUPS DE CORPUS ===
+# O Git já versiona o corpus; backups são redundantes
+corpus_backup_*.txt
+
+# === LOGS DE TREINO ===
+*.log
+
+# === TEMPORÁRIOS ===
+*.tmp
+*.bak
+*.bak[0-9]
