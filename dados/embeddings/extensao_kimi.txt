@@ -1,0 +1,567 @@
+# corpus computacao avancada
+
+## algoritmos classicos
+busca binaria exige lista ordenada antes de tudo.
+ordenacao por insercao e simples mas lenta para grandes volumes.
+quicksort escolhe pivo e divide o problema ao meio.
+mergesort divide recursivamente ate virar trivial.
+heapsort usa a estrutura de heap para ordenar eficientemente.
+bubble sort serve para ensinar mas nao para producao.
+natacha prefere mergesort quando a estabilidade importa de verdade.
+busca em largura explora vizinhos antes de descer niveis.
+busca em profundidade mergulha fundo antes de voltar atras.
+dijkstra encontra o caminho mais curto em grafos ponderados.
+algoritmo de kruskal constroi arvore geradora minima com arestas baratas.
+prim cresce a arvore a partir de um unico vertice.
+natacha questiona o uso de algoritmo quadratico em dados grandes.
+programacao dinamica resolve subproblemas repetidos uma vez so.
+memoizacao guarda resultados para nao recalcular nada.
+fibonacci recursivo ingenuo e um desastre de complexidade.
+fibonacci com memoizacao vira calculo instantaneo.
+backtracking explora todas as possibilidades com poda inteligente.
+algoritmo guloso escolhe a melhor opcao local a cada passo.
+guloso nem sempre encontra a solucao otima global.
+natacha prefere algoritmo correto a algoritmo rapido e errado.
+complexidade big o descreve o crescimento do tempo de execucao.
+o logaritmo de mil e aproximadamente dez.
+busca linear percorre elemento por elemento sem pressa.
+hash table oferece busca constante em media.
+colisao em hash exige tratamento com encadeamento ou sondagem.
+arvore binaria de busca mantem ordem a cada insercao.
+avl auto balanceia apos cada operacao de insercao.
+red black tree mantem balanceamento com regras de cor.
+natacha escolhe a estrutura certa para cada problema real.
+algoritmo de ordenacao estavel preserva a ordem relativa original.
+counting sort funciona quando o range de valores e pequeno.
+radix sort ordena digito por digito ignorando comparacao.
+bucket sort distribui elementos em caixas antes de ordenar.
+topological sort ordena tarefas com dependencias entre si.
+ordenacao topologica detecta ciclos em grafos dirigidos.
+floyd warshall calcula todos os caminhos minimos entre pares.
+bellman ford funciona ate com pesos negativos no grafo.
+algoritmo a star usa heuristica para acelerar a busca.
+heuristica admissivel nunca superestima o custo real.
+natacha recusa algoritmo que funciona so por sorte.
+## estruturas de dados avancadas
+lista encadeada permite insercao rapida no meio.
+vetor contiguo aproveita cache da cpu melhor que lista.
+pilha segue a regra ultimo a entrar primeiro a sair.
+fila segue a regra primeiro a entrar primeiro a sair.
+deque permite insercao rapida nas duas extremidades.
+arvore b e otimizada para leitura em disco.
+arvore b mais e a variante mais usada em bancos de dados.
+trie armazena strings compartilhando prefixos comuns.
+trie economiza memoria quando muitas palavras se repetem.
+segment tree responde consultas de intervalo em logaritmo.
+fenwick tree e mais simples que segment tree para somas.
+bit manipulation resolve problemas de conjuntos com eficiencia.
+union find detecta ciclos e agrupa componentes conectados.
+compressao de caminho acelera o union find na pratica.
+heap binario mantem o maior ou menor no topo.
+fila de prioridade usa heap para ordenar por importancia.
+hash map gasta memoria extra para ganhar velocidade.
+natacha prefere estrutura simples que ela entende por completo.
+estrutura certa reduz complexidade do algoritmo ao redor.
+tabela hash degenera para lista em caso de colisoes massivas.
+skip list usa niveis aleatorios para simular arvore balanceada.
+lista ligada circular facilita implementacao de filas circulares.
+grafo esparso usa lista de adjacencia para economizar memoria.
+grafo denso usa matriz de adjacencia para acesso rapido.
+natacha questiona estrutura complexa sem ganho mensuravel.
+## sistemas operacionais
+processo e um programa em execucao com memoria propria.
+thread e a menor unidade de execucao dentro de um processo.
+threads compartilham memoria do processo pai.
+processos isolados nao acessam memoria uns dos outros.
+sistema operacional agenda threads nos nucleos disponiveis.
+context switch troca a cpu de uma thread para outra.
+context switch custa tempo e degrada performance.
+natacha minimiza troca de contexto com batching inteligente.
+deadlock acontece quando duas threads esperam uma a outra.
+condicao de corrida gera resultado imprevisivel sem sincronizacao.
+mutex protege regiao critica contra acesso simultaneo.
+semaforo controla acesso a recursos limitados.
+variavel condicional acorda threads quando evento acontece.
+natacha prefere imutabilidade a locks complicados.
+memoria virtual abstrai o endereco fisico real.
+paginacao divide a memoria em blocos de tamanho fixo.
+page fault acontece quando pagina nao esta na ram.
+swapping move paginas para disco quando a ram enche.
+thrashing ocorre quando o sistema gasta tempo demais trocando paginas.
+working set e o conjunto de paginas ativamente usadas.
+natacha monitora working set para evitar degradacao.
+alocador de memoria gerencia blocos livres e ocupados.
+fragmentacao interna desperdica espaco dentro do bloco alocado.
+fragmentacao externa cria buracos entre blocos alocados.
+alocador buddy system divide blocos ao meio conforme necessario.
+slab allocator reutiliza blocos de tamanho fixo com eficiencia.
+natacha recusa alocacao desnecessaria em loop quente.
+sistema de arquivos organiza blocos em estrutura hierarquica.
+inode guarda metadados de arquivo sem o conteudo.
+journal garante consistencia apos queda de energia.
+natacha prefere sistema de arquivos com journal para dados importantes.
+syscall e a ponte entre processo e kernel.
+chamada de sistema custa mais que chamada de funcao comum.
+buffer de usuario reduz chamadas de sistema frequentes.
+natacha agrupa syscalls para reduzir overhead de kernel.
+## redes
+tcp garante entrega ordenada e confiavel dos pacotes.
+udp envia sem garantia e sem ordem definida.
+three way handshake estabelece conexao tcp entre dois pontos.
+natacha questiona uso de udp quando a confianca importa.
+http e o protocolo da web baseado em texto.
+https adiciona camada de criptografia ao http.
+dns traduz nome de dominio para endereco ip.
+cache dns reduz latencia de consultas repetidas.
+natacha prefere resolver dns uma vez e reutilizar o resultado.
+natacha prefere resolver dns uma vez e reutilizar o resultado.
+tcp retransmite pacotes perdidos automaticamente.
+janela deslizante controla fluxo de dados no tcp.
+natacha evita abrir conexao nova para cada requisicao.
+natacha evita abrir conexao nova para cada requisicao.
+keep alive mantem conexao aberta para reutilizar.
+natacha fecha conexao ociosa para liberar recursos.
+natacha fecha conexao ociosa para liberar recursos.
+load balancer distribui requisicoes entre servidores.
+round robin alterna servidores em ordem circular.
+natacha questiona balanceador sem verificacao de saude ativo.
+natacha questiona balanceador sem verificacao de saude ativo.
+natacha prefere verificacao de saude para remover servidor morto.
+natacha prefere verificacao de saude para remover servidor morto.
+natacha usa timeout para nao esperar resposta infinita.
+natacha usa timeout para nao esperar resposta infinita.
+natacha implementa retry com backoff exponencial.
+natacha implementa retry com backoff exponencial.
+natacha evita retry agressivo que sobrecarrega o servidor.
+natacha evita retry agressivo que sobrecarrega o servidor.
+websocket mantem conexao aberta para comunicacao bidirecional.
+natacha usa websocket para atualizacao em tempo real.
+natacha usa websocket para atualizacao em tempo real.
+natacha fecha websocket ocioso para economizar recurso.
+natacha fecha websocket ocioso para economizar recurso.
+natacha prefere protocolo binario para alta performance.
+natacha prefere protocolo binario para alta performance.
+natacha usa json quando a legibilidade importa mais.
+natacha usa json quando a legibilidade importa mais.
+natacha comprime payload para reduzir uso de banda.
+natacha comprime payload para reduzir uso de banda.
+natacha evita compressao para payload pequeno demais.
+natacha evia compressao para payload pequeno demais.
+natacha monitora latencia de rede com ping e traceroute.
+natacha monitora latencia de rede com ping e traceroute.
+natacha identifica gargalo com analise de tempo por etapa.
+natacha identifica gargalo com analise de tempo por etapa.
+## c++ avancado
+raii garante liberacao de recurso no destrutor.
+unique ptr representa posse exclusiva de ponteiro.
+shared ptr permite compartilhamento com contagem de referencia.
+weak ptr evita ciclo de referencia entre shared ptr.
+natacha prefere unique ptr por padrao em todo codigo.
+move semantics transfere posse sem copiar dados pesados.
+std move nao move nada apenas converte para rvalue.
+move constructor rouba os dados do objeto original.
+natacha usa move para vetores grandes e strings longas.
+copy elision otimiza retorno de objeto por valor.
+return value optimization elimina copia desnecessaria.
+natacha nao escreve return std move em retorno local.
+templates permitem codigo generico com tipos variados.
+template metaprogramming calcula em tempo de compilacao.
+constexpr funciona em tempo de compilacao e runtime.
+constexpr reduz trabalho de runtime para constantes.
+natacha usa constexpr para tabelas e constantes matematicas.
+variadic templates aceitam numero arbitrario de argumentos.
+fold expressions simplificam operacoes em variadic templates.
+concepts restringem tipos aceitos por templates.
+concepts melhoram mensagem de erro do compilador.
+natacha prefere concepts a sfinae confuso.
+lambda captura variaveis por valor ou referencia.
+lambda com capture por referencia pode gerar dangling.
+natacha prefere capture explicito a capture por padrao.
+std function encapsula qualquer callable com mesma assinatura.
+std function tem custo de indirecao comparado a template.
+std bind pre-fixa argumentos de funcao.
+lambda substitui std bind em quase todos os casos.
+natacha prefere lambda a std bind por clareza.
+smart pointer nao e solucao para ciclo de referencia.
+natacha quebra ciclo com weak ptr no ponto certo.
+ponteiro bruto e aceitavel quando nao ha posse envolvida.
+natacha documenta quem e o dono de cada ponteiro.
+delete raw pointer em codigo moderno e sinal de alerta.
+new e delete manualmente sao raros em codigo bem escrito.
+make unique e a forma segura de criar unique ptr.
+make shared e a forma segura de criar shared ptr.
+natacha evita new unique ptr com argumentos complexos.
+exception garante destrutores sejam chamados na pilha.
+noexcept ajuda compilador a gerar codigo melhor.
+natacha marca noexcept funcoes que nao lancam excecao.
+std optional representa valor que pode nao existir.
+std variant guarda um tipo entre varias alternativas.
+std visit aplica funcao ao tipo ativo da variant.
+natacha prefere variant a hierarquia de classes quando possivel.
+std string view evita copia de string em parametro.
+string view nao e dono da memoria que referencia.
+natacha usa string view para funcoes que apenas leem texto.
+std span oferece vista segura sobre array contiguo.
+span carrega ponteiro e tamanho juntos sem overhead.
+natacha prefere span a ponteiro bruto com tamanho separado.
+algoritmo da stl usa iterators para abstrair container.
+std sort funciona em qualquer container com random access.
+std find percorre sequencia ate encontrar elemento.
+std accumulate soma elementos com operacao especificada.
+std transform aplica funcao a cada elemento da sequencia.
+natacha prefere algoritmo da stl a loop manual.
+loop manual e legivel quando a logica e complexa demais.
+## build systems
+cmake gera arquivos de build para qualquer plataforma.
+cmake nao e um build system e um gerador de build.
+ninja executa o build rapido com paralelismo inteligente.
+make e simples mas lento para projetos grandes.
+natacha prefere ninja para iteracao rapida no desenvolvimento.
+cmake target moderno encapsula flags e includes.
+target link libraries propaga dependencia transitivamente.
+target include directories define caminho de header.
+natacha prefere target moderno a variaveis globais.
+find package localiza biblioteca instalada no sistema.
+pkg config e alternativa para bibliotecas sem cmake nativo.
+natacha recusa caminho absoluto hardcoded no cmake.
+cmake preset padroniza configuracao entre desenvolvedores.
+preset elimina necessidade de lembrar flags especificas.
+out of source build mantem codigo limpo de artefatos.
+natacha nunca compila dentro da pasta do codigo fonte.
+cache do cmake guarda configuracao entre execucoes.
+mudanca de flag exige limpar cache do cmake.
+natacha sabe quando limpar cache e quando nao limpar.
+arquivo cmake list define targets e dependencias.
+cmake modules organizam logica reutilizavel de build.
+function do cmake encapsula bloco de configuracao.
+natacha prefere function a copiar bloco de cmake repetido.
+install rule define o que sera instalado no sistema.
+package config permite find package para projeto proprio.
+natacha cria package config para biblioteca interna.
+ctest integra testes ao processo de build.
+ctest executa testes em paralelo quando possivel.
+natacha roda ctest apos cada build para validar.
+dependency graph mostra ordem de compilacao dos targets.
+natacha analisa dependency graph para otimizar build paralelo.
+link time optimization reduz tamanho do binario final.
+lto aumenta tempo de link mas melhora performance.
+natacha ativa lto apenas em build de release.
+unity build junta varios arquivos fonte em um so.
+unity build reduz tempo de compilacao em projetos grandes.
+natacha usa unity build com cuidado para evitar colisao de nome.
+precompiled header acelera compilacao de headers estaveis.
+natacha mantem precompiled header minimo e estavel.
+ccache reutiliza objeto compilado quando codigo nao muda.
+natacha ativa ccache para reduzir tempo de build iterativo.
+## debug
+gdb inspeciona programa em execucao com breakpoints.
+breakpoint pausa execucao quando linha e atingida.
+watchpoint pausa quando valor de variavel muda.
+natacha usa watchpoint para rastrear variavel misteriosa.
+backtrace mostra pilha de chamadas no momento atual.
+frame seleciona nivel da pilha para inspecao local.
+natacha navega frames para entender fluxo de erro.
+print exibe valor de variavel no ponto atual.
+x examina memoria bruta em formato especificado.
+natacha usa x para inspectar ponteiro suspeito.
+step entra dentro da funcao chamada.
+next executa linha sem entrar em funcao.
+finish executa ate sair da funcao atual.
+continue retoma execucao ate proximo breakpoint.
+natacha combina step next finish para navegar com eficiencia.
+core dump e o estado do programa no momento do crash.
+gdb analisa core dump para investigar causa da falha.
+natacha sempre ativa core dump em ambiente de desenvolvimento.
+sanitizer detecta erro de memoria em tempo de execucao.
+address sanitizer encontra uso apos liberacao e overflow.
+undefined behavior sanitizer pega comportamento indefinido.
+natacha roda asan em teste para pegar erro cedo.
+leak sanitizer detecta vazamento de memoria no final.
+natacha integra lsan ao ciclo de teste continuo.
+valgrind analisa programa sem recompilar com flags especiais.
+valgrind e mais lento que sanitizer mas nao precisa de flag.
+natacha prefere sanitizer quando pode recompilar o codigo.
+valgrind memcheck detecta leitura de memoria nao inicializada.
+helgrind detecta condicao de corrida entre threads.
+natacha usa helgrind quando suspeita de race condition.
+log estruturado facilita rastreamento de fluxo de execucao.
+natacha inclui timestamp e contexto em todo log.
+log de debug e removido ou convertido em release.
+natacha prefere log util a log verboso sem sentido.
+assert documenta precondicao que deve ser verdadeira.
+static assert verifica condicao em tempo de compilacao.
+natacha usa static assert para garantir tamanho de struct.
+## testes
+teste unitario verifica funcao isolada sem dependencia externa.
+mock substitui dependencia externa com comportamento controlado.
+fixture prepara ambiente comum para grupo de testes.
+natacha usa fixture para evitar repeticao de setup.
+teste de integracao verifica interacao entre componentes.
+teste de sistema verifica comportamento de ponta a ponta.
+teste de regressao garante que bug corrigido nao volta.
+natacha escreve teste de regressao para cada bug encontrado.
+tdd escreve teste antes de implementar a funcao.
+red green refactor e o ciclo do tdd.
+natacha usa tdd quando o requisito e claro desde o inicio.
+tdd nao e dogma e uma ferramenta que natacha escolhe usar.
+cobertura de codigo mede percentual de linhas executadas.
+cobertura alta nao garante qualidade dos testes.
+natacha prefere poucos testes bons a muitos testes fracos.
+teste parametrizado executa mesmo teste com dados variados.
+natacha usa teste parametrizado para funcao com muitos casos.
+teste de propriedade verifica invariante em vez de exemplo especifico.
+fuzzing envia entrada aleatoria para encontrar crash.
+natacha roda fuzzing em parser de entrada externa.
+teste de carga verifica comportamento sob volume alto.
+benchmark mede tempo de execucao de forma controlada.
+natacha usa benchmark para validar otimizacao de performance.
+teste flake e teste que falha intermitentemente sem causa clara.
+natacha trata teste flake como bug de prioridade alta.
+isolamento de teste garante que um teste nao afeta outro.
+natacha prefere teste independente a teste que depende de ordem.
+teste de contrato verifica interface entre componentes.
+natacha define contrato claro antes de implementar componente.
+teste de mutacao altera codigo para verificar qualidade do teste.
+natacha usa mutacao para identificar teste fraco.
+## git avancado
+rebase reescreve historico para criar linha reta.
+rebase interativo permite editar squash e reordenar commits.
+natacha prefere rebase antes de abrir pedido de revisao.
+merge preserva historico com commit de merge visivel.
+natacha usa merge quando o historico precisa ser honesto.
+squash junta varios commits pequenos em um so.
+natacha faz squash de commits de wip antes de revisao.
+bisect encontra commit que introduziu bug por divisao binaria.
+natacha usa bisect quando nao sabe quando bug apareceu.
+cherry pick aplica commit especifico em outra branch.
+natacha usa cherry pick para backport de correcao urgente.
+stash guarda mudanca temporaria sem commit.
+natacha usa stash quando precisa trocar de branch rapido.
+reflog registra todo movimento de ponteiros do git.
+reflog salva quando commit parece perdido.
+natacha consulta reflog antes de entrar em panico.
+amend corrige ultimo commit sem criar commit novo.
+natacha usa amend para adicionar arquivo esquecido.
+force push sobrescreve historico remoto com historico local.
+force push com trava verifica que remoto nao mudou.
+natacha prefere force com trava a force push cego.
+hook executa script antes ou depois de evento git.
+pre commit hook valida formato antes de criar commit.
+pre push hook roda teste antes de enviar para remoto.
+natacha usa hook para garantir qualidade minima.
+gitignore lista arquivos que git nao deve rastrear.
+natacha mantem gitignore atualizado desde o inicio do projeto.
+submodule inclui repositorio externo dentro do projeto.
+natacha evita submodule quando alternativa mais simples existe.
+worktree permite checkout de multiplas branches simultaneamente.
+natacha usa worktree para comparar duas versoes lado a lado.
+blame mostra quem modificou cada linha do arquivo.
+natacha usa blame para entender contexto de mudanca antiga.
+## arquitetura de software
+camada de apresentacao separa interface de logica de negocio.
+camada de dominio contem regras de negocio puras.
+camada de infraestrutura lida com banco e rede externa.
+natacha prefere dependencia apontando para o dominio.
+inversao de dependencia desacopla modulo de implementacao concreta.
+interface define contrato sem revelar implementacao.
+natacha usa interface para trocar implementacao sem quebrar codigo.
+injecao de dependencia fornece objeto pronto ao componente.
+natacha prefere injecao a criacao manual de dependencia.
+singleton garante uma unica instancia de classe.
+singleton dificulta teste e cria acoplamento oculto.
+natacha evita singleton quando injecao de dependencia resolve.
+factory cria objeto sem expor logica de criacao.
+natacha usa factory quando criacao e complexa demais para construtor.
+builder constroi objeto complexo passo a passo.
+natacha prefere builder a construtor com dez parametros.
+adapter converte interface de uma classe para outra.
+natacha usa adapter para integrar codigo legado sem modificacao.
+facade oferece interface simples para subsistema complexo.
+natacha cria facade quando a api interna e confusa demais.
+observer notifica assinantes quando evento acontece.
+natacha prefere observer a polling que gasta cpu.
+strategy encapsula algoritmo intercambiavel em familia.
+natacha usa strategy para trocar algoritmo em runtime.
+command encapsula requisicao como objeto com todos os dados.
+natacha usa command para desfazer operacao de forma segura.
+repository abstrai acesso a dados como colecao em memoria.
+natacha prefere repository a query sql espalhada no codigo.
+unit of work agrupa operacoes em transacao atomica.
+natacha usa unit of work para garantir consistencia de dados.
+event sourcing guarda historico de eventos em vez de estado atual.
+natacha usa event sourcing quando auditoria e critica.
+cqrs separa modelo de leitura de modelo de escrita.
+natacha usa cqrs quando leitura e escrita tem necessidades diferentes.
+monolito modular organiza codigo em modulos independentes.
+natacha prefere monolito modular a microservico prematuro.
+microservico divide sistema em servicos independentes e implantaveis.
+natacha questiona microservico quando equipe e pequena demais.
+api gateway centraliza autenticacao e roteamento de requisicoes.
+natacha usa api gateway para simplificar acesso de cliente.
+circuit breaker interrompe chamada a servico que esta falhando.
+natacha implementa circuit breaker para evitar cascata de falha.
+bulkhead isola recursos para impedir que falha se espalhe.
+natacha usa bulkhead para proteger componente critico.
+retry com backoff reduz pressao sobre servico temporariamente instavel.
+natacha combina retry com circuit breaker para resiliencia.
+idempotencia garante que repeticao nao cause efeito duplicado.
+natacha projeta operacao idempotente para facilitar retry.
+saga gerencia transacao distribuida entre multiplos servicos.
+natacha prefere saga a transacao distribuida tradicional.
+natacha documenta decisao arquitetural com contexto e consequencia.
+adr registra arquitetura para consulta futura da equipe.
+natacha escreve adr curto e direto ao ponto.
+## cenas
+natacha abriu o terminal e encarou o codigo de ordenacao que rodrigo havia escrito no onibus. o algoritmo funcionava mas usava bubble sort em dados que claramente mereciam mergesort. ela suspirou e refatorou o codigo inteiro antes do primeiro cafe da manha. felix observou da bancada sem emitir opiniao.
+o compilador reclamou de um template que natacha jurava estar correto. o erro mencionava sfinae e ela franziu a testa diante da mensagem criptica. em vez de lutar contra o compilador ela reescreveu o constraint com concepts e o erro sumiu. felix miou aprovando a solucao elegante.
+natacha encontrou um vazamento de memoria que so aparecia apos quarenta e oito horas de execucao. ela ativou o address sanitizer e rodou o teste de estresse por tres dias seguidos. o sanitizer apontou a linha exata e ela corrigiu com um unique ptr. felix dormiu no teclado durante toda a investigacao.
+rodrigo perguntou por que natacha recusava usar um singleton para gerenciar a conexao com o banco. ela explicou que singleton esconde dependencia e dificulta teste unitario. rodrigo anotou no caderno e substituiu por injecao de dependencia. felix observou a cena do topo da estante.
+o build do projeto levava vinte minutos e natacha decidiu investigar. ela descobriu que o cmake recompilava tudo por causa de um header que mudava a cada commit. ela moveu o conteudo volatil para um arquivo separado e o build caiu para dois minutos. felix nao notou a diferenca.
+natacha revisava o codigo de um colega e encontrou um loop manual que std sort resolvia em uma linha. ela apontou a redundancia e sugeriu o algoritmo da stl. o colega argumentou que o loop era mais legivel. natacha concordou que legibilidade importa mas recusou a gambiarra desnecessaria.
+o servidor de producao caiu as tres da manha e natacha acordou com o alerta. ela abriu o core dump no gdb e navegou pelo backtrace ate encontrar o ponteiro nulo. a correcao levou dez minutos. o sono perdido levou o resto da noite. felix nao acordou nem com o barulho.
+natacha discutia com rodrigo sobre usar mutex ou atomic para contador compartilhado. rodrigo sugeria mutex por seguranca. natacha argumentou que atomic era suficiente e mais rapido. eles mediram com benchmark e atomic venceu por tres nanosegundos. felix bocejou durante a discussao.
+o teste de integracao falhava intermitentemente e ninguem sabia por que. natacha suspeitava de race condition e ativou o helgrind. a ferramenta apontou acesso nao sincronizado a variavel compartilhada. ela adicionou um mutex e o teste estabilizou. felix aprovou com um ronronar.
+natacha encontrou um comentario no codigo que dizia gambiarra temporaria ha tres anos. ela questionou rodrigo sobre a definicao de temporario. rodrigo riu e pediu para ela resolver. natacha refatorou a gambiarra em uma solucao limpa que durou mais de uma hora. felix dormiu durante a refatoracao.
+o cmake do projeto usava variaveis globais para definir flags de compilacao. natacha propos migrar para target moderno com target compile options. a migracao levou um fim de semana inteiro. o resultado foi um build mais previsivel e sem efeitos colaterais. felix nao entendeu nada.
+natacha investigava um bug que so acontecia em producao e nunca em desenvolvimento. ela comparou as flags de compilacao e descobriu que otimizacao agressiva revelava undefined behavior. ela ativou o ubsan e encontrou o shift invalido. felix observou com atencao rara.
+rodrigo sugeriu usar um framework pesado para resolver um problema simples de parsing. natacha recusou e escreveu um parser de quarenta linhas que fazia exatamente o necessario. rodrigo ficou impressionado com a simplicidade. felix nao se impressionou com nada.
+o git log do projeto parecia um labirinto de merges e reverts. natacha propos adotar rebase para manter historico linear. a equipe resistiu ate que um bisect encontrou um bug em segundos gracas ao historico limpo. felix nao entendeu de historico mas aprovou o resultado.
+natacha encontrou um teste que verificava se dois mais dois era quatro. ela questionou o valor do teste e o autor respondeu que aumentava a cobertura. natacha deletou o teste e sugeriu testar comportamento real. felix miou concordando que teste inutil e pior que nenhum teste.
+o sistema operacional reportava uso de memoria crescente indefinidamente. natacha suspeitava de vazamento e rodou o valgrind. a ferramenta apontou uma alocacao que nunca era liberada em um caminho de erro. ela corrigiu e o uso de memoria estabilizou. felix nao notou diferenca.
+natacha discutia com rodrigo sobre usar lista encadeada ou vetor para uma fila de tarefas. rodrigo sugeria lista por insercao rapida. natacha argumentou que vetor aproveitava cache melhor. benchmark provou que vetor era dez vezes mais rapido. felix dormiu durante o benchmark.
+o dns do servico falhava intermitentemente e causava timeout em cascata. natacha implementou cache local com ttl respeitando o registro original. as falhas de dns pararam de afetar o servico. felix nao entendeu de dns mas gostou da estabilidade.
+natacha revisava um pedido de revisao e encontrou um force push sem trava. ela bloqueou o merge e explicou o risco de sobrescrever trabalho alheio. o autor nao sabia da opcao com trava. natacha ensinou e o projeto adotou o padrao. felix nao entendeu de git.
+o algoritmo de dijkstra do projeto tinha uma fila de prioridade implementada com vetor ordenado. natacha substituiu por heap binario e a performance melhorou cem vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix nao se impressionou.
+natacha encontrou um comentario no codigo que dizia nao remover isso ou tudo quebra. ela passou tres dias entendendo o que isso fazia. quando entendeu ela removeu e nada quebrou. o comentario era de um medo antigo sem fundamento. felix aprovou a coragem.
+o build do projeto falhava em uma maquina especifica e funcionava em todas as outras. natacha investigou e descobriu que a versao do cmake era diferente. ela adicionou verificacao de versao minima no cmake list. o problema nunca mais voltou. felix nao entendeu de cmake.
+natacha implementou um sistema de eventos entre componentes usando observer. rodrigo sugeriu usar um barramento de mensagens externo. natacha argumentou que observer era suficiente para o tamanho atual. eles concordaram em revisar quando o sistema crescesse. felix nao entendeu de arquitetura.
+o teste de carga revelava que o sistema travava apos mil requisicoes simultaneas. natacha investigou e descobriu que o pool de conexoes nunca era liberado. ela implementou timeout de conexao ociosa e o sistema aguentou dez mil requisicoes. felix dormiu durante o teste.
+natacha encontrou um ponteiro bruto no codigo que era deletado manualmente. ela substituiu por unique ptr e removeu o delete. o codigo ficou mais curto e mais seguro. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que o codigo era antigo. felix nao se importou.
+o sistema de logging do projeto gerava terabytes de dados por dia. natacha propos reduzir o nivel de log em producao e manter debug apenas em desenvolvimento. o custo de armazenamento caiu noventa por cento. felix nao entendeu de log mas gostou do silencio.
+natacha discutia com rodrigo sobre usar excecao ou codigo de erro para tratamento de falha. rodrigo preferia codigo de erro por performance. natacha argumentou que excecao era mais segura e o custo era desprezivel no caminho quente. eles mediram e excecao venceu na clareza. felix nao entendeu de excecao.
+o algoritmo de busca binaria do projeto tinha um bug que so aparecia com numeros negativos. natacha escreveu teste parametrizado cobrindo todos os casos de borda. o bug foi encontrado e corrigido em minutos. felix nao entendeu de teste mas aprovou o resultado.
+natacha encontrou um loop que processava dados um por um quando poderia processar em lote. ela refatorou para processamento em lote e a performance melhorou quarenta vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o git hook de pre commit rodava testes que levavam dez minutos. natacha propos rodar apenas testes afetados pelo commit. o tempo caiu para trinta segundos e os desenvolvedores pararam de usar no verify. felix nao entendeu de hook.
+natacha investigava um bug que fazia o sistema consumir toda a cpu. ela usou o perf e descobriu que a funcao de hash era chamada milhoes de vezes. ela implementou cache de hash e a cpu caiu para niveis normais. felix nao notou diferenca.
+rodrigo sugeriu usar um orm pesado para acesso ao banco. natacha recusou e escreveu uma camada de acesso simples com prepared statements. o codigo ficou mais rapido e mais facil de entender. felix nao entendeu de banco de dados.
+natacha encontrou um deadlock que travava o sistema aleatoriamente. ela usou o gdb para inspecionar as threads no momento do travamento. duas threads seguravam locks em ordem oposta. ela padronizou a ordem e o deadlock sumiu. felix nao entendeu de deadlock.
+o sistema de build usava make e levava quarenta minutos. natacha migrou para ninja e o build caiu para cinco minutos. a equipe ficou impressionada. natacha explicou que ninja foi feito para ser rapido. felix nao entendeu de build.
+natacha revisava o codigo e encontrou uma funcao com cinquenta parametros. ela propos usar um struct para agrupar parametros relacionados. o codigo ficou mais legivel e mais facil de testar. felix nao entendeu de refatoracao.
+o teste de sistema falhava porque dependia de um servico externo instavel. natacha implementou um mock do servico e o teste ficou deterministico. a equipe parou de ignorar o teste. felix nao entendeu de mock.
+natacha encontrou um algoritmo que resolvia um problema em tempo quadratico quando uma solucao linear existia. ela implementou a solucao linear e a performance melhorou mil vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha estudado o algoritmo. felix dormiu.
+o sistema de arquivos do servidor de producao corria risco de perda de dados. natacha migrou para um sistema com journal e ativou backup automatico. a equipe dormiu melhor depois disso. felix nao entendeu de backup.
+natacha discutia com rodrigo sobre usar threads ou processos para isolamento. rodrigo sugeria processos por seguranca. natacha argumentou que threads eram suficientes e mais leves. eles mediram e threads venceram na performance. felix nao entendeu de processos.
+o algoritmo de compressao do projeto usava gzip quando zstd era claramente superior. natacha substituiu e o tamanho dos arquivos caiu pela metade. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pesquisado. felix nao se importou.
+natacha encontrou um vazamento de memoria em um codigo que usava new e delete manualmente. ela migrou para smart pointers e o vazamento sumiu. o codigo ficou mais curto e mais seguro. felix nao entendeu de ponteiro.
+o sistema de logging do projeto nao tinha timestamp e era impossivel correlacionar eventos. natacha adicionou timestamp com precisao de nanosegundos. a depuracao ficou trivial. felix nao entendeu de timestamp.
+natacha revisava um pedido de revisao e encontrou um algoritmo de ordenacao implementado manualmente. ela sugeriu usar std sort e o autor respondeu que queria aprender. natacha concordou que aprender e valido mas recusou o merge em producao. felix aprovou a decisao.
+o build do projeto falhava silenciosamente e gerava binario corrompido. natacha adicionou verificacao de hash no final do build. o problema foi detectado antes de chegar em producao. felix nao entendeu de hash.
+natacha encontrou um sistema de cache que nunca expirava entradas. ela implementou ttl e o uso de memoria estabilizou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pensado. felix dormiu.
+o teste unitario do projeto cobria apenas o caminho feliz. natacha escreveu testes para caminho de erro e encontrou tres bugs. a equipe ficou impressionada. felix nao entendeu de teste.
+natacha discutia com rodrigo sobre usar um barramento de mensagens ou chamada direta entre servicos. rodrigo sugeria barramento para escalabilidade futura. natacha argumentou que chamada direta era suficiente para o momento. eles concordaram em revisar quando necessario. felix nao entendeu de arquitetura.
+o algoritmo de hash do projeto era vulneravel a colisoes proposais. natacha migrou para uma funcao resistente a ataques. a seguranca melhorou significativamente. felix nao entendeu de seguranca.
+natacha encontrou um codigo que fazia polling de um arquivo a cada segundo. ela substituiu por notificacao de evento do sistema operacional. o uso de cpu caiu para zero quando ocioso. felix aprovou a eficiencia.
+o git log do projeto tinha mensagens como arrumei coisas. natacha propos padrao de mensagem descritiva. a equipe adotou e o historico ficou util. felix nao entendeu de git.
+natacha investigava um bug que so acontecia em maquinas com pouca memoria. ela usou o valgrind para inspecionar o uso de memoria e encontrou um vazamento. a correcao levou uma tarde. felix dormiu durante a investigacao.
+o sistema de build compilava todos os arquivos mesmo quando nada mudava. natacha ativou ccache e o build incremental caiu para segundos. a equipe ficou impressionada. felix nao entendeu de cache.
+natacha encontrou uma funcao que fazia dez coisas diferentes. ela dividiu em dez funcoes que faziam uma coisa cada. o codigo ficou mais testavel e mais legivel. felix nao entendeu de refatoracao.
+o teste de integracao dependia de ordem de execucao dos testes. natacha isolou cada teste e o conjunto ficou deterministico. a equipe parou de ter surpresas. felix nao entendeu de teste.
+natacha discutia com rodrigo sobre usar excecao ou codigo de erro. rodrigo preferia codigo de erro por clareza. natacha argumentou que excecao separava codigo normal de tratamento de erro. eles concordaram em usar excecao para erro exceptional. felix nao entendeu de excecao.
+o algoritmo de busca do projeto usava busca linear em dados ordenados. natacha substituiu por busca binaria e a performance melhorou mil vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha notado. felix dormiu.
+natacha encontrou um sistema de configuracao que usava variaveis globais. ela migrou para injecao de dependencia e o codigo ficou testavel. a equipe ficou grata. felix nao entendeu de configuracao.
+o build do projeto gerava warnings que todos ignoravam. natacha ativou tratamento de warning como erro e corrigiu todos. o codigo ficou mais limpo. felix nao entendeu de warning.
+natacha revisava um pedido de revisao e encontrou um algoritmo que poderia ser substituido por uma chamada da stl. ela sugeriu a substituicao e o autor concordou. o codigo ficou mais curto e mais confiavel. felix aprovou.
+o sistema de logging do projeto usava printf em vez de um sistema tipado. natacha migrou para um sistema de log estruturado. a depuracao ficou trivial. felix nao entendeu de log.
+natacha encontrou um deadlock que acontecia uma vez por mes. ela usou o gdb para inspecionar as threads e encontrou a ordem errada de locks. a correcao levou dez minutos. felix nao entendeu de deadlock.
+o teste de carga do projeto usava dados irreais. natacha migrou para dados de producao anonimizados. os resultados ficaram relevantes. felix nao entendeu de dados.
+natacha discutia com rodrigo sobre usar um framework ou escrever do zero. rodrigo sugeria framework por produtividade. natacha argumentou que o problema era simples demais para um framework. eles escreveram do zero em uma tarde. felix aprovou a simplicidade.
+o algoritmo de ordenacao do projeto era estavel quando nao precisava ser. natacha substituiu por quicksort nao estavel e ganhou trinta por cento de performance. rodrigo perguntou se a estabilidade importava. natacha respondeu que nao. felix nao se importou.
+natacha encontrou um codigo que fazia copia desnecessaria de um vetor grande. ela adicionou move semantics e a performance melhorou dez vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+o sistema de build usava caminho absoluto para encontrar bibliotecas. natacha migrou para find package e o build funcionou em qualquer maquina. a equipe ficou grata. felix nao entendeu de cmake.
+natacha revisava um pedido de revisao e encontrou um teste que verificava implementacao em vez de comportamento. ela sugeriu reescrever o teste e o autor concordou. o teste ficou mais util. felix nao entendeu de teste.
+o git hook de pre push rodava testes que levavam vinte minutos. natacha moveu os testes lentos para o servidor de integracao continua. os desenvolvedores pararam de reclamar. felix nao entendeu de hook.
+natacha encontrou um vazamento de memoria em um codigo que usava ponteiros brutos. ela migrou para smart pointers e o vazamento sumiu. o codigo ficou mais curto e mais seguro. felix nao entendeu de ponteiro.
+o algoritmo de busca em largura do projeto usava uma fila implementada com lista. natacha substituiu por deque e a performance melhorou cinco vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+natacha discutia com rodrigo sobre usar um banco de dados relacional ou nosql. rodrigo sugeria nosql por escalabilidade. natacha argumentou que os dados tinham relacionamentos claros. eles escolheram relacional e nunca se arrependeram. felix nao entendeu de banco.
+o sistema de logging do projeto gerava logs em texto plano. natacha migrou para formato estruturado com json. a analise de logs ficou trivial. felix nao entendeu de json.
+natacha encontrou um algoritmo que resolvia um problema em tempo cubico quando uma solucao quadratica existia. ela implementou a solucao quadratica e a performance melhorou cem vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha estudado. felix dormiu.
+o build do projeto compilava em uma unica thread. natacha ativou compilacao paralela e o build caiu pela metade. a equipe ficou impressionada. felix nao entendeu de paralelismo.
+natacha revisava um pedido de revisao e encontrou um comentario que dizia nao entendo como isso funciona. ela bloqueou o merge e pediu para o autor entender antes. o autor entendeu e o codigo melhorou. felix aprovou a exigencia.
+o teste unitario do projeto usava um framework pesado demais para a necessidade. natacha migrou para um framework leve e os testes ficaram mais rapidos. a equipe ficou grata. felix nao entendeu de framework.
+natacha encontrou um sistema de cache que usava uma lista para armazenar entradas. ela substituiu por hash map e a busca ficou constante. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pensado. felix dormiu.
+o git log do projeto tinha commits gigantes com mudancas nao relacionadas. natacha ensinou a equipe a fazer commits atomicos. o historico ficou util. felix nao entendeu de git.
+natacha investigava um bug que fazia o sistema consumir toda a memoria. ela usou o valgrind e encontrou um vazamento em um caminho de erro raro. a correcao levou uma tarde. felix dormiu durante a investigacao.
+o sistema de build nao tinha verificacao de dependencias. natacha adicionou verificacao automatica e o build ficou mais confiavel. a equipe parou de ter surpresas. felix nao entendeu de build.
+natacha encontrou uma funcao que fazia alocacao em loop quente. ela moveu a alocacao para fora do loop e a performance melhorou cem vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o teste de integracao do projeto dependia de um banco de dados real. natacha implementou um banco em memoria para testes. os testes ficaram rapidos e isolados. felix nao entendeu de banco.
+natacha discutia com rodrigo sobre usar um sistema de tipos forte ou fraco. rodrigo sugeria fraco por flexibilidade. natacha argumentou que forte pegava erro em tempo de compilacao. eles escolheram forte e nunca se arrependeram. felix nao entendeu de tipos.
+o algoritmo de ordenacao do projeto usava comparacao quando counting sort era possivel. natacha implementou counting sort e a performance melhorou mil vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha considerado. felix dormiu.
+natacha encontrou um codigo que fazia copia de string desnecessaria. ela adicionou string view e a performance melhorou dez vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+o sistema de logging do projeto nao tinha nivel de severidade. natacha adicionou niveis e a filtragem ficou trivial. a equipe ficou grata. felix nao entendeu de log.
+natacha revisava um pedido de revisao e encontrou um algoritmo que poderia ser substituido por uma chamada da biblioteca padrao. ela sugeriu a substituicao e o autor concordou. o codigo ficou mais curto e mais confiavel. felix aprovou.
+o build do projeto usava flags de otimizacao diferentes em cada maquina. natacha padronizou com cmake preset. o build ficou consistente. felix nao entendeu de cmake.
+natacha encontrou um deadlock que acontecia quando duas threads acessavam recursos em ordem diferente. ela padronizou a ordem e o deadlock sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha documentado. felix nao entendeu de deadlock.
+o teste de carga do projeto usava um unico usuario virtual. natacha migrou para mil usuarios virtuais e encontrou gargalos reais. a equipe ficou grata. felix nao entendeu de carga.
+natacha discutia com rodrigo sobre usar um protocolo binario ou texto. rodrigo sugeria texto por depurabilidade. natacha argumentou que binario era mais rapido e usava menos banda. eles escolheram binario para comunicacao interna. felix nao entendeu de protocolo.
+o algoritmo de busca do projeto usava busca linear quando uma hash table era possivel. natacha implementou hash table e a busca ficou constante. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha considerado. felix dormiu.
+natacha encontrou um sistema de configuracao que relia o arquivo a cada acesso. ela implementou cache com invalidacao e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+o git log do projeto tinha merges desnecessarios. natacha ensinou a equipe a usar rebase para manter historico linear. o bisect ficou trivial. felix nao entendeu de git.
+natacha investigava um bug que so acontecia com dados especificos. ela escreveu um teste de propriedade e encontrou o caso de falha. a correcao levou minutos. felix nao entendeu de propriedade.
+o sistema de build nao tinha teste de regressao de performance. natacha adicionou benchmark ao build e regressoes foram detectadas imediatamente. a equipe ficou grata. felix nao entendeu de benchmark.
+natacha encontrou uma funcao que fazia syscall em loop. ela implementou buffer e o numero de syscalls caiu mil vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha contado. felix dormiu.
+o teste unitario do projeto nao testava caminho de erro. natacha escreveu testes de erro e encontrou bugs. a equipe ficou impressionada. felix nao entendeu de teste.
+natacha discutia com rodrigo sobre usar um sistema de tipos estatico ou dinamico. rodrigo sugeria dinamico por produtividade. natacha argumentou que estatico pegava erro cedo. eles escolheram estatico e nunca se arrependeram. felix nao entendeu de tipos.
+o algoritmo de compressao do projeto usava gzip quando lz4 era mais rapido. natacha substituiu e a compressao ficou dez vezes mais rapida. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pesquisado. felix nao se importou.
+natacha encontrou um codigo que fazia copia de estrutura grande por valor. ela adicionou referencia e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o sistema de logging do projeto gerava logs sincronos que bloqueavam a aplicacao. natacha migrou para logging assincrono e a latencia caiu. a equipe ficou grata. felix nao entendeu de assincrono.
+natacha revisava um pedido de revisao e encontrou um comentario que dizia gambiarra mas funciona. ela bloqueou o merge e pediu para resolver direito. o autor resolveu e o codigo melhorou. felix aprovou a exigencia.
+o build do projeto compilava arquivos que nao eram usados. natacha removeu os arquivos e o build acelerou. a equipe ficou grata. felix nao entendeu de build.
+natacha encontrou um vazamento de memoria em um codigo que usava ponteiros compartilhados em ciclo. ela quebrou o ciclo com weak ptr e o vazamento sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha entendido. felix nao entendeu de ponteiro.
+o teste de integracao do projeto usava espera para sincronizar. natacha substituiu por espera deterministica e os testes ficaram estaveis. a equipe parou de ter falhas intermitentes. felix nao entendeu de teste.
+natacha discutia com rodrigo sobre usar um barramento de mensagens ou chamada direta. rodrigo sugeria barramento para desacoplamento. natacha argumentou que chamada direta era mais simples. eles escolheram chamada direta e revisaram depois. felix nao entendeu de arquitetura.
+o algoritmo de ordenacao do projeto era recursivo e estourava pilha com dados grandes. natacha substituiu por versao iterativa e o problema sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha testado com dados grandes. felix dormiu.
+natacha encontrou um sistema de cache que nao tinha limite de tamanho. ela adicionou evicao lru e o uso de memoria estabilizou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pensado. felix dormiu.
+o git log do projeto tinha commits com mensagens vazias. natacha ativou hook de validacao de mensagem. o historico ficou util. felix nao entendeu de hook.
+natacha investigava um bug que fazia o sistema travar. ela usou o gdb e encontrou um loop infinito. a correcao levou dez minutos. felix dormiu durante a investigacao.
+o sistema de build nao tinha verificacao de formato de codigo. natacha adicionou clang format ao build. o estilo ficou consistente. felix nao entendeu de formato.
+natacha encontrou uma funcao que fazia alocacao desnecessaria a cada chamada. ela moveu a alocacao para fora e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+o teste de carga do projeto usava dados pequenos demais. natacha migrou para dados realistas e encontrou gargalos reais. a equipe ficou grata. felix nao entendeu de carga.
+natacha discutia com rodrigo sobre usar um orm ou sql direto. rodrigo sugeria orm por produtividade. natacha argumentou que sql direto era mais claro. eles escolheram sql direto e nunca se arrependeram. felix nao entendeu de banco.
+o algoritmo de busca do projeto usava arvore binaria nao balanceada. natacha substituiu por avl e a busca ficou logaritmica garantida. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha considerado. felix dormiu.
+natacha encontrou um codigo que fazia copia de vetor para passar como parametro. ela adicionou referencia constante e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o sistema de logging do projeto usava nivel de log em tempo de compilacao. natacha migrou para nivel em runtime e a flexibilidade aumentou. a equipe ficou grata. felix nao entendeu de log.
+natacha revisava um pedido de revisao e encontrou um algoritmo que poderia ser mais simples. ela sugeriu simplificacao e o autor concordou. o codigo ficou mais claro. felix aprovou.
+o build do projeto usava um script shell complexo. natacha migrou para cmake e o build ficou portatil. a equipe ficou grata. felix nao entendeu de cmake.
+natacha encontrou um deadlock que acontecia quando uma thread segurava lock enquanto esperava outra. ela reduziu o escopo do lock e o deadlock sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha analisado. felix nao entendeu de deadlock.
+o teste unitario do projeto usava dados hardcoded. natacha migrou para geracao de dados aleatorios e a cobertura aumentou. a equipe ficou impressionada. felix nao entendeu de teste.
+natacha discutia com rodrigo sobre usar um sistema de tipos nominal ou estrutural. rodrigo sugeria nominal por clareza. natacha argumentou que estrutural era mais flexivel. eles escolheram nominal e nunca se arrependeram. felix nao entendeu de tipos.
+o algoritmo de ordenacao do projeto usava comparacao quando radix sort era possivel. natacha implementou radix sort e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha considerado. felix dormiu.
+natacha encontrou um sistema de configuracao que usava singleton. ela migrou para injecao de dependencia e o codigo ficou testavel. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha questionado. felix nao entendeu de singleton.
+o git log do projeto tinha branches mortas. natacha limpou branches antigos e o repositorio ficou organizado. a equipe ficou grata. felix nao entendeu de git.
+natacha investigava um bug que fazia o sistema consumir toda a cpu. ela usou o perf e encontrou uma funcao de hash ineficiente. ela substituiu e a cpu caiu. felix nao notou diferenca.
+o sistema de build compilava com otimizacao desligada em producao. natacha ativou otimizacao e a performance melhorou dez vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha verificado. felix dormiu.
+natacha encontrou uma funcao que fazia copia de string desnecessaria. ela adicionou string view e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha medido. felix dormiu.
+o teste de integracao do projeto dependia de rede externa. natacha implementou mock de rede e os testes ficaram estaveis. a equipe parou de ter falhas intermitentes. felix nao entendeu de mock.
+natacha discutia com rodrigo sobre usar um protocolo sincrono ou assincrono. rodrigo sugeria sincrono por simplicidade. natacha argumentou que assincrono escalava melhor. eles escolheram assincrono e nunca se arrependeram. felix nao entendeu de protocolo.
+o algoritmo de busca do projeto usava lista ordenada quando uma heap era mais adequada. natacha substituiu e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha considerado. felix dormiu.
+natacha encontrou um codigo que fazia alocacao de memoria em loop quente. ela moveu a alocacao para fora e a performance melhorou cem vezes. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o sistema de logging do projeto gerava logs sem contexto. natacha adicionou contexto estruturado e a depuracao ficou trivial. a equipe ficou grata. felix nao entendeu de log.
+natacha revisava um pedido de revisao e encontrou um comentario que dizia nao sei se isso funciona. ela bloqueou o merge e pediu para verificar. o autor verificou e o codigo melhorou. felix aprovou a exigencia.
+o build do projeto usava um makefile monolitico. natacha migrou para cmake com targets separados e o build ficou organizado. a equipe ficou grata. felix nao entendeu de build.
+natacha encontrou um vazamento de memoria em um codigo que usava new sem delete. ela migrou para unique ptr e o vazamento sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha analisado. felix nao entendeu de ponteiro.
+o teste de carga do projeto usava um unico cenario. natacha adicionou cenarios variados e encontrou bugs. a equipe ficou impressionada. felix nao entendeu de carga.
+natacha discutia com rodrigo sobre usar um banco de dados em memoria ou em disco. rodrigo sugeria disco por durabilidade. natacha argumentou que memoria era mais rapida para cache. eles escolheram memoria para cache e disco para persistencia. felix nao entendeu de banco.
+o algoritmo de ordenacao do projeto era instavel quando a estabilidade era necessaria. natacha substituiu por mergesort estavel e o bug sumiu. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha notado. felix dormiu.
+natacha encontrou um sistema de cache que usava evicao aleatoria. ela substituiu por lru e a taxa de acerto melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha estudado. felix dormiu.
+o git log do projeto tinha conflitos de merge frequentes. natacha ensinou a equipe a fazer rebase regularmente. os conflitos diminuiram. felix nao entendeu de git.
+natacha investigava um bug que fazia o sistema consumir toda a memoria. ela usou o valgrind e encontrou um vazamento em um caminho raro. a correcao levou uma tarde. felix dormiu durante a investigacao.
+o sistema de build nao tinha verificacao de dependencias externas. natacha adicionou verificacao automatica e o build ficou confiavel. a equipe parou de ter surpresas. felix nao entendeu de build.
+natacha encontrou uma funcao que fazia copia de estrutura grande por valor. ela adicionou referencia e a performance melhorou. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha olhado. felix dormiu.
+o teste unitario do projeto nao testava condicoes de borda. natacha escreveu testes de borda e encontrou bugs. a equipe ficou impressionada. felix nao entendeu de teste.
+o algoritmo de compressao do projeto usava gzip quando zstd era superior. natacha substituiu e o tamanho caiu pela metade. rodrigo perguntou por que nao tinham feito isso antes. natacha respondeu que ninguem tinha pesquisado. felix nao se importou.
+o sistema de logging do projeto usava printf em vez de sistema tipado. natacha migrou para log estruturado. a depuracao ficou trivial. felix nao entendeu de log.
+natacha revisava um pedido de revisao e encontrou um algoritmo que poderia ser substituido por std sort. ela sugeriu a substituicao e o autor concordou. o codigo ficou mais curto. felix aprovou.
+o build do projeto compilava sem warnings ativados. natacha ativou todos os warnings e corrigiu. o codigo ficou mais limpo. felix nao entendeu de warning.
+o git log do projeto tinha branches mortos. natacha limpou branches antigos e o repositorio ficou organizado. a equipe ficou grata. felix nao entendeu de git.
+o teste de integracao do projeto usava espera para sincronizar. natacha substituiu por espera deterministica e os testes ficaram estaveis. a equipe parou de ter falhas intermitentes. felix nao entendeu de teste.
+o teste de integracao do projeto usava espera para sincronizar.
