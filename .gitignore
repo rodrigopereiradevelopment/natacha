@@ -39,3 +39,71 @@ src/embeddings/*_64dims
 
 # === LOGS NA RAIZ ===
 treino_*.log
+
+# === AMBIENTE VIRTUAL ===
+.venv/
+
+# === FASTTEXT (arquivos grandes) ===
+dados/embeddings/cc.pt.*.vec
+dados/embeddings/cc.pt.*.vec.gz
+
+# === EMBEDDINGS BINÁRIOS (regeneráveis) ===
+dados/embeddings/*.bin
+
+# === BINÁRIOS COMPILADOS ===
+natacha_embedder
+word2vec_hybrid
+word2vec_neg
+word2vec_similaridade
+inspect_embeddings
+export_json
+src/embeddings/word2vec_neg
+src/embeddings/word2vec_hybrid
+src/embeddings/word2vec_v4
+
+# === BACKUPS DE FONTES ===
+src/embeddings/word2vec_neg_full_backup.cpp
+
+# === LOGS DE MEDIÇÃO ===
+resultado.txt
+src/embeddings/resultado_*.txt
+src/embeddings/test_progress.cpp
+
+# === SEEDS E DADOS GRANDES ===
+*.vec
+*.bin
+
+# === AMBIENTE VIRTUAL ===
+.venv/
+
+# === FASTTEXT ===
+dados/embeddings/cc.pt.*.vec
+dados/embeddings/cc.pt.*.vec.gz
+
+# === EMBEDDINGS BINÁRIOS ===
+dados/embeddings/*.bin
+
+# === BINÁRIOS COMPILADOS ===
+natacha_embedder
+word2vec_hybrid
+word2vec_neg
+word2vec_similaridade
+inspect_embeddings
+export_json
+src/embeddings/word2vec_neg
+src/embeddings/word2vec_hybrid
+src/embeddings/word2vec_v4
+
+# === BACKUPS DE FONTES ===
+src/embeddings/word2vec_neg_full_backup.cpp
+
+# === LOGS DE MEDIÇÃO ===
+resultado.txt
+src/embeddings/resultado_*.txt
+src/embeddings/test_progress.cpp
+
+# === DADOS GRANDES ===
+*.vec
+*.bin
+.claude/
+.claude/

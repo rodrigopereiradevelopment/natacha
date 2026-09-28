@@ -322,5 +322,48 @@ Cada token curado vale por mil tokens genéricos.
 
 ---
 
-Última atualização: Setembro/2026
+---
+
+14. HISTÓRICO DE TENTATIVAS (Setembro/2026)
+
+✅ Wikipedia PT via API — FUNCIONOU
+
+**O que é:** Artigos aleatórios da Wikipédia em português via REST API.
+**Tamanho:** 73 artigos → 32.471 tokens.
+**Script:** `carolina_light.py`
+**Tempo:** ~15 min (com rate limit + sleep).
+**Qualidade:** Conhecimento geral, minúsculo, sem acento, dedup.
+**Status:** ✅ Integrado ao corpus em 27/09/2026.
+
+✅ TeMário — FUNCIONOU
+
+**O que é:** Corpus de textos jornalísticos (Folha de S.Paulo + Jornal do Brasil).
+**Tamanho:** ~50k tokens.
+**Como baixar:** https://www.linguateca.pt/Repositorio/TeMario/
+**Nota:** O download via `curl`/`wget` direto dá erro. 
+Precisa ser pelo navegador (baixa o `.zip` via interface web).
+**Status:** ✅ Integrado ao corpus em 27/09/2026.
+
+❌ Carolina (USP) — NÃO FUNCIONOU
+
+**O que é:** Corpus geral de PT-BR (823M tokens).
+**Problema:** Script customizado (`corpus-carolina.py`) carrega 560k+ exemplos em RAM antes de filtrar.
+**Tentativas:**
+1. `datasets` v5.0.1 → erro "scripts não suportados"
+2. Downgrade pra `datasets` v2.21.0 → pediu `lxml` (instalado)
+3. Script custom rodou → carregou 746k exemplos → OOM killer matou o processo
+4. Streaming=True → travou o PC por 3h
+**Status:** ❌ Inviável com 15 GB de RAM. Descartado.
+
+⚠️ Lições aprendidas
+
+1. **Wikipedia API é a fonte mais confiável** para corpus externo leve.
+2. **Rate limit** exige `sleep()` entre chamadas (30-60s se der 429).
+3. **Corpus com scripts customizados no Hugging Face** não funciona com `datasets >= 3.0`.
+4. **Streaming nem sempre resolve** — depende do script.
+5. **Nunca rodar treino + download em paralelo** no mesmo PC.
+
+---
+
+**Última atualização:** 27/09/2026
 Rodrigo Pereira — Projeto Natacha, Mogi Mirim SP
