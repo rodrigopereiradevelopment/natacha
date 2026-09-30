@@ -1,0 +1,1016 @@
+=== 200 PARES ALEATÓRIOS (ordenado por delta) ===
+
+#    palavra A            palavra B                 v21      v22     delta
+------------------------------------------------------------------------------
+1    arco                 importam               0.1060   0.4625   +0.3565 🚀
+2    satisfatorio         voluntariamente        0.1023   0.4074   +0.3051 🚀
+3    procedimentos        prosa                  0.0771   0.3762   +0.2991 🚀
+4    professores          teocracia              0.0951   0.3934   +0.2983 🚀
+5    highway              lideres                0.0446   0.3425   +0.2979 🚀
+6    considerasse         nojo                   0.0801   0.3721   +0.2919 🚀
+7    defesa               dever                  0.2137   0.5037   +0.2900 🚀
+8    culturais            darwinismo             0.2001   0.4902   +0.2900 🚀
+9    contava              heterogeneo            0.1357   0.4172   +0.2815 🚀
+10   bandeja              verdade                0.1840   0.4654   +0.2814 🚀
+11   grave                repressao              0.2163   0.4921   +0.2758 🚀
+12   acusando             ataca                  0.1303   0.4022   +0.2720 🚀
+13   barreiras            estagnada              0.3303   0.5962   +0.2659 🚀
+14   segura               vulneraveis            0.0658   0.3207   +0.2549 🚀
+15   entendiam            higiene                0.1884   0.4428   +0.2544 🚀
+16   movendo              opinioes               0.2678   0.5173   +0.2495 🚀
+17   083                  quadrado               0.0151   0.2615   +0.2464 🚀
+18   familiares           minimizou              0.2992   0.5455   +0.2463 🚀
+19   cortazar             existem                0.0381   0.2843   +0.2462 🚀
+20   codons               pergunte               0.0840   0.3286   +0.2446 🚀
+21   indices              realizacao             0.1737   0.4147   +0.2410 🚀
+22   ansiedades           gas                    0.0533   0.2911   +0.2378 🚀
+23   issues               manifesto              0.1396   0.3748   +0.2351 🚀
+24   conservacao          criacao               -0.0526   0.1818   +0.2343 🚀
+25   repetido             sincera                0.1471   0.3784   +0.2313 🚀
+26   curvados             populares              0.3034   0.5338   +0.2304 🚀
+27   desperdicios         squash                 0.2536   0.4800   +0.2264 🚀
+28   dispensava           percebesse             0.2879   0.5104   +0.2226 🚀
+29   carbono              inevitavelmente        0.2260   0.4457   +0.2197 🚀
+30   envia                rosa                   0.0974   0.3167   +0.2193 🚀
+31   ajustes              event-driven           0.3059   0.5221   +0.2162 🚀
+32   corrompidos          individualidade        0.3662   0.5816   +0.2154 🚀
+33   historico            melhora                0.2305   0.4458   +0.2153 🚀
+34   benchmark            lineares               0.0721   0.2869   +0.2147 🚀
+35   plantacao            quadruplicou           0.1980   0.4124   +0.2144 🚀
+36   arestas              imperdivel             0.1326   0.3456   +0.2130 🚀
+37   breakpoint           kpi                    0.1929   0.4051   +0.2123 🚀
+38   atento               encarceramento         0.1206   0.3300   +0.2094 🚀
+39   notifica             site                   0.1329   0.3417   +0.2088 🚀
+40   influenciar          pega                   0.0361   0.2445   +0.2084 🚀
+41   embarcada            plana                  0.2761   0.4845   +0.2084 🚀
+42   colonizacao          desnecessaria         -0.0240   0.1798   +0.2038 🚀
+43   ajudaria             potavel                0.1001   0.3020   +0.2019 🚀
+44   cobrancas            ensina                 0.0704   0.2709   +0.2005 🚀
+45   metamorfoses         rodada                 0.2635   0.4637   +0.2002 🚀
+46   felix                iluminada              0.1628   0.3625   +0.1997 🚀
+47   proibido             unidade                0.0723   0.2708   +0.1985 🚀
+48   iluminado            torneira               0.2476   0.4459   +0.1983 🚀
+49   ajoelhar             variados              -0.0130   0.1841   +0.1971 🚀
+50   puxar                regulavam              0.0702   0.2671   +0.1969 🚀
+51   exigindo             hormonal               0.3368   0.5334   +0.1966 🚀
+52   octaedrica           varia                  0.2302   0.4266   +0.1964 🚀
+53   comunicar            novamente              0.0671   0.2630   +0.1958 🚀
+54   faculdades           torto                  0.3486   0.5438   +0.1953 🚀
+55   corrigi-los          nasce                  0.0143   0.2093   +0.1950 🚀
+56   irreais              tese                   0.1022   0.2970   +0.1948 🚀
+57   envie                financiavam            0.1089   0.2998   +0.1909 🚀
+58   conquistas           dissesse               0.0742   0.2650   +0.1908 🚀
+59   relutancia           white                  0.3685   0.5561   +0.1876 🚀
+60   acida                elegancia              0.2008   0.3872   +0.1864 🚀
+61   2001                 priorizando            0.0737   0.2599   +0.1863 🚀
+62   chocada              moleculas              0.3902   0.5760   +0.1858 🚀
+63   correncao            existiam               0.1256   0.3099   +0.1844 🚀
+64   merecessem           young                  0.2495   0.4314   +0.1818 🚀
+65   beneficio            significaria           0.2303   0.4111   +0.1808 🚀
+66   calibracao           demoradamente          0.2613   0.4408   +0.1794 🚀
+67   armazenamento        centrada               0.1368   0.3149   +0.1781 🚀
+68   escorriam            finito                 0.1966   0.3745   +0.1779 🚀
+69   lineares             plana                  0.3176   0.4953   +0.1777 🚀
+70   bagagem              poluindo               0.1497   0.3252   +0.1756 🚀
+71   direcao              estabiliza             0.2737   0.4484   +0.1746 🚀
+72   dts                  iluminadas            -0.0164   0.1573   +0.1737 🚀
+73   acreditava           entende                0.0539   0.2274   +0.1735 🚀
+74   estiloso             repo                   0.2319   0.4049   +0.1730 🚀
+75   escapam              respeita               0.1271   0.2988   +0.1718 🚀
+76   complexidade         devolvia               0.1183   0.2893   +0.1710 🚀
+77   dissolucao           moralistas            -0.0747   0.0962   +0.1709 🚀
+78   identificou          obrigava               0.0092   0.1782   +0.1691 🚀
+79   piadas               tero                   0.1493   0.3158   +0.1664 🚀
+80   dado                 neutralismo            0.2743   0.4407   +0.1664 🚀
+81   cai                  trocar                -0.0179   0.1484   +0.1663 🚀
+82   externa              furada                 0.1716   0.3376   +0.1660 🚀
+83   bico                 razoes                 0.3940   0.5588   +0.1648 🚀
+84   persiste             publicou               0.2351   0.3997   +0.1646 🚀
+85   aumenta              prestigio              0.0829   0.2475   +0.1646 🚀
+86   absurda              escolhia               0.0315   0.1955   +0.1640 🚀
+87   imitou               invernos               0.1732   0.3365   +0.1634 🚀
+88   bulkhead             reverts                0.4395   0.6011   +0.1616 🚀
+89   molde                secao                  0.0226   0.1840   +0.1614 🚀
+90   define               use                    0.3124   0.4734   +0.1609 🚀
+91   020                  manchas                0.0950   0.2548   +0.1598 🚀
+92   calculo              desacoplar             0.2626   0.4221   +0.1595 🚀
+93   captado              continuos             -0.0039   0.1551   +0.1590 🚀
+94   abria                devem                  0.2326   0.3911   +0.1584 🚀
+95   adiciona             admitir                0.0428   0.2005   +0.1577 🚀
+96   load                 padre                  0.2533   0.4079   +0.1546 🚀
+97   crueldade            guitarras              0.2710   0.4253   +0.1543 🚀
+98   grande               zeravam               -0.0716   0.0818   +0.1535 🚀
+99   historicos           o1                     0.0593   0.2125   +0.1532 🚀
+100  espumar              smart                  0.3237   0.4734   +0.1497 🚀
+101  relacionam           sabemos                0.1844   0.3333   +0.1489 🚀
+102  assassina            linfatico             -0.0798   0.0686   +0.1484 🚀
+103  099                  vestigios              0.0899   0.2382   +0.1483 🚀
+104  preserva             verbosos               0.2920   0.4401   +0.1481 🚀
+105  mediocre             uniforme               0.1065   0.2542   +0.1477 🚀
+106  individualmente      terreno                0.2276   0.3749   +0.1472 🚀
+107  extraordinario       usados                 0.0751   0.2222   +0.1472 🚀
+108  sempre               vizinho                0.1728   0.3192   +0.1464 🚀
+109  destrutivas          enviado                0.0008   0.1472   +0.1464 🚀
+110  bico                 norteadores            0.0892   0.2354   +0.1462 🚀
+111  romantizar           variacoes              0.1661   0.3121   +0.1461 🚀
+112  lembrar              precisas               0.0977   0.2436   +0.1459 🚀
+113  inutilizados         liberador              0.1105   0.2563   +0.1457 🚀
+114  dissolucao           sera                   0.1727   0.3172   +0.1445 🚀
+115  curiosos             tristes                0.2784   0.4224   +0.1440 🚀
+116  duas                 largou                 0.2865   0.4304   +0.1439 🚀
+117  escrito              ritmo                  0.1550   0.2988   +0.1438 🚀
+118  classificacao        repensar              -0.0052   0.1384   +0.1436 🚀
+119  depurador            reivindicava           0.1877   0.3313   +0.1436 🚀
+120  age                  toxicas                0.0762   0.2197   +0.1435 🚀
+121  efeitos              idealizado             0.4104   0.5534   +0.1430 🚀
+122  ama                  obediente              0.1469   0.2890   +0.1421 🚀
+123  doze                 encarceramento         0.3126   0.4536   +0.1410 🚀
+124  ar                   semestre               0.3355   0.4766   +0.1410 🚀
+125  escuro               filtrava               0.0878   0.2286   +0.1408 🚀
+126  evolutivo            walden                 0.2136   0.3544   +0.1408 🚀
+127  excessivo            plota                  0.2454   0.3856   +0.1403 🚀
+128  eloquencia           transposicao           0.1887   0.3289   +0.1402 🚀
+129  golfinhos            helenistica            0.3348   0.4745   +0.1396 🚀
+130  algebricas           distantes              0.1023   0.2415   +0.1392 🚀
+131  dedicava             injeta                 0.1184   0.2563   +0.1380 🚀
+132  ditadura             esfriou                0.2492   0.3871   +0.1380 🚀
+133  abrigo               empurra                0.2205   0.3582   +0.1377 🚀
+134  devo                 matematica             0.2197   0.3572   +0.1376 🚀
+135  busca                relativa               0.4640   0.6015   +0.1375 🚀
+136  subconsulta          vascular               0.2615   0.3976   +0.1361 🚀
+137  buscou               soubessem              0.2348   0.3707   +0.1359 🚀
+138  ajudaria             seco                   0.0957   0.2309   +0.1351 🚀
+139  aceleraram           intercambiavel         0.3220   0.4571   +0.1351 🚀
+140  imperfeita           moldam                 0.1423   0.2770   +0.1347 🚀
+141  contigua             fluiu                  0.1164   0.2502   +0.1338 🚀
+142  ativo                diurna                 0.1549   0.2882   +0.1333 🚀
+143  bonitinha            transportam            0.1976   0.3300   +0.1324 🚀
+144  administrativa       ruina                  0.3491   0.4813   +0.1322 🚀
+145  firmes               oposta                 0.2759   0.4080   +0.1321 🚀
+146  java                 registry               0.3526   0.4842   +0.1316 🚀
+147  justamente           rotina                 0.2143   0.3458   +0.1314 🚀
+148  atual                elb                    0.2502   0.3807   +0.1305 🚀
+149  admiravel            vantagem               0.2545   0.3823   +0.1278 🚀
+150  comprime             watchos                0.1784   0.3062   +0.1278 🚀
+151  acessos              estendida             -0.0968   0.0309   +0.1278 🚀
+152  cantado              sustentar              0.0112   0.1387   +0.1275 🚀
+153  gosta                quieto                 0.2688   0.3959   +0.1271 🚀
+154  emprestados          triade                 0.2236   0.3505   +0.1270 🚀
+155  assassino            posicoes               0.2588   0.3857   +0.1269 🚀
+156  divertida            estofando              0.2305   0.3571   +0.1266 🚀
+157  feias                resulta                0.0905   0.2170   +0.1265 🚀
+158  ramos                waf                    0.2636   0.3901   +0.1265 🚀
+159  continentes          tecnico                0.0920   0.2183   +0.1263 🚀
+160  analisou             severidade             0.3757   0.5017   +0.1260 🚀
+161  brigando             gerenciado             0.1270   0.2530   +0.1260 🚀
+162  036                  closure                0.1245   0.2499   +0.1254 🚀
+163  acontecem            prepara                0.2080   0.3332   +0.1252 🚀
+164  determinacao         metaforicamente        0.2589   0.3838   +0.1249 🚀
+165  emprego              manipulada             0.3187   0.4427   +0.1239 🚀
+166  consolidacao         funda                  0.2602   0.3826   +0.1224 🚀
+167  civil                fenda                  0.0452   0.1659   +0.1207 🚀
+168  interrompe           puxando                0.4364   0.5570   +0.1207 🚀
+169  address              perna                  0.2872   0.4057   +0.1185 🚀
+170  hadrons              reuso                  0.1952   0.3137   +0.1185 🚀
+171  desaparecia          representados          0.0706   0.1878   +0.1172 🚀
+172  negocia              nitrogenadas           0.1537   0.2703   +0.1166 🚀
+173  rio                  viajar                 0.1513   0.2668   +0.1156 🚀
+174  playlists            semiarido              0.2483   0.3637   +0.1153 🚀
+175  claro                leitora                0.1503   0.2648   +0.1145 🚀
+176  firestore            nelas                  0.1126   0.2269   +0.1142 🚀
+177  controlam            diario                -0.0023   0.1112   +0.1135 🚀
+178  eternos              ide                    0.1325   0.2457   +0.1133 🚀
+179  faculdades           notavel                0.2606   0.3730   +0.1125 🚀
+180  armadilha            intensiva              0.0469   0.1592   +0.1123 🚀
+181  gerenciamento        priorizar              0.4923   0.6046   +0.1123 🚀
+182  reinicia             visivelmente           0.0395   0.1506   +0.1112 🚀
+183  colo                 ensinar                0.1012   0.2119   +0.1107 🚀
+184  discutir             frustacao              0.3535   0.4639   +0.1104 🚀
+185  desvalorizado        vivem                  0.1457   0.2556   +0.1098 🚀
+186  andando              entrado                0.3786   0.4869   +0.1083 🚀
+187  acalma               autointeresse          0.3241   0.4324   +0.1083 🚀
+188  arquiteturas         olhar                  0.2021   0.3096   +0.1075 🚀
+189  exagerar             inicializar            0.2224   0.3300   +0.1075 🚀
+190  desconhecida         mostrado               0.0751   0.1826   +0.1074 🚀
+191  119                  mau                    0.0997   0.2065   +0.1068 🚀
+192  leitura              sache                  0.3495   0.4561   +0.1066 🚀
+193  fornecendo           roupas                 0.2803   0.3869   +0.1066 🚀
+194  colabora             scrypt                 0.1930   0.2996   +0.1065 🚀
+195  dormiram             torbellino             0.1670   0.2733   +0.1064 🚀
+196  altissimos           padroniza              0.3162   0.4221   +0.1059 🚀
+197  clero                consciencia            0.3424   0.4481   +0.1058 🚀
+198  descrito             statements             0.3796   0.4849   +0.1053 🚀
+199  harmonico            ofendida               0.2455   0.3499   +0.1044 🚀
+200  respeitado           ritmos                 0.3027   0.4065   +0.1038 🚀
+201  bobos                extremidades           0.3140   0.4174   +0.1034 🚀
+202  028                  filtragem              0.1575   0.2606   +0.1031 🚀
+203  armazena             moldes                -0.0024   0.1006   +0.1030 🚀
+204  braco                minimos                0.3785   0.4814   +0.1030 🚀
+205  use                  varie                  0.1114   0.2144   +0.1030 🚀
+206  chuvas               circulado              0.1016   0.2045   +0.1028 🚀
+207  captura              metalico               0.3186   0.4199   +0.1013 🚀
+208  gerou                incompativeis          0.1294   0.2298   +0.1004 🚀
+209  demorasse            dez                    0.3807   0.4808   +0.1001 🚀
+210  conseguem            conservam              0.1479   0.2478   +0.0999 🚀
+211  requisito            testes                 0.2476   0.3474   +0.0998 🚀
+212  castigo              voltinha              -0.0215   0.0783   +0.0998 🚀
+213  celebrada            cumpria                0.1403   0.2401   +0.0998 🚀
+214  entram               ido                    0.1881   0.2875   +0.0994 🚀
+215  inner                migracao               0.0969   0.1961   +0.0992 🚀
+216  floriano             lambe                  0.0881   0.1868   +0.0986 🚀
+217  devo                 simplificando          0.3847   0.4832   +0.0985 🚀
+218  doido                luminoso               0.2321   0.3305   +0.0984 🚀
+219  naming               provavelmente          0.1013   0.1996   +0.0983 🚀
+220  devastado            ligados                0.2498   0.3474   +0.0976 🚀
+221  amortizado           graca                  0.0080   0.1056   +0.0976 🚀
+222  aguentassem          ponderada              0.0301   0.1274   +0.0973 🚀
+223  aparecem             curto                 -0.0349   0.0622   +0.0972 🚀
+224  educativa            explicava              0.2402   0.3373   +0.0971 🚀
+225  axonio               prejudicial            0.2033   0.2990   +0.0957 🚀
+226  cubico               paradoxal              0.3735   0.4688   +0.0953 🚀
+227  explicitamente       polietileno            0.2021   0.2972   +0.0952 🚀
+228  ciumes               recessivos             0.3301   0.4245   +0.0944 🚀
+229  especulacao          migracoes              0.2509   0.3446   +0.0936 🚀
+230  externo              humor                  0.3138   0.4067   +0.0929 🚀
+231  guiam                metricas               0.3696   0.4622   +0.0926 🚀
+232  parametrizado        turgidez               0.2684   0.3608   +0.0924 🚀
+233  lona                 onibus                 0.1658   0.2578   +0.0919 🚀
+234  distributiva         procedure              0.2198   0.3117   +0.0919 🚀
+235  alfa                 epica                  0.2102   0.3017   +0.0915 🚀
+236  minuculo             rbac                   0.3549   0.4463   +0.0914 🚀
+237  monitorou            ocorrencias            0.2840   0.3752   +0.0912 🚀
+238  diretividade         tocaria                0.2824   0.3731   +0.0907 🚀
+239  callbacks            discute                0.2085   0.2990   +0.0905 🚀
+240  automaticamente      hostil                 0.4079   0.4983   +0.0904 🚀
+241  absorve              explicam               0.1984   0.2888   +0.0903 🚀
+242  introduziram         poltrona               0.3311   0.4212   +0.0902 🚀
+243  bala                 punir                  0.0836   0.1733   +0.0897 🚀
+244  cansou               metricas               0.3483   0.4377   +0.0894 🚀
+245  decidiu              paginacao              0.0819   0.1710   +0.0892 🚀
+246  magicamente          rachada                0.2059   0.2947   +0.0888 🚀
+247  esfriado             multi-cabeca           0.2519   0.3405   +0.0885 🚀
+248  habitada             teria                  0.1449   0.2333   +0.0885 🚀
+249  confessando          estoura                0.3794   0.4673   +0.0880 🚀
+250  sindicatos           sintetizam             0.1819   0.2698   +0.0880 🚀
+251  equivalentes         metrica                0.3871   0.4749   +0.0878 🚀
+252  debugar              ter                    0.1746   0.2617   +0.0872 🚀
+253  acorda               gostosa                0.1959   0.2828   +0.0869 🚀
+254  blue                 planejava              0.1906   0.2775   +0.0869 🚀
+255  decidiu              ocorrida               0.0235   0.1101   +0.0866 🚀
+256  atmosfera            mio                    0.1536   0.2401   +0.0865 🚀
+257  bound                registrou              0.3989   0.4853   +0.0864 🚀
+258  compartilhado        memorias               0.0615   0.1480   +0.0864 🚀
+259  microssegundos       respiravam             0.3578   0.4440   +0.0862 🚀
+260  odeia                percorrido             0.0843   0.1705   +0.0861 🚀
+261  dianteiras           romantizacao           0.0156   0.1017   +0.0861 🚀
+262  acende               util                   0.1453   0.2312   +0.0859 🚀
+263  combustiveis         delega                 0.2439   0.3294   +0.0855 🚀
+264  escapa               inspecionou            0.2717   0.3572   +0.0854 🚀
+265  cafe                 imaginario             0.1994   0.2842   +0.0847 🚀
+266  adoro                decorados              0.3352   0.4193   +0.0841 🚀
+267  linearidade          sobra                  0.3174   0.4014   +0.0839 🚀
+268  punk                 venha                  0.2946   0.3784   +0.0838 🚀
+269  prevalecem           solto                  0.0851   0.1687   +0.0836 🚀
+270  aplicou              auditar                0.3387   0.4222   +0.0835 🚀
+271  acreditou            capitu                 0.2473   0.3305   +0.0832 🚀
+272  apagando             flutuacoes             0.1859   0.2677   +0.0818 🚀
+273  concepts             solubilidade           0.3407   0.4222   +0.0815 🚀
+274  esconde              organizadas            0.3157   0.3970   +0.0813 🚀
+275  bisavo               complicacao            0.3334   0.4144   +0.0810 🚀
+276  herdados             quatro                 0.0880   0.1689   +0.0809 🚀
+277  armazenados          bobos                  0.3715   0.4523   +0.0808 🚀
+278  memorias             recompilava            0.2089   0.2893   +0.0804 🚀
+279  chute                miou                   0.3996   0.4790   +0.0794 🚀
+280  contadores           procure                0.3679   0.4464   +0.0785 🚀
+281  botoes               uniformizar            0.2012   0.2797   +0.0785 🚀
+282  elt                  reorganizava           0.0557   0.1341   +0.0784 🚀
+283  bancadas             documentos             0.3796   0.4580   +0.0784 🚀
+284  agnostica            calibracao             0.3562   0.4344   +0.0782 🚀
+285  padronizando         precaucao              0.3245   0.4026   +0.0781 🚀
+286  linguas              rigoroso               0.0867   0.1647   +0.0780 🚀
+287  reportou             slice                  0.0948   0.1722   +0.0774 🚀
+288  avisos               revolucionaram         0.3646   0.4419   +0.0773 🚀
+289  apartamentos         gametas                0.3850   0.4622   +0.0772 🚀
+290  lstm                 vendo                  0.2956   0.3728   +0.0772 🚀
+291  respeitavam          suspeitamente          0.5841   0.6608   +0.0767 🚀
+292  diminuiram           enderecos              0.2083   0.2848   +0.0764 🚀
+293  prejudicaria         verdes                 0.2934   0.3697   +0.0764 🚀
+294  obsoletos            tranca                 0.3996   0.4756   +0.0760 🚀
+295  cuca                 libertos               0.2524   0.3284   +0.0759 🚀
+296  espelho              meras                  0.1226   0.1984   +0.0759 🚀
+297  bagagem              iagatos                0.0970   0.1723   +0.0753 🚀
+298  julgamentos          torne                  0.2479   0.3231   +0.0753 🚀
+299  assercoes            causava                0.3006   0.3757   +0.0750 🚀
+300  aroma                virtual                0.3783   0.4531   +0.0748 🚀
+301  demonstra            lote                  -0.0039   0.0707   +0.0746 🚀
+302  avogadro             explicou               0.2278   0.3024   +0.0746 🚀
+303  banalidade           virgilia               0.1241   0.1982   +0.0741 🚀
+304  falham               vitalidade             0.1417   0.2157   +0.0740 🚀
+305  ditadura             seca                   0.4370   0.5107   +0.0738 🚀
+306  lead                 ribossomos             0.3430   0.4162   +0.0732 🚀
+307  caos                 frustacao              0.4445   0.5170   +0.0726 🚀
+308  bancada              importante             0.0062   0.0784   +0.0722 🚀
+309  some                 sou                    0.2139   0.2858   +0.0718 🚀
+310  muda                 xenofobia              0.3327   0.4043   +0.0716 🚀
+311  brincar              injustamente           0.1891   0.2602   +0.0711 🚀
+312  infantilizar         mogi                   0.1895   0.2604   +0.0709 🚀
+313  nocivo               permitiam              0.3631   0.4340   +0.0709 🚀
+314  cochila              soar                   0.0328   0.1033   +0.0706 🚀
+315  dificuldades         olhou                  0.0561   0.1263   +0.0702 🚀
+316  detectada            piores                -0.1304  -0.0609   +0.0694 🚀
+317  darwin               dramatico              0.1692   0.2384   +0.0692 🚀
+318  caotico              modelo                 0.2116   0.2796   +0.0679 🚀
+319  conscientizacao      no                     0.2755   0.3432   +0.0678 🚀
+320  aprendida            venceram               0.0780   0.1454   +0.0674 🚀
+321  distribui            financiou              0.2127   0.2797   +0.0670 🚀
+322  culpas               interessado            0.4247   0.4918   +0.0670 🚀
+323  meta                 supervisionada         0.2499   0.3165   +0.0666 🚀
+324  atingiu              consequencia           0.2457   0.3120   +0.0663 🚀
+325  apresentacao         vem                    0.1384   0.2045   +0.0661 🚀
+326  api                  diferenciam            0.0197   0.0855   +0.0657 🚀
+327  cotidianos           irmao                  0.1589   0.2244   +0.0655 🚀
+328  medievais            monarquista            0.2680   0.3334   +0.0654 🚀
+329  eco                  interagem              0.1293   0.1943   +0.0650 🚀
+330  protecionismo        travessia              0.4672   0.5318   +0.0647 🚀
+331  absolvidos           automaticas            0.3392   0.4039   +0.0647 🚀
+332  atualizacoes         falha                  0.3116   0.3759   +0.0644 🚀
+333  performance          regressivo             0.3810   0.4453   +0.0643 🚀
+334  dependentes          quebra                 0.1552   0.2194   +0.0642 🚀
+335  choque               pancreas               0.2514   0.3155   +0.0641 🚀
+336  formulacao           senta                  0.2577   0.3212   +0.0635 🚀
+337  conceder             respondido             0.1781   0.2414   +0.0633 🚀
+338  adotar               divertir               0.0637   0.1269   +0.0632 🚀
+339  ajeitando            pautas                 0.2143   0.2774   +0.0630 🚀
+340  habitado             torcendo               0.4534   0.5162   +0.0628 🚀
+341  atracao              individuo              0.2601   0.3221   +0.0619 🚀
+342  esteticas            suficientemente        0.1618   0.2235   +0.0617 🚀
+343  desejar              momentum               0.2819   0.3436   +0.0617 🚀
+344  estacionaria         formata                0.0764   0.1378   +0.0614 🚀
+345  citoesqueleto        fenotipo               0.5713   0.6327   +0.0614 🚀
+346  casaco               mes                    0.2635   0.3246   +0.0610 🚀
+347  educada              moldou                 0.3114   0.3717   +0.0603 🚀
+348  gravacao             instanciava            0.2832   0.3432   +0.0600 🚀
+349  datacenter           seria                  0.3028   0.3625   +0.0597 🚀
+350  chata                validador              0.2593   0.3187   +0.0594 🚀
+351  brasileiras          devemos                0.1557   0.2147   +0.0590 🚀
+352  entreaberta          reflorestamento        0.2707   0.3296   +0.0588 🚀
+353  mediocridade         privadas               0.1821   0.2408   +0.0588 🚀
+354  paz                  xingar                 0.3377   0.3964   +0.0587 🚀
+355  homem                superlativo            0.3826   0.4411   +0.0585 🚀
+356  design               primas                 0.1386   0.1969   +0.0583 🚀
+357  imperfeicao          imperios               0.2631   0.3210   +0.0579 🚀
+358  ameacado             calmamente             0.2603   0.3182   +0.0579 🚀
+359  corretamente         honesta                0.3134   0.3706   +0.0571 🚀
+360  aprendeu             sapato                 0.4155   0.4726   +0.0571 🚀
+361  opostas              sobressaltada          0.2435   0.3001   +0.0566 🚀
+362  julgou               ventilacao             0.1867   0.2429   +0.0562 🚀
+363  13709                naming                 0.3116   0.3674   +0.0558 🚀
+364  ambiguidades         exasperada             0.2109   0.2662   +0.0553 🚀
+365  cosmico              entregou               0.2394   0.2945   +0.0551 🚀
+366  abrangencia          modularidade           0.1791   0.2340   +0.0550 🚀
+367  darwin               eletromagnetica        0.4982   0.5531   +0.0550 🚀
+368  molar                relacional             0.4109   0.4650   +0.0541 🚀
+369  boba                 estivessem             0.2228   0.2768   +0.0540 🚀
+370  quarks               reprodutivo            0.3831   0.4370   +0.0539 🚀
+371  traceroute           universais             0.0266   0.0804   +0.0539 🚀
+372  arterias             filosofica             0.3248   0.3787   +0.0539 🚀
+373  chuta                dezenas                0.4127   0.4665   +0.0539 🚀
+374  incentivo            som                    0.0781   0.1320   +0.0538 🚀
+375  repulsa              sinceridade            0.2227   0.2760   +0.0533 🚀
+376  permaneceu           titular                0.1482   0.2011   +0.0529 🚀
+377  sobrepoem            sofa                   0.2058   0.2584   +0.0525 🚀
+378  corrigia             perder                 0.4535   0.5059   +0.0524 🚀
+379  inglaterra           reprimida              0.2692   0.3213   +0.0521 🚀
+380  incompletas          weak                   0.0141   0.0658   +0.0516 🚀
+381  amador               destruiam              0.0855   0.1367   +0.0512 🚀
+382  indicador            picos                  0.2459   0.2970   +0.0511 🚀
+383  buzina               trofeu                 0.2033   0.2543   +0.0510 🚀
+384  capturar             devolvem               0.5010   0.5512   +0.0502 🚀
+385  lipases              recebeu                0.1657   0.2158   +0.0501 🚀
+386  profundezas          roda                   0.1777   0.2276   +0.0499 ✅
+387  coceira              improvisada            0.2360   0.2856   +0.0495 ✅
+388  crates               vento                  0.2564   0.3056   +0.0492 ✅
+389  argumentando         k                      0.2181   0.2672   +0.0491 ✅
+390  barometro            radioativos            0.2370   0.2859   +0.0490 ✅
+391  distancia            renda                  0.2234   0.2717   +0.0483 ✅
+392  desenfileira         entregava              0.3744   0.4223   +0.0479 ✅
+393  bidirecional         exatas                 0.1150   0.1624   +0.0475 ✅
+394  convencida           processe               0.1393   0.1865   +0.0472 ✅
+395  chat                 flor                   0.1817   0.2287   +0.0470 ✅
+396  rosto                tomava                 0.2774   0.3238   +0.0465 ✅
+397  interpretacao        processamento          0.2534   0.2990   +0.0456 ✅
+398  backtracking         modificacoes           0.2681   0.3130   +0.0449 ✅
+399  emitiu               reiniciada             0.4314   0.4762   +0.0448 ✅
+400  populismo            tomou                  0.4344   0.4788   +0.0444 ✅
+401  demoravam            rails                  0.1142   0.1584   +0.0441 ✅
+402  apagar               rido                   0.2666   0.3102   +0.0436 ✅
+403  buracos              gavioes                0.2258   0.2693   +0.0435 ✅
+404  preferencia          vestir                 0.0171   0.0606   +0.0435 ✅
+405  descrenca            input                  0.2996   0.3430   +0.0434 ✅
+406  mitotico             tocava                 0.3294   0.3728   +0.0434 ✅
+407  padronizado          vindo                  0.1196   0.1629   +0.0432 ✅
+408  autovetores          entendiam              0.3735   0.4167   +0.0432 ✅
+409  milimetrado          reaprender             0.2639   0.3059   +0.0420 ✅
+410  buzinar              it                     0.2324   0.2743   +0.0420 ✅
+411  melhor               segurando              0.1147   0.1565   +0.0418 ✅
+412  duplas               navegaveis             0.3906   0.4316   +0.0410 ✅
+413  deveria              prepared               0.1212   0.1618   +0.0406 ✅
+414  coliseu              inocentes              0.3787   0.4193   +0.0406 ✅
+415  celebrando           descarto               0.2226   0.2631   +0.0405 ✅
+416  defendendo           esmagada               0.4123   0.4525   +0.0402 ✅
+417  recebendo            suspiro                0.2484   0.2886   +0.0402 ✅
+418  registrados          vital                  0.0264   0.0662   +0.0398 ✅
+419  protobuf             solta                  0.2412   0.2808   +0.0396 ✅
+420  revisita             varredura              0.1727   0.2121   +0.0395 ✅
+421  gentileza            virus                  0.1243   0.1637   +0.0394 ✅
+422  manutencao           na                     0.1617   0.2008   +0.0392 ✅
+423  marcante             or                     0.0548   0.0938   +0.0390 ✅
+424  permitiram           zooplancton            0.2689   0.3078   +0.0389 ✅
+425  descarta             nebulosa               0.4959   0.5346   +0.0387 ✅
+426  analitico            soubesse               0.1012   0.1398   +0.0386 ✅
+427  enfraquecido         operadores             0.2412   0.2798   +0.0386 ✅
+428  curioso              possa                  0.1905   0.2288   +0.0382 ✅
+429  constraint           nilo                   0.1509   0.1888   +0.0379 ✅
+430  coluna               removido               0.2085   0.2461   +0.0376 ✅
+431  2014                 mudou                  0.1268   0.1643   +0.0375 ✅
+432  aprendidos           rebeldia               0.1346   0.1721   +0.0374 ✅
+433  desafiar             romance                0.1771   0.2146   +0.0374 ✅
+434  almofada             varias                -0.0508  -0.0152   +0.0356 ✅
+435  desaconselharia      encostando             0.1534   0.1889   +0.0354 ✅
+436  deitar               vassoura               0.2310   0.2662   +0.0352 ✅
+437  bigodes              fearless               0.1319   0.1668   +0.0350 ✅
+438  concorrente          distribuida            0.1656   0.1988   +0.0332 ✅
+439  descriptografa       outros                 0.1986   0.2318   +0.0332 ✅
+440  paragrafos           pro                    0.3932   0.4263   +0.0331 ✅
+441  promovendo           varia                  0.4304   0.4632   +0.0328 ✅
+442  grafos               induz                  0.2477   0.2804   +0.0327 ✅
+443  metabolismo          superego               0.3643   0.3962   +0.0319 ✅
+444  acumulam             osso                   0.0630   0.0948   +0.0318 ✅
+445  aninhada             colonizadores          0.2029   0.2345   +0.0316 ✅
+446  break                escolhe                0.3479   0.3794   +0.0315 ✅
+447  desintegrar          inglesas               0.2385   0.2697   +0.0313 ✅
+448  combustivel          quilometros            0.2905   0.3217   +0.0312 ✅
+449  401                  machadiana             0.0530   0.0841   +0.0312 ✅
+450  favor                quatorze               0.0633   0.0944   +0.0311 ✅
+451  brutal               descolonizacao         0.3458   0.3767   +0.0310 ✅
+452  meza                 vindo                  0.1013   0.1322   +0.0310 ✅
+453  pesada               prevendo               0.1905   0.2214   +0.0309 ✅
+454  balancer             mundi                  0.3475   0.3782   +0.0307 ✅
+455  cleanup              cossecante             0.4141   0.4443   +0.0303 ✅
+456  segurando            siciliano              0.2677   0.2979   +0.0302 ✅
+457  abstract             infelicidade           0.2845   0.3146   +0.0301 ✅
+458  escorregava          ultimas                0.2254   0.2555   +0.0301 ✅
+459  commodities          responde               0.2179   0.2479   +0.0300 ✅
+460  inventa              vasilha                0.0591   0.0881   +0.0289 ✅
+461  concreto             injusticas             0.2773   0.3056   +0.0284 ✅
+462  039                  distorce               0.4546   0.4826   +0.0280 ✅
+463  ocupassem            sanitizers             0.3285   0.3565   +0.0279 ✅
+464  tabelas              vetorial               0.3309   0.3589   +0.0279 ✅
+465  denso                recorrentes            0.2865   0.3136   +0.0271 ✅
+466  digito               nitrogenio             0.1316   0.1586   +0.0270 ✅
+467  rock                 terrestres             0.2211   0.2480   +0.0269 ✅
+468  caminhando           pena                   0.4211   0.4478   +0.0266 ✅
+469  046                  relaxou                0.3228   0.3490   +0.0261 ✅
+470  contemporaneas       referencias            0.1842   0.2103   +0.0261 ✅
+471  disfarcada           imediatos              0.4904   0.5164   +0.0260 ✅
+472  positional           reflexoes              0.2020   0.2278   +0.0258 ✅
+473  chia                 servidores             0.4008   0.4263   +0.0256 ✅
+474  facilidade           horrivel               0.4024   0.4279   +0.0255 ✅
+475  expulsou             vasilha                0.2929   0.3183   +0.0253 ✅
+476  laco                 lisp                   0.4093   0.4346   +0.0253 ✅
+477  automaticos          temperatura            0.0744   0.0996   +0.0252 ✅
+478  combinam             solucionar            -0.0075   0.0176   +0.0251 ✅
+479  gelado               ser                    0.2422   0.2673   +0.0250 ✅
+480  bateu                vaidades               0.3416   0.3666   +0.0250 ✅
+481  diversa              serias                 0.2103   0.2350   +0.0247 ✅
+482  pedidos              rodaria                0.4385   0.4632   +0.0247 ✅
+483  esperteza            simulando              0.2519   0.2762   +0.0243 ✅
+484  coletar              fatorial               0.2638   0.2876   +0.0239 ✅
+485  estruturar           hibridizacao           0.3277   0.3510   +0.0233 ✅
+486  classificacoes       deleto                 0.3631   0.3859   +0.0228 ✅
+487  isoterma             restrito               0.4047   0.4275   +0.0228 ✅
+488  automaticamente      curto                  0.1850   0.2078   +0.0227 ✅
+489  contornos            redundante             0.0855   0.1077   +0.0221 ✅
+490  saltos               sumiu                  0.1883   0.2104   +0.0220 ✅
+491  tradicao             variadic               0.2223   0.2443   +0.0220 ✅
+492  crescesse            observam               0.1051   0.1268   +0.0218 ✅
+493  moralista            preso                  0.1923   0.2139   +0.0217 ✅
+494  entusiasta           ganhe                  0.2541   0.2756   +0.0216 ✅
+495  estraga-la           popular                0.4268   0.4481   +0.0213 ✅
+496  mobilizacao          redencao               0.1016   0.1226   +0.0210 ✅
+497  acessavam            seguida                0.2836   0.3043   +0.0208 ✅
+498  incerteza            introspeccao           0.3547   0.3752   +0.0205 ✅
+499  conteudo             mulher                 0.1615   0.1820   +0.0204 ✅
+500  entediada            fundamentos            0.1949   0.2150   +0.0201 ✅
+501  honestidade          inconveniencia         0.2688   0.2886   +0.0197
+502  quebrado             tocava                 0.2892   0.3086   +0.0195
+503  prata                programadora           0.4527   0.4720   +0.0194
+504  descrito             proporcionava          0.3197   0.3387   +0.0190
+505  metamorfoses         sliding                0.0426   0.0609   +0.0182
+506  debuga               proibida               0.0198   0.0379   +0.0181
+507  derrotar             perguntar              0.1969   0.2150   +0.0181
+508  papas                strategy               0.1089   0.1270   +0.0181
+509  angst                dentro                 0.3668   0.3848   +0.0180
+510  react                somados                0.4104   0.4283   +0.0179
+511  respostas            reutilizavel           0.2659   0.2835   +0.0176
+512  cozinha              iterator               0.5113   0.5287   +0.0175
+513  aproveitando         recompensa             0.0582   0.0747   +0.0164
+514  botoes               mussolini              0.3201   0.3361   +0.0160
+515  -o3                  torne                  0.2969   0.3128   +0.0159
+516  inteligencias        quanta                 0.3889   0.4046   +0.0157
+517  amazonas             desenfileirar          0.3858   0.4000   +0.0142
+518  brasilia             focada                 0.1934   0.2074   +0.0140
+519  entendia             orientavam             0.2914   0.3053   +0.0139
+520  premiados            sem                    0.0963   0.1102   +0.0139
+521  atualizado           rir                    0.0293   0.0430   +0.0137
+522  aprovaria            especificar            0.3961   0.4098   +0.0137
+523  incidencia           mercado                0.3253   0.3391   +0.0137
+524  distribuidas         filtrava               0.3601   0.3735   +0.0134
+525  entrarem             pretensioso            0.4379   0.4511   +0.0132
+526  instrumental         velocidades            0.2442   0.2573   +0.0131
+527  hmac                 poderes                0.2171   0.2300   +0.0128
+528  apenas               calibra                0.2684   0.2812   +0.0127
+529  prefiro              toa                    0.3654   0.3781   +0.0127
+530  amar                 pouca                  0.3182   0.3307   +0.0125
+531  comentando           pacificar              0.3631   0.3749   +0.0118
+532  baixinho             honestos               0.1907   0.2024   +0.0118
+533  enrolou              profundezas            0.1252   0.1369   +0.0117
+534  mostra               sugerir                0.1660   0.1771   +0.0111
+535  cair                 meras                  0.0353   0.0464   +0.0111
+536  multi                ri                     0.3119   0.3227   +0.0108
+537  domestico            intensas               0.1994   0.2102   +0.0108
+538  health               rollback               0.4132   0.4239   +0.0107
+539  anormais             aprovou                0.4050   0.4156   +0.0106
+540  piscando             versionamento          0.2070   0.2175   +0.0105
+541  externada            significa              0.3561   0.3667   +0.0105
+542  publicidade          type                   0.1494   0.1598   +0.0105
+543  acelerou             journal                0.4707   0.4808   +0.0100
+544  completar            dependa                0.1140   0.1240   +0.0100
+545  geleiras             startup                0.2351   0.2447   +0.0096
+546  certamente           thrashing              0.1850   0.1944   +0.0094
+547  esticando            tijolo                 0.3418   0.3503   +0.0086
+548  aprendendo           limiar                 0.1563   0.1648   +0.0085
+549  alimentos            preservado             0.1864   0.1947   +0.0083
+550  selvagens            temperatura            0.1868   0.1950   +0.0082
+551  bijetora             optional               0.4367   0.4449   +0.0082
+552  executadas           submodule              0.3019   0.3096   +0.0077
+553  creep                secretas               0.3182   0.3254   +0.0073
+554  alerta               participativos         0.2521   0.2590   +0.0069
+555  especiacao           multifacetado          0.3351   0.3414   +0.0063
+556  obedeco              rabugento              0.2718   0.2776   +0.0059
+557  audaciosa            sabera                 0.3835   0.3894   +0.0058
+558  coragem              secando                0.2126   0.2184   +0.0058
+559  genio                miudo                  0.1501   0.1553   +0.0052
+560  choro                impunidade             0.1664   0.1716   +0.0052
+561  cristo               heterogeneo            0.2383   0.2426   +0.0042
+562  chamava              reler                  0.2640   0.2678   +0.0038
+563  articular            parabolas              0.1990   0.2026   +0.0036
+564  interopera           lldb                   0.4470   0.4504   +0.0034
+565  protons              transcrever           -0.0147  -0.0118   +0.0029
+566  hash                 opticas                0.3969   0.3995   +0.0026
+567  baixas               precipita              0.2423   0.2449   +0.0026
+568  potente              tentam                 0.1636   0.1658   +0.0022
+569  descalca             tocou                  0.4290   0.4311   +0.0021
+570  obrigava             pesadelo               0.3659   0.3676   +0.0017
+571  internos             revolucionario         0.1415   0.1423   +0.0008
+572  acrescenta           auditor                0.2264   0.2270   +0.0006
+573  achado               amar                   0.2676   0.2678   +0.0002
+574  fingia               incompativeis          0.4023   0.4018   -0.0006
+575  desajeito            fast                   0.2607   0.2600   -0.0006
+576  faze                 procurar               0.3014   0.3004   -0.0010
+577  algum                desharmonica           0.0603   0.0593   -0.0010
+578  pet                  tanta                  0.1387   0.1375   -0.0012
+579  acontecido           aliocha                0.3744   0.3730   -0.0015
+580  bons                 mas                    0.3133   0.3115   -0.0018
+581  isolada              serviria               0.2636   0.2617   -0.0019
+582  gerados              grande                 0.1444   0.1422   -0.0022
+583  dona                 inducao                0.2140   0.2114   -0.0026
+584  faria                seleciona              0.2033   0.2008   -0.0026
+585  depravado            voando                 0.4467   0.4435   -0.0032
+586  fino                 objeto                 0.2808   0.2775   -0.0033
+587  deepseek             ligado                 0.2520   0.2487   -0.0033
+588  conteudos            papel                  0.2326   0.2289   -0.0038
+589  autenticacao         pessimista             0.3857   0.3810   -0.0047
+590  futeis               lisossomo              0.3889   0.3841   -0.0048
+591  implacaveis          postulados             0.2920   0.2862   -0.0058
+592  irritada             trabalha               0.2020   0.1961   -0.0059
+593  declarada            desejando              0.3241   0.3179   -0.0062
+594  morno                triagem                0.2441   0.2379   -0.0063
+595  ajoelhar             houve                  0.1334   0.1267   -0.0068
+596  glicolise            vicios                 0.2330   0.2260   -0.0070
+597  membro               valorizou              0.1852   0.1779   -0.0073
+598  calibracao           raii                   0.4213   0.4138   -0.0074
+599  cofre                especializado          0.1694   0.1619   -0.0075
+600  tomado               voltagem               0.1977   0.1901   -0.0076
+601  fascinada            num                    0.2979   0.2900   -0.0079
+602  fios                 fold                   0.3392   0.3308   -0.0084
+603  justa                red                    0.2098   0.2011   -0.0087
+604  definicoes           projetil               0.2170   0.2081   -0.0089
+605  acordava             interferencias         0.4949   0.4856   -0.0093
+606  capacitor            resiliente             0.0465   0.0368   -0.0097
+607  crioscopia           inspectar              0.2071   0.1973   -0.0099
+608  anistia              persia                 0.5576   0.5476   -0.0099
+609  causas               criticava              0.1079   0.0978   -0.0100
+610  intimidade           preocupada             0.1969   0.1868   -0.0102
+611  elementares          radiohead              0.1865   0.1759   -0.0106
+612  deixou               impostos               0.4247   0.4141   -0.0106
+613  ecossistema          monarquias             0.1855   0.1747   -0.0108
+614  gostado              subserviente           0.0981   0.0872   -0.0109
+615  controlam            qiskit                 0.6315   0.6205   -0.0110
+616  biocapacidade        incrivel               0.2322   0.2209   -0.0113
+617  codificam            ramalho                0.4101   0.3984   -0.0117
+618  modificar            rigidas                0.3416   0.3296   -0.0120
+619  curtas               superei                0.1685   0.1565   -0.0120
+620  encontrada           tenta-lo               0.3562   0.3441   -0.0122
+621  amortizada           representacoes         0.3110   0.2988   -0.0123
+622  setup                stokes                 0.4597   0.4464   -0.0133
+623  identificador        inspecionar            0.3241   0.3106   -0.0134
+624  desaparecido         dispersao              0.1990   0.1854   -0.0135
+625  011                  testa                  0.3329   0.3192   -0.0136
+626  obvia                revelando              0.2178   0.2041   -0.0137
+627  diretamente          doarem                 0.5006   0.4867   -0.0139
+628  incontrolavel        madrugadas             0.4057   0.3916   -0.0142
+629  lgpd                 odiou                  0.2155   0.2008   -0.0146
+630  inspecao             subjacente             0.1142   0.0993   -0.0149
+631  acessada             transformada           0.3844   0.3690   -0.0154
+632  antecede             rmsprop                0.4574   0.4417   -0.0157
+633  nuances              preventiva             0.3226   0.3062   -0.0164
+634  pratico              superior               0.2503   0.2338   -0.0166
+635  empurrao             parapeito              0.2883   0.2716   -0.0167
+636  eliminada            implementadas          0.4176   0.4003   -0.0173
+637  elb                  superego               0.2331   0.2157   -0.0174
+638  chia                 preco                  0.2320   0.2143   -0.0177
+639  alimentacao          celular                0.3389   0.3209   -0.0180
+640  inspiradora          sugeriu                0.2309   0.2124   -0.0185
+641  diria                identificavel          0.3584   0.3396   -0.0188
+642  siga                 temporario             0.4227   0.4034   -0.0193
+643  089                  invalida               0.4077   0.3880   -0.0197
+644  esmagada             underfetching          0.2547   0.2348   -0.0199
+645  cobol                misto                  0.3116   0.2910   -0.0206 ⚠️
+646  corresponder         explain                0.2493   0.2285   -0.0208 ⚠️
+647  pareiam              peguei                 0.2355   0.2146   -0.0209 ⚠️
+648  aberto               tudo                   0.4104   0.3894   -0.0210 ⚠️
+649  consideracao         habitava               0.4221   0.4011   -0.0210 ⚠️
+650  fingia               ningem                 0.3166   0.2950   -0.0216 ⚠️
+651  espectroscopia       exclusivas             0.4086   0.3869   -0.0217 ⚠️
+652  insulina             transito               0.2592   0.2375   -0.0217 ⚠️
+653  cfr                  nutre                  0.3351   0.3133   -0.0218 ⚠️
+654  espero               vetorial               0.3243   0.3023   -0.0220 ⚠️
+655  adequacao            embrionaria            0.4172   0.3951   -0.0221 ⚠️
+656  racionalistas        revirando              0.5013   0.4791   -0.0222 ⚠️
+657  protestos            relacionados           0.0818   0.0594   -0.0224 ⚠️
+658  embora               monstro                0.0812   0.0581   -0.0231 ⚠️
+659  glue                 setenta                0.3367   0.3132   -0.0234 ⚠️
+660  c++23                trocaram               0.3792   0.3556   -0.0236 ⚠️
+661  assimetrica          escalonamento          0.5625   0.5379   -0.0246 ⚠️
+662  alcanca-los          enganacao              0.3089   0.2841   -0.0248 ⚠️
+663  alinhadas            escondessem            0.2816   0.2562   -0.0254 ⚠️
+664  conseguir            organizar              0.4639   0.4384   -0.0254 ⚠️
+665  descia               transformou            0.2087   0.1830   -0.0257 ⚠️
+666  distorcer            piruvato               0.3354   0.3096   -0.0258 ⚠️
+667  de                   gradientes             0.2048   0.1784   -0.0264 ⚠️
+668  desemprego           haproxy                0.3705   0.3433   -0.0272 ⚠️
+669  cotidiano            prometheus             0.2410   0.2136   -0.0274 ⚠️
+670  pessima              unique                 0.4065   0.3778   -0.0286 ⚠️
+671  medicinal            ordenacao              0.1275   0.0979   -0.0296 ⚠️
+672  opostos              sofrido                0.2087   0.1789   -0.0297 ⚠️
+673  guiada               metabase               0.5741   0.5443   -0.0298 ⚠️
+674  035                  documentario           0.2957   0.2651   -0.0307 ⚠️
+675  ambicao              sanguinea              0.2606   0.2298   -0.0308 ⚠️
+676  atinja               resgate                0.1398   0.1086   -0.0312 ⚠️
+677  assembleia           orelha                 0.3066   0.2753   -0.0313 ⚠️
+678  engolido             sobrescrever           0.2570   0.2254   -0.0316 ⚠️
+679  facilmente           soube                  0.4492   0.4172   -0.0321 ⚠️
+680  cetica               deviam                 0.3458   0.3137   -0.0321 ⚠️
+681  internos             sintaxe                0.3646   0.3322   -0.0323 ⚠️
+682  funcionalidade       questiona              0.2744   0.2419   -0.0325 ⚠️
+683  densidade            perfil                 0.2257   0.1932   -0.0325 ⚠️
+684  constitucional       topo                   0.0598   0.0270   -0.0328 ⚠️
+685  051                  espumar                0.2646   0.2316   -0.0330 ⚠️
+686  objeto               riscou                 0.1641   0.1310   -0.0332 ⚠️
+687  irreversivel         predatoria             0.4484   0.4152   -0.0332 ⚠️
+688  errors               procrastinando         0.2440   0.2096   -0.0344 ⚠️
+689  climaticos           distraiu               0.4013   0.3667   -0.0346 ⚠️
+690  criavam              eletronicos            0.1643   0.1292   -0.0351 ⚠️
+691  critica              pintou                 0.2041   0.1687   -0.0354 ⚠️
+692  geravam              partilha               0.6962   0.6605   -0.0357 ⚠️
+693  gambiarra            prestava               0.2903   0.2544   -0.0359 ⚠️
+694  consegue             pedisse                0.3343   0.2978   -0.0365 ⚠️
+695  aprendem             voltavam               0.4540   0.4174   -0.0366 ⚠️
+696  agora                encerrar               0.4816   0.4447   -0.0369 ⚠️
+697  metamorfoses         significativas         0.1919   0.1548   -0.0371 ⚠️
+698  advogado             impactos               0.1156   0.0784   -0.0372 ⚠️
+699  dramatizar           proporcao              0.2502   0.2127   -0.0375 ⚠️
+700  devemos              outros                 0.0925   0.0546   -0.0378 ⚠️
+701  custosa              ruim                   0.2618   0.2234   -0.0385 ⚠️
+702  apreciando           degradacao             0.1833   0.1442   -0.0390 ⚠️
+703  racionalidade        registrou              0.1884   0.1486   -0.0398 ⚠️
+704  reatancia            vinham                -0.0651  -0.1055   -0.0404 ⚠️
+705  108                  crua                   0.4118   0.3698   -0.0420 ⚠️
+706  hipotenusa           recebido               0.1875   0.1452   -0.0423 ⚠️
+707  orientavam           sumia                  0.2629   0.2204   -0.0424 ⚠️
+708  gostasse             mediocridade           0.2913   0.2487   -0.0426 ⚠️
+709  caro                 vocabulario            0.4133   0.3697   -0.0436 ⚠️
+710  continentais         descida                0.3235   0.2795   -0.0440 ⚠️
+711  estuda               triviais               0.0698   0.0258   -0.0441 ⚠️
+712  cortazar             pluralidade            0.4482   0.4037   -0.0445 ⚠️
+713  assincrona           cmakelists             0.1170   0.0719   -0.0451 ⚠️
+714  sofa                 urbano                 0.1036   0.0585   -0.0451 ⚠️
+715  frequentemente       sofria                 0.1875   0.1418   -0.0456 ⚠️
+716  borrowing            terceiro               0.2206   0.1745   -0.0461 ⚠️
+717  patrulha             zero                   0.1137   0.0668   -0.0469 ⚠️
+718  multidoes            observando             0.3020   0.2548   -0.0472 ⚠️
+719  bernard              revelaram              0.2141   0.1664   -0.0476 ⚠️
+720  nichos               obter                  0.3192   0.2710   -0.0483 ⚠️
+721  revolucionaria       significancia          0.1086   0.0603   -0.0484 ⚠️
+722  insistentemente      razoaveis              0.2517   0.2028   -0.0489 ⚠️
+723  apaga                popularizou            0.2008   0.1509   -0.0499 ⚠️
+724  ferrovias            fugida                 0.3481   0.2977   -0.0504 ⚠️
+725  levava               medido                 0.2759   0.2254   -0.0505 ⚠️
+726  configura            quartos                0.1834   0.1327   -0.0507 ⚠️
+727  degraus              rompe                  0.2478   0.1969   -0.0509 ⚠️
+728  arbitrario           mesa                   0.0113  -0.0400   -0.0513 ⚠️
+729  catalisar            permanecam             0.3813   0.3299   -0.0514 ⚠️
+730  o3                   preenchia              0.2790   0.2276   -0.0514 ⚠️
+731  anotando             paraboliico            0.4386   0.3871   -0.0515 ⚠️
+732  emite                inferidos              0.4964   0.4450   -0.0515 ⚠️
+733  ninguem              propensos              0.0483  -0.0036   -0.0519 ⚠️
+734  auditar              k                      0.2674   0.2153   -0.0520 ⚠️
+735  cis                  pegadinha              0.1761   0.1238   -0.0523 ⚠️
+736  gravida              padrinho               0.3754   0.3231   -0.0523 ⚠️
+737  ganhava              vende                  0.2959   0.2436   -0.0523 ⚠️
+738  estimulante          grandes                0.2072   0.1539   -0.0533 ⚠️
+739  abandonou            neutralidade           0.2487   0.1954   -0.0534 ⚠️
+740  canudos              sentir                 0.2471   0.1926   -0.0545 ⚠️
+741  cruza                ousou                 -0.0133  -0.0678   -0.0545 ⚠️
+742  extensiva            penetrancia            0.3234   0.2681   -0.0553 ⚠️
+743  amazonia             dramatizar             0.2413   0.1854   -0.0559 ⚠️
+744  escapam              undefined              0.3631   0.3067   -0.0564 ⚠️
+745  colunas              modernas               0.4572   0.4001   -0.0571 ⚠️
+746  branco               inteiro                0.4061   0.3486   -0.0575 ⚠️
+747  gelo                 quente                 0.3255   0.2678   -0.0577 ⚠️
+748  asia                 duradouro              0.2448   0.1864   -0.0584 ⚠️
+749  polipeptidica        produzidos             0.4456   0.3866   -0.0590 ⚠️
+750  perdas               viavel                 0.2232   0.1639   -0.0592 ⚠️
+751  cobrados             indice                 0.3780   0.3184   -0.0595 ⚠️
+752  garantida            hidroxila              0.0381  -0.0224   -0.0605 ⚠️
+753  prontas              retornos               0.2806   0.2201   -0.0605 ⚠️
+754  costume              like                   0.3876   0.3267   -0.0609 ⚠️
+755  razoavelmente        voto                   0.2612   0.1989   -0.0623 ⚠️
+756  ligar                pa                     0.0567  -0.0055   -0.0623 ⚠️
+757  integrar             maximas                0.2477   0.1854   -0.0623 ⚠️
+758  indigena             vant                   0.4408   0.3784   -0.0624 ⚠️
+759  camada               monoteismo             0.5181   0.4555   -0.0626 ⚠️
+760  dilatacao            final                  0.4588   0.3961   -0.0627 ⚠️
+761  alertas              superior               0.2777   0.2150   -0.0627 ⚠️
+762  inversibilidade      tristeza               0.1265   0.0633   -0.0632 ⚠️
+763  cuda                 ego                    0.4788   0.4154   -0.0634 ⚠️
+764  fixture              quilombos              0.4055   0.3421   -0.0634 ⚠️
+765  quebravam            word2vec               0.2798   0.2160   -0.0638 ⚠️
+766  naturalmente         pedra                  0.3154   0.2515   -0.0640 ⚠️
+767  relacionamentos      vermelha               0.1315   0.0672   -0.0643 ⚠️
+768  conectar             ditador               -0.0046  -0.0690   -0.0644 ⚠️
+769  inclui               ocupam                 0.1440   0.0794   -0.0646 ⚠️
+770  sentar               zero                   0.1345   0.0690   -0.0655 ⚠️
+771  autores              conseguiam             0.5160   0.4503   -0.0657 ⚠️
+772  camera               homologos              0.2074   0.1416   -0.0658 ⚠️
+773  apreciar             operadores             0.0796   0.0138   -0.0658 ⚠️
+774  farejamento          individuo              0.2694   0.2034   -0.0660 ⚠️
+775  comportados          saboreou              -0.0317  -0.0986   -0.0669 ⚠️
+776  gentileza            joules                 0.4188   0.3509   -0.0678 ⚠️
+777  cinematografica      decompositor           0.2775   0.2096   -0.0679 ⚠️
+778  jura                 redirecionamento       0.3762   0.3082   -0.0680 ⚠️
+779  fixacao              vim                    0.1936   0.1255   -0.0681 ⚠️
+780  baseada              viola                  0.3346   0.2658   -0.0688 ⚠️
+781  apontou              promessa               0.3286   0.2592   -0.0694 ⚠️
+782  iso                  uniu                   0.2937   0.2242   -0.0695 ⚠️
+783  apresentados         previne                0.1202   0.0495   -0.0707 ⚠️
+784  pivo                 teriam                 0.2836   0.2128   -0.0708 ⚠️
+785  fundamentais         indicam                0.3321   0.2605   -0.0716 ⚠️
+786  janela               teatro                 0.0326  -0.0392   -0.0718 ⚠️
+787  favoravel            preset                 0.1648   0.0928   -0.0720 ⚠️
+788  mutex                pretende               0.1266   0.0545   -0.0722 ⚠️
+789  estocastico          hawaii                 0.2997   0.2271   -0.0726 ⚠️
+790  especificacao        pensando               0.1786   0.1056   -0.0731 ⚠️
+791  interespecifica      makefile               0.5351   0.4619   -0.0732 ⚠️
+792  processou            vem                    0.1802   0.1068   -0.0734 ⚠️
+793  free                 olhada                 0.4013   0.3279   -0.0734 ⚠️
+794  cobertores           dominavam              0.1094   0.0350   -0.0744 ⚠️
+795  ii                   lados                  0.2175   0.1426   -0.0750 ⚠️
+796  estaduais            filtragem              0.3411   0.2658   -0.0753 ⚠️
+797  enfraquecida         superficial            0.4317   0.3557   -0.0760 ⚠️
+798  cenario              harmonico              0.1187   0.0418   -0.0769 ⚠️
+799  pai                  rmsprop                0.3238   0.2452   -0.0786 ⚠️
+800  custosas             patrimonio             0.2213   0.1423   -0.0790 ⚠️
+801  aproveitava          q                      0.4185   0.3393   -0.0792 ⚠️
+802  imperialismo         perdem                 0.4246   0.3447   -0.0799 ⚠️
+803  cromossomo           morte                  0.2149   0.1349   -0.0800 ⚠️
+804  baixo                retomada               0.2496   0.1684   -0.0812 ⚠️
+805  semente              trauma                 0.4698   0.3885   -0.0813 ⚠️
+806  multivalor           suspeitos              0.3908   0.3080   -0.0828 ⚠️
+807  amizades             puro                   0.4029   0.3199   -0.0830 ⚠️
+808  bastardo             exclusao               0.3299   0.2466   -0.0834 ⚠️
+809  amado                insonia                0.3477   0.2640   -0.0836 ⚠️
+810  desenvolvimento      piscar                 0.1124   0.0287   -0.0837 ⚠️
+811  distribuida          surgido                0.4332   0.3493   -0.0839 ⚠️
+812  acusacao             memorias               0.3247   0.2408   -0.0839 ⚠️
+813  aprovou              porcentagem            0.2771   0.1928   -0.0843 ⚠️
+814  arterial             nascentes              0.3577   0.2728   -0.0848 ⚠️
+815  dilma                passa                  0.0414  -0.0437   -0.0851 ⚠️
+816  emprestou            portuguesa             0.4280   0.3427   -0.0854 ⚠️
+817  deterministica       lesse                  0.3530   0.2674   -0.0856 ⚠️
+818  pesquisado           santiago               0.1973   0.1116   -0.0857 ⚠️
+819  studio               suspeitamente          0.0979   0.0117   -0.0862 ⚠️
+820  concurrency          joga                   0.3127   0.2263   -0.0864 ⚠️
+821  privilege            teen                   0.2453   0.1586   -0.0867 ⚠️
+822  agitacao             modernos               0.1527   0.0649   -0.0878 ⚠️
+823  sobrancelha          soleira                0.2610   0.1729   -0.0881 ⚠️
+824  dias                 tenta-lo               0.3579   0.2679   -0.0900 ⚠️
+825  add_library          lambda                 0.5649   0.4741   -0.0907 ⚠️
+826  adolescencia         suite                  0.2120   0.1210   -0.0910 ⚠️
+827  heap                 racionamento           0.3228   0.2317   -0.0910 ⚠️
+828  descobriu            dianteiras             0.2624   0.1710   -0.0913 ⚠️
+829  classico             precede                0.1975   0.1059   -0.0916 ⚠️
+830  isotermico           metade                 0.3502   0.2568   -0.0934 ⚠️
+831  cortada              heaptrack              0.4680   0.3736   -0.0944 ⚠️
+832  direitos             garrafadas             0.3588   0.2638   -0.0949 ⚠️
+833  pe                   proxy                  0.3131   0.2178   -0.0952 ⚠️
+834  diarias              procrastinar           0.3339   0.2383   -0.0955 ⚠️
+835  preservada           sucessao               0.3010   0.2044   -0.0966 ⚠️
+836  elas                 indice                 0.3243   0.2273   -0.0970 ⚠️
+837  balanceado           martin                 0.4018   0.3045   -0.0973 ⚠️
+838  fermento             horario                0.5412   0.4435   -0.0977 ⚠️
+839  circunferencia       largar                 0.1131   0.0147   -0.0984 ⚠️
+840  descreveria          infeccoes              0.3178   0.2189   -0.0989 ⚠️
+841  influencia           poeira                 0.2724   0.1731   -0.0994 ⚠️
+842  meus                 tradicionais           0.3381   0.2387   -0.0994 ⚠️
+843  informativa          poderosa               0.4003   0.2997   -0.1006 ⚠️
+844  naming               simultanea             0.3508   0.2497   -0.1012 ⚠️
+845  implementacoes       parece                -0.0224  -0.1240   -0.1016 ⚠️
+846  desafio              futebol                0.3343   0.2325   -0.1018 ⚠️
+847  002                  mediatica              0.0342  -0.0681   -0.1023 ⚠️
+848  esposa               gerenciador            0.3450   0.2420   -0.1030 ⚠️
+849  derrube              internar               0.4443   0.3413   -0.1030 ⚠️
+850  arrependeu           reeleicao              0.4662   0.3631   -0.1031 ⚠️
+851  geraram              molecula               0.4414   0.3378   -0.1036 ⚠️
+852  cacheou              mercurio               0.2138   0.1098   -0.1039 ⚠️
+853  noticias             preocupou              0.3987   0.2944   -0.1043 ⚠️
+854  climaticas           momentum               0.3729   0.2681   -0.1048 ⚠️
+855  casais               verdades               0.1328   0.0275   -0.1053 ⚠️
+856  encontram            holandrica             0.3049   0.1988   -0.1061 ⚠️
+857  farsa                interoperabilidade     0.4061   0.2999   -0.1062 ⚠️
+858  base                 respondidas            0.1839   0.0771   -0.1068 ⚠️
+859  conhecemos           vetores                0.3943   0.2872   -0.1071 ⚠️
+860  fronteiras           yaml                   0.3129   0.2051   -0.1078 ⚠️
+861  adequada             ja                     0.3140   0.2057   -0.1083 ⚠️
+862  espetaculo           etanol                 0.2428   0.1340   -0.1088 ⚠️
+863  agregado             devops                 0.3787   0.2695   -0.1092 ⚠️
+864  democratizar         oculto                 0.3850   0.2757   -0.1093 ⚠️
+865  confundindo          main                   0.3535   0.2437   -0.1099 ⚠️
+866  encarregado          rasgada                0.2508   0.1405   -0.1103 ⚠️
+867  du                   reclamacoes            0.3853   0.2750   -0.1103 ⚠️
+868  alimentando          amplamente             0.1639   0.0521   -0.1118 ⚠️
+869  proibiu              removo                 0.5401   0.4269   -0.1132 ⚠️
+870  empilhado            navegar                0.4184   0.3050   -0.1134 ⚠️
+871  conceito             expressando            0.3923   0.2784   -0.1138 ⚠️
+872  essencia             pausou                 0.4684   0.3539   -0.1145 ⚠️
+873  abajur               variancia              0.2109   0.0962   -0.1148 ⚠️
+874  apoio                debuga                 0.2298   0.1148   -0.1150 ⚠️
+875  jogo                 samba                  0.3751   0.2598   -0.1153 ⚠️
+876  metallica            sabao                  0.2960   0.1801   -0.1159 ⚠️
+877  azure                degradacao             0.4382   0.3206   -0.1175 ⚠️
+878  imita                tres                   0.2924   0.1739   -0.1185 ⚠️
+879  devolvem             fortalecimento         0.6524   0.5336   -0.1187 ⚠️
+880  desprovidas          ronrou                 0.1817   0.0607   -0.1211 ⚠️
+881  buscavam             descobrir              0.4540   0.3330   -0.1211 ⚠️
+882  amargurado           trigo                  0.2691   0.1481   -0.1211 ⚠️
+883  par                  pg                     0.4016   0.2800   -0.1216 ⚠️
+884  ideologicas          reconhecidas           0.4364   0.3132   -0.1231 ⚠️
+885  manipulation         possiveis              0.5786   0.4549   -0.1237 ⚠️
+886  lerdeza              metralhadoras          0.2068   0.0828   -0.1240 ⚠️
+887  mutuamente           smith                  0.3486   0.2235   -0.1250 ⚠️
+888  estes                pensativa              0.0696  -0.0564   -0.1259 ⚠️
+889  em                   exclusivamente         0.1473   0.0208   -0.1265 ⚠️
+890  brain                famoso                 0.1456   0.0189   -0.1266 ⚠️
+891  exibiam              simbolizou             0.3483   0.2216   -0.1267 ⚠️
+892  assistentes          trabalhadores          0.4301   0.3031   -0.1269 ⚠️
+893  colaboracao          retrucou               0.4731   0.3460   -0.1271 ⚠️
+894  desafiam             intermitentemente      0.4100   0.2817   -0.1283 ⚠️
+895  apareceram           counter                0.3374   0.2091   -0.1283 ⚠️
+896  seguintes            tivessem               0.5017   0.3731   -0.1286 ⚠️
+897  defunto              dora                   0.3242   0.1945   -0.1297 ⚠️
+898  depositou            legislacao             0.2094   0.0784   -0.1310 ⚠️
+899  montesquieu          sal                    0.3250   0.1940   -0.1310 ⚠️
+900  limpos               nominal                0.1888   0.0569   -0.1319 ⚠️
+901  assistida            guiem                  0.3086   0.1750   -0.1337 ⚠️
+902  fixos                negros                 0.2568   0.1228   -0.1340 ⚠️
+903  bebida               jupyter                0.1590   0.0243   -0.1347 ⚠️
+904  apreciou             conversando            0.3068   0.1719   -0.1349 ⚠️
+905  poderao              projetos               0.6711   0.5357   -0.1354 ⚠️
+906  acordar              reunindo               0.1491   0.0118   -0.1373 ⚠️
+907  defeito              usadas                 0.3674   0.2300   -0.1374 ⚠️
+908  desdem               joules                 0.4629   0.3253   -0.1375 ⚠️
+909  incomodaria          interrupcao            0.4923   0.3546   -0.1377 ⚠️
+910  emprego              sequestrada            0.4643   0.3258   -0.1385 ⚠️
+911  bicho                puras                  0.4522   0.3112   -0.1410 ⚠️
+912  beneficios           deliciosamente         0.2407   0.0970   -0.1437 ⚠️
+913  eles                 rapidos                0.6396   0.4916   -0.1481 ⚠️
+914  comprada             resolveram             0.4451   0.2969   -0.1482 ⚠️
+915  cheiros              contextuais            0.3493   0.2006   -0.1487 ⚠️
+916  caatinga             proclamacao            0.4870   0.3375   -0.1495 ⚠️
+917  exibem               glue                   0.2629   0.1134   -0.1495 ⚠️
+918  atendeu              prejudicar             0.4247   0.2716   -0.1531 ⚠️
+919  orcamento            planejou               0.4018   0.2483   -0.1535 ⚠️
+920  criticos             jornada                0.3797   0.2259   -0.1538 ⚠️
+921  apreciou             simplificacao          0.5216   0.3666   -0.1550 ⚠️
+922  corria               ownership              0.3103   0.1529   -0.1574 ⚠️
+923  opressao             vozes                  0.5255   0.3667   -0.1588 ⚠️
+924  coordenados          monolitico             0.3320   0.1725   -0.1595 ⚠️
+925  biologica            desconfiaria           0.2707   0.1110   -0.1597 ⚠️
+926  motivacoes           segredos               0.4450   0.2849   -0.1601 ⚠️
+927  based                priorizava             0.2738   0.1131   -0.1607 ⚠️
+928  composer             gratidao               0.2507   0.0883   -0.1624 ⚠️
+929  inicia               recombinacao           0.0196  -0.1431   -0.1627 ⚠️
+930  detectando           profeta                0.3402   0.1768   -0.1634 ⚠️
+931  200                  aquele                 0.3164   0.1519   -0.1645 ⚠️
+932  escrever             garoto                 0.3449   0.1794   -0.1655 ⚠️
+933  positional           produzidos             0.3344   0.1686   -0.1658 ⚠️
+934  azul                 pergunte               0.4190   0.2511   -0.1679 ⚠️
+935  pick                 tira                   0.3982   0.2291   -0.1691 ⚠️
+936  formar               indicavam              0.2211   0.0500   -0.1712 ⚠️
+937  calcular             campos                 0.4592   0.2871   -0.1720 ⚠️
+938  evitam               interagindo            0.3374   0.1632   -0.1742 ⚠️
+939  criativa             impopulares            0.3179   0.1428   -0.1751 ⚠️
+940  envolvido            sabao                  0.2926   0.1166   -0.1760 ⚠️
+941  mantinham            setores                0.4200   0.2440   -0.1760 ⚠️
+942  inspeciona           necessarias            0.4412   0.2643   -0.1769 ⚠️
+943  psicologico          read                   0.2592   0.0821   -0.1771 ⚠️
+944  ontem                quantitativa           0.0970  -0.0809   -0.1779 ⚠️
+945  agarre               passivos               0.5884   0.4078   -0.1806 ⚠️
+946  eternidade           ocasioes               0.3335   0.1521   -0.1814 ⚠️
+947  estrelas             regionais              0.3202   0.1377   -0.1825 ⚠️
+948  comunidade           schrdinger             0.3136   0.1302   -0.1834 ⚠️
+949  implicita            supersticao            0.3702   0.1866   -0.1836 ⚠️
+950  bound                provavel               0.2443   0.0599   -0.1844 ⚠️
+951  geopolitica          supero                 0.1149  -0.0698   -0.1847 ⚠️
+952  engrenagem           limpas                 0.4460   0.2574   -0.1886 ⚠️
+953  desapareciam         intervencao            0.3346   0.1429   -0.1917 ⚠️
+954  confirmado           uma                    0.3350   0.1433   -0.1917 ⚠️
+955  helenistica          titular                0.3290   0.1365   -0.1925 ⚠️
+956  explicou             new                    0.2729   0.0803   -0.1926 ⚠️
+957  filtrava             primaria               0.3753   0.1816   -0.1937 ⚠️
+958  misterio             studio                 0.3778   0.1834   -0.1944 ⚠️
+959  escalava             indutiva               0.3470   0.1523   -0.1948 ⚠️
+960  desconstruia         provisoria             0.4122   0.2105   -0.2017 ⚠️
+961  mentira              scraping               0.1602  -0.0430   -0.2031 ⚠️
+962  economico            reforma                0.5615   0.3544   -0.2071 ⚠️
+963  automatizam          crista                 0.1951  -0.0122   -0.2074 ⚠️
+964  regular              tarefas                0.0664  -0.1413   -0.2076 ⚠️
+965  checked              desagradavel           0.1801  -0.0294   -0.2095 ⚠️
+966  admira               antarticas             0.4103   0.1998   -0.2105 ⚠️
+967  esconder             pudessem               0.4323   0.2198   -0.2125 ⚠️
+968  possuindo            precaucao              0.2460   0.0322   -0.2138 ⚠️
+969  roxo                 tropical               0.1967  -0.0191   -0.2158 ⚠️
+970  anotacao             morrem                 0.3665   0.1492   -0.2173 ⚠️
+971  muiraquita           treze                  0.3853   0.1659   -0.2194 ⚠️
+972  autoconhecimento     financiamento          0.5212   0.2993   -0.2219 ⚠️
+973  colegas              venda                  0.3401   0.1156   -0.2246 ⚠️
+974  discordando          gratidao               0.3785   0.1511   -0.2274 ⚠️
+975  composta             sucessos               0.5416   0.3121   -0.2295 ⚠️
+976  fixacao              vicente                0.3325   0.1008   -0.2317 ⚠️
+977  civilizacoes         identificado           0.3372   0.1039   -0.2333 ⚠️
+978  agricultura          validas                0.2983   0.0627   -0.2357 ⚠️
+979  deslizando           raros                  0.4611   0.2242   -0.2369 ⚠️
+980  sao                  tal                    0.3266   0.0894   -0.2372 ⚠️
+981  primeiras            viram                  0.5711   0.3303   -0.2408 ⚠️
+982  considero            enum                   0.2846   0.0436   -0.2410 ⚠️
+983  gentileza            ja                     0.3631   0.1200   -0.2431 ⚠️
+984  escritos             estatistico            0.1886  -0.0610   -0.2497 ⚠️
+985  fidelidade           militares              0.4367   0.1765   -0.2602 ⚠️
+986  documentando         realizada              0.2834   0.0217   -0.2617 ⚠️
+987  sorri                vienna                 0.3012   0.0347   -0.2665 ⚠️
+988  compacto             compor                 0.4006   0.1334   -0.2672 ⚠️
+989  funcional            tributaria             0.4478   0.1756   -0.2723 ⚠️
+990  bastardo             pretensioso            0.2705  -0.0035   -0.2740 ⚠️
+991  nosso                opencode               0.3976   0.1045   -0.2931 ⚠️
+992  completude           partida                0.3477   0.0538   -0.2939 ⚠️
+993  atinge               tomam                  0.3419   0.0416   -0.3003 ⚠️
+994  biomassa             civil                  0.3450   0.0425   -0.3025 ⚠️
+995  adaptacoes           brasil                 0.6048   0.3006   -0.3042 ⚠️
+996  animal               nota                   0.3367   0.0261   -0.3106 ⚠️
+997  propensos            rnas                   0.3139  -0.0076   -0.3215 ⚠️
+998  antipatia            cooperacao             0.3141  -0.0492   -0.3633 ⚠️
+999  ansiedade            funcione               0.4283   0.0604   -0.3678 ⚠️
+1000 and                  coado                  0.4596   0.0795   -0.3801 ⚠️
+
+=== RESUMO ===
+Pares que subiram: 573 (57%)
+Pares que caíram:  427 (42%)
+Delta médio positivo: +0.0910
+Delta médio negativo: -0.0906
+
+Pares com delta > +0.03 (sinal real): 459
+Pares com delta < -0.03 (perda real): 327
+
+
+=== PRIMEIROS 50 JÁ LISTADOS ACIMA ===
