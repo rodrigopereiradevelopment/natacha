@@ -107,3 +107,5 @@ src/embeddings/test_progress.cpp
 *.bin
 .claude/
 .claude/
+dados/embeddings/*.json
+dados/embeddings/*_*ep.json
