@@ -107,5 +107,6 @@ src/embeddings/test_progress.cpp
 *.bin
 .claude/
 .claude/
-dados/embeddings/*.json
-dados/embeddings/*_*ep.json
+dados/embeddings/*.bak
+dados/embeddings/corpus.txt.bak
+dados/embeddings/natacha_embeddings.json
