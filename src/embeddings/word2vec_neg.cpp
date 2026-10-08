@@ -16,6 +16,7 @@
 #include <cctype>
 #include <chrono>
 #include <limits>
+#include <unordered_set>
 
 #include "json.hpp"
 
@@ -171,15 +172,29 @@ public:
             freq[token]++;
         }
 
+        const unordered_set<string> whitelist = {
+            "natacha", "felix", "iagato", "rodrigo", "casa",
+            "mlp", "lstm", "rnn", "transformer", "attention",
+            "backpropagation", "embedding",
+            "perceptron", "neuronio", "gradiente", "sigmoid",
+            "relu", "softmax", "skipgram", "negative", "banheiro", "cozinha", "quarto", "porao",
+            "sotao", "quintal", "varanda", "janela", "corredor",
+            "sala", "eventbus", "embedding"
+        };
+
+        const int MIN_FREQ = 5;
+        unordered_map<string, int> freq_filtrada;
+        for (const auto& [palavra, f] : freq) {
+            bool passa_freq = f >= MIN_FREQ;
+            bool eh_whitelist = whitelist.count(palavra) > 0;
+            if (passa_freq || eh_whitelist) {
+                freq_filtrada[palavra] = f;
+            }
+        }
 
         vector<pair<int, string>> ordenado;
-
-        for (const auto& [palavra, frequencia] : freq) {
-
-            ordenado.push_back({
-                frequencia,
-                palavra
-            });
+        for (const auto& [palavra, frequencia] : freq_filtrada) {
+            ordenado.push_back({frequencia, palavra});
         }
 
 
@@ -872,8 +887,7 @@ int main() {
 
 
     // Caminho relativo a partir da pasta build/src/embeddings
-    string caminhoCorpus =
-        "../../dados/embeddings/corpus.txt";
+    string caminhoCorpus = "../../dados/embeddings/corpus_v27_final.txt";
 
 
     string corpus =
@@ -939,9 +953,9 @@ int main() {
     // ================================================================
     // CONFIGURAÇÕES DO MODELO
     // ================================================================
-    int dim = 32;
+    int dim = 64;
     int janela = 5;
-    int epocas = 500;
+    int epocas = 50;
     int negativos = 5;
 
 
@@ -1120,7 +1134,7 @@ int main() {
 
         if (
             epoca == 0 ||
-            (epoca + 1) % 25 == 0 ||
+            (epoca + 1) % 5 == 0 ||
             epoca == epocas - 1
         ) {
 
@@ -1300,6 +1314,11 @@ int main() {
 
     testar("felix", "gato");
 
+    testar("natacha", "casa");
+    testar("felix", "casa");
+    testar("natacha", "banheiro");
+    testar("natacha", "c++");
+
 
     // ================================================================
     // TOP SIMILARES
@@ -1334,6 +1353,11 @@ int main() {
 
     modelo.topSimilares("aprende", vocab, 10);
 
+    cout << endl;
+
+    modelo.topSimilares("casa", vocab, 10);
+
+
 
     cout << endl
          << "============================================================"
@@ -1353,6 +1377,12 @@ int main() {
 
     cout << "============================================================"
          << endl;
+
+    cout << "============================================================" << endl;
+
+        std::exit(0);  // força saída imediata
+
+        return 0;  // nunca chega aqui, mas deixa por segurança    
 
 
     return 0;
