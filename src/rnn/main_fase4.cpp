@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "embeddings/EmbeddingManager.hpp"
+#include "../embeddings/EmbeddingManager.hpp"
 #include "rnn/RNNLayer.hpp"
 
 int main() {
     std::cout << "=== NATACHA ENGINE - TESTE FASE 4 (RNN/LSTM) ===" << std::endl;
 
-    // 1. Carrega os Embeddings treinados com 64d
+    // 1. Carrega os Embeddings treinados com 64d gerados no último treino
     EmbeddingManager embManager;
-    if (!embManager.carregarEmbeddings("dados/embeddings/embeddings.json")) {
+    if (!embManager.carregarEmbeddings("dados/embeddings/natacha_embeddings.json")) {
         std::cerr << "Falha ao carregar embeddings." << std::endl;
         return 1;
     }
@@ -24,7 +24,7 @@ int main() {
     for (const auto& token : tokens) {
         std::vector<float> vec = embManager.obterVetor(token);
         if (!vec.empty()) {
-            dim_detectada = vec.size(); // Detecta automaticamente se é 64, 32, etc.
+            dim_detectada = vec.size(); 
             std::cout << " [+] Token: '" << token << "' -> Vetor dim: " << dim_detectada << std::endl;
             sequencia_vetores.push_back(vec);
         } else {
