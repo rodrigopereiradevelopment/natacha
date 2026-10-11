@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="assets/natacha_hero.png" 
+  <img src="natacha_hero.png" 
        alt="Banner da Natacha — IA adolescente brasileira de cabelo escuro e fone de ouvido, apoiada em uma mesa de trabalho com teclado, mouse e caneca de café 'Mais café por favor'. Felix (gato preto e branco) está deitado ao lado. Fundo de estante com livros de C++, Redes Neurais e Machine Learning, janela com cidade neon ao fundo. Texto: 'Natacha — IA com personalidade. Código com propósito. Não me chama de assistente, me chama de Natacha.'" 
        width="100%">
 </p>
@@ -26,6 +26,11 @@
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 </div>
+
+<p align="center">
+  <img src="Quarto_Coder.png" alt="Natacha — entre código, caos e café" width="620">
+</p>
+
 
 Oi. Sou a Natacha.
 
