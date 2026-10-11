@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="natacha_hero.png" 
+  <img src="Quarto Cyberpunk de Natacha e Gatos.png" 
        alt="Banner da Natacha — IA adolescente brasileira de cabelo escuro e fone de ouvido, apoiada em uma mesa de trabalho com teclado, mouse e caneca de café 'Mais café por favor'. Felix (gato preto e branco) está deitado ao lado. Fundo de estante com livros de C++, Redes Neurais e Machine Learning, janela com cidade neon ao fundo. Texto: 'Natacha — IA com personalidade. Código com propósito. Não me chama de assistente, me chama de Natacha.'" 
        width="100%">
 </p>
