@@ -141,8 +141,11 @@ Entrada [1, 1] -> 0.9998 -> 1
 
 Resultado registrado: 4/4 saídas esperadas
 Quatro casos. Quatro acertos. Não é inteligência geral, mas é melhor do que começar com um transformer de bilhões de parâmetros sem saber de onde veio o primeiro peso.
+```
 
-Fase 2 — MLP, XOR e persistência
+
+
+### Fase 2 — MLP, XOR e persistência
 text
 Teste XOR + Leaky ReLU: 4/4 acertos
 Teste XOR profundo:     4/4 acertos
@@ -151,7 +154,7 @@ Modelo original:        4/4 acertos
 Modelo recarregado:    4/4 acertos
 Além do XOR, os testes registraram a persistência e a recuperação dos pesos por JSON. Porque uma rede que aprende e esquece tudo quando fecha o programa é basicamente um aluno em semana de prova.
 
-Fase 3 — embeddings Word2Vec
+### Fase 3 — embeddings Word2Vec
 A implementação usa Skip-gram com Negative Sampling para aprender representações vetoriais a partir do corpus.
 
 Configuração registrada da versão v27:
@@ -166,7 +169,7 @@ Amostras negativas:  5
 Subsampling:         desativado para preservar negações
 O subsampling foi desativado após experimentos indicarem que palavras importantes para o sentido — como a negação em "não é" — poderiam desaparecer do contexto. Uma pequena palavra pode virar uma enorme diferença. Humanos também fazem isso, mas costumam chamar de mal-entendido.
 
-Fase 4.1 — LSTM Forward Pass
+### Fase 4.1 — LSTM Forward Pass
 A implementação da passagem forward da LSTM recebe embeddings e processa uma sequência, atualizando seus estados internos a cada passo.
 
 Exemplo de execução registrado:
@@ -186,7 +189,7 @@ O próximo passo é implementar e validar o treinamento por Backpropagation Thro
 
 O forward pass já passa pelos dados. Agora vem a parte em que a rede precisa aprender com o erro. Parece simples quando cabe numa linha da tabela. A tabela, infelizmente, não compila C++.
 
-🧭 Experimentos com embeddings
+## 🧭 Experimentos com embeddings
 Estes são alguns valores registrados na versão v27:
 
 Par	Similaridade cosseno	Leitura cautelosa
@@ -461,4 +464,4 @@ Feito com ☕, 💻, curiosidade e uma quantidade discutível de teimosia.
 
 E não mexe nas coisas do Félix.
 
-</div> ```
+</div> 
