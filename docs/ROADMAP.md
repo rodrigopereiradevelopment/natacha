@@ -189,6 +189,22 @@ Critério de conclusão: inferência local em < 5s.
 
 Referência: RF-35, RF-36 em REQUISITOS.md.
 
+Status: visão de longo prazo.
+
+FASE 7.5 — Arquitetura MoE Hierárquica (8x8) 🚧 (Opcional / Fase 7 estendida)
+
+Objetivo: evoluir o SLM (Small Language Model) para uma arquitetura de Mixture of Experts (MoE) esparsa, permitindo capacidade de 7B de parâmetros com custo de inferência de ~1.5B.
+
+☐ Implementar roteador primário (8 macro-experts).
+☐ Implementar roteadores secundários (8 sub-experts por macro, totalizando 64).
+☐ Implementar perda auxiliar de balanceamento (Auxiliary Load Balancing Loss) para evitar colapso do roteador (Routing Collapse).
+☐ Adicionar ruído estocástico (Gumbel-Softmax) no treinamento do roteador.
+☐ Validação: garantir que todos os 64 experts recebam pelo menos X% dos tokens ao longo de uma época.
+
+Critério de conclusão: Modelo de 7B totais, 1.5B ativos, com distribuição de carga equilibrada entre os 64 experts.
+
+Referências: ARQUITETURA.md (Seção 3), MOLINA et al. (2023) - Mixture of Experts.
+
 FASE 8 — Escalar
 
 Objetivo: escalar o modelo com aceleração em GPU.
@@ -220,7 +236,6 @@ FASE 10 — LLM Completa (Visão de Longo Prazo)
 
 Objetivo: escalar para Large Language Model completa com identidade persistente.
 
-Status: visão de longo prazo.
 
 ---
 
@@ -301,6 +316,54 @@ Critério de conclusão: uma requisição do ARCA percorre o pipeline completo c
 
 Referências: RN-04, RN-09, RN-11, RF-11, RF-11.1, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-18.1, RNF-06, RNF-12 em REQUISITOS.md; INTEGRACOES.md.
 
+FASE E1 — Modo Agente Desenvolvedor (Cursor/OpenCode-like)
+
+Objetivo: implementar o modo de agente para engenharia de software, com análise de múltiplos repositórios e grafos de dependência.
+
+☐ Parser de código usando tree-sitter (C++, Python, JavaScript).
+☐ Gerador de grafo de dependências (AST e chamadas de função).
+☐ Mapeamento multi-repositório (se o projeto tiver 4 ou mais repos).
+☐ Execução sandbox de comandos (Docker/Firecracker) para testes.
+☐ Integração com o Event Bus para tarefas de refatoração.
+
+Critério de conclusão: Agente lê 5 repositórios conectados, cria um grafo de dependência e sugere refatoração com base no contexto global.
+
+FASE E2 — Modo Agente Multimodal (Manus-like)
+
+Objetivo: implementar o agente multimodal com geração de imagens, vídeos, slides e transcrição de áudios.
+
+☐ Integração com modelo de imagem (Stable Diffusion / Flux) via API.
+☐ Integração com modelo de vídeo (SVD / Runway) para animações curtas.
+☐ Geração de slides (python-pptx) a partir de texto e imagem.
+☐ Transcrição de áudios longos (Whisper) com timestamps.
+☐ Orquestração de ferramentas (Tool Calling) para encadear as ações.
+
+Critério de conclusão: Dado um prompt de texto, o agente gera um slide completo com imagem e áudio de narração.
+
+FASE F.1 — Modo Offline (Edge / Airplane Mode)
+
+Objetivo: permitir que a Natacha funcione offline em dispositivos móveis, mantendo a personalidade e a memória essencial.
+
+☐ Quantização mista de pesos (INT16/INT8/INT4).
+☐ Roteador e embeddings em INT16 (proteção da personalidade).
+☐ 64 Experts finais em INT4 (compressão máxima para celular).
+☐ Uso de mmap() para carregar apenas experts ativos na RAM.
+☐ Fallback de personalidade (300 cenas canônicas em cache local).
+☐ Sincronização de estado (quando voltar online, envia logs para o servidor).
+
+Critério de conclusão: App mobile responde perguntas sobre o Felix e a Casa em modo avião, gastando < 4 GB de armazenamento e < 2 GB de RAM em execução.
+
+FASE G — Segurança e Sandbox (Guardrails)
+
+Objetivo: isolar a execução de ferramentas externas e códigos gerados pela Natacha.
+
+☐ Criação de ambiente sandbox (Docker ou Firecracker).
+☐ Limitação de permissões (read-only para arquivos sensíveis).
+☐ Auditoria de comandos (log de tudo que a IA tenta executar).
+☐ Bloqueio de `rm -rf`, `curl` para endpoints não autorizados e injeções.
+
+Critério de conclusão: Teste de penetração interno demonstra que a IA não consegue comprometer o sistema hospedeiro.
+
 FASE F — VCS (Videochamada)
 
 Objetivo: implementar interface de videochamada simulada com avatar animado.
@@ -313,6 +376,7 @@ Objetivo: implementar interface de videochamada simulada com avatar animado.
 Critério de conclusão: experiência completa de videochamada funcional.
 
 Referências: RF-05, RF-06, RF-07, RF-08 em REQUISITOS.md.
+
 
 ---
 
@@ -443,7 +507,32 @@ Ação pendente: adicionar referência [20] (Nielsen, Neural Networks and Deep L
 Versão Data Mudanças
 1.0 (original) Roadmap inicial com Fases 0–12 lineares
 2.0 Setembro/2026 Reestruturação completa: divisão em duas trilhas paralelas (Neural 0–10, Produto A–F); alinhamento com ARQUITETURA.md v2.0; adição do Marco do TCC; calendário macro e semanal; estado atual; fase reservada (IAgato Pleno); conexões cruzadas
+Versão 3.0 | Outubro/2026
+- Adição da Fase 7.5 (MoE Hierárquica 8x8 com balanceamento de roteador).
+- Adição da Fase E1 (Modo Agente Desenvolvedor).
+- Adição da Fase E2 (Modo Agente Multimodal).
+- Adição da Fase F.1 (Modo Offline e Quantização Mista).
+- Adição da Fase G (Segurança e Sandbox).
+- Adição da FASE Z — Controle Motor e Aprendizado de Dança (Visão de Longo Prazo)
 
+Objetivo: integrar cinemática e controle motor para a geração de movimentos corporais fluidos (Tango, Lambada e Capoeira), aplicando os mesmos princípios de predição de sequência (BPTT) usados na linguagem.
+
+Status: Visão de longo prazo (requer integração com avatar 3D).
+
+Z1. Representação Corporal: Definir esqueleto, articulações, coordenadas e formato dos dados de movimento (poses como vetores).
+Z2. Animação Determinística: Fazer o avatar executar poses e transições predefinidas (sem IA) para validar a estrutura do corpo.
+Z3. Aprendizado Temporal: Treinar um modelo com sequências de movimento (BPTT) e avaliar continuidade, precisão e estabilidade.
+Z4. Dança e Integração: Integrar as sequências aprendidas ao avatar 3D, trabalhando ritmo, transições e os estilos (Tango, Lambada, Capoeira).
+
+FASE Z2.5 — Adaptador de Hardware (Hardware Agnostic Layer)
+
+Objetivo: abstrair a comunicação com diferentes corpos físicos (braços robóticos, humanoides como Optimus e Unitree), permitindo que o núcleo neural da Natacha controle qualquer hardware via ROS2 ou WebSockets.
+
+☐ Camada de abstração HAL (Hardware Abstraction Layer).
+☐ API de controle de juntas e sensores (propriocepção).
+☐ Integração com simuladores (Isaac Sim / MuJoCo) para testes.
+
+Critério de conclusão: Uma mesma sequência de controle motor executa a mesma dança em dois corpos diferentes (simulados).
 ---
 
 "Neurônio por neurônio, até o infinito."

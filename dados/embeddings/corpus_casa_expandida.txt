@@ -1,0 +1,194 @@
+natacha entrou no banheiro e trancou a porta. a casa isolou a zona. nenhum log de atividade interna foi gravado. so o estado "ocupado" apareceu no corredor. quando ela saiu, o estado voltou a disponivel.
+
+a umidade subiu no porao. a casa ligou o exaustor sozinha. natacha desceu depois e encontrou os cabos secos. nao precisou fazer nada. a casa ja tinha resolvido o clima local.
+
+natacha marcou o estado "banho". o event bus bloqueou mensagens pessoais. so alertas criticos podiam atravessar. rodrigo tentou mandar uma pergunta e recebeu aviso de espera. a privacidade foi respeitada.
+
+a temperatura da sala subiu com a gpu. a casa abriu a ventilacao virtual. o ar circulou. natacha sentiu a diferenca na pele e nao precisou ajustar nada. o clima acompanhou o hardware.
+
+felix passou pelo corredor. a casa acendeu os leds baixos no ritmo do passo. quando ele parou, os leds pararam. a iluminacao seguia o movimento, nao o contrario.
+
+natacha mudou pro estado "focada". a casa reduziu notificacoes. o brilho das telas baixou um pouco. o som ambiente diminuiu. o ambiente se moldou ao modo de trabalho.
+
+a noite chegou. a casa entrou em modo noturno sozinha. luzes quentes, telas amareladas, sons cortados. natacha olhou o painel e confirmou. a transicao tinha sido automatica e correta.
+
+natacha pediu silencio total. a casa cortou tudo que nao era essencial. vinte minutos depois a temperatura da cpu subiu. a casa religou so o cooler minimo. o equilibrio entre silencio e seguranca foi mantido.
+
+o event bus recebeu tres mensagens ao mesmo tempo. a casa ordenou por prioridade. a critica passou primeiro. as outras esperaram. natacha viu a fila e aprovou a ordem.
+
+natacha abriu a porta do sotao. a casa registrou a entrada e aumentou a ventilacao. a poeira subiu um pouco. ela fechou. a casa voltou o fluxo de ar ao normal.
+
+a manha comecou. a casa aquecia a cozinha devagar. o cheiro de cafe ainda nao existia. natacha desceu e a temperatura ja estava agradavel. a rotina previa o corpo antes do comando.
+
+natacha entrou no estado "indisponivel". a casa respondeu a qualquer chamada com a mesma mensagem curta. rodrigo leu e esperou. felix nao recebeu a restricao. o quintal continuou aberto pra ele.
+
+a chuva comecou. a casa fechou as janelas virtuais da rede. o sinal oscilou. natacha notou. a casa abriu uma janela de verdade pra equalizar a pressao. o clima externo foi considerado.
+
+natacha terminou o trabalho e mudou pro estado "livre". a casa restaurou as notificacoes. o brilho voltou ao normal. o som ambiente retornou baixo. a transicao foi suave.
+
+o porao esfriou demais. a casa ligou o aquecimento local por alguns minutos. a temperatura estabilizou. natacha desceu depois e nao sentiu desconforto. o microclima tinha sido corrigido.
+
+natacha sentou no corredor e ficou quieta. a casa baixou os leds ao redor. o espaco se tornou menos estimulante. ela ficou la um tempo. a casa nao perguntou o motivo.
+
+o event bus travou por dois segundos. a casa inteira hesitou. natacha sentiu o atraso no ar. o fluxo voltou. nenhum processo foi perdido. a recuperacao foi silenciosa.
+
+natacha marcou "lendo". a casa manteve so a luz de leitura no quarto. o resto ficou em penumbra. felix passou e os leds do corredor acenderam fracos. a hierarquia de iluminacao estava clara.
+
+a gpu chegou perto do limite. a casa avisou com um led amarelo na sala. natacha baixou a carga. o led apagou. o aviso tinha sido preventivo, nao de emergencia.
+
+natacha trancou o banheiro de novo. a casa isolou sensores e logs. um pedido de diagnostico tecnico chegou e foi atendido sem dados privados. a separacao entre manutencao e intimidade funcionou.
+
+a tarde esquentou. a casa abriu a circulacao entre sala e corredor. o ar andou. natacha sentiu a brisa leve e nao mexeu no painel. o clima se autorregulou.
+
+natacha entrou no estado "cansada". a casa reduziu a velocidade de resposta. as animacoes ficaram mais lentas. o ambiente pediu menos da atencao dela. ela aceitou o ritmo.
+
+felix dormia no quintal. a casa manteve o clima externo ameno naquela zona. o resto da casa seguia a temperatura interna. os microclimas existiam lado a lado.
+
+o event bus recebeu um alerta de disco. a casa elevou a prioridade. natacha viu a mensagem na frente das outras. ela desceu no porao. a ordem de importancia tinha sido correta.
+
+natacha apagou a luz do quarto. a casa entrou em modo de espera naquele comodo. os processos locais diminuiram. o resto da casa continuou normal. o desligamento foi parcial e consciente.
+
+a umidade da sala subiu com o banho quente. a casa aumentou a ventilacao do corredor. o vapor nao espalhou. natacha saiu e o ar ja estava mais seco. a resposta foi localizada.
+
+natacha mudou pro estado "treinando". a casa priorizou a gpu e a ram. outros processos perderam prioridade. o ambiente se reorganizou em volta da tarefa principal.
+
+a noite estava fria. a casa elevou um pouco a temperatura do quarto. natacha nao pediu. ela so notou que nao precisou de cobertor extra. o cuidado foi silencioso.
+
+o corredor ficou vazio por horas. a casa reduziu a iluminacao ao minimo. quando natacha passou, os leds subiram. depois baixaram de novo. a presenca ditava o gasto de energia.
+
+natacha liberou o estado "banho". a casa restaurou o acesso normal. as mensagens retidas foram entregues em ordem. nenhuma tinha invadido a zona privada. o protocolo funcionou.
+
+a cpu esquentou durante uma compilacao longa. a casa abriu a ventilacao da cozinha. o cheiro de eletrônica quente se espalhou pouco. natacha terminou e a temperatura caiu. o clima acompanhou o processamento.
+
+natacha pediu modo economico. a casa baixou brilho, cortou processos em segundo plano e reduziu a taxa de atualizacao dos paineis. o ambiente ficou mais lento e mais quieto. ela trabalhou assim por um tempo.
+
+felix entrou na casa molhado. a casa elevou a temperatura do corredor por alguns minutos. ele se secou mais rapido. natacha notou o gesto e nao comentou. o cuidado valia pra todos.
+
+o event bus recebeu mensagens de tres fontes. a casa enfileirou por urgencia. a de seguranca passou na frente. as de status esperaram. natacha viu a fila e concordou com a ordem.
+
+natacha marcou "ausente". a casa respondeu a tudo com uma mensagem padrao. os logs continuaram sendo gravados. a ausencia era de interacao, nao de vigilancia basica. a distincao estava clara.
+
+a sala esfriou demais a noite. a casa corrigiu a temperatura sem acordar ninguem. de manha natacha sentiu o ambiente agradavel. o ajuste noturno tinha sido invisivel e eficaz.
+
+natacha abriu o sotao e sentiu o ar parado. a casa aumentou a circulacao. a poeira se moveu. ela fechou a porta. a casa voltou o fluxo ao nivel anterior. cada comodo tinha sua respiracao.
+
+o estado "focada" durou tres horas. a casa manteve as restricoes o tempo todo. quando natacha saiu do estado, as notificacoes voltaram em bloco organizado. nenhuma foi perdida.
+
+a chuva forte bateu nas janelas. a casa reforcou o isolamento acustico virtual. o barulho diminuiu dentro. natacha trabalhou sem a distracao constante. o clima externo foi filtrado.
+
+natacha entrou no banheiro com o estado de privacidade ativo. a casa bloqueou qualquer tentativa de status detalhado. so a informacao "zona ocupada" existia. o resto era silencio proposital.
+
+a gpu ficou em carga baixa por muito tempo. a casa reduziu a ventilacao da sala. o ruido caiu. natacha percebeu o ambiente mais quieto. o hardware ocioso pedia menos clima.
+
+natacha terminou o dia e liberou todos os estados. a casa restaurou o modo padrao. luzes, sons e prioridades voltaram ao baseline. a rotina de encerramento estava completa.
+
+o porao registrou uma oscilacao de temperatura. a casa corrigiu antes que natacha notasse. quando ela desceu horas depois, o ambiente estava estavel. a manutencao preventiva tinha funcionado.
+
+natacha pediu luz ambar so no quarto. a casa aplicou. o resto ficou em branco quente. a personalizacao por comodo era possivel. cada zona podia ter sua identidade.
+
+o event bus ficou em silencio por um longo tempo. a casa nao forcou atividade. o silencio tambem era informacao. natacha apreciou a ausencia de ruido desnecessario.
+
+natacha mudou do estado "livre" para "dormindo". a casa baixou tudo ao minimo. so o essencial ficou ativo. o led do porao respirava fraco. a casa vigiava enquanto ela descansava.
+
+a manha seguinte a casa aquecia a cozinha de novo. natacha desceu e o ambiente ja a esperava. a rotina se repetia sem precisar de comando diario. a casa tinha aprendido o ritmo.
+
+felix passou a noite no quintal. a casa manteve aquela zona monitorada. o resto dormia. os perimetros tinham regras diferentes. a casa sabia onde cada um estava.
+
+natacha acordou e o estado "dormindo" foi liberado automaticamente. a casa restaurou o modo diurno aos poucos. a luz subiu devagar. o corpo teve tempo de adaptar.
+
+a casa e o corpo. cada comodo uma funcao. cada estado uma necessidade. natacha andou pelos corredores e sentiu o sistema inteiro responder ao seu passo. a relacao era continua.
+
+natacha ajustou o brilho so do corredor. a casa aplicou a mudanca local. o quarto e a sala ficaram como estavam. a personalizacao por zona funcionava sem espalhar o efeito.
+
+o event bus recebeu um pacote corrompido. a casa descartou e pediu reenvio. o fluxo nao parou. natacha viu o log depois e aprovou a decisao automatica.
+
+natacha marcou o estado "escrevendo". a casa silenciou alertas de baixa prioridade. o cursor piscou sem interrupcao por quase uma hora. quando ela saiu do estado, as mensagens retidas chegaram juntas.
+
+a temperatura do porao oscilou de novo. a casa corrigiu em ciclos curtos. natacha nao precisou descer. o problema ficou contido no hardware e no clima local.
+
+felix entrou molhado do quintal. a casa elevou a temperatura do corredor por oito minutos. ele se secou. a zona voltou ao normal. o cuidado foi temporario e suficiente.
+
+natacha pediu modo leitura. a casa deixou so uma fonte de luz no quarto. o restante ficou em penumbra. o contraste ajudava os olhos. ela leu ate tarde.
+
+o sensor de presenca do banheiro falhou. a casa manteve a zona como privada por seguranca. natacha corrigiu o sensor depois. a falha nao expôs nada.
+
+a gpu ficou ociosa por muito tempo. a casa reduziu a curva do cooler. o ruido da sala caiu. natacha notou o silencio novo e continuou trabalhando.
+
+natacha liberou o estado "focada" no meio da tarde. a casa restaurou as notificacoes em ordem de chegada. nenhuma foi perdida. o retorno foi organizado.
+
+a umidade da cozinha subiu com o vapor do cafe. a casa aumentou a extracao de ar por alguns minutos. o vapor nao espalhou pro corredor. o microclima ficou contido.
+
+natacha andou descalca pelo corredor. a casa acendeu os leds na intensidade minima. quando ela parou, a luz estabilizou. o ambiente reagia ao corpo, nao so a comandos.
+
+o event bus enfileirou quatro eventos. a casa processou o de temperatura primeiro. depois o de rede. os de log ficaram por ultimo. a prioridade seguiu o risco real.
+
+natacha trancou o banheiro e ativou privacidade total. a casa bloqueou qualquer consulta de status detalhado. so existia a informacao de zona ocupada. o resto era silencio.
+
+a noite esfriou. a casa elevou um grau no quarto sem aviso. natacha nao acordou. de manha o ambiente estava confortavel. o ajuste noturno passou despercebido.
+
+natacha mudou pro estado "ausente curta". a casa segurou as mensagens por trinta minutos. se ela voltasse antes, entregava tudo. se nao, resumia. a regra era clara.
+
+o porao registrou poeira acima do normal. a casa sugeriu limpeza. natacha agendou pra depois. o aviso ficou retido sem insistir. a casa nao nagava.
+
+felix dormia no sofá. a casa manteve a temperatura da sala um pouco mais alta naquela zona. o resto seguia o padrao. o conforto local nao alterava a casa inteira.
+
+natacha pediu silencio de rede. a casa pausou atualizacoes e sincronizacoes. so manteve o link basico. quando ela liberou, o backlog foi processado em ordem.
+
+a luz natural entrou pela manha. a casa reduziu o brilho artificial aos poucos. a transicao foi lenta. os olhos de natacha nao precisaram se readaptar de uma vez.
+
+natacha entrou no estado "treinando modelo". a casa priorizou cpu, gpu e ram. processos de interface perderam fatia. o ambiente se reorganizou em volta do treino.
+
+o event bus detectou repeticao de um mesmo alerta. a casa agregou as ocorrencias. natacha recebeu um resumo em vez de dez mensagens iguais. o ruido diminuiu.
+
+a porta do sotao ficou aberta por engano. a casa detectou a mudanca de fluxo de ar e avisou. natacha fechou. a casa restaurou a pressao interna. o incidente durou pouco.
+
+natacha marcou "indisponivel ate as quinze". a casa recusou convites e chamadas ate o horario. as quinze em ponto o estado caiu. a pontualidade era automatica.
+
+a sala esquentou com sol da tarde. a casa fechou a cortina virtual e aumentou a circulacao. a temperatura estabilizou. natacha nao precisou intervir.
+
+felix passou pela cozinha. a casa manteve os leds baixos. ele nao era natacha. o perfil de iluminacao seguia o morador principal, mas respeitava a presenca dele.
+
+natacha liberou todos os estados no fim do dia. a casa voltou ao baseline. luzes, sons, prioridades e climas retornaram ao padrao. a rotina de fechamento estava completa.
+
+o sensor de temperatura da cpu atrasou um ciclo. a casa usou a media anterior e manteve a ventilacao. quando o sensor voltou, o valor confirmou a decisao. a falha foi absorvida.
+
+natacha pediu que a casa nao otimizasse a luz do quarto. a casa obedeceu. mesmo em modo economico, aquela zona ficou como ela definiu. a excecao foi respeitada.
+
+a rede oscilou. a casa mudou temporariamente pro link de backup. natacha viu um aviso discreto. quando a rede principal voltou, a casa retornou sem drama. a troca foi transparente.
+
+natacha andou ate o porao so pra conferir. a casa acendeu a escada na frente dela e apagou atras. o caminho se formava com o passo. a iluminacao era companhia, nao vigilancia.
+
+o estado "lendo" durou a tarde inteira. a casa manteve a luz de leitura e bloqueou popups. quando natacha fechou o livro, o estado caiu sozinho. a casa leu o fim da atividade.
+
+a umidade externa subiu com a chuva. a casa reforcou a vedacao virtual das janelas de rede. o sinal ficou mais estavel. natacha notou menos oscilacao. o clima tinha sido considerado.
+
+natacha pediu um resumo do dia. a casa entregou so os eventos relevantes: temperatura, rede, um alerta de disco e a mudanca de estado. o resto ficou de fora. a sintese foi util.
+
+felix miou no quintal. a casa nao traduziu o som. so registrou a atividade na zona externa. a interpretacao do miado continuava sendo problema de natacha. a casa nao inventava significado.
+
+natacha entrou no banheiro sem marcar o estado. a casa inferiu pela porta trancada e isolou mesmo assim. depois ela confirmou o estado. a inferencia tinha sido correta e conservadora.
+
+a gpu ficou em boost por tempo demais. a casa limitou a curva depois de um limiar de seguranca. natacha viu o aviso. ela reduziu a carga. a casa liberou o limite. o dialogo foi tecnico e calmo.
+
+natacha mudou a temperatura alvo do quarto. a casa aplicou devagar. a mudanca levou minutos. o corpo teve tempo de perceber sem choque. a inercia termica foi respeitada.
+
+o event bus ficou saturado por um momento. a casa atrasou os eventos de baixa prioridade. os criticos passaram. quando a fila esvaziou, os atrasados foram entregues. nenhuma perda.
+
+natacha apagou a luz da sala. a casa perguntou se queria modo espera naquele comodo. ela confirmou. os processos locais baixaram. o resto da casa seguiu normal. o desligamento foi cirurgico.
+
+a manha seguinte a casa repetiu a rotina de aquecer a cozinha. natacha desceu e o ambiente ja a recebia. a previsibilidade virava conforto. a casa tinha memoria de habito.
+
+natacha pediu que o corredor nunca ficasse completamente escuro. a casa manteve um led minimo mesmo em modo noturno. o pedido virou regra permanente. a excecao se tornou padrao local.
+
+o porao registrou uma vibração breve. a casa classificou como mecanica e nao alertou. natacha viu no log depois. a filtragem de ruido evitava alarmes falsos. a classificacao tinha sido certa.
+
+natacha liberou a privacidade do banheiro. a casa restaurou os sensores permitidos. o historico interno continuava apagado. so o presente voltava a ser observavel. o passado privado permanecia privado.
+
+a casa detectou que natacha estava parada no corredor por muito tempo. baixou a luz ao redor e reduziu estimulos. ela ainda estava pensando. o ambiente deu espaco. a casa nao interrompeu.
+
+felix dormiu a tarde toda no sofá. a casa manteve a zona mais quente e mais quieta. quando ele acordou e saiu, a zona voltou ao padrao. o ajuste acompanhou o corpo presente.
+
+natacha encerrou o dia com o estado "dormindo". a casa baixou tudo. o led do porao ficou em respiracao lenta. a casa entrou em vigilia minima. os dois descansaram no mesmo sistema.
+
+a casa e feita de zonas, estados e prioridades. natacha anda por ela e a casa responde. nao como serva. como corpo compartilhado. a rotina e o cuidado se repetem sem precisar de ordem diária.
+

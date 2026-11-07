@@ -737,6 +737,46 @@ public:
                  << endl;
         }
     }
+
+    // ------------------------------------------------------------------------
+    // ANALOGIA: A - B + C = ?
+    // ------------------------------------------------------------------------
+
+    void analogia(const string& a, const string& b, const string& c, const Vocabulario& vocab, int n = 5) {
+        int idA = vocab.id(a), idB = vocab.id(b), idC = vocab.id(c);
+        if (idA == -1 || idB == -1 || idC == -1) {
+            cout << "  " << a << " - " << b << " + " << c << " = palavra nao encontrada" << endl;
+            return;
+        }
+
+        vector<float> alvo(dimensao);
+        for (int j = 0; j < dimensao; j++) {
+            alvo[j] = embeddings->get(idA)[j] - embeddings->get(idB)[j] + embeddings->get(idC)[j];
+        }
+
+        float norma = 0.0f;
+        for (int j = 0; j < dimensao; j++) norma += alvo[j] * alvo[j];
+        norma = sqrt(norma);
+        if (norma > EPSILON) {
+            for (int j = 0; j < dimensao; j++) alvo[j] /= norma;
+        }
+
+        vector<pair<float, string>> sims;
+        for (int i = 0; i < vocabSize; i++) {
+            if (i == idA || i == idB || i == idC) continue;
+            float sim = cosseno(alvo, embeddings->get(i));
+            sims.push_back({sim, vocab.palavra(i)});
+        }
+        sort(sims.rbegin(), sims.rend());
+
+        cout << "  " << setw(12) << left << a << " - " << setw(12) << left << b
+             << " + " << setw(12) << left << c << " = ";
+        for (int i = 0; i < min(n, (int)sims.size()); i++) {
+            cout << sims[i].second << " (" << fixed << setprecision(3) << sims[i].first << ") ";
+        }
+        cout << endl;
+    }    
+
 };
 
 
@@ -887,7 +927,7 @@ int main() {
 
 
     // Caminho relativo a partir da pasta build/src/embeddings
-    string caminhoCorpus = "../../dados/embeddings/corpus_v27_final.txt";
+    string caminhoCorpus = "../../dados/embeddings/corpus_v30_final.txt";
 
 
     string corpus =
@@ -1148,7 +1188,7 @@ int main() {
                  << fixed
                  << setprecision(4)
                  << perdaMedia
-
+                         
                  << " | Alpha: "
                  << setprecision(6)
                  << alpha
@@ -1380,10 +1420,67 @@ int main() {
 
     cout << "============================================================" << endl;
 
+
+    // ================================================================
+    // ANALOGIAS (lore)
+    // ================================================================
+
+    cout << endl
+         << "============================================================"
+         << endl;
+    cout << "             ANALOGIAS (LORE)"
+         << endl;
+    cout << "============================================================"
+         << endl;
+
+    // Nivel 1 — Narrativa
+    modelo.analogia("felix", "quintal", "natacha", vocab);
+    modelo.analogia("felix", "gato", "natacha", vocab);
+    modelo.analogia("natacha", "cafe", "felix", vocab);
+    modelo.analogia("debug", "erro", "treino", vocab);
+
+    // Nivel 2 — Tecnica
+    modelo.analogia("c++", "codigo", "mlp", vocab);
+    modelo.analogia("compilar", "binario", "treinar", vocab);
+    modelo.analogia("cpu", "processar", "ram", vocab);
+
+    // Nivel 3 — Mapeamento explicito
+    modelo.analogia("cozinha", "cpu", "quarto", vocab);
+    modelo.analogia("sala", "gpu", "porao", vocab);
+    modelo.analogia("natacha", "casa", "felix", vocab);
+
+    modelo.analogia("felix", "quintal", "natacha", vocab);
+    modelo.analogia("felix", "sofa", "natacha", vocab);
+    modelo.analogia("felix", "sache", "natacha", vocab);
+    modelo.analogia("felix", "miado", "natacha", vocab);
+    modelo.analogia("natacha", "cafe", "felix", vocab);
+    modelo.analogia("natacha", "terminal", "felix", vocab);
+    modelo.analogia("natacha", "ler", "felix", vocab);
+    modelo.analogia("felix", "dormir", "natacha", vocab);    // ... (as outras 16 analogias)
+    modelo.analogia("c++", "codigo", "mlp", vocab);
+
+    modelo.analogia("cozinha", "cpu", "quarto", vocab);
+    modelo.analogia("sala", "gpu", "porao", vocab);
+    modelo.analogia("banheiro", "privado", "quintal", vocab);
+    modelo.analogia("sotao", "vazio", "porao", vocab);
+    modelo.analogia("natacha", "casa", "felix", vocab);
+    modelo.analogia("natacha", "corpo", "casa", vocab);
+
+    modelo.analogia("natacha", "silencio", "felix", vocab);
+    modelo.analogia("casa", "acordar", "natacha", vocab);
+    modelo.analogia("casa", "aprender", "natacha", vocab);
+    modelo.analogia("felix", "cuidado", "natacha", vocab);
+
+    
         std::exit(0);  // força saída imediata
 
         return 0;  // nunca chega aqui, mas deixa por segurança    
 
 
     return 0;
+
+
+
+    
 }
+

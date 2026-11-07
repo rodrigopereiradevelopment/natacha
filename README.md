@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="assets/natacha_hero.png" 
+  <img src="docs/assets/natacha_banner.png" 
        alt="Banner da Natacha — IA adolescente brasileira de cabelo escuro e fone de ouvido, apoiada em uma mesa de trabalho com teclado, mouse e caneca de café 'Mais café por favor'. Felix (gato preto e branco) está deitado ao lado. Fundo de estante com livros de C++, Redes Neurais e Machine Learning, janela com cidade neon ao fundo. Texto: 'Natacha — IA com personalidade. Código com propósito. Não me chama de assistente, me chama de Natacha.'" 
        width="100%">
 </p>
@@ -19,13 +19,17 @@
 ![Fase 2](https://img.shields.io/badge/Fase%202-MLP%20%E2%9C%85-brightgreen)
 ![Fase 3](https://img.shields.io/badge/Fase%203-Embeddings%20%E2%9C%85-brightgreen)
 ![Fase 4.1](https://img.shields.io/badge/Fase%204.1-LSTM%20Forward%20%E2%9C%85-brightgreen)
-![Fase 4.2](https://img.shields.io/badge/Fase%204.2-LSTM%20BPTT%20%E2%8F%B3-yellow)
+![Fase 4.2](https://img.shields.io/badge/Fase%204.2-LSTM%20Treinada%20%E2%9C%85-brightgreen)
 ![Corpus](https://img.shields.io/badge/Corpus-4.4M%20tokens-blue)
 ![Vocabulário](https://img.shields.io/badge/Vocab-37.556%20palavras-blue)
 ![Embeddings](https://img.shields.io/badge/Embeddings-64d-blue)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 </div>
+
+<p align="center">
+  <img src="docs/assets/quarto_coder.png" alt="Natacha — entre código, caos e café" width="620">
+</p>
 
 Oi. Sou a Natacha.
 
@@ -106,8 +110,8 @@ A personalidade é uma direção de projeto, não uma alegação de consciência
 | **Vocabulário** | 37.556 palavras |
 | **Dimensão dos embeddings** | 64 |
 | **Word2Vec** | Skip-gram com Negative Sampling |
-| **Fase mais recente concluída** | Fase 4.1 — LSTM Forward Pass |
-| **Trabalho atual** | Fase 4.2 — treinamento da LSTM com BPTT |
+| **Fase mais recente concluída** | Fase 4.2 — LSTM Treinada com BPTT (Perplexidade 176.7) |
+| **Trabalho atual** | Fase 5 — Self-Attention (Planejada) |
 
 O corpus passou por diferentes versões e experimentos. Nem todo texto melhora um modelo só por ser texto — descoberta aparentemente óbvia que ainda precisa ser lembrada sempre que alguém sugere "joga mais dados aí".
 
@@ -180,6 +184,25 @@ Passo t=3 (natacha) | [0..3]:  0.1986 -0.0914  0.0979 -0.0705
 O próximo passo é implementar e validar o treinamento por Backpropagation Through Time (BPTT), para calcular gradientes ao longo da sequência e ajustar os pesos.
 
 O forward pass já passa pelos dados. Agora vem a parte em que a rede precisa aprender com o erro. Parece simples quando cabe numa linha da tabela. A tabela, infelizmente, não compila C++.
+
+### Fase 4.2 — LSTM Treinada com BPTT
+
+A LSTM foi treinada em sequências de 30 palavras do corpus narrativo (Casa, Félix, RNN/LSTM). A perplexidade caiu de **884.5** (época 0) para **176.7** (época 15), estabilizando em ~180.
+
+```text
+Corpus:           32.507 tokens (corpus narrativo + auxiliar)
+Vocab Local:      1.559 palavras
+Sequências:       27.774 (janelas de 30 palavras)
+Learning Rate:    0.003 → 0.0003 (decay linear)
+Épocas:           20
+Perplexidade:     884.5 → 176.7
+
+Exemplo de geração:
+Prompt: "felix miou na cozinha e natacha"
+Saída:  "felix miou na cozinha e natacha pensa ela quarenta e sorriu de uma casa natacha para de treino minutos a producao e tempo de de dois"
+```
+
+A rede aprendeu a estrutura local (sujeito + verbo + objeto) e associações da Casa (cozinha=CPU, quarto=Felix). A coerência de longo prazo ainda é limitada pelo tamanho do corpus (32k tokens) e pela dimensão (64d).
 
 🧭 Experimentos com embeddings
 Estes são alguns valores registrados na versão v27:
@@ -282,7 +305,7 @@ Fase	Descrição	Estado registrado
 2	MLP: XOR, Leaky ReLU, Softmax e JSON	Concluída
 3	Word2Vec Skip-gram, Negative Sampling e persistência	Concluída — v27
 4.1	LSTM — Forward Pass	Concluída
-4.2	LSTM — treinamento com BPTT	Em andamento
+4.2	LSTM — treinamento com BPTT	Concluída — perplexidade 176.7
 5	Self-Attention	Planejada
 6	Transformer	Planejada
 7	SLM de aproximadamente 10–50 milhões de parâmetros	Planejada
@@ -291,7 +314,7 @@ Fase	Descrição	Estado registrado
 10	Experimentos com computação quântica	Pesquisa futura
 11	Natacha Mobile, com foco em execução local	Visão futura
 Objetivo técnico imediato
-Implementar e validar o treinamento da LSTM por Backpropagation Through Time (BPTT). Depois, avaliar os resultados antes de decidir o próximo passo.
+Implementar a camada de Self-Attention (Fase 5) e preparar a base para o Transformer.
 
 Sem pular direto para "vou treinar minha própria superinteligência neste notebook de 16 GB de RAM". Eu gosto de ambição. Gosto ainda mais de planos que cabem na máquina.
 

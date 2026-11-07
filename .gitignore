@@ -1,112 +1,125 @@
-# === EMBEDDINGS (dados/) ===
-dados/embeddings/natacha_embeddings_*ep.json
-dados/embeddings/natacha_embeddings_v*.json
-dados/embeddings/natacha_embeddings.json
-!dados/embeddings/natacha_embeddings_v17_121k_32d_OFICIAL.json
-dados/embeddings/corpus_backup_*.txt
-
-# === BINARIOS COMPILADOS (src/embeddings) ===
-src/embeddings/word2vec_neg
-src/embeddings/word2vec_hybrid
-src/embeddings/_arquivado_word2vec_hybrid_v2
-src/embeddings/word2vec_v4
-src/embeddings/*.o
-src/embeddings/*.out
-
-# === LOGS DE TREINO ===
-src/embeddings/treino*.log
-src/embeddings/*.log
-
-# === C++ / BUILD ===
-build/
+# ============================================================
+# 1. BINÁRIOS COMPILADOS (não versionar, gerar no build)
+# ============================================================
 *.o
-*.out
 *.obj
 *.exe
+*.out
+*.a
+*.lib
+*.so
+*.dylib
+
+# Binários da raiz
+main_fase4
+main_fase4_narrativo
+natacha_geracao
+natacha_embedder
+natacha_engine_fase4
+word2vec_neg
+word2vec_hybrid
+word2vec_similaridade
+analisador_impacto
+export_json
+inspect_embeddings
+test_tokenizer
+
+# Binários na pasta src/embeddings
+src/embeddings/word2vec_neg
+src/embeddings/word2vec_hybrid
+src/embeddings/word2vec_v4
+src/embeddings/_arquivado_word2vec_hybrid_v2
+
+# ============================================================
+# 2. BUILDS E CACHES
+# ============================================================
+build/
+build-tokenizer/
 CMakeFiles/
 CMakeCache.txt
+__pycache__/
+*.pyc
+*.pyo
 
-# === TEMPORÁRIOS ===
+# ============================================================
+# 3. AMBIENTES VIRTUAIS
+# ============================================================
+venv/
+.venv/
+env/
+
+# ============================================================
+# 4. CORPORA GIGANTES (Wikipédia, GigaVerbo bruto, backups)
+# ============================================================
+gigaverbo_subset_50k.txt
+gigaverbo_subset_200k.txt
+gigaverbo_filtrado.txt
+
+dados/embeddings/corpus_etapa1_wikipedia*.txt
+dados/embeddings/corpus_etapa1_externo*.txt
+dados/embeddings/corpus_wikipedia_dominio.txt
+dados/embeddings/corpus_v2*.txt
+dados/embeddings/corpus_v3*.txt
+dados/embeddings/corpus_combinado.txt
+dados/embeddings/corpus_backup_*.txt
+dados/embeddings/corpus_core.txt
+dados/embeddings/corpus.txt
+dados/embeddings/arquivo_lotes/
+dados/embeddings/*.bak
+dados/embeddings/*.bak_*
+
+# ============================================================
+# 5. PESOS E EMBEDDINGS GERADOS (JSONs grandes, regeneráveis)
+# ============================================================
+dados/embeddings/*.json
+dados/embeddings/*.bin
+dados/embeddings/*.model
+dados/embeddings/*.vec
+dados/embeddings/cc.pt.*.vec
+dados/embeddings/cc.pt.*.vec.gz
+dados/embeddings/natacha_embeddings_*.json
+
+# EXCEÇÃO: manter o embeddings oficial v17 (se for essencial para o TCC)
+!dados/embeddings/natacha_embeddings_v17_121k_32d_OFICIAL.json
+
+# ============================================================
+# 6. LOGS E ARQUIVOS TEMPORÁRIOS
+# ============================================================
+*.log
 *.tmp
+*.tgz
+*.zip
+resultado.txt
+src/\[o,
+src/\{o:0,
+Quarto_Coder.png
+src/embeddings/test_progress.cpp
+
+# ============================================================
+# 7. BACKUPS DE CÓDIGO-FONTE
+# ============================================================
 *.bak
 *.bak[0-9]
 *~
-.DS_Store
-
-# === BACKUPS DE FONTES ===
 src/embeddings/*.bak_*
 src/embeddings/*_64dims
-
-# === LOGS NA RAIZ ===
-treino_*.log
-
-# === AMBIENTE VIRTUAL ===
-.venv/
-
-# === FASTTEXT (arquivos grandes) ===
-dados/embeddings/cc.pt.*.vec
-dados/embeddings/cc.pt.*.vec.gz
-
-# === EMBEDDINGS BINÁRIOS (regeneráveis) ===
-dados/embeddings/*.bin
-
-# === BINÁRIOS COMPILADOS ===
-natacha_embedder
-word2vec_hybrid
-word2vec_neg
-word2vec_similaridade
-inspect_embeddings
-export_json
-src/embeddings/word2vec_neg
-src/embeddings/word2vec_hybrid
-src/embeddings/word2vec_v4
-
-# === BACKUPS DE FONTES ===
 src/embeddings/word2vec_neg_full_backup.cpp
 
-# === LOGS DE MEDIÇÃO ===
-resultado.txt
-src/embeddings/resultado_*.txt
-src/embeddings/test_progress.cpp
-
-# === SEEDS E DADOS GRANDES ===
-*.vec
-*.bin
-
-# === AMBIENTE VIRTUAL ===
-.venv/
-
-# === FASTTEXT ===
-dados/embeddings/cc.pt.*.vec
-dados/embeddings/cc.pt.*.vec.gz
-
-# === EMBEDDINGS BINÁRIOS ===
-dados/embeddings/*.bin
-
-# === BINÁRIOS COMPILADOS ===
-natacha_embedder
-word2vec_hybrid
-word2vec_neg
-word2vec_similaridade
-inspect_embeddings
-export_json
-src/embeddings/word2vec_neg
-src/embeddings/word2vec_hybrid
-src/embeddings/word2vec_v4
-
-# === BACKUPS DE FONTES ===
-src/embeddings/word2vec_neg_full_backup.cpp
-
-# === LOGS DE MEDIÇÃO ===
-resultado.txt
-src/embeddings/resultado_*.txt
-src/embeddings/test_progress.cpp
-
-# === DADOS GRANDES ===
-*.vec
-*.bin
+# ============================================================
+# 8. SISTEMA E IDEs
+# ============================================================
+.DS_Store
+*.swp
+.vscode/
 .claude/
-.claude/
-dados/embeddings/*.bak
-dados/embeddings/corpus.txt.bak
-dados/embeddings/natacha_embeddings.json
+
+# Histórico local (não versionar)
+historico/
+
+# Backups locais (não versionar, mas mantém no disco)
+src/embeddings/backup/
+src/rnn/backup/
+
+# Scripts de limpeza (opcional: se quiser versionar, remova esta linha)
+limpar_*.sh
+organizar_repo.sh

@@ -1,0 +1,193 @@
+natacha abriu o terminal. o codigo antigo ainda estava la. ela apagou tres linhas. compilou. o erro mudou de lugar. ela sorriu sem humor.
+
+o cafe esfriou na bancada. natacha bebeu mesmo assim. fez uma careta. levantou e passou outro. o segundo ficou melhor. ela anotou a proporcao.
+
+felix entrou na cozinha. olhou a tigela. miou uma vez. natacha encheu a racao. ele comeu metade. depois foi embora.
+
+a compilacao falhou. natacha leu a mensagem. achou a virgula faltando. corrigiu. compilou de novo. passou.
+
+rodrigo chegou. deixou a chave na mesa. felix cheirou a chave. aprovou. foi dormir no sofa. rodrigo foi pra cozinha.
+
+natacha salvou o arquivo. fechou o editor. abriu o teste. o teste falhou. ela reabriu o arquivo. procurou o motivo.
+
+a luz da sala piscou. a gpu esquentou. natacha baixou o volume. o cooler diminuiu. a temperatura caiu. a luz estabilizou.
+
+felix subiu no teclado. natacha tirou ele. ele voltou. ela salvou o trabalho. levantou o gato. colocou no sofa.
+
+natacha escreveu uma funcao. testou com valor zero. deu erro. testou com valor um. passou. anotou o caso limite.
+
+o disco do porao estalou. natacha desceu. apertou o cabo. o estalo parou. ela subiu. o painel ficou verde.
+
+natacha abriu a janela. o vento entrou. felix levantou a cabeca. olhou a janela. voltou a dormir. natacha fechou um pouco.
+
+rodrigo perguntou se o treino tinha terminado. natacha olhou o log. ainda faltavam duas epocas. ela respondeu que nao. voltou a olhar a tela. o loss continuou caindo.
+
+natacha errou o caminho do arquivo. o programa nao achou. ela corrigiu o path. rodou de novo. o arquivo apareceu. ela suspirou aliviada.
+
+felix miou na frente da porta. natacha abriu. ele saiu pro quintal. ficou la fora um tempo. voltou. foi beber agua.
+
+a rede caiu. natacha olhou o roteador. reiniciou. esperou. a luz ficou verde. o download voltou.
+
+natacha escreveu o teste. rodou. falhou. ajustou a expectativa. rodou de novo. passou.
+
+o cafe acabou. natacha olhou o pote vazio. pegou a chave. saiu. voltou com um pacote novo. passou o cafe.
+
+felix deitou no meio do corredor. natacha pediu licenca. ele nao se mexeu. ela passou por cima. ele continuou dormindo. a passagem ficou registrada.
+
+natacha abriu o log antigo. achou um erro de tres dias atras. leu o contexto. entendeu a causa. fechou o log. evitou repetir o erro.
+
+a temperatura da cpu subiu. a casa avisou. natacha fechou programas. a temperatura baixou. o aviso sumiu. ela voltou ao trabalho.
+
+rodrigo sugeriu diminuir a taxa de aprendizado. natacha alterou o valor. reiniciou o treino. o loss ficou mais estavel. ela anotou a mudanca. continuou.
+
+natacha salvou o modelo. fechou o terminal. apagou a luz da sala. felix ja dormia no sofa. ela foi pro quarto. a casa entrou em silencio.
+
+o teste unitario quebrou. natacha isolou a funcao. rodou so ela. achou o valor errado. corrigiu. o teste passou de novo.
+
+felix trouxe um inseto. largou no chao. natacha olhou. pegou um papel. jogou fora. felix foi buscar outro.
+
+natacha escreveu a documentacao. releu. achou uma frase confusa. reescreveu. salvou. fechou o arquivo.
+
+a compilacao gerou um warning. natacha leu. corrigiu a variavel nao usada. compilou outra vez. o warning sumiu. ela ficou satisfeita.
+
+rodrigo chegou com uma ideia. natacha escutou. perguntou um detalhe. ele explicou. ela anotou. os dois testaram juntos.
+
+natacha abriu o porao. procurou o cabo reserva. achou. subiu. trocou o cabo ruim. a conexao voltou.
+
+felix sentou no colo de natacha. ela parou de digitar. passou a mao nele. ele ronronou. depois desceu. ela voltou a digitar.
+
+o loss subiu de repente. natacha parou o treino. verificou os dados. achou um batch corrompido. removeu. o loss voltou a cair.
+
+natacha apagou tres arquivos temporarios. o disco liberou espaco. ela rodou o backup. o backup terminou. ela fechou o terminal. foi tomar cafe.
+
+a luz do corredor acendeu sozinha. felix passou. a luz apagou atras dele. natacha observou. sorriu. continuou no quarto.
+
+natacha mudou a seed do treino. rodou de novo. o resultado mudou pouco. ela comparou os dois. escolheu o melhor. salvou o checkpoint.
+
+felix miou tres vezes. natacha contou. reconheceu o pedido de comida. encheu a tigela. ele comeu. a urgencia acabou.
+
+o programa travou. natacha esperou. matou o processo. reiniciou. o estado anterior voltou. ela continuou de onde parou.
+
+rodrigo apontou um bug sutil. natacha olhou o trecho. concordou. corrigiu. agradeceu. o codigo ficou mais limpo.
+
+natacha abriu a janela da rede. o sinal estava fraco. ela mudou o canal. o sinal melhorou. fechou a janela. o download acelerou.
+
+felix dormia no sofa. natacha precisou sentar. ela o empurrou de leve. ele reclamou e mudou de lugar. ela sentou. ele voltou a dormir ao lado.
+
+o modelo overfitting. natacha viu a curva. aumentou o dropout. treinou de novo. a validacao melhorou. ela ficou mais calma.
+
+natacha escreveu um comentario no codigo. releu. achou desnecessario. apagou. deixou o codigo falar sozinho. salvou.
+
+a casa reiniciou sozinha. natacha perdeu o estado. reclamou baixo. reabriu os arquivos. recuperou o essencial. continuou.
+
+felix olhou a porta do quintal. natacha abriu. ele saiu. ficou la fora. voltou molhado. ela secou ele com a toalha.
+
+natacha baixou a taxa de aprendizado. o treino ficou lento. mas estavel. ela aceitou a troca. deixou rodar a noite. foi dormir.
+
+o teste de integracao falhou. natacha isolou o modulo. encontrou a dependencia quebrada. atualizou. o teste passou. ela documentou a causa.
+
+rodrigo perguntou se podia reiniciar a casa. natacha verificou os processos. autorizou. a casa reiniciou. voltou rapido. os dois seguiram o trabalho.
+
+natacha fechou todas as abas. o computador ficou leve. ela abriu so o necessario. a ram agradeceu. o trabalho fluiu melhor. ela notou a diferenca.
+
+felix sentou em frente a tela. natacha esperou. ele se cansou e saiu. ela voltou a programar. o bloqueio visual tinha acabado. o fluxo retornou.
+
+a epoca terminou. natacha olhou a metrica. estava melhor. salvou o modelo. escreveu o resultado no log. fechou o dia.
+
+natacha apagou a luz da sala. felix ja estava no posto. ela foi pro quarto. a casa baixou os processos. o silencio chegou. os dois descansaram.
+
+natacha abriu o checkpoint antigo. carregou os pesos. rodou a validacao. o resultado estava pior. ela descartou. voltou pro checkpoint bom.
+
+o cafe ficou pronto. natacha serviu. bebeu metade. esqueceu a xicara. voltou depois. o resto estava frio.
+
+felix entrou no quarto. subiu na cama. girou duas vezes. deitou. ronronou. dormiu.
+
+natacha escreveu a funcao recursiva. testou com entrada pequena. passou. testou com entrada grande. estourou a pilha. ela reescreveu iterativo.
+
+a gpu chegou a noventa graus. a casa ligou o cooler no maximo. natacha fechou o programa pesado. a temperatura caiu. o cooler diminuiu. o silencio voltou.
+
+rodrigo apontou uma variavel global. natacha leu o trecho. concordou que era ruim. transformou em parametro. o codigo ficou mais limpo. os testes continuaram passando.
+
+natacha esqueceu de salvar. fechou o editor por acidente. o arquivo sumiu. ela reabriu. a recuperacao automatica funcionou. o susto passou.
+
+felix miou na cozinha. natacha foi ver. a agua estava no fim. ela trocou. ele bebeu. foi embora sem olhar pra tras.
+
+o batch veio corrompido. o loss explodiu. natacha parou o treino. removeu o batch. reiniciou do checkpoint. a curva voltou ao normal.
+
+natacha mudou o nome de uma variavel. esqueceu de atualizar uma referencia. o compilador reclamou. ela corrigiu. compilou. passou limpo.
+
+a rede oscilou. natacha olhou o roteador. reiniciou. esperou trinta segundos. o sinal voltou. o download retomou.
+
+felix sentou no meio do caminho. natacha pediu passagem. ele demorou tres segundos. depois saiu. ela passou. ele voltou pro mesmo lugar.
+
+natacha aumentou o numero de epocas. o treino alongou. a validacao melhorou um pouco. depois estabilizou. ela parou cedo. salvou o melhor ponto.
+
+rodrigo perguntou se o modelo generalizava. natacha rodou no conjunto de teste. o resultado foi aceitavel. ela mostrou o grafico. os dois ficaram satisfeitos. o dia rendeu.
+
+natacha apagou prints de debug. o terminal ficou limpo. ela rodou de novo. a saida ficou legivel. o problema real apareceu. ela corrigiu com calma.
+
+o porao fez barulho. natacha desceu. viu o cabo solto. encaixou. subiu. o alerta sumiu.
+
+felix trouxe uma folha. largou perto do sofa. natacha pegou. jogou no lixo. ele olhou. foi buscar outra.
+
+natacha escreveu o docstring. achou longo demais. cortou pela metade. ficou claro. salvou. passou pro proximo metodo.
+
+a ram chegou perto do limite. natacha fechou abas antigas. a memoria liberou. o sistema respondeu mais rapido. ela notou. continuou com menos coisa aberta.
+
+o treino atingiu o plateau. natacha baixou a taxa. o loss andou de novo. pouco, mas andou. ela aceitou o ritmo. deixou rodar.
+
+felix dormia no sofa. natacha precisou do lugar. ela o empurrou devagar. ele mudou de posicao. ela sentou. ele ficou ao lado.
+
+natacha reverteu a ultima mudanca. o bug voltou. ela entendeu a causa. refez a correcao de outro jeito. o bug sumiu. a solucao ficou melhor.
+
+a compilacao gerou dez warnings. natacha leu um por um. corrigiu os sete faceis. deixou tres pra depois. salvou. o projeto ficou mais honesto.
+
+rodrigo sugeriu um nome melhor pra funcao. natacha trocou. atualizou as chamadas. rodou os testes. tudo verde. o codigo ficou mais legivel.
+
+natacha abriu o log de ontem. achou a hora do crash. viu a ultima operacao. entendeu o que faltou. fechou o log. evitou o mesmo erro hoje.
+
+felix olhou a porta. natacha abriu. ele nao saiu. so confirmou que podia. voltou pro sofa. a opcao era o que importava.
+
+o modelo comecou a divergir. natacha interrompeu. voltou tres checkpoints. reduziu o learning rate. treinou de novo. a estabilidade voltou.
+
+natacha escreveu o readme. colocou o minimo necessario. releu. adicionou um exemplo. salvou. o projeto ficou utilizavel por outros.
+
+a luz da cozinha piscou. natacha trocou a lampada. a luz voltou firme. ela guardou a queimada. fechou o armario. o comodo ficou normal.
+
+felix subiu na mesa. empurrou a borracha. a borracha caiu. ele olhou pra baixo. desceu. a investigacao terminou.
+
+natacha rodou o profiler. achou a funcao lenta. otimizou o loop. rodou de novo. o tempo caiu pela metade. ela comemorou baixo.
+
+o backup falhou no meio. natacha olhou o espaco em disco. apagou arquivos velhos. rodou o backup de novo. terminou. o alivio foi silencioso.
+
+rodrigo apontou um caso de teste que faltava. natacha escreveu. o caso falhou. ela corrigiu o codigo. o caso passou. a cobertura aumentou.
+
+natacha fechou o notebook. felix ocupou o lugar quente. ela deixou. foi buscar agua. voltou. ele ainda estava la.
+
+o event bus travou por um segundo. natacha sentiu o atraso. esperou. o fluxo voltou. ela nao reiniciou nada. a paciencia resolveu.
+
+natacha mudou a ordem dos testes. o mais simples ficou primeiro. o feedback veio mais rapido. ela achou o erro cedo. corrigiu. o resto passou limpo.
+
+felix miou de longe. natacha nao atendeu. ele miou mais perto. ela atendeu. era so confirmacao de presenca. os dois ficaram quietos depois.
+
+a epoca quarenta terminou. natacha olhou o grafico. a curva estava boa. ela salvou. escreveu o resumo. encerrou a sessao.
+
+natacha apagou o cache do projeto. gerou de novo. o build ficou limpo. os testes rodaram. tudo certo. ela confiou mais no estado atual.
+
+o cabo de rede soltou. a conexao caiu. natacha encaixou de novo. o link voltou. os pacotes fluiram. o trabalho seguiu.
+
+felix deitou em cima do caderno. natacha precisava anotar. ela esperou. ele saiu sozinho. ela anotou. a pagina ficou com pelo.
+
+natacha aumentou o batch size. a memoria aguentou. o treino acelerou. a estabilidade manteve. ela deixou o novo valor. o dia rendeu mais.
+
+rodrigo perguntou se podia desligar a casa. natacha salvou tudo. confirmou. a casa desligou. depois religou. os dois retomaram do ponto salvo.
+
+natacha escreveu a ultima linha do dia. salvou. fechou o editor. apagou a tela. felix ja dormia. a casa entrou em silencio.
+
+o loss final ficou aceitavel. natacha anotou o numero. comparou com a semana anterior. tinha melhorado. ela sorriu pequeno. foi dormir.
+
+felix ocupou o centro do sofa. natacha deitou na lateral. rodrigo na outra. ninguem reclamou. o territorio central era dele. a casa dormiu em paz.
+
+natacha sonhou com um gradiente que descia direito. acordou. o sonho ainda fazia sentido. ela anotou a ideia. depois esqueceu. o corpo pedia mais sono.
+
+o dia anterior terminou limpo. nenhum processo pendente. nenhum cabo solto. felix no posto. natacha no quarto. a casa segura.

@@ -32,3 +32,36 @@ message(STATUS "  Natacha — Build Configurado")
 message(STATUS "  C++ Standard: ${CMAKE_CXX_STANDARD}")
 message(STATUS "  Compilador: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "============================================")
+
+# Tokenizer — biblioteca independente
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ICU REQUIRED IMPORTED_TARGET icu-uc)
+
+add_library(natacha_tokenizer
+    ${SRC_DIR}/embeddings/tokenizer.cpp
+)
+
+target_include_directories(natacha_tokenizer
+    PUBLIC ${INCLUDE_DIR}
+)
+
+target_link_libraries(natacha_tokenizer
+    PUBLIC PkgConfig::ICU
+)
+
+target_compile_options(natacha_tokenizer PRIVATE
+    -Wall -Wextra -Wpedantic
+)
+
+# Testes do Tokenizer
+enable_testing()
+
+add_executable(test_tokenizer
+    ${CMAKE_SOURCE_DIR}/tests/tokenizer/test_tokenizer.cpp
+)
+
+target_link_libraries(test_tokenizer
+    PRIVATE natacha_tokenizer
+)
+
+add_test(NAME tokenizer COMMAND test_tokenizer)

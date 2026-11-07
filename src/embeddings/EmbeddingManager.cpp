@@ -2,6 +2,7 @@
 #include "json.hpp"
 #include <fstream>
 #include <iostream>
+#include <cstddef>
 
 using json = nlohmann::json;
 
@@ -21,29 +22,33 @@ bool EmbeddingManager::carregarEmbeddings(const std::string& caminho) {
     }
     arquivo.close();
 
-    // Dimensao
     if (j.contains("dimensao")) {
-        dimensao = j["dimensao"].get<size_t>();
+        dimensao = j["dimensao"].get<std::size_t>();
     }
 
-    // Embeddings
     if (!j.contains("embeddings") || !j["embeddings"].is_array()) {
         std::cerr << "ERRO: JSON sem campo 'embeddings' ou nao e array" << std::endl;
         return false;
     }
 
     vetores.clear();
+    palavra_para_id.clear();
+    id_para_palavra.clear();
     total = 0;
+    int id_atual = 0;
 
     for (const auto& item : j["embeddings"]) {
         if (!item.contains("palavra") || !item.contains("vetor")) continue;
         std::string palavra = item["palavra"].get<std::string>();
         std::vector<float> vetor = item["vetor"].get<std::vector<float>>();
+        
         vetores[palavra] = vetor;
+        palavra_para_id[palavra] = id_atual;
+        id_para_palavra.push_back(palavra);
+        id_atual++;
         total++;
     }
 
-    // Se dimensao nao estava no JSON, detecta do primeiro vetor
     if (dimensao == 0 && !vetores.empty()) {
         dimensao = vetores.begin()->second.size();
     }
@@ -62,6 +67,19 @@ std::vector<float> EmbeddingManager::obterVetor(const std::string& palavra) cons
     return it->second;
 }
 
-bool EmbeddingManager::contem(const std::string& palavra) const {
-    return vetores.find(palavra) != vetores.end();
+
+
+int EmbeddingManager::obterId(const std::string& palavra) const {
+    auto it = palavra_para_id.find(palavra);
+    if (it != palavra_para_id.end()) {
+        return it->second;
+    }
+    return -1;
+}
+
+std::string EmbeddingManager::obterPalavra(int id) const {
+    if (id >= 0 && id < (int)id_para_palavra.size()) {
+        return id_para_palavra[id];
+    }
+    return "<OOV>";
 }
