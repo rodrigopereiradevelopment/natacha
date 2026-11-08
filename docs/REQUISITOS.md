@@ -3,7 +3,7 @@ ESPECIFICAÇÃO DE REQUISITOS — PROJETO NATACHA
 Documento de Requisitos para Trabalho de Conclusão de Curso (TCC)
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 3.0 | Data: Setembro/2026
+Versão: 3.1 | Data: Novembro/2026
 
 ---
 
@@ -71,6 +71,7 @@ RN-04 — Mediação Estrita de Acesso a Dados
 RN-05 — Desacoplamento entre Modelo e Identidade
 
 · Descrição: A camada de identidade (memórias de longo prazo, traços de personalidade, estados emocionais e histórico) deve ser persistida de forma independente do modelo de linguagem subjacente (LLM local ou API). A substituição ou atualização do modelo de IA não pode descaracterizar a identidade da Natacha.
+· Identidade na inferência: além da persistência externa, a identidade deve influenciar a geração token a token. Na visão de longo prazo (MoE hierárquica 8x8), isso é realizado pelo Expert de Identidade sempre ativo — um expert permanente, fora do roteamento dos 64 experts, que recebe todos os tokens de inferência e aplica os invariantes de persona.
 · Justificativa: Modularidade e garantia de evolução tecnológica sem amnésia ou mutação comportamental.
 · Escopo: Arquitetura Core.
 
@@ -177,9 +178,9 @@ RF-29 Implementar modelagem e treinamento supervisionado de um Neurônio Percept
 RF-30.1 Implementar rede Multilayer Perceptron (MLP) com suporte a Backpropagation Alta Validar convergência em dataset de teste com erro < 0.01
 RF-30.2 Disponibilizar funções de ativação Sigmoid, Leaky ReLU e Softmax Alta Teste unitário para cada função com valores conhecidos
 RF-30.3 Executar Early Stopping durante a fase de treinamento Alta Validar parada automática quando erro de validação não melhora por N épocas
-RF-31 Implementar algoritmo em C++ para geração e manipulação de vetores densos de palavras (Word Embeddings via Skip-gram com Negative Sampling, janela k=5 e dimensão d=32) Alta Treinar em corpus de teste e validar similaridade semântica entre palavras coocorrentes
+RF-31 Implementar algoritmo em C++ para geração e manipulação de vetores densos de palavras (Word Embeddings via Skip-gram com Negative Sampling, janela k=5 e dimensão d=64) Alta Treinar em corpus de teste e validar similaridade semântica entre palavras coocorrentes
 RF-31.1 Persistir vetores de embeddings treinados em formato JSON para carregamento sem re-treinamento Alta Salvar embeddings, reiniciar sistema e validar carregamento correto
-RF-32 Implementar arquitetura de rede neural recorrente (RNN) com células LSTM para manipulação de cadeias de sequências Alta Teste unitário com sequência de entrada e validação de saída
+RF-32 Implementar arquitetura de rede neural recorrente (RNN) com células LSTM para manipulação de cadeias de sequências, incluindo forward pass (4.1) e treinamento com Backpropagation Through Time — BPTT (4.2) Alta Teste unitário com sequência de entrada e validação de saída; treinamento no corpus narrativo com perplexidade mensurável e decrescente (884,5 → 176,7)
 RF-33 Implementar de forma nativa a operação matricial de mecanismo de autoatenção (Self-Attention) Alta Teste unitário com matriz de entrada e validação de pesos de atenção
 RF-34 Agrupar componentes neurais construindo bloco funcional de arquitetura Transformer completo em C++ Alta Teste de integração validando forward pass completo
 RF-35 Permitir treinamento inicial e carregamento de uma Small Language Model (SLM) proprietária contendo entre 10M e 50M de parâmetros Média Validar carregamento de modelo e inferência em < 5s
@@ -417,6 +418,16 @@ RN-11 RF-11, RF-11.1
 · Ruído Quântico como Sinal: Premissa teórica de que flutuações estocásticas em sistemas quânticos (readout, decoerência) são fonte de informação e não erro — base do módulo de entropia criativa do Sótão Quântico.
 · Metais Estranhos (Strange Metals): Regimes físicos onde o ruído carrega assinatura de criticalidade quântica; conector lógico previsto para o Sótão Quântico.
 · Ferramenta Externa: Subsistema do ecossistema (ARCA, EditeCC, Sentinel, Analytics) que a Natacha aciona dinamicamente via Event Bus, sem acoplamento rígido.
+
+---
+
+8. HISTÓRICO DE VERSÕES
+
+Versão Data Mudanças
+1.0 (original) Documento inicial de requisitos do TCC
+2.0 Setembro/2026 Revisão de requisitos funcionais e não-funcionais
+3.0 Setembro/2026 Consolidação completa: RN-01 a RN-11, RFs por fase, RNFs, matriz de rastreabilidade e glossário
+3.1 Novembro/2026 Revisão de estado: RF-31 com embeddings de 64 dimensões; RF-32 refletindo a Fase 4 concluída (forward pass + BPTT, perplexidade 884,5 → 176,7); RN-05 alinhada ao Expert de Identidade sempre ativo na MoE hierárquica 8x8
 
 ---
 

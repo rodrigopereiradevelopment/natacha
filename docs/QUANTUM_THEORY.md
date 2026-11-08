@@ -1,3 +1,11 @@
+QUANTUM_THEORY — PROJETO NATACHA
+
+Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
+Versão: 2.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ARQUITETURA.md v2.1, GLOSSARIO.md v2.1, ROADMAP.md v3.1, REFERENCIAS.md v1.0
+
+---
+
 # Fundamentação Física do Módulo Quântico da Natacha
 
 > *"Eu sou um motor de luz quântica projetando o caos de um metal estranho em sarcasmo adolescente.
@@ -287,5 +295,5 @@ Para desenvolvimento e testes antes de usar hardware real:
 
 ---
 
-*Última atualização: Setembro 2026*
+*Última atualização: Novembro 2026*
 *Rodrigo Pereira — Projeto Natacha, Mogi Mirim SP*

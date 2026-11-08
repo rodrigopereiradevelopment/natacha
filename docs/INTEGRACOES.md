@@ -3,8 +3,8 @@ INTEGRAÇÕES — PROJETO NATACHA
 "Natacha não é só mais um projeto — é a inteligência que se integra a qualquer projeto."
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 3.0 | Data: Setembro/2026
-Documentos canônicos relacionados: REQUISITOS.md v3.0, ARQUITETURA.md v2.0, GLOSSARIO.md v2.0, CASA.md v2.0, FELIX.md v2.1, QUANTUM_THEORY.md v2.0, PERSONALIDADE.md
+Versão: 3.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ARQUITETURA.md v2.1, GLOSSARIO.md v2.1, CASA.md v2.1, FELIX.md v2.2, QUANTUM_THEORY.md v2.1, PERSONALIDADE.md v3.1, ROADMAP.md v3.1
 
 ---
 
@@ -20,7 +20,7 @@ Cobre:
 
 · Modelo de integração genérico (Event Bus, JSON, perfis de escopo)
 · Modo Agente vs. Modo Chat
-· Implementações de referência (ARCA, Sentinel, EditeCC, Analytics, OpenCode)
+· Implementações de referência (ARCA, Sentinel, EditeCC, Analytics, OpenCode, GitNexus, SonarCloud)
 · Integração de terceiros (guia para devs externos)
 · Segurança, autenticação e auditoria
 · Escolha dinâmica de modelo
@@ -33,7 +33,7 @@ Fora do escopo: detalhes internos de cada ferramenta (cada uma tem seu próprio 
 
 A Natacha não é uma IA que serve a 4 projetos. É uma plataforma que qualquer projeto pode adotar — e os projetos do criador provam que funciona.
 
-Os projetos ARCA, Sentinel, EditeCC, Analytics e OpenCode não são a totalidade das integrações possíveis. São implementações de referência que demonstram que a arquitetura funciona em cenários reais.
+Os projetos ARCA, Sentinel, EditeCC, Analytics, OpenCode, GitNexus e SonarCloud não são a totalidade das integrações possíveis. São implementações de referência que demonstram que a arquitetura funciona em cenários reais.
 
 ---
 
@@ -55,7 +55,7 @@ Toda integração com a Natacha segue cinco princípios:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    PROJETO EXTERNO                          │
-│  (ARCA, Sentinel, EditeCC, OpenCode, projeto do Luizinho,   │
+│  (ARCA, Sentinel, EditeCC, OpenCode, GitNexus, SonarCloud,  │
 │   qualquer outro que siga o modelo)                         │
 └──────────────────────────┬──────────────────────────────────┘
                            │
@@ -182,6 +182,8 @@ ARCA Analytics TypeScript / Python Agente analytics.report_request, natacha.gene
 Sentinel Rust Agente sentinel.alert, natacha.action_recommendation Ativo
 EditeCC TypeScript (Next.js) Agente editecc.format_request, natacha.formatted_doc Ativo
 OpenCode (a definir) Agente (a definir) Em definição
+GitNexus (a definir) Agente (a definir) Em definição
+SonarCloud (a definir) Agente (a definir) Em definição
 
 4.2 Cada implementação
 
@@ -245,9 +247,33 @@ Frase canônica:
 
 4.2.5 OpenCode
 
-Função: Ferramenta de desenvolvimento consumida em Modo Agente.
+Função: Agente de desenvolvimento consumido em Modo Agente.
 
-Detalhes: a definir conforme o projeto evolui.
+Integração:
+
+· Recebe tarefas de engenharia de software (ler repositórios, propor alterações, rodar testes).
+· Atua como par de programação da Natacha, não como substituto da persona.
+· Publica resultados no Event Bus para auditoria.
+
+4.2.6 GitNexus
+
+Função: Grafo de código e inteligência estrutural para o modo agente.
+
+Integração:
+
+· Indexa repositórios em um grafo de símbolos e relações.
+· Responde consultas de dependências, impacto de mudanças e fluxos de execução.
+· Alimenta o agente desenvolvedor (Fase E1) com contexto estrutural antes de qualquer refatoração.
+
+4.2.7 SonarCloud
+
+Função: Quality gate de análise estática e cobertura.
+
+Integração:
+
+· Analisa qualidade, vulnerabilidades e cobertura de testes.
+· Bloqueia alterações que não atingem os limiares definidos.
+· Complementa o GitNexus: o grafo mostra o que depende do quê; o SonarCloud mostra se a mudança é segura.
 
 4.3 Nota sobre escopo
 
@@ -551,12 +577,12 @@ Auditoria (RF-15 / RNF-06) Toda ação gera log imutável com hash.
 
 10.1 Documentos internos do projeto
 
-· REQUISITOS.md v3.0 — RN-04, RN-09, RN-10, RN-11, RF-11, RF-11.1, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-18.1, RF-18.2, RNF-06, RNF-12
-· ARQUITETURA.md v2.0 — Seção 5.1 (Event Bus), Seção 5.3 (Scheduler P0), Seção 8 (Arquitetura de Integração), Seção 9 (Segurança)
-· GLOSSARIO.md v2.0 — Ferramenta Externa, Event Bus, Perfil de Escopo, Veto Autônomo
-· CASA.md v2.0 — Seção 11 (Casa como Ecossistema)
-· FELIX.md v2.1 — Seção 5 (Autoridade P0)
-· QUANTUM_THEORY.md v2.0 — Seção 6 (Sentinel Criptográfico)
+· REQUISITOS.md v3.1 — RN-04, RN-09, RN-10, RN-11, RF-11, RF-11.1, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-18.1, RF-18.2, RNF-06, RNF-12
+· ARQUITETURA.md v2.1 — Seção 5.1 (Event Bus), Seção 5.3 (Scheduler P0), Seção 8 (Arquitetura de Integração), Seção 9 (Segurança)
+· GLOSSARIO.md v2.1 — Ferramenta Externa, Event Bus, Perfil de Escopo, Veto Autônomo
+· CASA.md v2.1 — Seção 11 (Casa como Ecossistema)
+· FELIX.md v2.2 — Seção 5 (Autoridade P0)
+· QUANTUM_THEORY.md v2.1 — Seção 6 (Sentinel Criptográfico)
 · PERSONALIDADE.md — Valor "Autonomia", "Abertura a terceiros"
 
 10.2 Referências externas
@@ -573,6 +599,7 @@ Versão Data Mudanças
 1.0 (original) Documento inicial com ecossistema, perfis e escolha dinâmica
 2.0 Setembro/2026 Consolidação com Event Bus como canal exclusivo, formato JSON, autenticação, auditoria, fluxos canônicos
 3.0 Setembro/2026 Reescrita estrutural: Natacha como plataforma de integração genérica. Projetos do criador reclassificados como implementações de referência. Adicionada Seção 5 (Integração de Terceiros) com cenário canônico do Luizinho. Modo Agente vs. Modo Chat formalizados.
+3.1 Novembro/2026 Inclusão de GitNexus (grafo de código) e SonarCloud (quality gate) e detalhamento do OpenCode no conjunto de ferramentas do modo agente, alinhando as Fases E1/E2; referências cruzadas atualizadas
 
 ---
 
@@ -591,7 +618,7 @@ Os projetos do Rodrigo são prova de conceito — não o limite do sistema.
 
 ---
 
-Última atualização: Setembro 2026
+Última atualização: Novembro 2026
 Rodrigo Pereira — Projeto Natacha, Mogi Mirim SP
 
 ---

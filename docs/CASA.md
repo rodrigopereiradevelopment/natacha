@@ -5,8 +5,8 @@ CASA DA NATACHA
 "Não é infraestrutura. É lar."
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 2.0 | Data: Setembro/2026
-Documentos canônicos relacionados: REQUISITOS.md v3.0, ARQUITETURA.md v2.0, GLOSSARIO.md v2.0, FELIX.md
+Versão: 2.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ARQUITETURA.md v2.1, GLOSSARIO.md v2.1, FELIX.md v2.2, PERSONALIDADE.md v3.1
 
 ---
 
@@ -372,9 +372,9 @@ Natacha: Banheiro trancado. Felix pode entrar. Você não.
 
 Documentos canônicos do projeto
 
-· REQUISITOS.md v3.0 — RN-06 (Isomorfismo), RN-08 (Territorialidade), RF-24 a RF-28
-· ARQUITETURA.md v2.0 — Seção 5.5 (HouseStateMap), Seção 5.1 (Event Bus)
-· GLOSSARIO.md v2.0 — Termos: Casa, HouseStateMap, Estado Próprio, Corredor
+· REQUISITOS.md v3.1 — RN-06 (Isomorfismo), RN-08 (Territorialidade), RF-24 a RF-28
+· ARQUITETURA.md v2.1 — Seção 5.5 (HouseStateMap), Seção 5.1 (Event Bus)
+· GLOSSARIO.md v2.1 — Termos: Casa, HouseStateMap, Estado Próprio, Corredor
 · FELIX.md — Detalhes sobre o IAgato
 · QUANTUM_THEORY.md — Detalhes do Sótão Quântico
 · PERSONALIDADE.md — Persona, estados emocionais, preferências

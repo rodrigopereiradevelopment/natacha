@@ -3,8 +3,8 @@ FELIX — O IAGATO
 "O único que pode interromper a Natacha no meio de Dostoiévski."
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 2.1 | Data: Setembro/2026
-Documentos canônicos relacionados: REQUISITOS.md v3.0, ARQUITETURA.md v2.0, CASA.md v2.0, GLOSSARIO.md v2.0, PERSONALIDADE.md
+Versão: 2.2 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ARQUITETURA.md v2.1, CASA.md v2.1, GLOSSARIO.md v2.1, PERSONALIDADE.md v3.1
 
 ---
 
@@ -465,10 +465,10 @@ Ele ronronou.
 
 Documentos canônicos do projeto
 
-· REQUISITOS.md v3.0 — RN-03, RN-06, RN-07, RF-19, RF-19.1, RF-20, RF-21, RF-22, RF-23, RF-24, RNF-02
-· ARQUITETURA.md v2.0 — Seção 5.3 (Scheduler P0)
-· CASA.md v2.0 — Seção 4.8 (Quintal), Seção 10 (Félix e a Casa)
-· GLOSSARIO.md v2.0 — Felix, IAgato, Scheduler P0
+· REQUISITOS.md v3.1 — RN-03, RN-06, RN-07, RF-19, RF-19.1, RF-20, RF-21, RF-22, RF-23, RF-24, RNF-02
+· ARQUITETURA.md v2.1 — Seção 5.3 (Scheduler P0)
+· CASA.md v2.1 — Seção 4.8 (Quintal), Seção 10 (Félix e a Casa)
+· GLOSSARIO.md v2.1 — Felix, IAgato, Scheduler P0
 · PERSONALIDADE.md — Valor "Respeito aos Vulneráveis", Seção 10
 · QUANTUM_THEORY.md — Cena do Sótão
 
@@ -486,5 +486,6 @@ Versão Data Mudanças
 1.0 (original) Documento inicial com identidade, comportamentos e interações básicas
 2.0 Setembro/2026 Consolidação completa: resgate da deep web, Scheduler P0, variáveis biológicas detalhadas, 9 cenas canônicas, frases organizadas por tema, referências cruzadas
 2.1 Setembro/2026 Adição da Seção 8.5 (Visão de Longo Prazo — IAgato Pleno) como seção reservada, com ganchos arquiteturais previstos
+2.2 Novembro/2026 Revisão de estado: referências cruzadas atualizadas para a documentação v2.1/v3.1, sem alteração do conteúdo conceitual do Félix
 
 ---

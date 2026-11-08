@@ -3,8 +3,8 @@ ROADMAP — PROJETO NATACHA
 "Neurônio por neurônio, até o infinito."
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 2.0 | Data: Setembro/2026
-Documentos canônicos relacionados: REQUISITOS.md v3.0, ARQUITETURA.md v2.0, GLOSSARIO.md v2.0, CASA.md v2.0, FELIX.md v2.1, QUANTUM_THEORY.md v2.0, INTEGRACOES.md v3.0, PERSONALIDADE.md v3.0, PLANO_50K_TOKENS.md, REFERENCIAS.md v1.0
+Versão: 3.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ARQUITETURA.md v2.1, GLOSSARIO.md v2.1, CASA.md v2.1, FELIX.md v2.2, QUANTUM_THEORY.md v2.1, INTEGRACOES.md v3.1, PERSONALIDADE.md v3.1, FASE4.md v2.1, PLANO_50K_TOKENS.md, REFERENCIAS.md v1.0
 
 ---
 
@@ -61,7 +61,7 @@ F. VCS (Videochamada)
 
 Regra: a Trilha Neural alimenta o cérebro da Natacha. A Trilha de Produto constrói o corpo, voz e mundo dela. As duas convergem no Marco do TCC (Seção 5).
 
-Alinhamento: a numeração da Trilha Neural é idêntica à do ARQUITETURA.md v2.0, Seção 3.
+Alinhamento: a numeração da Trilha Neural é idêntica à do ARQUITETURA.md v2.1, Seção 3.
 
 ---
 
@@ -116,40 +116,48 @@ Status: concluída.
 
 Referências: RF-30.1, RF-30.2, RF-30.3 em REQUISITOS.md.
 
-FASE 3 — Word Embeddings 🚧
+FASE 3 — Word Embeddings ✅
 
 Objetivo: implementar Skip-gram com Negative Sampling e treinar embeddings em corpus pt-BR.
 
 ☑ Skip-gram com Negative Sampling
-☑ Corpus pt-BR inicial (1186 palavras)
+☑ Corpus pt-BR (v39: 10,7 milhões de tokens, 72.075 palavras)
 ☑ Salvar/carregar binário (.bin)
-☑ Hiperparâmetros configuráveis (dim=32, janela=5, taxa)
+☑ Hiperparâmetros configuráveis (dim=64, janela=5, taxa)
 ☑ Logs visuais (barra de progresso, curva de perda)
 ☑ natacha_embedder (interativo)
 ☑ word2vec_similaridade (análise)
 ☑ Exportar JSON
-☐ Escalar corpus para 50k tokens (ver PLANO_50K_TOKENS.md)
+☑ Escalar corpus além de 50k tokens (v39 com 10,7 milhões de tokens)
 
 Critério de conclusão: embeddings com similaridade semântica coerente + corpus escalado para 50k tokens.
 
-Status: em andamento — corpus inicial concluído, escalonamento pendente.
+Status: concluída — corpus v39 com 10,7 milhões de tokens, 72.075 palavras e embeddings de 64 dimensões.
 
 Referências: RF-31, RF-31.1 em REQUISITOS.md; PLANO_50K_TOKENS.md.
 
-FASE 4 — RNN / LSTM 🚧
+FASE 4 — RNN / LSTM ✅
 
 Objetivo: implementar rede recorrente com células LSTM para processamento de sequências.
 
-☐ Rede recorrente básica
-☐ Células LSTM (forget, input, output)
-☐ Backpropagation through time (BPTT)
-☐ Prever próxima palavra
+4.1 — Forward Pass ✅
+
+☑ Rede recorrente básica
+☑ Células LSTM (forget, input, candidate, output)
+☑ EmbeddingManager carregando embeddings do Word2Vec
+☑ Pipeline de teste com frase (main_fase4.cpp)
+
+4.2 — Treinamento com BPTT ✅
+
+☑ Backpropagation through time (BPTT)
+☑ Prever próxima palavra
+☑ Avaliação por perplexidade
 
 Critério de conclusão: modelo capaz de prever próxima palavra com perplexidade mensurável.
 
-Status: prioridade atual.
+Status: concluída — perplexidade caiu de 884,5 (época 0) para 176,7 (época 15), estabilizando em ~180, sobre corpus narrativo de 32.507 tokens e vocabulário local de 1.559 palavras.
 
-Referência: RF-32 em REQUISITOS.md.
+Referência: RF-32 em REQUISITOS.md; FASE4.md v2.1.
 
 FASE 5 — Self-Attention
 
@@ -197,11 +205,14 @@ Objetivo: evoluir o SLM (Small Language Model) para uma arquitetura de Mixture o
 
 ☐ Implementar roteador primário (8 macro-experts).
 ☐ Implementar roteadores secundários (8 sub-experts por macro, totalizando 64).
+☐ Implementar o Expert de Identidade sempre ativo (fora do roteamento dos 64 experts).
 ☐ Implementar perda auxiliar de balanceamento (Auxiliary Load Balancing Loss) para evitar colapso do roteador (Routing Collapse).
 ☐ Adicionar ruído estocástico (Gumbel-Softmax) no treinamento do roteador.
 ☐ Validação: garantir que todos os 64 experts recebam pelo menos X% dos tokens ao longo de uma época.
 
 Critério de conclusão: Modelo de 7B totais, 1.5B ativos, com distribuição de carga equilibrada entre os 64 experts.
+
+Expert de Identidade: expert permanente, fora do roteamento dos 64 experts, que recebe todos os tokens de inferência e aplica os invariantes de persona e de identidade persistente (RN-05). Tem orçamento de compute pequeno e previsível, para preservar a persona sem inviabilizar o custo de ~1,5B ativos. É o guardião neural do "eu sou eu em qualquer hardware", complementando o JSON de identidade.
 
 Referências: ARQUITETURA.md (Seção 3), MOLINA et al. (2023) - Mixture of Experts.
 
@@ -245,7 +256,7 @@ FASE A — Personalidade
 
 Objetivo: consolidar a persona da Natacha em código executável.
 
-☑ Documento PERSONALIDADE.md v3.0
+☑ Documento PERSONALIDADE.md v3.1
 ☐ Engine de Personalidade (injeção de prompt de sistema)
 ☐ Máquina de Estados (BANHO, ALMOÇO, LENDO, etc.)
 ☐ Critérios de recusa autônoma (RN-10)
@@ -272,7 +283,7 @@ FASE C — Félix (IAgato)
 
 Objetivo: implementar o IAgato como thread independente com autoridade P0.
 
-☑ Documento FELIX.md v2.1
+☑ Documento FELIX.md v2.2
 ☐ Máquina de estados do Félix (fome, sono, tédio)
 ☐ Scheduler P0 com interrupção irrestrita
 ☐ Event Bus com tópicos felix.*
@@ -286,7 +297,7 @@ FASE D — Casa (Ambiente Virtual)
 
 Objetivo: implementar o HouseStateMap e o isomorfismo hardware ↔ cômodo.
 
-☑ Documento CASA.md v2.0
+☑ Documento CASA.md v2.1
 ☐ HouseStateMap em C++
 ☐ Sincronização com hardware real (CPU, GPU, RAM, disco)
 ☐ Clima dinâmico (temperatura, agitação)
@@ -300,7 +311,7 @@ FASE E — Integrações (Modo Agente)
 
 Objetivo: implementar Modo Agente com Event Bus, perfis de escopo e integração com ferramentas externas.
 
-☑ Documento INTEGRACOES.md v3.0
+☑ Documento INTEGRACOES.md v3.1
 ☐ Event Bus assíncrono em C++ (std::mutex + std::condition_variable)
 ☐ Servidor REST/WebSocket (RF-13)
 ☐ Perfis de escopo por projeto (RF-16)
@@ -316,37 +327,44 @@ Critério de conclusão: uma requisição do ARCA percorre o pipeline completo c
 
 Referências: RN-04, RN-09, RN-11, RF-11, RF-11.1, RF-12, RF-13, RF-14, RF-15, RF-16, RF-17, RF-18, RF-18.1, RNF-06, RNF-12 em REQUISITOS.md; INTEGRACOES.md.
 
-FASE E1 — Modo Agente Desenvolvedor (Cursor/OpenCode-like)
+FASE E1 — Modo Agente Desenvolvedor (OpenCode/GitNexus/SonarCloud-like)
 
-Objetivo: implementar o modo de agente para engenharia de software, com análise de múltiplos repositórios e grafos de dependência.
+Objetivo: implementar o modo de agente para engenharia de software, com análise de múltiplos repositórios, grafos de dependência e quality gates.
 
 ☐ Parser de código usando tree-sitter (C++, Python, JavaScript).
-☐ Gerador de grafo de dependências (AST e chamadas de função).
+☐ Gerador de grafo de dependências (AST e chamadas de função), inspirado no GitNexus.
 ☐ Mapeamento multi-repositório (se o projeto tiver 4 ou mais repos).
 ☐ Execução sandbox de comandos (Docker/Firecracker) para testes.
+☐ Integração com OpenCode como agente de desenvolvimento.
+☐ Integração com SonarCloud como quality gate (análise estática e cobertura).
 ☐ Integração com o Event Bus para tarefas de refatoração.
 
 Critério de conclusão: Agente lê 5 repositórios conectados, cria um grafo de dependência e sugere refatoração com base no contexto global.
 
+Referências: INTEGRACOES.md v3.1, Seção 4.
+
 FASE E2 — Modo Agente Multimodal (Manus-like)
 
-Objetivo: implementar o agente multimodal com geração de imagens, vídeos, slides e transcrição de áudios.
+Objetivo: implementar o agente multimodal com visão, geração de imagens, vídeos, slides e transcrição de áudios.
 
+☐ Entrada de visão (imagens e screenshots) para o agente.
 ☐ Integração com modelo de imagem (Stable Diffusion / Flux) via API.
 ☐ Integração com modelo de vídeo (SVD / Runway) para animações curtas.
 ☐ Geração de slides (python-pptx) a partir de texto e imagem.
 ☐ Transcrição de áudios longos (Whisper) com timestamps.
-☐ Orquestração de ferramentas (Tool Calling) para encadear as ações.
+☐ Orquestração de ferramentas (Tool Calling) para encadear as ações, no modelo do Manus.
 
 Critério de conclusão: Dado um prompt de texto, o agente gera um slide completo com imagem e áudio de narração.
+
+Referências: INTEGRACOES.md v3.1, Seção 4.
 
 FASE F.1 — Modo Offline (Edge / Airplane Mode)
 
 Objetivo: permitir que a Natacha funcione offline em dispositivos móveis, mantendo a personalidade e a memória essencial.
 
-☐ Quantização mista de pesos (INT16/INT8/INT4).
-☐ Roteador e embeddings em INT16 (proteção da personalidade).
-☐ 64 Experts finais em INT4 (compressão máxima para celular).
+☐ Quantização mista de pesos (8-bit/4-bit).
+☐ Roteador e embeddings em 8-bit (proteção da personalidade).
+☐ 64 Experts finais em 4-bit (compressão máxima para celular).
 ☐ Uso de mmap() para carregar apenas experts ativos na RAM.
 ☐ Fallback de personalidade (300 cenas canônicas em cache local).
 ☐ Sincronização de estado (quando voltar online, envia logs para o servidor).
@@ -389,7 +407,7 @@ Objetivo: defender o TCC com o sistema funcional na fase clássica (sem dependê
 Critério Referência
 Trilha Neural concluída até Fase 7 (SLM) ARQUITETURA.md, Seção 3
 Trilha de Produto concluída até Fase E (Integrações) Este documento, Seção 4
-REQUISITOS com rastreabilidade completa REQUISITOS.md v3.0
+REQUISITOS com rastreabilidade completa REQUISITOS.md v3.1
 Cobertura de testes ≥ 80% nos módulos neurais RNF-08
 Latência do chat < 2s RNF-01
 Latência do Event Bus < 10ms RNF-02
@@ -436,25 +454,26 @@ Total: ~2 dias por semana dedicados ao projeto.
 
 ---
 
-7. ESTADO ATUAL (Setembro/2026)
+7. ESTADO ATUAL (Novembro/2026)
 
 7.1 O que está pronto
 
 · ✅ Documentação canônica completa (REQUISITOS.md, GLOSSARIO.md, ARQUITETURA.md, CASA.md, FELIX.md, QUANTUM_THEORY.md, INTEGRACOES.md, PERSONALIDADE.md, REFERENCIAS.md)
-· ✅ Trilha Neural avançada até Fase 3 (embeddings iniciais)
+· ✅ Trilha Neural concluída até a Fase 4 (Word Embeddings v39 + LSTM treinada com BPTT)
+· ✅ Corpus de embeddings v39: 10,7 milhões de tokens, 72.075 palavras, 64 dimensões
+· ✅ Fase 4.1 (forward pass) e Fase 4.2 (BPTT) concluídas — perplexidade 884,5 → 176,7
 · ✅ Félix documentado (implementação pendente)
 · ✅ Casa documentada (implementação pendente)
 
 7.2 O que está em andamento
 
-· 🚧 Fase 3: escalar corpus para 50k tokens
-· 🚧 Fase 4: implementar RNN/LSTM
+· 🚧 Fase 5: Self-Attention (Query, Key, Value)
 
 7.3 Próximo passo imediato
 
-Foco atual: Fase 4 — RNN/LSTM (processamento de sequências, prever próxima palavra).
+Foco atual: Fase 5 — Self-Attention (mecanismo de atenção e base para o Transformer).
 
-Meta paralela: escalar corpus para 50k tokens (ver PLANO_50K_TOKENS.md).
+Meta paralela: consolidar o corpus narrativo da LSTM e preparar a infraestrutura para o Transformer (Fase 6).
 
 ---
 
@@ -471,7 +490,7 @@ Ganchos arquiteturais já previstos:
 · Tópicos reservados no Event Bus (felix.thought, felix.decision, felix.vocalization)
 · Persistência dedicada (dados/felix.json)
 
-Referência: FELIX.md v2.1, Seção 8.5.
+Referência: FELIX.md v2.2, Seção 8.5.
 
 Nota: esta seção existe apenas para preservar a rastreabilidade de longo prazo. Nenhuma implementação é esperada nas fases atuais.
 
@@ -481,14 +500,14 @@ Nota: esta seção existe apenas para preservar a rastreabilidade de longo prazo
 
 9.1 Documentos internos do projeto
 
-· REQUISITOS.md v3.0 — todos os RFs e RNFs referenciados nas trilhas
-· ARQUITETURA.md v2.0 — Seção 3 (Trilha Neural completa)
-· GLOSSARIO.md v2.0 — termos técnicos
-· CASA.md v2.0 — Fase D
-· FELIX.md v2.1 — Fase C + Fase Reservada
-· QUANTUM_THEORY.md v2.0 — Fase 9
-· INTEGRACOES.md v3.0 — Fase E
-· PERSONALIDADE.md v3.0 — Fase A
+· REQUISITOS.md v3.1 — todos os RFs e RNFs referenciados nas trilhas
+· ARQUITETURA.md v2.1 — Seção 3 (Trilha Neural completa)
+· GLOSSARIO.md v2.1 — termos técnicos
+· CASA.md v2.1 — Fase D
+· FELIX.md v2.2 — Fase C + Fase Reservada
+· QUANTUM_THEORY.md v2.1 — Fase 9
+· INTEGRACOES.md v3.1 — Fase E
+· PERSONALIDADE.md v3.1 — Fase A
 · PLANO_50K_TOKENS.md — Fase 3 (escalonamento do corpus)
 · REFERENCIAS.md v1.0 — referências externas
 
@@ -514,6 +533,7 @@ Versão 3.0 | Outubro/2026
 - Adição da Fase F.1 (Modo Offline e Quantização Mista).
 - Adição da Fase G (Segurança e Sandbox).
 - Adição da FASE Z — Controle Motor e Aprendizado de Dança (Visão de Longo Prazo)
+3.1 Novembro/2026 Revisão de estado: Fase 3 concluída (corpus v39, 10,7M tokens, 72.075 palavras, 64d) e Fase 4 concluída (4.1 forward pass + 4.2 BPTT, perplexidade 884,5 → 176,7); Estado Atual em novembro/2026 com Fase 5 como próximo passo; consolidação da visão de longo prazo (MoE hierárquica 8x8, Expert de Identidade sempre ativo, multimodalidade com visão, modo agente com OpenCode/GitNexus/SonarCloud e mobile/offline com quantização mista 8-bit/4-bit)
 
 Objetivo: integrar cinemática e controle motor para a geração de movimentos corporais fluidos (Tango, Lambada e Capoeira), aplicando os mesmos princípios de predição de sequência (BPTT) usados na linguagem.
 

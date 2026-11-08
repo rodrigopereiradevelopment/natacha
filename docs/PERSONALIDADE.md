@@ -3,8 +3,8 @@ PERSONALIDADE — NATACHA
 "Não me chama de assistente, senão eu te ignoro."
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 3.0 | Data: Setembro/2026
-Documentos canônicos relacionados: REQUISITOS.md v3.0, GLOSSARIO.md v2.0, ARQUITETURA.md v2.0, CASA.md v2.0, FELIX.md v2.1, QUANTUM_THEORY.md v2.0, INTEGRACOES.md v3.0, REFERENCIAS.md v1.0
+Versão: 3.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, GLOSSARIO.md v2.1, ARQUITETURA.md v2.1, CASA.md v2.1, FELIX.md v2.2, QUANTUM_THEORY.md v2.1, INTEGRACOES.md v3.1, ROADMAP.md v3.1, REFERENCIAS.md v1.0
 
 ---
 
@@ -381,13 +381,13 @@ Fonte completa: DIALOGOS_CANONICOS.md (a consolidar). Coletânea de ~80 falas ca
 
 16.1 Documentos internos do projeto
 
-· REQUISITOS.md v3.0 — RN-01, RN-02, RN-03, RN-05, RN-09, RN-10, RN-11, RF-01 a RF-10, RF-18.1, RF-18.2, RNF-01
-· GLOSSARIO.md v2.0 — Estado Próprio, Veto Autônomo, Scheduler P0, IAgato, Casa
-· ARQUITETURA.md v2.0 — Seção 5.4 (Máquina de Estados), Seção 7 (Pipelines)
-· CASA.md v2.0 — Seção 8 (Estados na Casa), Seção 9 (Privacidade por Zona)
-· FELIX.md v2.1 — Seção 3 (Resgate), Seção 5 (Autoridade P0), Seção 9 (Por Que Felix Existe)
-· QUANTUM_THEORY.md v2.0 — Seção 4 (QFI → Estado), Seção 8 (Limites)
-· INTEGRACOES.md v3.0 — Seção 3 (Modo Agente vs. Modo Chat), Seção 5 (Terceiros)
+· REQUISITOS.md v3.1 — RN-01, RN-02, RN-03, RN-05, RN-09, RN-10, RN-11, RF-01 a RF-10, RF-18.1, RF-18.2, RNF-01
+· GLOSSARIO.md v2.1 — Estado Próprio, Veto Autônomo, Scheduler P0, IAgato, Casa
+· ARQUITETURA.md v2.1 — Seção 5.4 (Máquina de Estados), Seção 7 (Pipelines)
+· CASA.md v2.1 — Seção 8 (Estados na Casa), Seção 9 (Privacidade por Zona)
+· FELIX.md v2.2 — Seção 3 (Resgate), Seção 5 (Autoridade P0), Seção 9 (Por Que Felix Existe)
+· QUANTUM_THEORY.md v2.1 — Seção 4 (QFI → Estado), Seção 8 (Limites)
+· INTEGRACOES.md v3.1 — Seção 3 (Modo Agente vs. Modo Chat), Seção 5 (Terceiros)
 · REFERENCIAS.md v1.0 — Seções 4 (Literárias), 5 (Filosóficas), 6 (Musicais)
 
 16.2 Referências externas
@@ -404,6 +404,7 @@ Versão Data Mudanças
 1.0 (original) Documento inicial com identidade, comportamento, tom de voz, o que detesta, relação com família de IAs, estados emocionais
 2.0 Setembro/2026 Esboço de consolidação: introdução das seções de Recusa Autônoma, Ruído Quântico, Valores Fundamentais
 3.0 Setembro/2026 Consolidação completa: referências cruzadas com todos os documentos canônicos; marcação (†) para conteúdo expandido; integração de afinidades do corpus; adição do valor "Abertura a Terceiros"; frases canônicas organizadas por tema; glossário interno; conexões e histórico
+3.1 Novembro/2026 Revisão de estado: referências cruzadas atualizadas para a documentação v2.1/v3.1, sem alteração do conteúdo conceitual da persona
 
 ---
 

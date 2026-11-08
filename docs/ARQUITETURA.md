@@ -1,3 +1,9 @@
+ARQUITETURA — PROJETO NATACHA
+
+Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
+Versão: 2.1 | Data: Novembro/2026
+Documentos canônicos relacionados: REQUISITOS.md v3.1, ROADMAP.md v3.1, GLOSSARIO.md v2.1, CASA.md v2.1, FELIX.md v2.2, QUANTUM_THEORY.md v2.1, INTEGRACOES.md v3.1, PERSONALIDADE.md v3.1, FASE4.md v2.1, REFERENCIAS.md v1.0
+
 ---
 
 1. INTRODUÇÃO
@@ -95,24 +101,28 @@ FASE 2 — MLP (Multilayer Perceptron)
 · Funções de ativação: Sigmoid, Leaky ReLU, Softmax
 · Early stopping
 · Resolução de XOR
-· Status: atual (RF-30.1, RF-30.2, RF-30.3)
+· Status: concluída (RF-30.1, RF-30.2, RF-30.3)
 
 FASE 3 — Word Embeddings
 
 · Representação vetorial de palavras
 · Skip-gram com Negative Sampling
-· Janela k=5, dimensão d=32
+· Janela k=5, dimensão d=64
 · Similaridade por cosseno
 · Persistência em JSON
-· Status: parcialmente implementada (RF-31, RF-31.1)
+· Corpus v39: 10,7 milhões de tokens, 72.075 palavras
+· Status: concluída (RF-31, RF-31.1)
 
 FASE 4 — RNN / LSTM
 
 · Processamento de sequências
 · Memória de curto prazo
-· Células LSTM com portas (forget, input, output)
-· Backpropagation through time (BPTT)
-· Status: planejada (RF-32)
+· Células LSTM com portas (forget, input, candidate, output)
+· 4.1 — Forward pass concluído
+· 4.2 — Backpropagation through time (BPTT) concluído
+· Avaliação por perplexidade: 884,5 (época 0) → 176,7 (época 15), estável em ~180
+· Corpus narrativo de 32.507 tokens, vocabulário local de 1.559 palavras
+· Status: concluída (RF-32)
 
 FASE 5 — Self-Attention
 
@@ -135,6 +145,16 @@ FASE 7 — SLM (Small Language Model)
 · ~10M–50M parâmetros
 · Inferência local
 · Status: planejada (RF-35, RF-36)
+
+FASE 7.5 — MoE Hierárquica (8x8) e Expert de Identidade
+
+· Evolução do SLM para Mixture of Experts esparsa
+· 8 macro-experts e 8 sub-experts por macro (64 experts no total)
+· 7B de parâmetros totais, ~1,5B ativos por token
+· Roteador primário e roteadores secundários, com balanceamento de carga
+· Expert de Identidade sempre ativo: expert permanente, fora do roteamento dos 64 experts, que recebe todos os tokens de inferência e aplica os invariantes de persona e de identidade persistente (RN-05)
+· Orçamento de compute do Expert de Identidade é pequeno e previsível, para preservar a persona sem inviabilizar o custo de ~1,5B ativos
+· Status: visão de longo prazo (opcional / Fase 7 estendida)
 
 FASE 8 — Escalar
 
@@ -349,7 +369,7 @@ A identidade da Natacha mora no JSON, não no modelo. Isso permite:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ 1. Corpus (texto bruto)                                     │
-│    → corpus.txt (50k tokens alvo)                           │
+│    → corpus.txt (v39: 10,7M tokens; narrativo LSTM: 32.507 tokens) │
 └─────────────────────────────────────────────────────────────┘
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
@@ -608,17 +628,18 @@ Sistema Chat + Agente simultâneos Testes end-to-end
 Fase Entregável Documentos Status
 0 Fundamentos matemáticos — Concluída
 1 Perceptron + OR RF-29 Concluída
-2 MLP + XOR + Embeddings RF-30, RF-31 Em andamento
-3 Skip-gram + JSON RF-31.1 Em andamento
-4 RNN + LSTM RF-32 Planejada
+2 MLP + XOR + Embeddings RF-30, RF-31 Concluída
+3 Skip-gram + JSON (corpus v39) RF-31.1 Concluída
+4 RNN + LSTM (forward + BPTT) RF-32 Concluída
 5 Self-Attention RF-33 Planejada
 6 Transformer RF-34 Planejada
 7 SLM (10M–50M params) RF-35, RF-36 Planejada
+7.5 MoE Hierárquica 8x8 + Expert de Identidade — Visão de longo prazo
 8 Escala + CUDA — Futura
 9 Sótão Quântico (Qiskit) RF-38.x Futura (desejável)
 10 LLM Completa — Visão de longo prazo
 
-Meta paralela: consolidar corpus para 50k tokens (PLANO_50K_TOKENS.md).
+Meta paralela: consolidar o corpus narrativo da LSTM e preparar a infraestrutura para o Transformer (PLANO_50K_TOKENS.md).
 
 ---
 
@@ -626,9 +647,15 @@ Meta paralela: consolidar corpus para 50k tokens (PLANO_50K_TOKENS.md).
 ## N. CONEXÕES
 
 ### Documentos internos do projeto
-- `REQUISITOS.md` v3.0 — RN-XX, RF-XX
-- `ARQUITETURA.md` v2.0 — Seção X.Y
-- ...
+- `REQUISITOS.md` v3.1 — RN-XX, RF-XX
+- `ROADMAP.md` v3.1 — fases, marcos e calendário
+- `GLOSSARIO.md` v2.1 — termos técnicos
+- `CASA.md` v2.1 — Fase D
+- `FELIX.md` v2.2 — Fase C + Fase Reservada
+- `QUANTUM_THEORY.md` v2.1 — Fase 9
+- `INTEGRACOES.md` v3.1 — Fase E
+- `PERSONALIDADE.md` v3.1 — Fase A
+- `FASE4.md` v2.1 — detalhamento da Fase 4
 
 ### Referências externas
 > Bibliografia completa em `REFERENCIAS.md`.

@@ -3,8 +3,8 @@ GLOSSÁRIO — PROJETO NATACHA
 Documento de Referência Terminológica
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 2.0 | Data: Setembro/2026
-Documento canônico relacionado: REQUISITOS.md v3.0
+Versão: 2.1 | Data: Novembro/2026
+Documento canônico relacionado: REQUISITOS.md v3.1
 
 ---
 
@@ -110,10 +110,19 @@ Analytics
 Projeto de análise de dados. Gera relatórios e visualizações.
 
 OpenCode
-Ferramenta de desenvolvimento que consome a Natacha em Modo Agente. (Mencionada em REQUISITOS.md como integração, mas não detalhada no corpus atual.)
+Ferramenta de desenvolvimento que consome a Natacha em Modo Agente. Age como agente de código, lendo repositórios e propondo alterações.
+
+GitNexus
+Ferramenta de inteligência de código que indexa o repositório em um grafo de símbolos e relações, permitindo consultar dependências, impacto de mudanças e fluxos de execução.
+
+SonarCloud
+Serviço de análise estática e quality gate usado no modo agente para medir qualidade, cobertura de testes e vulnerabilidades antes de aceitar uma alteração.
+
+Manus
+Agente multimodal de referência: encadeia ferramentas para produzir imagens, vídeos, slides e transcrições a partir de um objetivo em linguagem natural.
 
 Ecossistema
-Conjunto dos projetos ARCA, Sentinel, EditeCC, Analytics e OpenCode, orquestrados pela Natacha via Event Bus. Cada projeto é uma ferramenta externa com permissões próprias.
+Conjunto dos projetos ARCA, Sentinel, EditeCC, Analytics, OpenCode, GitNexus, SonarCloud e Manus, orquestrados pela Natacha via Event Bus. Cada projeto é uma ferramenta externa com permissões próprias.
 
 ---
 
@@ -158,6 +167,12 @@ Propagação das entradas pela rede, camada por camada, até produzir uma previs
 
 Backpropagation (Retropropagação)
 Algoritmo que propaga o erro da saída para trás, ajustando pesos e bias para minimizar a função de perda. É o que faz a rede aprender com cada erro.
+
+BPTT (Backpropagation Through Time)
+Variante da Backpropagation para redes recorrentes: o erro é propagado ao longo dos passos de tempo da sequência. É o que permite à LSTM aprender dependências temporais. Na Natacha, reduziu a perplexidade de 884,5 para 176,7 no corpus narrativo.
+
+Perplexidade
+Métrica de avaliação de modelos de linguagem. Mede o quão "surpreso" o modelo fica com o próximo token; quanto menor, melhor. A LSTM da Natacha estabilizou em ~180.
 
 Função de Perda (Loss)
 Mede o erro do modelo. Exemplos: MSE (erro quadrático médio) para regressão; Cross-Entropy para classificação.
@@ -235,6 +250,12 @@ Modelo de linguagem de grande escala. Gera texto, prediz próxima palavra, enten
 SLM (Small Language Model)
 Modelo de linguagem reduzido (10M–50M de parâmetros). Projetado para rodar localmente com baixo consumo de memória. É o alvo atual da Natacha.
 
+MoE Hierárquica 8x8
+Arquitetura de Mixture of Experts esparsa com 8 macro-experts e 8 sub-experts por macro (64 experts no total). Permite 7B de parâmetros totais com ~1,5B ativos por token. O roteador primário seleciona o macro-expert e os roteadores secundários selecionam os sub-experts.
+
+Expert de Identidade
+Expert permanente da MoE hierárquica, fora do roteamento dos 64 experts. Recebe todos os tokens de inferência e aplica os invariantes de persona e de identidade persistente (RN-05), com orçamento de compute pequeno e previsível. Complementa o JSON de identidade para que a persona influencie a geração token a token.
+
 Feed-Forward
 Camada da rede que processa a saída da atenção. Composta por duas transformações lineares com uma ativação no meio.
 
@@ -243,7 +264,7 @@ Camada da rede que processa a saída da atenção. Composta por duas transforma�
 8. EMBEDDINGS E LINGUAGEM
 
 Embedding
-Representação vetorial de uma palavra (ou token). Captura significado semântico. Palavras com contextos similares ficam próximas no espaço vetorial. (A Natacha usa dimensão d=32.)
+Representação vetorial de uma palavra (ou token). Captura significado semântico. Palavras com contextos similares ficam próximas no espaço vetorial. (A Natacha usa dimensão d=64.)
 
 Word2Vec
 Família de algoritmos (Skip-gram, CBOW) que aprende embeddings a partir de um corpus.
@@ -261,7 +282,7 @@ Vocabulário
 Conjunto de todas as palavras conhecidas pelo modelo.
 
 Corpus
-Conjunto de textos usado para treinar o modelo. No caso da Natacha, é o corpus.txt — meta de 50k tokens.
+Conjunto de textos usado para treinar o modelo. O corpus de embeddings da Natacha está na versão v39, com 10,7 milhões de tokens e 72.075 palavras. O corpus narrativo usado pela LSTM tem 32.507 tokens e vocabulário local de 1.559 palavras.
 
 Token
 Unidade básica de texto processada pelo modelo. Pode ser palavra, subpalavra ou caractere.
@@ -373,6 +394,9 @@ Plataforma NVIDIA para cálculos paralelos na GPU. A Natacha "sonha com GPUs mai
 llama.cpp
 Implementação em C++ de LLMs. Referenciado pela Natacha como "motor de luz no Sótão Quântico".
 
+Quantização Mista (8-bit/4-bit)
+Técnica de compressão de pesos para execução offline em dispositivos móveis. Roteador e embeddings ficam em 8-bit, para proteger a personalidade; os 64 experts ficam em 4-bit, para máxima compressão. O carregamento usa mmap() para manter na RAM apenas os experts ativos.
+
 Compiler Error
 Erro de compilação. "Compilou sem erro? Desconfiança imediata."
 
@@ -463,6 +487,7 @@ Avatar Interface e Voz
 Backpropagation Core Neural — Treinamento
 Batch Core Neural — Treinamento
 Bias Core Neural — Fundamentos
+BPTT (Backpropagation Through Time) Core Neural — Treinamento
 C++ C++ e Engenharia
 C++20 C++ e Engenharia
 Casa (Virtual) Persona e Domínio
@@ -485,6 +510,7 @@ Entrelaçamento Sótão Quântico
 Estado Próprio Persona e Domínio
 Event Bus Arquitetura e Infraestrutura
 Evento Arquitetura e Infraestrutura
+Expert de Identidade Core Neural — Arquiteturas
 Feed-Forward Core Neural — Arquiteturas
 Felix Persona e Domínio
 Ferramenta Externa Arquitetura e Infraestrutura
@@ -493,6 +519,7 @@ Função Controlada Arquitetura e Infraestrutura
 Função de Ativação Core Neural — Fundamentos
 Função de Perda Core Neural — Treinamento
 FURPS+ Framework de Requisitos
+GitNexus Ecossistema
 Google Test C++ e Engenharia
 Gradiente Descendente Core Neural — Treinamento
 Hadamard (Porta) Sótão Quântico
@@ -506,10 +533,12 @@ Leaky ReLU Core Neural — Fundamentos
 Lip Sync Interface e Voz
 llama.cpp C++ e Engenharia
 LLM Core Neural — Arquiteturas
+Manus Ecossistema
 Matriz de Rastreabilidade Framework de Requisitos
 Memory Leak C++ e Engenharia
 Metais Estranhos Sótão Quântico
 MLP Core Neural — Arquiteturas
+MoE Hierárquica 8x8 Core Neural — Arquiteturas
 MoSCoW Framework de Requisitos
 Motor de Luz Sótão Quântico
 MSE Core Neural — Treinamento
@@ -523,6 +552,7 @@ Otimizador Adam Core Neural — Treinamento
 Overfitting Core Neural — Treinamento
 Perceptron Core Neural — Fundamentos
 Perfil de Escopo Arquitetura e Infraestrutura
+Perplexidade Core Neural — Treinamento
 Peso Core Neural — Fundamentos
 Ponteiro Inteligente C++ e Engenharia
 Porta CNOT Sótão Quântico
@@ -531,6 +561,7 @@ QPU Sótão Quântico
 Qiskit Sótão Quântico
 QUANTUM_REQUEST Sótão Quântico
 Qubit Sótão Quântico
+Quantização Mista (8-bit/4-bit) C++ e Engenharia
 RAII C++ e Engenharia
 Regra de Negócio (RN) Framework de Requisitos
 ReLU Core Neural — Fundamentos
@@ -549,6 +580,7 @@ Similaridade por Cosseno Embeddings e Linguagem
 Skip-gram Embeddings e Linguagem
 SLM Core Neural — Arquiteturas
 Softmax Core Neural — Fundamentos
+SonarCloud Ecossistema
 Sótão Quântico Sótão Quântico
 STT Interface e Voz
 Superposição Sótão Quântico
