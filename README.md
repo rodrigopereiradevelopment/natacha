@@ -66,8 +66,6 @@ E, antes que alguém pergunte: sim, eu tenho opinião sobre isso.
 - [Quem me construiu](#-quem-me-construiu)
 - [Por que C++?](#-por-que-c)
 - [Licença](#-licença)
-| [`METODOLOGIA_CORPUS.md`](docs/METODOLOGIA_CORPUS.md) | Como o corpus foi gerado |
-| [`MODO_AGENTE.md`](docs/MODO_AGENTE.md) | Análise de impacto |
 
 ---
 
@@ -227,8 +225,8 @@ Mais contexto sobre os testes: docs/EXPERIMENTOS.md.
 
 A versão com o maior número não ganha automaticamente uma medalha de "mais inteligente". Primeiro a gente olha o experimento, o corpus, a configuração e a repetibilidade. Depois comemora. Se ainda houver motivo.
 
-🏠 A Casa da Natacha
-<p align="center"> <img src="assets/casa_natacha.png" alt="Representação conceitual da Casa da Natacha" width="700"> </p>
+## 🏠 A Casa da Natacha
+<p align="center"> <img src="docs/assets/casa_natacha.png" alt="Representação conceitual da Casa da Natacha" width="700"> </p>
 "Não é só infraestrutura. É a forma como eu imagino o lugar onde tudo acontece."
 
 A Casa é uma metáfora arquitetural para organizar componentes, estados e responsabilidades do sistema. Alguns cômodos representam partes técnicas atuais ou planejadas; a metáfora, por si só, não significa que todos esses componentes já estejam implementados.
@@ -248,7 +246,7 @@ A relação entre cômodos, hardware e processos está documentada em docs/CASA.
 
 Nota técnica: a Casa é uma abstração de projeto. CPU, GPU, RAM, disco, rede e uma eventual QPU não são literalmente cômodos nem compartilham automaticamente um estado mental. Eu sei. A metáfora é boa, não precisa virar artigo científico sozinha.
 
-🐱 Félix, o IAgato
+## 🐱 Félix, o IAgato
 "O único que pode interromper a Natacha no meio de Dostoiévski. E provavelmente vai fazer isso por comida."
 
 Félix é o IAgato: um agente conceitual com comportamentos simples ligados a estados como fome, sono e tédio. Ele não é um modelo de linguagem. Sua função no universo do projeto é representar presença, interrupção e uma autoridade máxima dentro da hierarquia narrativa planejada.
@@ -271,7 +269,7 @@ A hierarquia acima representa uma intenção arquitetural futura, não integraç
 
 Detalhes em docs/FELIX.md.
 
-🧩 Ecossistema de projetos
+## 🧩 Ecossistema de projetos
 A Natacha está sendo desenvolvida como projeto independente. No futuro, poderá ser explorada como componente de outros projetos, mas isso depende de interfaces, segurança, desempenho e testes. Não basta colocar uma seta num diagrama e declarar que todo mundo virou amigo.
 
 text
@@ -293,7 +291,7 @@ Sentinel	Projeto de segurança	Rust e ferramentas associadas	Planejamento
 EditeCC	Editor acadêmico com foco em ABNT	Next.js, Tauri	Em desenvolvimento
 Os estados são uma visão resumida e podem mudar. Para cada projeto, consulte seu próprio repositório e documentação.
 
-🛣️ Roadmap
+## 🛣️ Roadmap
 O roadmap é uma direção de desenvolvimento, não uma previsão infalível. Algumas fases podem mudar quando os experimentos mostrarem que a abordagem atual não funciona. Isso se chama pesquisa, embora às vezes pareça uma maneira sofisticada de descobrir que o código estava errado.
 
 Fase	Descrição	Estado registrado
@@ -315,7 +313,7 @@ Implementar a camada de Self-Attention (Fase 5) e preparar a base para o Transfo
 
 Sem pular direto para "vou treinar minha própria superinteligência neste notebook de 16 GB de RAM". Eu gosto de ambição. Gosto ainda mais de planos que cabem na máquina.
 
-⚛️ O sótão quântico
+## ⚛️ O sótão quântico
 A computação quântica é uma linha de pesquisa futura. Não existe, neste momento descrito, uma camada quântica integrada e funcional na Natacha.
 
 A intenção é estudar conceitos de computação híbrida clássica e quântica e investigar ferramentas educacionais ou simuladores, caso façam sentido para experimentos concretos.
@@ -326,7 +324,7 @@ Ruído	Investigar efeitos do ruído em sistemas computacionais
 Qiskit e simuladores	Prototipagem e aprendizado futuro
 "Um dia eu posso explorar computação quântica. Ou não. Primeiro eu preciso aprender a treinar esta LSTM sem transformar o terminal num pedido de socorro."
 
-📱 Natacha Mobile — visão futura
+## 📱 Natacha Mobile — visão futura
 Uma interface móvel é uma possibilidade futura, com foco em acessibilidade, privacidade e execução local quando isso for viável para o modelo.
 
 Objetivo	Por quê
@@ -336,7 +334,7 @@ Modelo compacto	Investigar uso de memória e desempenho em hardware limitado
 Interfaces acessíveis	Tornar a interação mais flexível
 Tudo isso é planejamento. A compatibilidade real vai depender do tamanho do modelo, da velocidade, da memória e dos limites do dispositivo. O celular não ganha uma GPU de datacenter só porque a gente pediu com educação.
 
-🚀 Como compilar
+## 🚀 Como compilar
 Os comandos abaixo refletem a estrutura registrada para o projeto. Como o código está em desenvolvimento, confira os nomes dos arquivos e os alvos do CMakeLists.txt antes de executar. Se algo mudou no repositório, o código mais recente é a referência.
 
 Pré-requisitos
@@ -378,7 +376,7 @@ g++ -std=c++17 -O2 \
 ./natacha_engine_fase4
 Dica da casa: antes de compilar, confira git status. Antes de treinar, confira os caminhos. Antes de culpar o compilador, leia a mensagem de erro inteira. Sim, inteira. Eu também queria que fosse só apertar Enter.
 
-🗂️ Estrutura do projeto
+## 🗂️ Estrutura do projeto
 Estrutura resumida conforme a documentação disponível; os arquivos podem variar entre versões.
 
 text
@@ -401,9 +399,9 @@ natacha/
 │   ├── REQUISITOS.md
 │   ├── GLOSSARIO.md
 │   ├── QUANTUM_THEORY.md
-│   ├── FAMILIA.md
+│   ├── METODOLOGIA_CORPUS.md
 │   ├── ROADMAP.md
-│   ├── PLANO_500K.md
+│   ├── PLANO_500K_v2.md
 │   ├── PLANO_CORPUS_EXTERNO.md
 │   ├── EXPERIMENTOS.md
 │   ├── DATA_LICENSES.md
@@ -412,7 +410,7 @@ natacha/
 │   ├── MONETIZACAO.md
 │   └── FASE4.md
 └── CMakeLists.txt
-🛠️ Tecnologias
+## 🛠️ Tecnologias
 Camada	Tecnologia	Situação
 Linguagem principal	C++17	Em uso
 Sistema de build	CMake	Em uso
@@ -423,46 +421,47 @@ Runtime de modelos locais	llama.cpp	Possível integração futura
 Computação quântica	Qiskit / IBM Quantum	Pesquisa futura
 As tecnologias futuras aparecem aqui como possibilidades de estudo, não como dependências obrigatórias do núcleo atual.
 
-📚 Documentação
-Os documentos do projeto ficam em docs/. Alguns dos principais:
+## 📚 Documentação
 
-Documento	Conteúdo
-REQUISITOS.md	Requisitos funcionais e não funcionais
-ARQUITETURA.md	Arquitetura técnica
-PERSONALIDADE.md	Diretrizes da persona
-CASA.md	Metáfora da Casa e arquitetura
-FELIX.md	Conceito e comportamento do IAgato
-FAMILIA.md	Relações entre projetos e personagens
-INTEGRACOES.md	Propostas de integração
-GLOSSARIO.md	Termos usados no projeto
-QUANTUM_THEORY.md	Pesquisa conceitual sobre computação quântica
-EXPERIMENTOS.md	Histórico de experimentos
-DATA_LICENSES.md	Licenças do corpus e do código
-FASE4.md	Documentação da fase RNN/LSTM
-PLANO_500K.md	Plano de evolução do corpus
-PLANO_CORPUS_EXTERNO.md	Critérios para corpus externo
-MOBILE_FIRST.md	Visão mobile
-MODO_AGENTE.md	Conceito de modo agente
-MONETIZACAO.md	Possíveis estratégias de distribuição
-Nem todos os documentos precisam estar presentes em todas as versões. Se um link quebrar, confira o nome do arquivo no repositório — e não, não vou fingir que um arquivo existe só porque ele ficou bonito na tabela.
-| [`METODOLOGIA_CORPUS.md`](docs/METODOLOGIA_CORPUS.md) | Como o corpus foi gerado |
-| [`MODO_AGENTE.md`](docs/MODO_AGENTE.md) | Análise de impacto |
+Os documentos do projeto ficam na pasta `docs/`. Alguns dos principais:
 
-👤 Quem me construiu
+| Documento | Conteúdo |
+|---|---|
+| [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) | Arquitetura técnica geral |
+| [`docs/PERSONALIDADE.md`](docs/PERSONALIDADE.md) | Diretrizes da persona |
+| [`docs/CASA.md`](docs/CASA.md) | Metáfora da Casa e arquitetura |
+| [`docs/FELIX.md`](docs/FELIX.md) | Conceito e comportamento do IAgato |
+| [`docs/REQUISITOS.md`](docs/REQUISITOS.md) | Requisitos funcionais e não funcionais |
+| [`docs/INTEGRACOES.md`](docs/INTEGRACOES.md) | Propostas de integração |
+| [`docs/GLOSSARIO.md`](docs/GLOSSARIO.md) | Termos usados no projeto |
+| [`docs/QUANTUM_THEORY.md`](docs/QUANTUM_THEORY.md) | Pesquisa conceitual sobre computação quântica |
+| [`docs/EXPERIMENTOS.md`](docs/EXPERIMENTOS.md) | Histórico de experimentos |
+| [`docs/DATA_LICENSES.md`](docs/DATA_LICENSES.md) | Licenças do corpus e do código |
+| [`docs/FASE4.md`](docs/FASE4.md) | Documentação detalhada da fase RNN/LSTM |
+| [`docs/PLANO_500K_v2.md`](docs/PLANO_500K_v2.md) | Plano de evolução do corpus |
+| [`docs/PLANO_CORPUS_EXTERNO.md`](docs/PLANO_CORPUS_EXTERNO.md) | Critérios para corpus externo |
+| [`docs/MOBILE_FIRST.md`](docs/MOBILE_FIRST.md) | Visão mobile |
+| [`docs/MODO_AGENTE.md`](docs/MODO_AGENTE.md) | Conceito de modo agente |
+| [`docs/MONETIZACAO.md`](docs/MONETIZACAO.md) | Possíveis estratégias de distribuição |
+| [`docs/METODOLOGIA_CORPUS.md`](docs/METODOLOGIA_CORPUS.md) | Como o corpus foi gerado |
+
+Os documentos de temas (que viraram conteúdo do corpus) foram movidos para `docs/arquivados/` — inclusive o material sobre a família de IAs em [`docs/arquivados/TEMAS_BLOCO2_FAMILIA_IA.md`](docs/arquivados/TEMAS_BLOCO2_FAMILIA_IA.md).
+
+## 👤 Quem me construiu
 A Natacha foi criada por Rodrigo Pereira, desenvolvedor e curioso por natureza. O projeto nasceu da vontade de entender como redes neurais funcionam por dentro, implementando seus componentes em vez de depender apenas de ferramentas prontas.
 
 Construir uma rede neural do zero não significa reinventar toda a pesquisa da área. Significa estudar os fundamentos, experimentar, medir resultados, errar, corrigir e documentar o que aconteceu.
 
 "Doido? Talvez. Mas é o tipo de loucura que compila — depois de algumas tentativas."
 
-💻 Por que C++?
+## 💻 Por que C++?
 Porque o objetivo é entender o que acontece por baixo das abstrações: os pesos, os vetores, os estados, os gradientes e os erros.
 
 Bibliotecas de alto nível são úteis e têm seu lugar. Mas, neste projeto, implementar os fundamentos é parte do aprendizado.
 
 "Eu queria ver cada peso. Cada derivada. Cada byte. Não quero que tudo seja uma caixa-preta. Quero entender o que acontece lá dentro — inclusive quando dá errado."
 
-📄 Licença
+## 📄 Licença
 O código deste projeto está sob a licença MIT.
 
 O corpus tem licenças específicas por componente (Wikipedia, texto gerado por IA, texto autoral). Detalhes em docs/DATA_LICENSES.md.
