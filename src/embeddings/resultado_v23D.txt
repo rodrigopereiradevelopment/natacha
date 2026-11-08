@@ -1,0 +1,90 @@
+Carregado: 14598 palavras, 32 dims
+
+=== SIMILARIDADES DIRETAS ===
+  felix        <-> gato            = 0.6607
+  felix        <-> iagato          = 0.5854
+  iagato       <-> gato            = 0.7737
+  felix        <-> padrinho        = 0.5310
+  felix        <-> natacha         = 0.4420
+  natacha      <-> rodrigo         = 0.4746
+  natacha      <-> casa            = 0.1873
+  cafe         <-> processamento   = 0.7524
+  c++          <-> codigo          = 0.6969
+  cozinha      <-> cpu             = 0.9200
+  mlp          <-> neuronio        = 0.8525
+  felix        <-> quintal         = 0.7519
+  felix        <-> teclado         = 0.6672
+
+=== TOPS ===
+
+  Top 10 de 'gato':
+    iagato               0.7737
+    afiados              0.7459
+    perseguia            0.7246
+    trazem               0.7095
+    mia                  0.7061
+    respirava            0.6996
+    cabecadas            0.6995
+    superficies          0.6985
+    comida               0.6907
+    vasilha              0.6882
+
+  Top 10 de 'iagato':
+    estimacao            0.7951
+    gato                 0.7737
+    p0                   0.7541
+    explicavel           0.7494
+    companheiro          0.7481
+    agente               0.7362
+    resgatado            0.7325
+    felina               0.7185
+    raca                 0.7141
+    escravo              0.7107
+
+  Top 10 de 'padrinho':
+    siciliano            0.7587
+    simbolico            0.7314
+    ignorou              0.7038
+    resgatado            0.7036
+    imitou               0.6952
+    claridade            0.6787
+    autoridade           0.6645
+    cacula               0.6630
+    maxima               0.6607
+    capitalismo          0.6604
+
+  Top 10 de 'felix':
+    quintal              0.7519
+    roteador             0.7435
+    sofa                 0.7298
+    imitou               0.7230
+    tapete               0.7140
+    dele                 0.7098
+    dormindo             0.7078
+    claridade            0.6971
+    lado                 0.6938
+    canto                0.6930
+
+  Top 10 de 'natacha':
+    chateada             0.8045
+    magoada              0.7887
+    pensativa            0.7685
+    estressou            0.7293
+    inquietude           0.7172
+    distraiu             0.7100
+    acalmou              0.7088
+    aluna                0.7034
+    envergonhou          0.7026
+    carneirinhos         0.7022
+
+  Top 10 de 'casa':
+    adjacentes           0.8071
+    limpando             0.7526
+    comodos              0.7304
+    comodo               0.7266
+    lar                  0.7135
+    mantinham            0.7087
+    ronda                0.7032
+    bracos               0.7027
+    noturna              0.6952
+    indesejados          0.6864
