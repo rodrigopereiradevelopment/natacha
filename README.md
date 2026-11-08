@@ -20,8 +20,8 @@
 ![Fase 3](https://img.shields.io/badge/Fase%203-Embeddings%20%E2%9C%85-brightgreen)
 ![Fase 4.1](https://img.shields.io/badge/Fase%204.1-LSTM%20Forward%20%E2%9C%85-brightgreen)
 ![Fase 4.2](https://img.shields.io/badge/Fase%204.2-LSTM%20Treinada%20%E2%9C%85-brightgreen)
-![Corpus](https://img.shields.io/badge/Corpus-4.4M%20tokens-blue)
-![Vocabulário](https://img.shields.io/badge/Vocab-37.556%20palavras-blue)
+![Corpus](https://img.shields.io/badge/Corpus-10.7M%20tokens-blue)
+![Vocabulário](https://img.shields.io/badge/Vocab-72.075%20palavras-blue)
 ![Embeddings](https://img.shields.io/badge/Embeddings-64d-blue)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -102,12 +102,12 @@ A personalidade é uma direção de projeto, não uma alegação de consciência
 
 ## 📊 Estado atual do projeto
 
-**Referência dos números abaixo:** experimentos registrados em outubro de 2026. Confira os arquivos de documentação e os logs do repositório para acompanhar mudanças posteriores.
+**Referência dos números abaixo:** experimentos registrados em novembro de 2026. Confira os arquivos de documentação e os logs do repositório para acompanhar mudanças posteriores.
 
 | Métrica | Estado registrado |
 |---|---|
-| **Corpus v27** | Aproximadamente 27,9 milhões de caracteres / 4,4 milhões de tokens |
-| **Vocabulário** | 37.556 palavras |
+| **Corpus v39** | 10,7 milhões de tokens (Natacha + GigaVerbo filtrado) |
+| **Vocabulário** | 72.075 palavras |
 | **Dimensão dos embeddings** | 64 |
 | **Word2Vec** | Skip-gram com Negative Sampling |
 | **Fase mais recente concluída** | Fase 4.2 — LSTM Treinada com BPTT (Perplexidade 176.7) |
@@ -156,17 +156,19 @@ Além do XOR, os testes registraram a persistência e a recuperação dos pesos 
 ### Fase 3 — embeddings Word2Vec
 A implementação usa Skip-gram com Negative Sampling para aprender representações vetoriais a partir do corpus.
 
-Configuração registrada da versão v27:
+Configuração registrada da versão v39:
 
-yaml
-Corpus:              aproximadamente 4,43 milhões de tokens
-Vocabulário:         37.556 palavras
+```yaml
+Corpus:              10,7 milhões de tokens (Natacha + GigaVerbo)
+Vocabulário:         72.075 palavras
 Dimensão:            64
 Janela de contexto:  5
 Amostras negativas:  5
-Épocas:              50
-Subsampling:         desativado para preservar negações
-O subsampling foi desativado após experimentos indicarem que palavras importantes para o sentido — como a negação em "não é" — poderiam desaparecer do contexto. Uma pequena palavra pode virar uma enorme diferença. Humanos também fazem isso, mas costumam chamar de mal-entendido.
+Épocas:              20
+Tokenizador:         Customizado (remove acentos, preserva c++, next.js)
+```
+
+O tokenizador foi ajustado para remover acentos (unificando "não" e "nao") e preservar termos técnicos (como c++, next.js e event-bus), evitando que o vocabulário ficasse poluído.
 
 ### Fase 4.1 — LSTM Forward Pass
 A implementação da passagem forward da LSTM recebe embeddings e processa uma sequência, atualizando seus estados internos a cada passo.
@@ -174,7 +176,7 @@ A implementação da passagem forward da LSTM recebe embeddings e processa uma s
 Exemplo de execução registrado:
 
 text
-Embeddings carregados: 37.556 palavras, 64 dimensões
+Embeddings carregados: 72.075 palavras, 64 dimensões
 Token 'felix'    -> vetor de dimensão 64
 Token 'observa'  -> vetor de dimensão 64
 Token 'logs'     -> vetor de dimensão 64
@@ -208,27 +210,19 @@ Saída:  "felix miou na cozinha e natacha pensa ela quarenta e sorriu de uma cas
 A rede aprendeu a estrutura local (sujeito + verbo + objeto) e associações da Casa (cozinha=CPU, quarto=Felix). A coerência de longo prazo ainda é limitada pelo tamanho do corpus (32k tokens) e pela dimensão (64d).
 
 ## 🧭 Experimentos com embeddings
-Estes são alguns valores registrados na versão v27:
+Estes são alguns valores registrados na versão v39:
 
-Par	Similaridade cosseno	Leitura cautelosa
-natacha ↔ casa	0.419	Associação entre dois conceitos presentes no corpus
-natacha ↔ felix	0.672	Associação aprendida entre Natacha e Félix
-felix ↔ gato	0.669	Relação coerente com o material de treinamento
-cozinha ↔ cpu	0.910	Relação forte na metáfora da Casa
-c++ ↔ codigo	0.799	Associação técnica
-natacha ↔ c++	0.533	Associação entre a personagem e a linguagem usada no projeto
-natacha ↔ banheiro	0.447	Associação presente no modelo da Casa
+| Par | Similaridade cosseno | Leitura cautelosa |
+|---|---|---|
+| cozinha ↔ cpu | 0.89 | Relação forte na metáfora da Casa |
+| natacha ↔ casa | 0.86 | Associação entre a personagem e o ambiente |
+| felix ↔ gato | 0.78 | Relação coerente com o material de treinamento |
+| c++ ↔ codigo | 0.78 | Associação técnica |
+| next.js ↔ frontend | 0.85 | Associação técnica |
+| cafe ↔ xicara | 0.76 | Associação cotidiana |
+
 Os valores são medidas geométricas dos vetores. Não devem ser lidos como uma escala universal de entendimento ou personalidade.
 
-Histórico selecionado
-Versão	Corpus/configuração	Dimensão	natacha ↔ casa
-v21	220 mil tokens do núcleo Natacha	32	0.31
-v22	315 mil tokens + corpus externo	32	0.31
-v23D	440 mil tokens duplicados	32	0.30
-v24	Corpus com problemas de qualidade	64	0.31
-v25	Corpus limpo	64	0.31
-v26	Sem conteúdo do Grok	64	0.29
-v27	Kimi + Grok	64	0.419
 Mais contexto sobre os testes: docs/EXPERIMENTOS.md.
 
 A versão com o maior número não ganha automaticamente uma medalha de "mais inteligente". Primeiro a gente olha o experimento, o corpus, a configuração e a repetibilidade. Depois comemora. Se ainda houver motivo.
@@ -306,7 +300,7 @@ Fase	Descrição	Estado registrado
 0	Fundamentos matemáticos	Concluída
 1	Neurônio: porta lógica OR e backpropagation	Concluída
 2	MLP: XOR, Leaky ReLU, Softmax e JSON	Concluída
-3	Word2Vec Skip-gram, Negative Sampling e persistência	Concluída — v27
+3	Word2Vec Skip-gram, Negative Sampling e persistência	Concluída — v39
 4.1	LSTM — Forward Pass	Concluída
 4.2	LSTM — treinamento com BPTT	Concluída — perplexidade 176.7
 5	Self-Attention	Planejada
@@ -362,7 +356,7 @@ cd natacha
 cmake -B build -S .
 cmake --build build
 Treinar embeddings — Fase 3
-Atenção: este comando inicia um treinamento novo. Confira o caminho do corpus, a configuração e o local de saída no código. Se sua intenção for apenas carregar os vetores v27 já existentes, não execute um novo treinamento sem necessidade.
+Atenção: este comando inicia um treinamento novo. Confira o caminho do corpus, a configuração e o local de saída no código. Se sua intenção for apenas carregar os vetores v39 já existentes, não execute um novo treinamento sem necessidade.
 
 bash
 cd src/embeddings

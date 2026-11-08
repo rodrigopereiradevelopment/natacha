@@ -33,3 +33,19 @@ Extraída do dump oficial em português, filtrada por relevância de vocabulári
 O **código** está sob licença MIT. O **corpus** tem licenças específicas por componente, conforme a tabela acima.
 
 Se você clonar este repositório para fins acadêmicos, está tudo certo. Para uso comercial do corpus, consulte as licenças individuais e, quando aplicável, obtenha autorização.
+
+---
+
+## Histórico selecionado de embeddings (v21–v27)
+
+Registro mantido para fins acadêmicos e para o TCC. O README apresenta apenas os resultados atuais da versão v39.
+
+| Versão | Corpus/configuração | Dimensão | natacha ↔ casa |
+|---|---|---|---|
+| v21 | 220 mil tokens do núcleo Natacha | 32 | 0.31 |
+| v22 | 315 mil tokens + corpus externo | 32 | 0.31 |
+| v23D | 440 mil tokens duplicados | 32 | 0.30 |
+| v24 | Corpus com problemas de qualidade | 64 | 0.31 |
+| v25 | Corpus limpo | 64 | 0.31 |
+| v26 | Sem conteúdo do Grok | 64 | 0.29 |
+| v27 | Kimi + Grok | 64 | 0.419 |
