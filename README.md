@@ -184,9 +184,7 @@ Passo t=0 (felix)   | [0..3]:  0.1346 -0.0799  0.0809  0.0507
 Passo t=1 (observa) | [0..3]:  0.1940 -0.0313  0.0585  0.0483
 Passo t=2 (logs)    | [0..3]:  0.2247 -0.1012  0.0701  0.0172
 Passo t=3 (natacha) | [0..3]:  0.1986 -0.0914  0.0979 -0.0705
-O próximo passo é implementar e validar o treinamento por Backpropagation Through Time (BPTT), para calcular gradientes ao longo da sequência e ajustar os pesos.
-
-O forward pass já passa pelos dados. Agora vem a parte em que a rede precisa aprender com o erro. Parece simples quando cabe numa linha da tabela. A tabela, infelizmente, não compila C++.
+O forward pass já passa pelos dados. Agora vem a parte em que a rede precisa aprender com o erro: o treinamento por Backpropagation Through Time (BPTT), que calcula gradientes ao longo da sequência e ajusta os pesos. Parece simples quando cabe numa linha da tabela. A tabela, infelizmente, não compila C++.
 
 ### Fase 4.2 — LSTM Treinada com BPTT
 
@@ -416,6 +414,7 @@ Linguagem principal	C++17	Em uso
 Sistema de build	CMake	Em uso
 Serialização	nlohmann/json	Em uso
 Testes automatizados	Google Test	Confirmar integração atual
+Análise estática	SonarCloud	Em configuração (CI)
 GPU	CUDA	Pesquisa futura
 Runtime de modelos locais	llama.cpp	Possível integração futura
 Computação quântica	Qiskit / IBM Quantum	Pesquisa futura
