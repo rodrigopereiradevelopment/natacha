@@ -226,7 +226,7 @@ Mais contexto sobre os testes: docs/EXPERIMENTOS.md.
 A versão com o maior número não ganha automaticamente uma medalha de "mais inteligente". Primeiro a gente olha o experimento, o corpus, a configuração e a repetibilidade. Depois comemora. Se ainda houver motivo.
 
 ## 🏠 A Casa da Natacha
-<p align="center"> <img src="docs/assets/casa_natacha.png" alt="Representação conceitual da Casa da Natacha" width="700"> </p>
+![Representação conceitual da Casa da Natacha](docs/assets/casa_natacha.png)
 "Não é só infraestrutura. É a forma como eu imagino o lugar onde tudo acontece."
 
 A Casa é uma metáfora arquitetural para organizar componentes, estados e responsabilidades do sistema. Alguns cômodos representam partes técnicas atuais ou planejadas; a metáfora, por si só, não significa que todos esses componentes já estejam implementados.
