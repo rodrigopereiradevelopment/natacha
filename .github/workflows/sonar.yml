@@ -1,0 +1,39 @@
+name: SonarQube Cloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonar:
+    name: Análise C++ (SonarQube Cloud)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # Histórico completo melhora a precisão da análise de código novo.
+          fetch-depth: 0
+
+      - name: Instalar dependências
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ pkg-config libicu-dev
+
+      - name: Configurar CMake e gerar compile_commands.json
+        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B build -S .
+
+      - name: Compilar
+        run: cmake --build build --parallel
+
+      - name: Rodar testes
+        run: ctest --test-dir build --output-on-failure
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v8
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

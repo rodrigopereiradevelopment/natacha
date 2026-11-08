@@ -37,6 +37,8 @@ build/
 build-tokenizer/
 CMakeFiles/
 CMakeCache.txt
+compile_commands.json
+.scannerwork/
 __pycache__/
 *.pyc
 *.pyo
