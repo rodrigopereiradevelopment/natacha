@@ -16,14 +16,20 @@
 
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
 #include <iomanip>
 #include <vector>
 #include <fstream>
+#include <random>
 #include "json.hpp"
 
 using namespace std;
 using json = nlohmann::json;
+
+// Gerador compartilhado para inicializacao reproduzivel
+namespace {
+    std::mt19937 gerador(42);
+    std::uniform_real_distribution<float> distribuicaoPeso(-1.0f, 1.0f);
+}
 
 // ----------------------------------------------------------------------------
 // FUNCOES MATEMATICAS
@@ -37,9 +43,9 @@ float sigmoidDerivada(float s) {
     return s * (1.0f - s);
 }
 
-// Correcao: RAND_MAX eh int, entao convertemos ANTES da divisao
+// Correcao: distribuicao uniforme em [-1, 1] via <random>
 float pesoAleatorio() {
-    return (float)rand() / (float)RAND_MAX * 2.0f - 1.0f;
+    return distribuicaoPeso(gerador);
 }
 
 // ----------------------------------------------------------------------------
@@ -87,7 +93,7 @@ public:
     // ========================================================================
     MLP(const vector<int>& arquitetura = {}, unsigned int semente = 42) {
         if (!arquitetura.empty()) {
-            srand(semente);
+            gerador.seed(semente);
             for (size_t i = 0; i < arquitetura.size() - 1; i++) {
                 camadas.emplace_back(arquitetura[i], arquitetura[i + 1]);
                 camadas.back().inicializarAleatorio();

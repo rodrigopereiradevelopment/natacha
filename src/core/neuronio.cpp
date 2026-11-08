@@ -1,21 +1,22 @@
 #include "natacha/neuronio.hpp"
 
 #include <cmath>
-#include <cstdlib>
 #include <iostream>
+#include <random>
 
 namespace natacha {
 
 // Construtor: inicializa pesos e bias com valores aleatorios pequenos
 Neuronio::Neuronio(int numEntradas) {
-    // Semente fixa para resultados reproduziveis (depois trocamos)
-    std::srand(42);
-    
+    // Semente fixa para resultados reproduziveis
+    std::mt19937 gerador(42);
+    std::uniform_real_distribution<float> distribuicao(-0.5f, 0.5f);
+
     for (int i = 0; i < numEntradas; ++i) {
         // Valor entre -0.5 e +0.5
-        pesos_.push_back(static_cast<float>(std::rand()) / RAND_MAX - 0.5f);
+        pesos_.push_back(distribuicao(gerador));
     }
-    bias_ = static_cast<float>(std::rand()) / RAND_MAX - 0.5f;
+    bias_ = distribuicao(gerador);
 }
 
 // Forward pass: entrada * pesos + bias -> sigmoid
