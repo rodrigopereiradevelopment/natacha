@@ -3,7 +3,7 @@ ESPECIFICAÇÃO DE REQUISITOS — PROJETO NATACHA
 Documento de Requisitos para Trabalho de Conclusão de Curso (TCC)
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
-Versão: 3.1 | Data: Novembro/2026
+Versão: 3.2 | Data: Novembro/2026
 
 ---
 
@@ -118,6 +118,18 @@ RN-11 — Ferramentas Externas como Subsistemas Operáveis
 · Justificativa: Evitar acoplamento; preservar agência; permitir que a Natacha avalie caso a caso qual ferramenta é pertinente para cada demanda.
 · Escopo: Modo Agente / Orquestração.
 
+RN-12 — Integração de Quality Gates no Modo Agente
+
+· Descrição: O Agente Desenvolvedor deve integrar o SonarCloud e o GitNexus para análise estática e de dependências antes de sugerir refatorações.
+· Justificativa: Garantir que qualquer alteração de código seja precedida por análise de impacto e dependências, evitando regressões e quebras de contrato no ecossistema.
+· Escopo: Modo Agente / Orquestração.
+
+RN-13 — Otimização Mobile Offline
+
+· Descrição: O Modo Mobile deve usar quantização mista (8-bit para roteador/embeddings, 4-bit para experts) e garantir a persistência do Expert de Identidade.
+· Justificativa: Reduzir o footprint de memória em dispositivos móveis e preservar a identidade da Natacha entre sessões offline.
+· Escopo: Modo Mobile / Inferência Local.
+
 ---
 
 3. REQUISITOS FUNCIONAIS
@@ -194,6 +206,9 @@ RF-38 Reservar e expor o tópico QUANTUM_REQUEST no Event Bus para integração 
 RF-38.1 Tratar o ruído de readout e a decoerência quântica como sinal rico em informação, e não como erro/lixo a ser descartado, alimentando o módulo de entropia criativa com amostras verdadeiramente aleatórias provenientes de medições quânticas Baixa Comparar distribuição de amostras geradas com distribuição uniforme esperada; validar uso em rotina de amostragem de probabilidades
 RF-38.2 Expor conectores lógicos preparados para acoplamento com lógica de fotônica (motores de luz — conversão de calor residual em trabalho útil) e com o regime de metais estranhos (estados exóticos de criticalidade quântica) Baixa Validar existência dos conectores e ausência de acoplamento direto com a lógica clássica (compatível com RNF-12)
 RF-38.3 Preparar circuitos em Python/Qiskit (portas Hadamard, CNOT, fase) e enviá-los para execução híbrida clássico-quântica, processando o resultado em C++ no núcleo da Natacha Baixa Executar circuito Bell em simulador Aer e validar correlação entre qubits; documentar fluxo Python↔C++
+RF-39 Permitir a leitura e análise de grafos de dependência (GitNexus) no Modo Agente Alta Carregar grafo de dependências do projeto e validar leitura de símbolos, callers e processos afetados
+RF-40 Permitir a orquestração de modelos de visão (entrada) e geração de imagem/vídeo/slides (saída) no Modo Agente Alta Enviar imagem como entrada e validar geração de conteúdo de saída (imagem, vídeo ou slide)
+RF-41 Permitir a inferência local do SLM/MoE em dispositivos móveis sem conexão com a internet Alta Desconectar a rede e validar inferência contínua do SLM/MoE local
 
 ---
 
@@ -364,6 +379,9 @@ RF-38 RN-07 --- Event Bus (Reserva Quântica)
 RF-38.1 RN-01 / RN-06 --- Sótão Quântico (Entropia Criativa)
 RF-38.2 RN-06 --- Sótão Quântico (Conectores Fotônica / Metais Estranhos)
 RF-38.3 RN-06 --- Ponte Python/Qiskit ↔ C++
+RF-39 RN-12 UC-03 Modo Agente (Analisador de Grafo / GitNexus)
+RF-40 RN-12 UC-03 / UC-05 Orquestração Multimodal (Visão / Geração)
+RF-41 RN-13 UC-03 Motor de Inferência Local (SLM/MoE Mobile)
 
 6.2 Rastreabilidade de Requisitos Não-Funcionais
 
@@ -395,6 +413,8 @@ RN-08 RF-28
 RN-09 RF-18.1
 RN-10 RF-18.2
 RN-11 RF-11, RF-11.1
+RN-12 RF-39, RF-40
+RN-13 RF-41
 
 ---
 
@@ -428,6 +448,7 @@ Versão Data Mudanças
 2.0 Setembro/2026 Revisão de requisitos funcionais e não-funcionais
 3.0 Setembro/2026 Consolidação completa: RN-01 a RN-11, RFs por fase, RNFs, matriz de rastreabilidade e glossário
 3.1 Novembro/2026 Revisão de estado: RF-31 com embeddings de 64 dimensões; RF-32 refletindo a Fase 4 concluída (forward pass + BPTT, perplexidade 884,5 → 176,7); RN-05 alinhada ao Expert de Identidade sempre ativo na MoE hierárquica 8x8
+3.2 Novembro/2026 Adição de RN-12 (Quality Gates SonarCloud/GitNexus no Modo Agente), RN-13 (quantização mista mobile offline + persistência do Expert de Identidade), RF-39 (análise de grafo de código), RF-40 (geração multimodal visão→saída) e RF-41 (execução offline SLM/MoE mobile); atualização da matriz de rastreabilidade (6.1 e 6.3).
 
 ---
 
