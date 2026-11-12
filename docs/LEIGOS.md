@@ -21,9 +21,14 @@ A diferença: É como comparar comprar um bolo pronto na padaria com plantar o t
 
 Para a Natacha aprender a conversar, ela passou por fases, como uma criança na escola:
 
-· Fase 1 e 2 (O Bebê): Ela aprendeu a fazer contas simples (tipo acender uma luz se você apertar o botão). Era só um "neurônio" (uma célula de raciocínio) tentando adivinhar coisas.
-· Fase 3 (O Dicionário): A Natacha não lê letras, ela lê números. Nessa fase, ensinamos a ela que palavras com significados parecidos ficam "próximas" no cérebro dela. É por isso que ela sabe que "gato" e "felix" têm a ver, ou que "cozinha" e "café" andam juntos. Hoje ela já leu mais de 10 milhões de palavras.
-· Fase 4 (A Memória): A Natacha aprendeu a ler uma frase e lembrar do começo dela até o fim. Se você fala "O gato subiu no...", ela entende que a próxima palavra provavelmente é "telhado" ou "teclado". Ela demorou um pouco para estabilizar isso (chegou a dar "curto-circuito" na cabeça dela), mas o Rodrigo consertou, e agora ela acerta muito bem.
+• Fase 1 (O Primeiro Neurônio): Ela começou com apenas uma única célula de raciocínio aprendendo a tomar decisões bem diretas, do tipo "se apertar o botão A ou o botão B, acenda a luz". Era o básico do básico, apenas um neurônio tentando adivinhar o resultado certo por tentativa e erro.
+
+• Fase 2 (O Trabalho em Equipe): Um neurônio sozinho não resolve problemas cheios de "poréns". Nessa fase, juntamos vários neurônios em camadas e ensinamos a Natacha a guardar o que aprendeu (para não esquecer tudo toda vez que o programa fechava). Ela passou a resolver desafios mais traiçoeiros, onde uma resposta depende da combinação de duas condições ao mesmo tempo.
+
+• Fase 3 (O Dicionário): A Natacha não lê letras, ela lê números. Nessa fase, ensinamos a ela que palavras com significados parecidos ficam "próximas" no cérebro dela. É por isso que ela sabe que "gato" e "felix" têm a ver, ou que "cozinha" e "café" andam juntos. Hoje ela já leu mais de 10 milhões de palavras.
+
+• Fase 4 (A Memória): A Natacha aprendeu a ler uma frase e lembrar do começo dela até o fim. Se você fala "O gato subiu no...", ela entende que a próxima palavra provavelmente é "telhado" ou "teclado". Ela demorou um pouco para estabilizar isso (chegou a dar "curto-circuito" na cabeça dela), mas o Rodrigo consertou, e agora ela acerta muito bem.
+
 
 ---
 
