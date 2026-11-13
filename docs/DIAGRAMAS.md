@@ -10,7 +10,7 @@ Os diagramas podem ser visualizados diretamente no GitHub, no VS Code (extensão
 ## 1. Diagrama de Classes (Núcleo Neural)
 
 
-Diagrama das classes do núcleo neural (Fase 4 — RNN/LSTM com BPTT, conforme RF-32 de `docs/REQUISITOS.md`). A `RNNLayer` **compõe** uma `LSTMCell` (membro por valor), e as setas tracejadas representam o fluxo de dados do pipeline de treinamento orquestrado pelo loop principal (`main_fase4.cpp`): embeddings alimentam a `RNNLayer`, cujo estado oculto final (`h`) alimenta a `OutputLayer`.
+Diagrama das classes do núcleo neural (Fase 4 — RNN/LSTM com BPTT, conforme RF-32 de `docs/requisitos/requisitos-gerais.md`). A `RNNLayer` **compõe** uma `LSTMCell` (membro por valor), e as setas tracejadas representam o fluxo de dados do pipeline de treinamento orquestrado pelo loop principal (`main_fase4.cpp`): embeddings alimentam a `RNNLayer`, cujo estado oculto final (`h`) alimenta a `OutputLayer`.
 
 
 > Nota: em Mermaid, tipos genéricos usam `~` (ex.: `vector~float~` renderiza como `vector<float>`), pois colchetes angulares literais são interpretados como HTML.
@@ -126,7 +126,7 @@ classDiagram
 ## 2. Diagrama de Casos de Uso (UML)
 
 
-Casos de uso principais (UC-01 a UC-05, conforme seção 5 de `docs/REQUISITOS.md`) e seu mapeamento para os atores: **Usuário**, **Rodrigo (Dev)**, **Félix (IAgato)** e **ARCA (Sistema Externo)**.
+Casos de uso principais (UC-01 a UC-05, conforme seção 5 de `docs/requisitos/requisitos-gerais.md`) e seu mapeamento para os atores: **Usuário**, **Rodrigo (Dev)**, **Félix (IAgato)** e **ARCA (Sistema Externo)**.
 
 
 Observações de modelagem:

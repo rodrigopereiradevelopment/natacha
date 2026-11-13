@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Especificar as alterações no `docs/REQUISITOS.md` para elevar o documento da versão 3.1 para 3.2, inserindo:
+Especificar as alterações no `docs/requisitos/requisitos-gerais.md` para elevar o documento da versão 3.1 para 3.2, inserindo:
 - Duas novas regras de negócio (RN-12, RN-13) na Seção 2.
 - Três novos requisitos funcionais (RF-39, RF-40, RF-41) na Seção 3.2.
 - Atualização da matriz de rastreabilidade (6.1 e 6.3).

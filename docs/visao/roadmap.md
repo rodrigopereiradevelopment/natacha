@@ -199,23 +199,6 @@ Referência: RF-35, RF-36 em REQUISITOS.md.
 
 Status: visão de longo prazo.
 
-FASE 7.5 — Arquitetura MoE Hierárquica (8x8) 🚧 (Opcional / Fase 7 estendida)
-
-Objetivo: evoluir o SLM (Small Language Model) para uma arquitetura de Mixture of Experts (MoE) esparsa, permitindo capacidade de 7B de parâmetros com custo de inferência de ~1.5B.
-
-☐ Implementar roteador primário (8 macro-experts).
-☐ Implementar roteadores secundários (8 sub-experts por macro, totalizando 64).
-☐ Implementar o Expert de Identidade sempre ativo (fora do roteamento dos 64 experts).
-☐ Implementar perda auxiliar de balanceamento (Auxiliary Load Balancing Loss) para evitar colapso do roteador (Routing Collapse).
-☐ Adicionar ruído estocástico (Gumbel-Softmax) no treinamento do roteador.
-☐ Validação: garantir que todos os 64 experts recebam pelo menos X% dos tokens ao longo de uma época.
-
-Critério de conclusão: Modelo de 7B totais, 1.5B ativos, com distribuição de carga equilibrada entre os 64 experts.
-
-Expert de Identidade: expert permanente, fora do roteamento dos 64 experts, que recebe todos os tokens de inferência e aplica os invariantes de persona e de identidade persistente (RN-05). Tem orçamento de compute pequeno e previsível, para preservar a persona sem inviabilizar o custo de ~1,5B ativos. É o guardião neural do "eu sou eu em qualquer hardware", complementando o JSON de identidade.
-
-Referências: ARQUITETURA.md (Seção 3), MOLINA et al. (2023) - Mixture of Experts.
-
 FASE 8 — Escalar
 
 Objetivo: escalar o modelo com aceleração em GPU.
@@ -340,21 +323,6 @@ Objetivo: implementar o modo de agente para engenharia de software, com análise
 ☐ Integração com o Event Bus para tarefas de refatoração.
 
 Critério de conclusão: Agente lê 5 repositórios conectados, cria um grafo de dependência e sugere refatoração com base no contexto global.
-
-Referências: INTEGRACOES.md v3.1, Seção 4.
-
-FASE E2 — Modo Agente Multimodal (Manus-like)
-
-Objetivo: implementar o agente multimodal com visão, geração de imagens, vídeos, slides e transcrição de áudios.
-
-☐ Entrada de visão (imagens e screenshots) para o agente.
-☐ Integração com modelo de imagem (Stable Diffusion / Flux) via API.
-☐ Integração com modelo de vídeo (SVD / Runway) para animações curtas.
-☐ Geração de slides (python-pptx) a partir de texto e imagem.
-☐ Transcrição de áudios longos (Whisper) com timestamps.
-☐ Orquestração de ferramentas (Tool Calling) para encadear as ações, no modelo do Manus.
-
-Critério de conclusão: Dado um prompt de texto, o agente gera um slide completo com imagem e áudio de narração.
 
 Referências: INTEGRACOES.md v3.1, Seção 4.
 
@@ -533,27 +501,7 @@ Versão 3.0 | Outubro/2026
 - Adição da Fase F.1 (Modo Offline e Quantização Mista).
 - Adição da Fase G (Segurança e Sandbox).
 - Adição da FASE Z — Controle Motor e Aprendizado de Dança (Visão de Longo Prazo)
-3.1 Novembro/2026 Revisão de estado: Fase 3 concluída (corpus v39, 10,7M tokens, 72.075 palavras, 64d) e Fase 4 concluída (4.1 forward pass + 4.2 BPTT, perplexidade 884,5 → 176,7); Estado Atual em novembro/2026 com Fase 5 como próximo passo; consolidação da visão de longo prazo (MoE hierárquica 8x8, Expert de Identidade sempre ativo, multimodalidade com visão, modo agente com OpenCode/GitNexus/SonarCloud e mobile/offline com quantização mista 8-bit/4-bit)
-
-Objetivo: integrar cinemática e controle motor para a geração de movimentos corporais fluidos (Tango, Lambada e Capoeira), aplicando os mesmos princípios de predição de sequência (BPTT) usados na linguagem.
-
-Status: Visão de longo prazo (requer integração com avatar 3D).
-
-Z1. Representação Corporal: Definir esqueleto, articulações, coordenadas e formato dos dados de movimento (poses como vetores).
-Z2. Animação Determinística: Fazer o avatar executar poses e transições predefinidas (sem IA) para validar a estrutura do corpo.
-Z3. Aprendizado Temporal: Treinar um modelo com sequências de movimento (BPTT) e avaliar continuidade, precisão e estabilidade.
-Z4. Dança e Integração: Integrar as sequências aprendidas ao avatar 3D, trabalhando ritmo, transições e os estilos (Tango, Lambada, Capoeira).
-
-FASE Z2.5 — Adaptador de Hardware (Hardware Agnostic Layer)
-
-Objetivo: abstrair a comunicação com diferentes corpos físicos (braços robóticos, humanoides como Optimus e Unitree), permitindo que o núcleo neural da Natacha controle qualquer hardware via ROS2 ou WebSockets.
-
-☐ Camada de abstração HAL (Hardware Abstraction Layer).
-☐ API de controle de juntas e sensores (propriocepção).
-☐ Integração com simuladores (Isaac Sim / MuJoCo) para testes.
-
-Critério de conclusão: Uma mesma sequência de controle motor executa a mesma dança em dois corpos diferentes (simulados).
----
+3.1 Novembro/2026 Revisão de estado: Fase 3 concluída (corpus v39, 10,7M tokens, 72.075 palavras, 64d) e Fase 4 concluída (4.1 forward pass + 4.2 BPTT, perplexidade 884,5 → 176,7); Estado Atual em novembro/2026 com Fase 5 como próximo passo.
 
 "Neurônio por neurônio, até o infinito."
 

@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Atualizar o `docs/REQUISITOS.md` (versão 3.1 → 3.2) adicionando novas regras de negócio e requisitos funcionais que cobrem a integração de quality gates com análise estática/grafo de dependências no Modo Agente, a otimização mobile offline com quantização mista, e a geração multimodal (visão → imagem/vídeo/slides), mantendo o formato e a numeração atuais do documento.
+Atualizar o `docs/requisitos/requisitos-gerais.md` (versão 3.1 → 3.2) adicionando novas regras de negócio e requisitos funcionais que cobrem a integração de quality gates com análise estática/grafo de dependências no Modo Agente, a otimização mobile offline com quantização mista, e a geração multimodal (visão → imagem/vídeo/slides), mantendo o formato e a numeração atuais do documento.
 
 ## Contexto
 
@@ -65,4 +65,4 @@ Paralelamente, o roadmap da Natacha prevê:
 ## Escopo Excluído
 
 - Implementação de código das funcionalidades (apenas especificação de requisitos).
-- Alterações em outros documentos além de `docs/REQUISITOS.md`.
+- Alterações em outros documentos além de `docs/requisitos/requisitos-gerais.md`.

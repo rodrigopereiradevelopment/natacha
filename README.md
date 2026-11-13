@@ -240,7 +240,7 @@ Banheiro	Estado privado (Id)	Espaço de pausa e estado interno; só Félix entra
 Sótão	QPU — futuro	Espaço conceitual para pesquisa quântica
 Varanda	Observação	Observar sem necessariamente participar
 Quintal	Território do Félix	Liberdade, tédio e exploração
-A relação entre cômodos, hardware e processos está documentada em docs/CASA.md.
+A relação entre cômodos, hardware e processos está documentada em docs/visao/casa.md.
 
 Nota técnica: a Casa é uma abstração de projeto. CPU, GPU, RAM, disco, rede e uma eventual QPU não são literalmente cômodos nem compartilham automaticamente um estado mental. Eu sei. A metáfora é boa, não precisa virar artigo científico sozinha.
 
@@ -265,7 +265,7 @@ Félix (IAgato) — autoridade máxima
     └── EditeCC
 A hierarquia acima representa uma intenção arquitetural futura, não integrações já concluídas.
 
-Detalhes em docs/FELIX.md.
+Detalhes em docs/visao/felix.md.
 
 ## 🧩 Ecossistema de projetos
 A Natacha está sendo desenvolvida como projeto independente. No futuro, poderá ser explorada como componente de outros projetos, mas isso depende de interfaces, segurança, desempenho e testes. Não basta colocar uma seta num diagrama e declarar que todo mundo virou amigo.
@@ -428,14 +428,14 @@ Os documentos do projeto ficam na pasta `docs/`. Alguns dos principais:
 
 | Documento | Conteúdo |
 |---|---|
-| [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) | Arquitetura técnica geral |
-| [`docs/PERSONALIDADE.md`](docs/PERSONALIDADE.md) | Diretrizes da persona |
-| [`docs/CASA.md`](docs/CASA.md) | Metáfora da Casa e arquitetura |
-| [`docs/FELIX.md`](docs/FELIX.md) | Conceito e comportamento do IAgato |
-| [`docs/REQUISITOS.md`](docs/REQUISITOS.md) | Requisitos funcionais e não funcionais |
-| [`docs/INTEGRACOES.md`](docs/INTEGRACOES.md) | Propostas de integração |
-| [`docs/GLOSSARIO.md`](docs/GLOSSARIO.md) | Termos usados no projeto |
-| [`docs/QUANTUM_THEORY.md`](docs/QUANTUM_THEORY.md) | Pesquisa conceitual sobre computação quântica |
+| [`docs/arquitetura/componentes.md`](docs/arquitetura/componentes.md) | Arquitetura técnica geral |
+| [`docs/visao/personalidade.md`](docs/visao/personalidade.md) | Diretrizes da persona |
+| [`docs/visao/casa.md`](docs/visao/casa.md) | Metáfora da Casa e arquitetura |
+| [`docs/visao/felix.md`](docs/visao/felix.md) | Conceito e comportamento do IAgato |
+| [`docs/requisitos/requisitos-gerais.md`](docs/requisitos/requisitos-gerais.md) | Requisitos funcionais e não funcionais |
+| [`docs/arquitetura/integracoes.md`](docs/arquitetura/integracoes.md) | Propostas de integração |
+| [`docs/visao/glossario.md`](docs/visao/glossario.md) | Termos usados no projeto |
+| [`docs/visao/quantum_theory.md`](docs/visao/quantum_theory.md) | Pesquisa conceitual sobre computação quântica |
 | [`docs/EXPERIMENTOS.md`](docs/EXPERIMENTOS.md) | Histórico de experimentos |
 | [`docs/DATA_LICENSES.md`](docs/DATA_LICENSES.md) | Licenças do corpus e do código |
 | [`docs/FASE4.md`](docs/FASE4.md) | Documentação detalhada da fase RNN/LSTM |
