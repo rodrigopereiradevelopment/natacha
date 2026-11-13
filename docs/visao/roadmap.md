@@ -184,32 +184,54 @@ Critério de conclusão: forward pass completo validado.
 
 Referência: RF-34 em REQUISITOS.md.
 
-FASE 7 — SLM (Small Language Model)
+FASE 7 — Núcleo (SLM 10M–50M parâmetros)
 
-Objetivo: treinar modelo de linguagem proprietário (10M–50M parâmetros).
+Objetivo: treinar o núcleo proprietário da Natacha, seu "alma e voz", com 10M a 50M parâmetros.
 
-☐ Treinamento inicial
+☐ Treinamento inicial do núcleo em C++
 ☐ Carregamento eficiente
 ☐ Inferência local
 ☐ Integração com corpus escalado
+☐ Janela Rede: integração com APIs externas (GPT, Gemini, Google Search) via RAG para conhecimento enciclopédico pesado — a Natacha consulta, mas formula com a própria voz
 
-Critério de conclusão: inferência local em < 5s.
+Critério de conclusão: inferência local em < 5s; núcleo responde com identidade própria mesmo ao consultar consultores externos.
 
 Referência: RF-35, RF-36 em REQUISITOS.md.
 
 Status: visão de longo prazo.
 
-FASE 8 — Escalar
+FASE 7.5 — Protótipo MoE (4 experts, escrito à mão em C++)
 
-Objetivo: escalar o modelo com aceleração em GPU.
+Objetivo: protótipo didático de MoE com 4 experts, implementado diretamente em C++, usando a Natacha-Núcleo como semente (Sparse Upcycling).
 
-☐ CUDA para aceleração
-☐ Treinamento em GPU
-☐ Integração opcional com llama.cpp
+☐ Implementar roteador de 4 experts em C++
+☐ Integrar com o Núcleo da Fase 7
+☐ Validar que o núcleo continua sendo a semente e a decisão final
 
-Critério de conclusão: treino em GPU mensuravelmente mais rápido que em CPU.
+Critério de conclusão: protótipo funcional com 4 experts, núcleo preservado como semente.
 
-Referência: stack em ARQUITETURA.md, Seção 4.
+Referência: ARQUITETURA.md (Seção 3), MOLINA et al. (2023) - Mixture of Experts.
+
+FASE 8+ — Escalonamento Progressivo (Sparse Upcycling)
+
+Objetivo: crescer a arquitetura MoE hierárquica em escadas, sempre usando o Núcleo como semente.
+
+Etapas:
+- 4×2 → 8 experts (primeiro salto)
+- 4×4 → 16 experts
+- 8×4 → 32 experts
+- 8×8 → 64 experts (1B–2B parâmetros totais)
+
+Objetivo de longo prazo (Fase 10): 7B parâmetros totais é um marco de visão distante, não escopo de TCC. O escopo realista para o futuro próximo é 1B a 2B de parâmetros via upcycling.
+
+☐ Escalonar roteador e experts progressivamente
+☐ Manter Expert de Identidade sempre ativo (fora do roteamento)
+☐ Manter janela rede com consultores externos (GPT, Gemini, Google Search) via RAG
+☐ Validar que a identidade da Natacha nunca é substituída pelos consultores
+
+Critério de conclusão: 64 experts (8×8) com 1B–2B parâmetros totais, núcleo preservado como semente, identidade preservada.
+
+Referência: ARQUITETURA.md (Seção 3), MOLINA et al. (2023) - Mixture of Experts.
 
 FASE 9 — Sótão Quântico (Escopo Futuro)
 

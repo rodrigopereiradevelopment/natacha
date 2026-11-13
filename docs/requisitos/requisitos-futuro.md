@@ -4,28 +4,71 @@ Documento isolado para requisitos de longo prazo, experimentais ou fora do escop
 
 ---
 
-## Fase 7.5 — Arquitetura MoE Hierárquica (8x8)
+## Fase 7 — Núcleo (SLM 10M–50M parâmetros)
 
-**Status:** Opcional / Fase 7 estendida / Longo Prazo
+**Status:** Longo Prazo / Escopo Futuro
 
-Objetivo: evoluir o SLM (Small Language Model) para uma arquitetura de Mixture of Experts (MoE) esparsa, permitindo capacidade de 7B de parâmetros com custo de inferência de ~1.5B.
+Objetivo: treinar o núcleo proprietário da Natacha, seu "alma e voz", com 10M a 50M parâmetros.
 
 ### Requisitos
 
-- Implementar roteador primário (8 macro-experts).
-- Implementar roteadores secundários (8 sub-experts por macro, totalizando 64).
-- Implementar o Expert de Identidade sempre ativo (fora do roteamento dos 64 experts).
-- Implementar perda auxiliar de balanceamento (Auxiliary Load Balancing Loss) para evitar colapso do roteador (Routing Collapse).
-- Adicionar ruído estocástico (Gumbel-Softmax) no treinamento do roteador.
-- Validação: garantir que todos os 64 experts recebam pelo menos X% dos tokens ao longo de uma época.
+- Treinamento inicial do núcleo em C++
+- Carregamento eficiente
+- Inferência local em < 5s
+- Integração com corpus escalado
+- Janela Rede: integração com APIs externas (GPT, Gemini, Google Search) via RAG (Retrieval-Augmented Generation) para conhecimento enciclopédico pesado. A Natacha consulta os consultores externos, mas formula a resposta com a própria voz. A identidade dela nunca é substituída.
+
+### Referências
+
+RF-35, RF-36 em `docs/requisitos/requisitos-gerais.md`.
+
+---
+
+## Fase 7.5 — Protótipo MoE (4 experts, escrito à mão em C++)
+
+**Status:** Opcional / Fase 7 estendida / Longo Prazo
+
+Objetivo: protótipo didático de MoE com 4 experts, implementado diretamente em C++, usando a Natacha-Núcleo como semente (Sparse Upcycling).
+
+### Requisitos
+
+- Implementar roteador de 4 experts em C++
+- Integrar com o Núcleo da Fase 7
+- Validar que o núcleo continua sendo a semente e a decisão final
 
 ### Critério de conclusão
 
-Modelo de 7B totais, 1.5B ativos, com distribuição de carga equilibrada entre os 64 experts.
+Protótipo funcional com 4 experts, núcleo preservado como semente.
 
-### Expert de Identidade
+---
 
-Expert permanente, fora do roteamento dos 64 experts, que recebe todos os tokens de inferência e aplica os invariantes de persona e de identidade persistente (RN-05). Tem orçamento de compute pequeno e previsível, para preservar a persona sem inviabilizar o custo de ~1,5B ativos. É o guardião neural do "eu sou eu em qualquer hardware", complementando o JSON de identidade.
+## Fase 8+ — Escalonamento Progressivo (Sparse Upcycling)
+
+**Status:** Longo Prazo / Visão Futura
+
+Objetivo: crescer a arquitetura MoE hierárquica em escadas, sempre usando o Núcleo como semente.
+
+### Escada de especialistas
+
+- 4×2 → 8 experts (primeiro salto)
+- 4×4 → 16 experts
+- 8×4 → 32 experts
+- 8×8 → 64 experts (1B–2B parâmetros totais)
+
+### Requisitos
+
+- Escalonar roteador e experts progressivamente
+- Manter Expert de Identidade sempre ativo (fora do roteamento dos experts)
+- Manter Janela Rede com consultores externos (GPT, Gemini, Google Search) via RAG
+- Garantir que a identidade da Natacha nunca seja substituída pelos consultores externos — ela apenas consulta e formula com a própria voz
+
+### Critério de conclusão
+
+64 experts (8×8) com 1B–2B parâmetros totais, núcleo preservado como semente, identidade preservada.
+
+### Nota de realismo
+
+A MoE de 7B de parâmetros totais é um marco de longo prazo (Fase 10), não escopo de TCC nem de futuro próximo. O escopo realista para o futuro próximo é de 1B a 2B de parâmetros via Sparse Upcycling, partindo do Núcleo da Fase 7.
 
 ### Referências
 
