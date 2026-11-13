@@ -17,6 +17,7 @@ Documentos de lore, persona, visão de produto e arquitetura conceitual.
 | [`visao/felix.md`](visao/felix.md) | Conceito e comportamento do Félix / IAgato (v2.2) |
 | [`visao/quantum_theory.md`](visao/quantum_theory.md) | Pesquisa sobre computação quântica e Sótão Quântico (v2.1) |
 | [`visao/glossario.md`](visao/glossario.md) | Termos técnicos e glossário do projeto (v2.1) |
+| [`visao/leigos.md`](visao/leigos.md) | Guia da Natacha para quem não é de TI (v1.0) |
 
 ---
 
@@ -67,4 +68,4 @@ Estes documentos permanecem na raiz de `docs/` por não se encaixar nas pastas S
 
 ---
 
-> 🧑‍🏫 **Não é da área de tecnologia?** Começo pelo [Guia da Natacha para Leigos (`docs/LEIGOS.md`)](docs/LEIGOS.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.
+> 🧑‍🏫 **Não é da área de tecnologia?** Começo pelo [Guia da Natacha para Leigos (`docs/visao/leigos.md`)](docs/visao/leigos.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.

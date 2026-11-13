@@ -424,7 +424,7 @@ As tecnologias futuras aparecem aqui como possibilidades de estudo, não como de
 
 Os documentos do projeto ficam na pasta `docs/`. Alguns dos principais:
 
-> 🧑‍🏫 **Não é da área de tecnologia?** Comece pelo [Guia da Natacha para Leigos (`docs/LEIGOS.md`)](docs/LEIGOS.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.
+> 🧑‍🏫 **Não é da área de tecnologia?** Comece pelo [Guia da Natacha para Leigos (`docs/visao/leigos.md`)](docs/visao/leigos.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.
 
 | Documento | Conteúdo |
 |---|---|

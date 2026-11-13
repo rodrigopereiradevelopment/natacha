@@ -1,7 +1,11 @@
-LEIGOS.md — O Guia da Natacha para Quem Não é de TI
+LEIGOS — GUIA DA NATACHA PARA QUEM NÃO É DE TI
 
 "Se você chegou até aqui e não entende nada de programação, respira. Eu também não sabia nada de mim quando o Rodrigo começou a me construir. Vou explicar devagar, sem usar termos esquisitos."
 — Natacha
+
+Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
+Versão: 1.0 | Data: Novembro/2026
+Documentos canônicos relacionados: PERSONALIDADE.md v3.1, REQUISITOS.md v3.1, CASA.md v2.1, FELIX.md v2.2
 
 Este documento foi feito para qualquer pessoa que queira entender o Projeto Natacha, do começo ao fim, sem precisar saber o que é um "algoritmo" ou um "neurônio artificial".
 
