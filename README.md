@@ -219,7 +219,7 @@ Estes são alguns valores registrados na versão v39:
 
 Os valores são medidas geométricas dos vetores. Não devem ser lidos como uma escala universal de entendimento ou personalidade.
 
-Mais contexto sobre os testes: docs/EXPERIMENTOS.md.
+Mais contexto sobre os testes: docs/arquitetura/experimentos.md.
 
 A versão com o maior número não ganha automaticamente uma medalha de "mais inteligente". Primeiro a gente olha o experimento, o corpus, a configuração e a repetibilidade. Depois comemora. Se ainda houver motivo.
 
@@ -424,7 +424,7 @@ As tecnologias futuras aparecem aqui como possibilidades de estudo, não como de
 
 Os documentos do projeto ficam na pasta `docs/`. Alguns dos principais:
 
-> 🧑‍🏫 **Não é da área de tecnologia?** Comece pelo [Guia da Natacha para Leigos (`docs/visao/leigos.md`)](docs/visao/leigos.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.
+> 🧑‍🏫 **Não é da área de tecnologia?** Comece pelo [Guia da Natacha para Leigos (`docs/LEIGOS.md`)](docs/LEIGOS.md) — uma explicação simples, sem jargões técnicos, para entender o projeto do zero.
 
 | Documento | Conteúdo |
 |---|---|
@@ -436,15 +436,15 @@ Os documentos do projeto ficam na pasta `docs/`. Alguns dos principais:
 | [`docs/arquitetura/integracoes.md`](docs/arquitetura/integracoes.md) | Propostas de integração |
 | [`docs/visao/glossario.md`](docs/visao/glossario.md) | Termos usados no projeto |
 | [`docs/visao/quantum_theory.md`](docs/visao/quantum_theory.md) | Pesquisa conceitual sobre computação quântica |
-| [`docs/EXPERIMENTOS.md`](docs/EXPERIMENTOS.md) | Histórico de experimentos |
-| [`docs/DATA_LICENSES.md`](docs/DATA_LICENSES.md) | Licenças do corpus e do código |
-| [`docs/FASE4.md`](docs/FASE4.md) | Documentação detalhada da fase RNN/LSTM |
-| [`docs/PLANO_500K_v2.md`](docs/PLANO_500K_v2.md) | Plano de evolução do corpus |
-| [`docs/PLANO_CORPUS_EXTERNO.md`](docs/PLANO_CORPUS_EXTERNO.md) | Critérios para corpus externo |
-| [`docs/MOBILE_FIRST.md`](docs/MOBILE_FIRST.md) | Visão mobile |
-| [`docs/MODO_AGENTE.md`](docs/MODO_AGENTE.md) | Conceito de modo agente |
-| [`docs/MONETIZACAO.md`](docs/MONETIZACAO.md) | Possíveis estratégias de distribuição |
-| [`docs/METODOLOGIA_CORPUS.md`](docs/METODOLOGIA_CORPUS.md) | Como o corpus foi gerado |
+| [`docs/arquitetura/experimentos.md`](docs/arquitetura/experimentos.md) | Histórico de experimentos |
+| [`docs/requisitos/data_licenses.md`](docs/requisitos/data_licenses.md) | Licenças do corpus e do código |
+| [`docs/arquitetura/fase4.md`](docs/arquitetura/fase4.md) | Documentação detalhada da fase RNN/LSTM |
+| [`docs/arquitetura/plano_500k_v2.md`](docs/arquitetura/plano_500k_v2.md) | Plano de evolução do corpus |
+| [`docs/arquitetura/plano_corpus_externo.md`](docs/arquitetura/plano_corpus_externo.md) | Critérios para corpus externo |
+| [`docs/visao/mobile_first.md`](docs/visao/mobile_first.md) | Visão mobile |
+| [`docs/arquitetura/modo_agente.md`](docs/arquitetura/modo_agente.md) | Conceito de modo agente |
+| [`docs/visao/monetizacao.md`](docs/visao/monetizacao.md) | Possíveis estratégias de distribuição |
+| [`docs/arquitetura/metodologia_corpus.md`](docs/arquitetura/metodologia_corpus.md) | Como o corpus foi gerado |
 
 Os documentos de temas (que viraram conteúdo do corpus) foram movidos para `docs/arquivados/` — inclusive o material sobre a família de IAs em [`docs/arquivados/TEMAS_BLOCO2_FAMILIA_IA.md`](docs/arquivados/TEMAS_BLOCO2_FAMILIA_IA.md).
 
@@ -465,7 +465,7 @@ Bibliotecas de alto nível são úteis e têm seu lugar. Mas, neste projeto, imp
 ## 📄 Licença
 O código deste projeto está sob a licença MIT.
 
-O corpus tem licenças específicas por componente (Wikipedia, texto gerado por IA, texto autoral). Detalhes em docs/DATA_LICENSES.md.
+O corpus tem licenças específicas por componente (Wikipedia, texto gerado por IA, texto autoral). Detalhes em docs/requisitos/data_licenses.md.
 
 A licença MIT permite usar, modificar e distribuir o código conforme suas condições, incluindo a preservação do aviso de copyright e da licença.
 

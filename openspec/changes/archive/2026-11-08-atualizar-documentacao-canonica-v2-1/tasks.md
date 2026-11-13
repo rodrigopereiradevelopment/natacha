@@ -2,7 +2,7 @@
 
 ## 1. Preparação e fonte de verdade
 
-- [x] 1.1 Conferir as métricas atuais no `README.md`, em `docs/FASE4.md` e nos artefatos do corpus; registrar o bloco canônico (Fase 4.1/4.2, perplexidade 884,5 → 176,7, corpus v39 com 10,7M tokens e 72.075 palavras, 64 dimensões, corpus narrativo com 32.507 tokens e 1.559 palavras). Verificação: os valores batem com o README e com o FASE4.md.
+- [x] 1.1 Conferir as métricas atuais no `README.md`, em `docs/arquitetura/fase4.md` e nos artefatos do corpus; registrar o bloco canônico (Fase 4.1/4.2, perplexidade 884,5 → 176,7, corpus v39 com 10,7M tokens e 72.075 palavras, 64 dimensões, corpus narrativo com 32.507 tokens e 1.559 palavras). Verificação: os valores batem com o README e com o FASE4.md.
 - [x] 1.2 Auditar cabeçalhos de versão e referências cruzadas nos nove documentos canônicos; listar ocorrências de `v2.0`, `v2.1`, `v3.0` e nomes de documentos que precisarão mudar. Verificação: lista gerada por `grep` e anexada ao resumo da execução.
 
 ## 2. ROADMAP
@@ -46,7 +46,7 @@
 - [x] 7.3 Atualizar o `docs/PERSONALIDADE.md` para v3.1, revisar referências cruzadas e adicionar a entrada no histórico de versões. Verificação: o topo declara v3.1 e a tabela final contém a linha v3.1.
 - [x] 7.4 Adicionar cabeçalho de versão v2.1 ao `docs/QUANTUM_THEORY.md` e revisar referências cruzadas. Verificação: o topo declara v2.1.
 - [x] 7.5 Revisar os quatro documentos para garantir que só versão, status e referências mudaram. Verificação: `git diff -- docs/CASA.md docs/FELIX.md docs/PERSONALIDADE.md docs/QUANTUM_THEORY.md` mostra apenas esses tipos de alteração.
-- [x] 7.6 Atualizar o `docs/FASE4.md` para v2.1, marcar a Fase 4.2 como concluída e registrar as métricas da LSTM treinada. Verificação: o documento não contém mais "em andamento" para a Fase 4.2 e cita perplexidade, corpus e vocabulário.
+- [x] 7.6 Atualizar o `docs/arquitetura/fase4.md` para v2.1, marcar a Fase 4.2 como concluída e registrar as métricas da LSTM treinada. Verificação: o documento não contém mais "em andamento" para a Fase 4.2 e cita perplexidade, corpus e vocabulário.
 
 ## 8. Auditoria final
 

@@ -1,7 +1,7 @@
 
 ---
 
-## 2. `docs/DATA_LICENSES.md`
+## 2. `docs/requisitos/data_licenses.md`
 
 ```markdown
 # Licenças de Dados

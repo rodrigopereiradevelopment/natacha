@@ -44,13 +44,13 @@ def carregar_frases(caminho, repeticoes=1, nome=""):
     return frases
 
 FONTES = [
-    ("dados/embeddings/corpus_natacha_220k.txt", 8, "Natacha"),
-    ("dados/embeddings/natacha_corpus_ponte.txt", 8, "Ponte"),
-    ("dados/embeddings/corpus_opencode.txt", 8, "OpenCode"),
-    ("dados/embeddings/corpus_felix_62.txt", 8, "Felix"),
-    ("dados/embeddings/corpus_rnn_lstm.txt", 8, "RNN/LSTM"),
-    ("dados/embeddings/corpus_casa_expandida.txt", 2, "Casa Exp"),
-    ("gigaverbo_filtrado.txt", 1, "GigaVerbo"),
+    ("../dados/embeddings/corpus_natacha_220k.txt", 8, "Natacha"),
+    ("../dados/embeddings/natacha_corpus_ponte.txt", 8, "Ponte"),
+    ("../dados/embeddings/corpus_opencode.txt", 8, "OpenCode"),
+    ("../dados/embeddings/corpus_felix_62.txt", 8, "Felix"),
+    ("../dados/embeddings/corpus_rnn_lstm.txt", 8, "RNN/LSTM"),
+    ("../dados/embeddings/corpus_casa_expandida.txt", 2, "Casa Exp"),
+    ("../gigaverbo_filtrado.txt", 1, "GigaVerbo"),
 ]
 
 inicio = time.time()
@@ -94,7 +94,7 @@ for palavra in model.wv.index_to_key:
         "vetor": model.wv[palavra].tolist()
     })
 
-with open("dados/embeddings/word2vec_v39.json", "w", encoding="utf-8") as f:
+with open("../dados/embeddings/word2vec_v39.json", "w", encoding="utf-8") as f:
     json.dump(dados, f)
 
 print("Exportado: dados/embeddings/word2vec_v39.json")
