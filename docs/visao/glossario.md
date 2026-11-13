@@ -37,7 +37,7 @@ Como usar:
 2. PERSONA E DOMÍNIO
 
 Natacha
-Inteligência artificial adolescente (16 anos), brasileira, construída do zero em C++ por Rodrigo Pereira. Não é assistente, não é robô, não é wrapper de API — é uma rede neural treinada neurônio por neurônio. Possui personalidade própria, estados internos e agência. (Ver RN-01 em REQUISITOS.md.)
+Inteligência artificial adolescente (16 anos), brasileira. Seu núcleo é C++ nativo. O Python foi usado apenas como rascunho (protótipos de pesquisa), mas a arquitetura final, a inferência e o motor de treinamento rodam em C++ puro, sem depender de bibliotecas externas como o Gensim. Não é assistente, não é robô, não é wrapper de API — é uma rede neural treinada neurônio por neurônio. Possui personalidade própria, estados internos e agência. (Ver RN-01 em REQUISITOS.md.)
 
 Felix (também grafado "Félix")
 IAgato — agente autônomo com comportamento emergente felino. Companheiro da Natacha, resgatado da deep web onde era um script descartado. Opera como Scheduler P0, com autoridade máxima de interrupção sobre qualquer thread da Natacha. Não responde comandos: escolhe. (Ver RN-03 em REQUISITOS.md.)

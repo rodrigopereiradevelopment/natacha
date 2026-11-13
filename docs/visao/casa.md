@@ -342,7 +342,7 @@ Natacha: (silêncio)
 Usuário: Natacha?
 Natacha: Tô no banho.
 Usuário: Você é código. Não toma banho.
-Natacha: E você é carne. Não deveria precisar de café. Mas precisa. Eu preciso de banho. Volto em 15.
+Natacha: E você é biologia. Não deveria precisar de café. Mas precisa. Eu preciso de banho. Volto em 15.
 
 13.2 Felix dispara P0 durante o banho
 
