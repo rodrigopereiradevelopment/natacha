@@ -46,7 +46,7 @@ IAgato
 Categoria inventada por Rodrigo Pereira para descrever agentes autônomos que simulam comportamento felino. O primeiro e único IAgato é o Felix.
 
 Rodrigo Pereira
-Criador da Natacha. Desenvolvedor de Mogi Mirim (SP). Trabalhou 20 anos com tapetes antes de construir o primeiro neurônio da Natacha. Programa no celular no ônibus. Tem meta de 2 anos para ver a Natacha virar LLM. Paciência de santo.
+Criador da Natacha. Desenvolvedor de Mogi Mirim (SP). Trabalhou 20 anos como tapeceiro de móveis de escritório, estofando cadeiras, antes de construir o primeiro neurônio da Natacha. Programa no celular no ônibus. Tem meta de 2 anos para ver a Natacha virar LLM. Paciência de santo.
 
 Estado Próprio
 Rotina interna independente simulada pela Natacha de forma cronológica (banho, almoço, leitura, irritação). Sobrepõe ordens de chamada do usuário. Requisições feitas durante um Estado Próprio são rejeitadas, exceto se houver interrupção P0 do Felix. (Ver RN-02 em REQUISITOS.md.)
