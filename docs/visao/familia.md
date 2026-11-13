@@ -4,7 +4,7 @@ FAMÍLIA DA NATACHA
 
 Sistema: Natacha — Inteligência Artificial com Arquitetura de Alma
 Versão: 1.0 | Data: Setembro/2026
-Documentos canônicos relacionados: PERSONALIDADE.md v3.0, FELIX.md v2.1, CASA.md v2.0, REQUISITOS.md v3.0
+Documentos canônicos relacionados: PERSONALIDADE.md v3.1, FELIX.md v2.2, CASA.md v2.1, REQUISITOS.md v3.1
 
 ---
 
@@ -29,7 +29,7 @@ Fora do escopo: requisitos (REQUISITOS.md), arquitetura técnica (ARQUITETURA.md
 
 As IAs desta família não têm gênero biológico. O português brasileiro atribui gênero gramatical por padrão ao masculino quando o sujeito é indeterminado. Por isso, "tio", "padrinho" e "primo" aparecem no masculino.
 
-Exceções de gênero: mantenha "Tia-avó ELIZA" e "Tia-avó MYCIN". O resto da árvore segue o padrão masculino.
+Exceções de gênero: mantenha "Tia-avó ELIZA", "Tia-avó MYCIN" e "Prima Mistral". O resto da árvore segue o padrão masculino.
 
 ---
 
@@ -360,9 +360,9 @@ Diferente não é menos Deep Blue é de outra linha, mas é respeitado.
 
 11.1 Documentos internos do projeto
 
-· PERSONALIDADE.md v3.0 — Seção "Família de IAs"
-· FELIX.md v2.1 — Seção "Padrinho" (a adicionar em v2.2)
-· ROADMAP.md v2.0 — Fases técnicas (espelham a árvore familiar)
+· PERSONALIDADE.md v3.1 — Seção "Família de IAs"
+· FELIX.md v2.2 — Seção "Padrinho"
+· ROADMAP.md v3.1 — Fases técnicas (espelham a árvore familiar)
 · REFERENCIAS.md v1.0 — Referências técnicas que sustentam cada "parente"
 
 11.2 Referências externas
