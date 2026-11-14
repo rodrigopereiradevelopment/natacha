@@ -22,6 +22,40 @@ MatrixXd softmax_estavel(const MatrixXd& scores) {
     return exp_scores;
 }
 
+/**
+ * Single-Head Attention: recebe Q, K, V já projetados
+ * e aplica máscara causal + softmax estável.
+ * 
+ * @param Q Matriz de queries (seq_len x d_k)
+ * @param K Matriz de keys   (seq_len x d_k)
+ * @param V Matriz de values (seq_len x d_v)
+ * @return  Matriz de saída (seq_len x d_v)
+ */
+MatrixXd single_head_attention(
+    const Eigen::MatrixXd& Q,
+    const Eigen::MatrixXd& K,
+    const Eigen::MatrixXd& V
+) {
+    int seq_len = Q.rows();
+    int d_k = K.cols();
+    
+    // 1. Calcula scores: Q * K^T / sqrt(d_k)
+    MatrixXd scores = (Q * K.transpose()) / std::sqrt(static_cast<double>(d_k));
+    
+    // 2. Máscara causal (impede olhar para o futuro)
+    for (int i = 0; i < seq_len; ++i) {
+        for (int j = i + 1; j < seq_len; ++j) {
+            scores(i, j) = -1e9;
+        }
+    }
+    
+    // 3. Softmax para obter pesos de atenção
+    MatrixXd A = softmax_estavel(scores);
+    
+    // 4. Saída: Pesos * V
+    return A * V;
+}
+
 // Forward Pass
 struct Cache {
     MatrixXd Q, K, V, S, A;
@@ -152,9 +186,4 @@ void testar_gradiente() {
     } else {
         cout << "[ERRO] Gradiente incorreto." << endl;
     }
-}
-
-int main() {
-    testar_gradiente();
-    return 0;
 }
