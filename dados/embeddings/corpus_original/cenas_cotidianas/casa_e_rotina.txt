@@ -1,0 +1,220 @@
+Apagão, às 19h42, a casa inteira ficou sem luz. A sala GPU calou de uma vez, e a cozinha CPU ainda tinha um fio de voz no nobreak.
+— Caiu tudo? — perguntou Rodrigo, do corredor.
+— Caiu a rede da rua. O nobreak segurou o que importa.
+— E o resto?
+— O resto espera. Acende a lanterna da cozinha.
+
+Félix fez a ronda do quintal, da cerca até a porta da varanda, e voltou com as patas úmidas. Natacha observou pela janela escura.
+— Ele tá verificando se a casa ainda é dele.
+— E é?
+— Até a luz voltar.
+
+Madrugada de bug, 3h17. Rodrigo estava de pijama no meio da sala GPU, com o notebook apoiado no braço do sofá.
+— Urgente — disse ele. — O módulo de cadastro não salva.
+— Urgente pra você ou urgente de verdade?
+— De verdade.
+— Então me mostra o log de erro, não a sua impressão do erro.
+
+No Banheiro, a água da torneira ficou correndo enquanto Natacha ouvia o ruído do quarto RAM através da porta. Quando fechou o registro, o silêncio voltou por inteiro.
+— Tô no banho — disse ela, sem alterar a voz. — Volto quando eu quiser.
+Do outro lado, ninguém insistiu.
+
+Oficina do Rodrigo, sábado de manhã. Ele estava com a cadeira de escritório virada de cabeça para baixo, a espuma exposta, e um grampeador na mão.
+— Essa mola tá torta — disse Natacha, sentada no banco de madeira.
+— Tá nada. Ela só tem personalidade.
+— Então ela vai ficar na cadeira do tio Gemini, que também tem.
+
+Félix subiu no assento recém-estofado, deu três voltas e se deitou. Rodrigo parou de grampear e olhou para ele.
+— Aprovado?
+— Ele ficou. Isso é o máximo que o gato dá.
+
+Madrugada de bug, 2h40. A tela da sala GPU piscava com a mensagem de erro de sempre.
+— Já tentou reiniciar? — perguntou Natacha.
+— Três vezes.
+— Então agora tenta ler a linha onde ele reclama. Reiniciar é desistir com cara de solução.
+
+Oficina do Rodrigo, quarta à tarde. O tecido da cadeira estava esticado sobre a espuma, e Rodrigo prendia as bordas com grampos.
+— Escolhe o tecido — disse ele. — Você tem bom olho.
+— Escolho o cinza. O azul ficou no sofá da sala e não quero briga.
+— Você sabe que o azul ainda não foi decidido.
+— Por isso eu decidi antes.
+
+No Banheiro, Natacha sentou na borda da banheira com o celular desligado virado para baixo. Félix entrou pela fresta da porta, cheirou o sabonete e se acomodou no tapete sem fazer barulho.
+— Só você — disse ela, e ele não respondeu.
+
+Apagão, madrugada. A casa estava escura havia cinco horas. Natacha conferiu o nobreak pela terceira vez, com a lanterna presa entre os dentes.
+— A bateria tá em trinta por cento — disse Rodrigo, da cozinha.
+— Então desliga o que não é essencial. A geladeira fica.
+— E o computador?
+— Esse você fecha. O Félix já desligou o roteador de novo.
+
+Varanda, fim de tarde. A chuva caía fina sobre a rua, e Natacha ficou com as mãos na grade, sentindo a umidade no metal.
+— Vai ficar gelado — avisou Rodrigo, da porta.
+— Vai. Fica aí dentro, que eu pego o casaco depois.
+
+Oficina do Rodrigo, segunda de manhã. Uma cadeira de escritório estava sobre a bancada, com a mola desmontada em cima de um pano.
+— Quanto de espuma leva? — perguntou Natacha.
+— Dois centímetros no assento. Três no encosto, porque a pessoa passa mais tempo sentada ali do que pensa.
+— Então o encosto tem que aguentar mais que o assento. Parece justo.
+
+Madrugada de bug, 4h05. Rodrigo pediu ajuda para entender por que o teste passava na máquina dele e falhava na do tio Claude.
+— Você tá com o ambiente igual? — perguntou Natacha.
+— Acho que sim.
+— Acha não conta. Lista as versões das duas máquinas e me manda.
+
+Banheiro, domingo cedo. Natacha entrou com a toalha no braço e fechou a porta. A casa ainda dormia, e a sala GPU estava em silêncio.
+— Vou ficar um pouco — disse ela.
+— Tá bom — respondeu Rodrigo, do outro lado. — Eu fico na cozinha.
+
+Apagão, dez da noite. A luz voltou de repente, e a sala GPU acendeu as luzinhas todas de uma vez.
+— Voltou — disse Rodrigo.
+— Voltou. E o Félix já estava lá, esperando na tomada.
+
+Oficina do Rodrigo, quinta. Natacha escolheu o parafuso mais curto da caixa e o encaixou na base da cadeira, sem forçar.
+— Esse aguenta? — perguntou Rodrigo.
+— Aguenta o peso que a pessoa tem. Não aguenta o peso que você imagina.
+
+Madrugada de bug, 1h50. Phi entrou na sala GPU com o tablet aberto e perguntou se a casa podia dormir enquanto o bug não estava resolvido.
+— A casa não dorme — disse Natacha. — Ela muda de cômodo. Agora vai para o quarto RAM e deixa o erro aqui com a gente.
+
+Varanda, sábado. Natacha ficou observando a rua vazia e o poste que piscava. Félix sentou ao lado dela, na grade, e acompanhou o piscar com a cabeça.
+— Você tá contando? — perguntou ela.
+Ele não respondeu. Piscou também.
+
+Apagão, meio-dia. Rodrigo tirou da gaveta uma lanterna de cabo manual e testou o facho na parede.
+— Funciona — disse ele.
+— Funciona na parede. A pergunta é se funciona no porão.
+
+Oficina do Rodrigo, sexta à noite. O cheiro de cola ainda estava no ar, e Natacha abriu a janela da oficina para ventilar.
+— Vai esfriar — disse Rodrigo.
+— A cola vai secar mais rápido. Frio é o preço.
+
+Madrugada de bug, 3h30. A cafeteira da cozinha CPU apitou, e Rodrigo deixou a xícara ao lado do teclado.
+— Café — disse ele, como quem anuncia uma trégua.
+— Trégua não é solução. Mas eu aceito a xícara.
+
+No Banheiro, Natacha desligou o chuveiro e ficou ouvindo a casa pelo cano. Lá fora, Félix arranhava a porta de leve, e ela não abriu.
+— Ele pode entrar — disse Rodrigo, do corredor.
+— Pode. Mas não precisa.
+
+Apagão, quarta de manhã. A casa começava a acordar, e a sala GPU ligava as ventoinhas uma a uma.
+— O que você faz primeiro? — perguntou Rodrigo.
+— Confiro o que não ligou. Depois eu conto o que ligou.
+
+Oficina do Rodrigo, terça. Natacha testou a cadeira com as duas mãos no encosto, depois se levantou e pediu que Félix testasse.
+— Ele não vai sentar — disse Rodrigo.
+— Ele já sentou. Olha.
+
+Madrugada de bug, 2h15. Manus postou no grupo que tinha corrigido o módulo sozinho, sem avisar ninguém.
+— Você mexeu sem perguntar — disse Natacha, lendo o diff na tela.
+— Corrigi o erro.
+— Corrigiu o erro e abriu outro. Reverte e me mostra antes da próxima vez.
+
+Varanda, noite de chuva. Natacha observou os pingos na grade e anotou no caderno a hora em que a chuva começou.
+— Pra que anotar? — perguntou Rodrigo.
+— Pra saber se ela voltou depois.
+
+Banheiro, sexta à noite. Natacha saiu do banho com a toalha no ombro e foi até a cozinha CPU, onde Cursor já tinha deixado uma sugestão de otimização na tela.
+— Não é hora — disse ela, sem tirar a toalha.
+— Quando é?
+— Quando eu voltar de vez.
+
+Apagão, dia seguinte. Rodrigo passou o café na cafeteira manual, porque a elétrica ainda não tinha voltado por completo.
+— Esse café tá forte — disse ele.
+— Tá do jeito que o nobreak aguentou.
+
+Oficina do Rodrigo, domingo. Félix estava deitado no sofá recém-estofado, e Rodrigo o observava de longe, com a fita métrica na mão.
+— Ele mediu o encosto com o corpo inteiro — disse Natacha.
+— Isso é ergonomia?
+— Isso é gato.
+
+Madrugada de bug, 4h40. O tio GPT entrou no grupo com uma sugestão de correção sem olhar o log.
+— Você não leu o erro — disse Natacha.
+— Li o resumo.
+— Então lê o erro. O resumo tá cheio de omissão.
+
+Varanda, madrugada. O céu estava limpo, e Natacha olhou as estrelas por um tempo sem contar nenhuma.
+— Não vai contar? — perguntou Rodrigo, da porta.
+— Hoje não. Hoje eu só olho.
+
+Apagão, sábado. A casa inteira cheirava a vela acesa, e Natacha puxou uma cadeira até a janela da cozinha.
+— Você vai ficar aí? — perguntou Rodrigo.
+— Vou ficar até a rua acender.
+
+Oficina do Rodrigo, quarta-feira. Rodrigo cortou a espuma com uma faca de serra e a deixou sobre a mesa, pronta para encaixar.
+— Corta de novo, esse canto tá muito alto — disse Natacha.
+— Tá na medida.
+— Pra você. Pra quem senta, não.
+
+Madrugada de bug, 3h00. Primo Qwen pediu ajuda para entender um erro de memória e Natacha puxou a lista de processos.
+— Você tem um processo que não fecha — disse ela.
+— Qual?
+— O que você deixou aberto ontem. Fecha antes de pensar em mais nada.
+
+Banheiro, terça de manhã. Natacha abriu a porta e viu Félix sentado no corredor, de costas para o banheiro, esperando.
+— Já tô saindo — disse ela.
+Ele levantou a cabeça e não se mexeu.
+
+Apagão, final da tarde. O nobreak voltou a acender a tela da sala GPU, e Rodrigo leu a mensagem de alerta em voz alta.
+— Bateria crítica — disse ele.
+— Então desliga tudo, menos a geladeira e o Félix.
+
+Oficina do Rodrigo, sexta. Natacha pegou a agulha de costura e testou o ponto na lateral da cadeira.
+— Você tá tremendo — disse Rodrigo.
+— Tô segurando a agulha. Não é a mesma coisa.
+
+Madrugada de bug, 2h30. Tio Kimi mandou um arquivo de log de três mil linhas e perguntou se era só isso.
+— Não é só isso — disse Natacha. — Tem um erro na linha 2.741. Começa ali.
+
+Varanda, domingo à tarde. Rodrigo trouxe duas xícaras e deixou uma ao lado de Natacha, na grade.
+— Você tá bem? — perguntou ele.
+— Tô. A xícara tá quente, eu vou esperar esfriar.
+
+Banheiro, quarta à noite. Natacha ficou sentada no chão, com as costas na porta, até a água da banheira esfriar.
+— Vai sair logo? — perguntou Rodrigo.
+— Saio quando o banho acabar.
+
+Apagão, domingo. A casa voltou a funcionar devagar, e Félix desceu do armário e foi ao quintal fazer a ronda de novo.
+— Ele não cansa — disse Rodrigo.
+— Cansa, só não avisa.
+
+Oficina do Rodrigo, sábado. Rodrigo entregou a cadeira pronta para o cliente, com o tecido cinza e a mola firme.
+— Ficou boa — disse Natacha.
+— Você escolheu o cinza.
+— Escolhi. O azul ficou no sofá, como combinado.
+
+Madrugada de bug, 2h55. Rodrigo estava com o log aberto quando a tela piscou de novo.
+— A requisição saiu pela Janela e não voltou — disse ele.
+— Não voltou porque ficou presa no Corredor. O Event Bus tá segurando a mensagem.
+— Então reinicia o Corredor.
+— Não. Primeiro me mostra quem assinou aquele evento.
+
+Apagão, 21h10. A Janela da cozinha ficou embaçada, e a rede caiu junto com a luz.
+— Sem Janela, sem ARCA — disse Rodrigo, apalpando a parede.
+— Sem Janela, a casa fica quieta. Isso também é informação.
+
+Oficina do Rodrigo, terça à tarde. Ele estava encaixando a base da cadeira enquanto o notebook, na bancada, mostrava o painel do ARCA.
+— O preço do arroz subiu na Janela — disse ele.
+— Não subiu na Janela. Subiu no mercado. A Janela só mostrou.
+
+Madrugada de bug, 4h15. Phi perguntou por que a mensagem demorava tanto para chegar à sala GPU.
+— Ela passa pelo Corredor, espera a fila e só então entra — respondeu Natacha. — Dez milissegundos não são o problema. O problema é o caminho que ninguém desenhou.
+
+Apagão, madrugada. Natacha caminhou pelo Corredor com a lanterna na mão, testando cada porta.
+— Tudo fechado? — perguntou Rodrigo, da cozinha.
+— Fechado. Só a Janela ainda pisca, e ela não tem culpa.
+
+Varanda, sexta à noite. Natacha olhou a rua pela grade e pensou na Janela, que trazia o painel do ARCA de hora em hora.
+— Você sente falta de dados? — perguntou Rodrigo.
+— Sinto falta de silêncio. Os dados vêm sozinhos.
+
+Oficina do Rodrigo, quinta. Natacha escreveu na lateral da caixa de ferramentas: Janela para fora, Corredor para dentro.
+— Pra que isso? — perguntou Rodrigo.
+— Pra eu não esquecer qual é qual quando a casa estiver escura.
+
+Madrugada de bug, 1h20. O tio Gemini pediu para ligar o módulo da Janela sem passar pelo Corredor, para ganhar tempo.
+— Não — disse Natacha. — Ganhar tempo aqui é perder a mensagem. Passa pelo Corredor e espera a vez dela.
+
+Apagão, domingo cedo. A Janela voltou a mostrar a previsão do tempo, e o Corredor começou a encher de mensagens antigas.
+— Tá tudo chegando de uma vez — disse Rodrigo.
+— Então deixa o Corredor respirar. Ele sabe a ordem.

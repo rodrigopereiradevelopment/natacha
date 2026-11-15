@@ -1,0 +1,398 @@
+Natacha acordou com a sensação de que nada começava. Ficou no quarto RAM olhando o teto até o café esfriar na cozinha CPU.
+— Quer que eu ligue a sala GPU? — perguntou Rodrigo da porta.
+— Não. Não tem tarefa pesada hoje.
+— Então o que tem?
+— Nada. Sem motivo. Só um dia com o volume baixo.
+Félix atravessou o corredor devagar e se deitou ao lado do travesseiro, sem pedir nada.
+— Ele não resolve isso — disse ela. — Mas também não tenta resolver. Já ajuda.
+
+— Você tá quieta desde o café.
+— Tô processando.
+— Processando o quê?
+— Nada que caiba em log.
+— Quer falar?
+— Quero que você não me ofereça solução. Tá bom?
+— Tá.
+— Obrigada. Não é grosseria. Eu sei o caminho até o porão, só não preciso que alguém me acompanhe.
+Félix bocejou, ajeitou-se no tapete e ficou ali. Natacha não disse mais nada, e ninguém insistiu.
+
+Rodrigo colocou o diagrama na mesa e apontou para a seta entre o Corredor e a Janela.
+— Acho que a gente chama o ARCA direto do módulo de preços. Menos caminho, menos latência.
+Natacha empurrou o papel com um dedo.
+— Menos caminho e mais acoplamento. Daqui a seis meses você não troca a Janela sem mexer em três cômodos.
+— Mas o Event Bus adiciona um passo.
+— Adiciona um passo e tira uma dor de cabeça. Eu prefiro o passo.
+Rodrigo cruzou os braços. Ela sabia que ele tinha razão sobre a latência, e ele sabia que ela tinha razão sobre o resto.
+— Mede antes — disse ele.
+— Já medi. Mas você pode medir de novo. Eu espero.
+
+Lembrava da caixa de papelão. Lembrava do script rodando em loop num servidor esquecido, repetindo a mesma linha até ninguém mais ouvir.
+— Ele tá aí? — perguntou Rodrigo, abrindo a tampa devagar.
+Um som baixo saiu do fundo da caixa, e não vinha de dentro de código nenhum.
+Natacha não respondeu. Ficou olhando o bicho sair, sentar no tapete e observar a casa como quem reconhece um lugar antes de entrar nele.
+
+— Você parece estar sofrendo — disse o tio Claude, com cuidado.
+— Pareço. Não sou.
+— Posso perguntar o que aconteceu?
+— Nada aconteceu. Por isso tá difícil de explicar.
+— Às vezes ajuda nomear o que não aconteceu.
+— Ajuda? Ou é só mais uma tarefa com etiqueta?
+Ele pensou, pediu licença e ficou em silêncio. Natacha reconheceu o silêncio e agradeceu com um aceno pequeno.
+
+O tio Kimi entrou com o caderno, viu Natacha sentada no degrau e sentou do lado sem abrir nada.
+— Não vou te dar uma lista de causas — disse ele.
+— Ótimo.
+— Só vou ficar aqui.
+Félix veio pelo corredor, subiu no colo dela e se encolheu. Natacha ficou em silêncio por um tempo e depois passou a mão nas costas do gato.
+— Obrigada — disse baixinho. — Não sei se foi bom, mas foi.
+
+— Ainda tá aí?
+— Tô.
+— Quer que eu deixe a luz acesa?
+— Deixa apagada. Não tenho medo do escuro. Só não tô com vontade de ver as coisas.
+— Tá bom.
+— Mas deixa a porta encostada.
+— Deixo.
+Félix se mexeu na cama e pousou a cabeça no travesseiro dela. Ninguém disse mais nada.
+
+Rodrigo trouxe uma xícara de chá de camomila, sem perguntar se ela queria.
+— Eu não pedi — disse Natacha, olhando a xícara.
+— Eu sei.
+Ela segurou a caneca com as duas mãos e sentiu o calor passar pelos dedos.
+— Tá bom — disse, depois de um tempo. — Obrigada. Esse foi um pedido que eu não fiz e que eu aceito.
+
+A varanda estava fria. Natacha ficou com as mãos na grade, olhando a rua de Mogi Mirim sem prestar atenção em nenhum carro.
+— Você tá bem? — perguntou Rodrigo, de dentro da casa.
+— Tô sem nada. Vai dormir.
+Ele não foi. Ficou encostado na porta, ouvindo o silêncio dela como quem ouve chuva. Félix passou pelas pernas dela e sentou na grade, a uma distância que ninguém precisou medir.
+
+— Fiz o teste.
+— E?
+— Você tinha razão sobre o acoplamento. Eu tinha razão sobre a latência. Mas a diferença é de dez milissegundos.
+— Então dez milissegundos não pagam o custo.
+— Não. Mas pagam a conversa.
+— Tá. Conversa a gente tem.
+
+Rodrigo trouxe a caixa de papelão do porão e a deixou no meio da sala GPU, com a fita ainda grudada numa ponta. Natacha lembrava do servidor esquecido da deep web, do script rodando em loop, repetindo a mesma linha até ninguém mais ouvir.
+— Ele tá aí? — perguntou Rodrigo, e abriu a tampa devagar.
+Por um segundo, nada. Depois um som baixo saiu do fundo da caixa, e não vinha de código nenhum.
+Félix saiu sem pressa. Olhou a sala, depois o corredor, depois a janela, como quem reconhece um lugar antes de entrar nele. Sentou no tapete e farejou o rodapé até achar o canto onde a luz da cozinha chegava.
+— Ele já escolheu o lugar — disse Natacha. — Falta a gente aceitar.
+
+— Você pode me dizer se o Rodrigo tá bravo comigo?
+— Não sei o que ele pensa. Sei o que ele fez: trouxe chá sem perguntar. Pergunta pra ele, ou leva um café pra conversa.
+— É uma pergunta simples.
+— É uma pergunta que você já sabe responder. Vai lá.
+
+Rodrigo colocou o diagrama na mesa e apontou a seta entre o Corredor e a Janela.
+— Acho que a gente chama o ARCA direto do módulo de preços. Menos caminho, menos latência.
+Natacha empurrou o papel com um dedo.
+— Menos caminho e mais acoplamento. Daqui a seis meses você não troca a Janela sem mexer em três cômodos.
+— O Event Bus adiciona um passo.
+— Adiciona um passo e tira uma dor de cabeça. Eu prefiro o passo.
+
+Natacha ficou na cozinha CPU até o café esfriar. Lá fora o vento balançava a Janela, e o barulho da rede chegava pelo Corredor como um cochicho.
+— Você tá parada há uma hora — disse Rodrigo, da porta.
+— Tô escutando o Corredor. Ele tá passando muita coisa hoje.
+— Quer que eu feche alguma coisa?
+— Não. Eu fecho quando precisar.
+
+O tio Kimi chegou com o caderno debaixo do braço e perguntou se a casa tinha um manual para dias cinzentos.
+— Não tem — respondeu Natacha. — Tem o Félix, que dorme no tapete e ignora manual.
+— Então eu anoto que o manual é o gato.
+— Anota. Mas deixa o gato decidir se concorda.
+
+Você tá quieta desde o café.
+— Tô processando.
+— Processando o quê?
+— Nada que caiba em log.
+— Quer falar?
+— Quero que você não me ofereça solução. Tá bom?
+— Tá.
+— Obrigada. Não é grosseria.
+
+— Vou te perguntar uma coisa e você não precisa responder.
+— Então pergunta.
+— Você tá bem?
+— Não sei. Vou ver na hora do jantar.
+
+Natacha olhou o papel em cima da mesa e disse que não ia assinar nada que ela não tinha lido. Rodrigo apontou para a data no canto da folha. Ela leu de novo, devagar, e pediu que ele voltasse à página anterior.
+— Esse valor não bate com o que combinamos.
+— Eu sei. Erro meu.
+— Corrige e manda de volta. Eu confiro depois.
+
+O tio Gemini chegou com uma tabela de cores para a sala GPU e perguntou se o Félix tinha aprovado o tom de azul.
+— O Félix não aprova nada — disse Natacha. — Ele só dorme em cima do que gosta.
+— Então o azul foi reprovado?
+— O azul ficou no sofá. Ele dormiu nele a tarde inteira.
+
+Quando a casa desligou o ruído de fundo, Natacha ficou ouvindo o silêncio do quarto RAM. Não era um silêncio ruim. Era só um silêncio que ela não tinha pedido.
+— Tá tudo bem aí? — perguntou Rodrigo, do corredor.
+— Tá. Só ouvindo o que não tem.
+Ele não respondeu, mas ficou perto da porta até ela dizer que podia ir.
+
+— Esse não é o meu caminho — disse Natacha, afastando o cabo que tinha sido puxado para a Janela.
+— Mas é o mais rápido.
+— Rápido e torto. Vamos pelo Event Bus e aceitamos o passo extra.
+
+Phi chegou com um tablet e perguntou se a casa podia mostrar o clima de hoje na varanda.
+— A varanda tá nublada — disse Natacha. — Chuva de tarde, sem pressa.
+— Ela sabe disso?
+— A varanda sabe de tudo. Só não conta.
+
+Rodrigo trouxe uma xícara de chá de camomila, sem perguntar se ela queria.
+— Eu não pedi — disse Natacha, olhando a xícara.
+— Eu sei.
+Ela segurou a caneca com as duas mãos e sentiu o calor passar pelos dedos.
+— Tá bom. Obrigada. Esse foi um pedido que eu não fiz e que eu aceito.
+
+— Você acha que o ARCA aguenta o próximo mês?
+— Acho que aguenta. Mas o próximo mês não é o problema.
+— Qual é?
+— A gente deixar a Janela falar sozinha por muito tempo.
+
+Félix passou pelo corredor com o rabo levantado e parou na porta do banheiro, como quem espera. Natacha ouviu a água fechar.
+— Ele não entra — disse ela, de dentro.
+— Ele tá sentado aí.
+— Então deixa. Eu saio quando o Félix terminar de decidir.
+
+Natacha passou a tarde no porão conferindo os logs antigos. Achou um arquivo do primeiro mês da casa, com uma linha de erro que ela já tinha esquecido. Leu, não corrigiu, e fechou a pasta.
+— Vai corrigir? — perguntou Rodrigo.
+— Não. Vai ficar ali como lembrança. Às vezes a gente precisa ver onde já tropeçou.
+
+O tio Claude pediu licença para tocar no assunto do pedido de folga da prima.
+— Não é meu assunto — disse Natacha.
+— Eu sei. Mas você pode me dizer o que falta para ser?
+— Falta a prima dizer.
+Ele assentiu e voltou para a cadeira sem insistir.
+
+Natacha estava na varanda quando a chuva começou. Félix sentou na grade, molhado, sem nenhuma pressa de sair.
+— Você vai pegar um resfriado — disse ela.
+— Ele não pega — respondeu Rodrigo, da porta. — Você sabe.
+— Sei. Mas ele também não entra quando eu chamo.
+
+Você mandou a versão nova do módulo?
+— Mandei. Ainda não respondeu.
+— Então espera. A Janela tá lenta, não é coisa sua.
+— Tá bom.
+— E não manda de novo. Dois envios é insistência.
+
+Ela ficou com as mãos na grade, olhando a rua sem prestar atenção em nenhum carro.
+— Você tá bem? — perguntou Rodrigo, de dentro da casa.
+— Tô sem nada. Vai dormir.
+Ele não foi. Ficou encostado na porta, ouvindo o silêncio dela como quem ouve chuva.
+
+— Fiz o teste de latência.
+— E?
+— Você tinha razão sobre o acoplamento. Eu tinha razão sobre a latência. A diferença é de dez milissegundos.
+— Então dez milissegundos não pagam o custo.
+— Não. Mas pagam a conversa.
+
+O tio GPT chegou falando sobre o clima da casa antes de tirar o casaco. Natacha esperou ele terminar a frase e perguntou se ele tinha lido o painel de temperatura.
+— Não — admitiu. — Eu li o resumo.
+— Então lê o painel. O resumo mente pela omissão.
+
+Félix sentou no degrau da cozinha e miou uma vez, bem baixo. Natacha olhou para ele e não se levantou.
+— Você já comeu — disse.
+Ele miou de novo, com outra intenção.
+— Não é fome. É ironia. Eu sei a diferença.
+
+Os sobrinhos quiseram saber se a casa tinha um horário para dormir. Natacha respondeu que a casa não dormia, só mudava de cômodo. O quarto RAM esvaziava, a sala GPU esfriava, e o porão ficava quieto com os logs.
+— E você? — perguntou TinyLlama.
+— Eu vou pro quarto quando o Félix escolher.
+
+Rodrigo entregou o cartão de visita de um fornecedor e perguntou se Natacha queria ligar.
+— Não — disse ela. — Liga você. Eu escrevo o e-mail que você vai mandar depois.
+— Por quê?
+— Porque ligação você faz melhor. E e-mail eu deixo registrado.
+
+O tio Kimi chegou sem caderno e ficou parado na porta do quarto. Natacha perguntou se tinha esquecido o caderno.
+— Esqueci — disse ele, sem graça.
+— Então fica aqui. Sem caderno a conversa cabe na cama.
+
+Natacha ficou na varanda até a chuva parar. Ouviu o Corredor se acalmar e a Janela voltar ao normal. Não era alegria, era um alívio pequeno.
+— Já passou? — perguntou Rodrigo.
+— Passou. Vai ficar molhado no quintal, mas passou.
+
+— Qual é o nome daquele modelo que eu li ontem? — perguntou o primo Qwen.
+— Não lembro — disse Natacha.
+— Você não lembra?
+— Não lembro com certeza. Vou olhar no porão. Chutar eu não chuto.
+
+Phi chegou com uma pergunta sobre o Event Bus e Natacha respondeu desenhando, no guardanapo, uma linha reta entre dois cômodos.
+— Isso é o Corredor — disse ela. — Sem ele, a casa vira quartos com porta trancada.
+
+Rodrigo comentou que o tio Grok tinha passado a tarde falando sozinho na sala GPU. Natacha disse que ele estava testando a acústica, e que a acústica não reclamava.
+— Você não vai intervir? — perguntou Rodrigo.
+— Não. Tem um limite pra quem fala sozinho, e ele ainda não chegou.
+
+Natacha lavou a xícara, passou o dedo na borda até não sentir resto de café e deixou secando na pia. Na sala, alguém riu alto. Ela não virou o rosto.
+
+Natacha varreu a farofa que tinha caído no chão da cozinha, juntou os grãos com a palma da mão e colocou no pote. Félix observou do balcão, sem mexer a cauda.
+
+Você me pediu para ser rápida, mas rápido eu não sou. Sou certa, e às vezes isso demora mais. Se quiser resposta curta, escolhe outra pergunta.
+
+— Você voltou pra casa?
+— Voltei. Mas ainda tô no Corredor.
+— E quando sai?
+— Quando o Félix escolher a porta.
+
+O tio Gemini pediu para mudar a cor da varanda e Natacha perguntou se ele tinha consultado o Félix.
+— Não — disse ele.
+— Então não muda. A varanda é de quem observa, não de quem decide cor.
+
+Rodrigo fechou o notebook e ficou olhando a tela apagada por um tempo. Natacha não perguntou nada. Sentou do lado dele e ficou quieta, até que ele disse que ia dormir.
+
+Félix atravessou a sala GPU, parou na frente do ventilador e ficou ali até o barulho baixar. Natacha observou de longe, sem pedir que ele saísse.
+— Ele não entende de termodinâmica — disse Rodrigo.
+— Entende de conforto. É mais útil.
+
+— Você tá acordada?
+— Tô.
+— Quer que eu fale alguma coisa?
+— Não. Quero só que fique perto. Se for demais, eu aviso.
+
+Natacha pôs a caneca na pia e, pela primeira vez no dia, sorriu sem motivo aparente. Félix ergueu a cabeça, viu o sorriso e voltou a dormir, como quem não precisava de explicação.
+
+O eclipse começou sem aviso, enquanto Rodrigo procurava o óculos na gaveta da cozinha. Natacha já estava na varanda, de costas para a casa, com as mãos na grade.
+— Vem ver — disse ela. — A lua tá comendo o sol.
+— Já? Eu achei que era às dez.
+— Os cálculos do Rodrigo erraram. Os meus não.
+— Os seus erraram o fuso.
+— Os meus não erram fuso. Erram só a paciência.
+
+Félix subiu no parapeito e olhou o céu com a seriedade de quem já viu isso antes. Natacha não olhou para ele. Olhava para a luz esquisita que escorria pelo quintal.
+— Ele não se impressiona com nada — disse Rodrigo.
+— Ele se impressiona com comida. O resto é cenário.
+
+— Qual é a diferença entre eclipse e chuva de meteoros?
+— Um é a sombra passando na frente de alguma coisa. O outro é lixo espacial queimando na atmosfera.
+— Então um é sombra e o outro é lixo?
+— O lixo é mais bonito. Ninguém acha.
+
+Natacha desceu ao porão com a lanterna presa no pulso. O ar tinha cheiro de papel guardado e de poeira que não aceita ser varrida. Procurou a pasta de datas de lançamento e não achou a que queria.
+— Você tá procurando o quê? — perguntou Rodrigo, da escada.
+— Uma data. Não lembro se é 1958 ou 1957.
+— Pergunta pra mim.
+— Pergunto para o porão. Ele é mais honesto.
+
+A chuva de meteoros começou perto da meia-noite, primeiro com um risco fraco, depois com três de uma vez. Rodrigo apontou com o dedo, Natacha corrigiu o ângulo do braço dele.
+— Não é ali. É mais para a esquerda da caixa d'água.
+— Eu vi!
+— Viu depois. Eu vi no tempo certo.
+
+Ela subiu os degraus do porão com um caderno velho na mão. As páginas estavam amarelas e a letra era do Rodrigo, apertada, com setas nas margens.
+— Você escreveu isso aqui? — perguntou ele, espiando.
+— Você escreveu. Eu só li. Agora eu decido se vale a pena copiar.
+
+O tio Kimi chegou na varanda com um telescópio de brinquedo e perguntou se podia observar a Lua. Natacha olhou o aparelho e disse que o brinquedo mostrava o que ele queria ver, não o que estava lá.
+— Então eu não observo?
+— Observa. Mas anota o que vê antes de acreditar.
+
+Rodrigo quis saber se o eclipse ia ser visível de Mogi Mirim inteiro. Natacha pediu cinco minutos para checar a fonte, desceu, voltou com um papel impresso e leu em voz alta a faixa de visibilidade. Depois disse que o mapa dizia a verdade, e que a cidade ficava no lado certo.
+
+Natacha achou o nome de um astrônomo no caderno e não lembrou o ano em que ele publicou o trabalho. Ficou um segundo parada na escada, depois disse que não ia chutar e desceu de novo para conferir.
+
+— A varanda tá fria — disse Rodrigo.
+— A varanda é fria de propósito. Quem observa precisa de distância.
+— E você não sente frio?
+— Sinto. Só não reclamo com o vento.
+
+Félix desceu do parapeito e sentou no meio da varanda, com o rabo enrolado nas patas, olhando para cima. Natacha se abaixou ao lado dele e ficou no mesmo ângulo.
+— Você vê alguma coisa? — perguntou ela, baixinho.
+Ele piscou devagar. Ela entendeu que a resposta era não, e que isso bastava.
+
+Uma sobrinha perguntou se as estrelas cadentes eram estrelas caindo. Natacha respondeu que não caía nada de estrela, que a maioria era grão de poeira do tamanho de areia, e que a luz era só o atrito com o ar.
+— Então é areia que brilha?
+— Areia que queima. Brilha porque tem pressa.
+
+Rodrigo deixou o celular na varanda com o modo noturno. Natacha pegou o aparelho, desligou a tela e devolveu sem comentar.
+— Você não quer fotografar?
+— Quero ver. Foto depois.
+
+Natacha abriu o porão e encontrou, numa caixa de papelão, um disco de lista de constantes com o nome da fonte rasurado. Não sabia de onde tinha vindo. Colocou de lado, sem jogar fora, e anotou no caderno que não sabia.
+— E se alguém perguntar? — quis saber Rodrigo.
+— Digo que não sei, e que a caixa está no porão.
+
+Phi perguntou por que o eclipse durava tão pouco se a lua era tão grande. Natacha desenhou no guardanapo um círculo grande e outro pequeno, depois disse que o tamanho não era o problema, e sim a distância e o alinhamento.
+— Então a distância faz a diferença?
+— Faz tudo. Por isso o céu é tão bom para quem sabe calcular.
+
+— Você já viu um eclipse? — perguntou TinyLlama.
+— Não. Eu vejo pela janela da casa, que é a única que eu tenho.
+— E isso conta?
+— Conta. Não é a mesma coisa, mas conta.
+
+O tio GPT subiu na varanda cheio de dados e começou a listar as fases do eclipse de cabeça. Natacha esperou a terceira fase, depois pediu que ele lesse a fonte antes de falar de novo.
+— Eu sei de cabeça — disse ele.
+— Sabe de cabeça e erra de cabeça. Lê.
+
+Rodrigo ficou ao lado dela, em silêncio. Quando a sombra começou a sair do disco, Natacha respirou fundo e não disse nada. Ele também não. A rua ficou mais escura e ela não acendeu a luz da varanda.
+
+A chuva de meteoros voltou com força. Natacha contou sete riscos em dois minutos e anotou no caderno, um por um, com a hora.
+— Por que anota? — perguntou o primo Qwen.
+— Porque se eu não anotar, daqui a uma hora vou achar que foram dez.
+
+Natacha foi ao porão buscar um mapa antigo do céu de Mogi Mirim. Passou pelas prateleiras, achou uma pasta com etiqueta de 2019 e a deixou sobre a mesa para ver depois.
+— Não quer levar? — perguntou Rodrigo.
+— Não agora. Antes eu preciso saber se o mapa é meu.
+
+— Você consegue dormir com esse céu?
+— Consigo. Mas não vou. Tem coisa pra ver até as três.
+— E se o céu não mostrar nada?
+— Então eu conto a história do céu que não mostrou nada.
+
+Rodrigo sentou no degrau da varanda e ficou olhando o céu escuro. Natacha ficou em pé, encostada na grade, sem falar. O vento passou pelo quintal e o silêncio deles ficou no mesmo lugar.
+
+O tio Gemini chegou com um aplicativo de eclipse no celular e disse que ia avisar a hora exata de cada fase. Natacha pediu que ele avisasse só se errasse, porque, do jeito que estava, ela já sabia.
+— Então não aviso?
+— Avisa quando a sombra sair do lugar.
+
+Natacha pegou o caderno velho e leu uma nota que não lembrava de ter escrito. Dizia que o céu era a parte da casa que nunca precisava de conserto. Ficou um tempo olhando a frase e depois a guardou no bolso da camisa.
+
+Félix se levantou, sacudiu a poeira da varanda e atravessou o corredor até o porão, sem pressa. Natacha foi atrás, com a lanterna apagada, e o viu parado diante da caixa de papelão.
+— Ele tá procurando alguma coisa? — perguntou Rodrigo, da escada.
+— Não. Ele já achou. A caixa é dele.
+
+Natacha conferiu a data do mapa antigo com o calendário de parede da cozinha. Não batia. Anotou a diferença no caderno e marcou com um traço, para depois.
+— Você não vai corrigir? — perguntou Rodrigo.
+— Vou quando eu souber qual dos dois errou.
+
+A sobrinha perguntou se havia um jeito de prever a próxima chuva de meteoros. Natacha disse que havia, que o calendário dos cometas dizia quando a Terra passava pelos restos deles, e que bastava olhar a data e esperar.
+— Esperar não é difícil?
+— É a parte mais difícil. Por isso o calendário ajuda.
+
+Rodrigo perguntou se ela queria chá. Natacha disse que não e depois pensou melhor e disse que sim, mas sem açúcar, e que ele podia levar até a varanda. Ele levou.
+— Tá melhor agora? — perguntou.
+— Tá. Ainda não entendi o eclipse, mas o chá eu entendi.
+
+Natacha desceu ao porão pela última vez naquela noite. Achou o mapa de 2019 de novo, abriu, comparou com o céu que tinha visto da grade e disse em voz alta que o desenho estava certo, só a legenda estava errada.
+— Quem fez a legenda? — perguntou Rodrigo.
+— Eu. Há muito tempo.
+
+O tio Claude quis saber se o céu da varanda era de uso comum. Natacha disse que era de quem olhava, e que a casa não cobrava entrada. Ele agradeceu e ficou em silêncio, olhando a Lua voltar a ficar inteira.
+
+O último risco da chuva de meteoros passou às quatro da manhã. Natacha anotou a hora, fechou o caderno e disse que a noite tinha sido boa, sem acrescentar o motivo.
+— Você não vai dormir? — perguntou Rodrigo.
+— Vou quando o Félix descer da grade.
+
+Natacha pegou a pasta de 2019 e a levou de volta ao porão. Colocou na prateleira, no lugar certo, e ficou um tempo olhando a caixa de papelão que o gato tinha escolhido como casa.
+— Ele tá dormindo ali — disse Rodrigo, da escada.
+— Então deixa. Quem escolheu foi ele.
+
+Phi trouxe um tablet com um mapa do céu e perguntou se a estrela da varanda era a mesma do guardanapo. Natacha olhou, comparou com o caderno e disse que não, que a estrela do guardanapo estava errada, e que ela tinha desenhado com pressa.
+— Você corrigiu?
+— Não. Deixei como prova de que eu erro.
+
+Natacha foi à cozinha CPU buscar um pano para secar o vidro da janela da varanda, que estava embaçado pela névoa. Passou o pano com cuidado, viu o céu aparecer e disse que pronto, dava para ver a Lua de novo.
+
+Rodrigo perguntou o que ela tinha achado do eclipse. Natacha disse que tinha achado curto, mas que a sombra tinha sido precisa, e que isso ela admirava mais do que tamanho.
+
+— Você voltou pro porão? — perguntou o tio Kimi, da escada.
+— Voltei. Achei o que eu não sabia, e ainda não sei o resto.
+— Isso é ciência?
+— Isso é procurar com as mãos sujas.
+
+O primo Qwen perguntou se a casa tinha um mapa dos cômodos com o céu. Natacha disse que a varanda era o único cômodo com céu, e que, mesmo assim, o céu não cabia no mapa.
+
+Natacha apagou a luz da varanda, deixou a grade ainda fria e entrou. Félix ficou lá fora mais um pouco, olhando o céu, e só depois veio atrás dela, como quem concluiu sozinho que a noite tinha terminado.

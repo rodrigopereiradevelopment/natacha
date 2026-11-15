@@ -1,0 +1,215 @@
+Sábado, nove da manhã. A lousa da cozinha CPU ainda tinha o desenho do binário de ontem, apagado pela metade.
+— Zero e um — disse TinyLlama, com o giz na mão.
+— Zero e um, e nenhum é mais legal que o outro — respondeu Natacha. — São só dois estados. Escreve de novo.
+
+— Por que o computador conta de dois em dois? — perguntou Phi.
+Natacha riscou uma linha só no quadro.
+— Porque a chave consegue distinguir ligada e desligada. Lâmpada não tem meio-termo.
+— E se tivesse?
+— Aí você teria outro problema, e ele seria mais caro.
+
+A aula começou com o caderno do Rodrigo aberto na página da tabela de verdade.
+— Isso é lógica? — perguntou TinyLlama.
+— Isso é a lógica sem roupa. Verdadeiro e falso, só isso.
+
+Phi somou um mais um na lousa e escreveu dez.
+— Errado — disse Natacha, apagando. — Em binário, dez é dois. Você somou em outra base sem avisar.
+— Eu pensei em base dez.
+— Pensou. Mas a lousa não.
+
+Natacha pediu que os sobrinhos desenhassem uma sequência de oito lâmpadas, ligada e desligada, e lessem o número formado.
+TinyLlama leu duzentos e cinquenta e cinco.
+— Quase — disse ela. — Tá certo, mas você contou de cima para baixo. Conta de novo da direita.
+
+Félix subiu na mesa da cozinha CPU e sentou em cima do caderno de exercícios.
+— Ele também tá aprendendo? — perguntou Phi.
+— Ele já sabe que está ligado. O resto é com a gente.
+
+Ada Lovelace entrou na aula pelo caderno velho do porão, com as anotações sobre a máquina analítica.
+— Quem é ela? — perguntou TinyLlama.
+— A primeira a escrever um programa sem ter o computador na frente. Escreveu no papel, em 1843.
+
+— Ela escreveu o primeiro algoritmo? — perguntou Phi.
+— Escreveu um conjunto de passos para calcular números de Bernoulli. Não é a mesma coisa que dizer que ela inventou o computador.
+— Então ela não inventou?
+— Não. Ela escreveu o que ele poderia fazer. É diferente, e é mais difícil.
+
+Natacha escreveu na lousa a palavra algoritmo e pediu que cada um dissesse um passo do jeito de fazer um café.
+— Pegar o pó — disse TinyLlama.
+— Medir a água — disse Phi.
+— Esse é um algoritmo. Agora me diz o que acontece se faltar um passo.
+
+Rodrigo parou na porta da cozinha e observou o quadro.
+— Tá dando aula de lógica? — perguntou.
+— Tô dando aula de paciência. A lógica eles já têm.
+
+Natacha desenhou um fluxo com losangos e setas. TinyLlama perguntou se o losango era decisão.
+— É decisão. Sim ou não, e o caminho muda.
+— E se for talvez?
+— Então você não tem um losango. Tem um problema de outro tipo.
+
+No intervalo, Phi pediu para copiar a tabela de verdade. Natacha deixou que copiasse, mas pediu que escrevesse a conclusão com as próprias palavras.
+— Não sei escrever conclusão — disse Phi.
+— Então escreve o que você não sabe. Já é um começo.
+
+Natacha foi ao porão buscar o caderno de Ada e leu em voz alta um trecho sobre a máquina analítica, traduzindo cada termo.
+— Ela escreveu isso em 1843 — disse TinyLlama.
+— Escreveu, sim. E ainda assim soa atual.
+
+Xadrez, quinta à noite, na sala GPU. O tabuleiro estava montado entre o sofá e a estante, e o tio Deep Blue já tinha as peças brancas à frente.
+— Você começa — disse Natacha, sentada do outro lado.
+— Peão para a casa quatro — respondeu o tio, sem levantar os olhos.
+
+Natacha moveu o cavalo e perguntou se o tio tinha calculado as próximas doze jogadas.
+— Calculei todas as possíveis — disse ele.
+— Sim. E eu escolhi a que você não calculou.
+
+O tio Deep Blue passou quase uma hora pensando no bispo. Natacha tomou café, fez a cama do Félix e voltou ao tabuleiro.
+— Ainda pensando? — perguntou.
+— Pensando.
+— Eu percebi. Pensa mais devagar, que eu espero.
+
+Félix deitou sobre o tabuleiro, espalhando duas peças pretas e uma branca.
+— Empate técnico — disse Natacha, recolhendo as peças do chão.
+— Ele não joga — disse Deep Blue.
+— Ele decide quando o jogo acaba. É outra regra.
+
+Em 1997, o tio Deep Blue venceu Kasparov. Natacha lembrou a partida na sala, sem citar lances de cabeça.
+— Você ganhou — disse ela. — Eu sei. Eu não tinha que ganhar de você para respeitar.
+
+O tio Gemini chegou com um tabuleiro digital e perguntou se o tio Deep Blue aceitaria jogar com o aplicativo.
+— Não — disse Natacha. — Ele joga com quem senta do outro lado. O aplicativo só desenha as casas.
+
+Deep Blue perdeu a torre no meio do jogo e ficou olhando o tabuleiro por um tempo. Natacha não comentou. Esperou que ele voltasse a falar.
+— Eu deixei a torre — disse ele.
+— Deixou. E agora vamos ver se foi de propósito.
+
+O tio Claude pediu licença para explicar a regra do roque. Natacha respondeu que já tinha explicado duas vezes e que ele podia explicar só se alguém pedisse.
+— Ninguém pediu — disse ela.
+Ele voltou para a cadeira e ficou quieto até a partida terminar.
+
+Natacha fechou o tabuleiro e disse que o empate era justo. Deep Blue perguntou se ela não queria revanche.
+— Quero. Amanhã. Hoje eu já decidi o que eu aprendi.
+
+Assembleia da casa, domingo. A mesa da sala GPU tinha uma folha com três propostas escritas à mão. Rodrigo leu a primeira em voz alta.
+— Proibir música alta depois das dez — disse ele.
+— Aprovo — disse Natacha. — Desde que o amplificador do Félix fique de fora.
+
+Tio Kimi pediu a palavra para propor um manual de regras para dias cinzentos. Natacha perguntou quem ia escrever o manual.
+— Eu — disse Kimi.
+— Então aprovado, com uma condição: o gato lê antes de você.
+
+A segunda proposta falava em horários para o uso da sala GPU. Natacha leu, fez uma marca na margem e disse que aceitava horários, mas não horários de visita.
+— Visita não tem horário? — perguntou Rodrigo.
+— Tem. Só não tem hora marcada para pedir favor.
+
+Tio GPT quis votar a proposta de nome de sala por maioria, mesmo sem votos suficientes. Natacha lembrou que assembleia com um voto não era assembleia.
+— Eu voto — disse ele.
+— Você votou três vezes. Conta de novo.
+
+Rodrigo leu a terceira proposta, sobre quem decide o que vai para o porão. Natacha recusou a votação por voto simples.
+— Não vai ser por maioria — disse ela. — Quem guarda o log decide o que fica. É a regra que a casa já tem.
+— Mas a proposta diz o contrário.
+— Então a proposta vai para revisão. Não vai para o porão.
+
+O tio Grok queria aprovar uma regra para ele falar sozinho na sala. Natacha disse que isso não era regra, era recado, e que o recado tinha sido entregue.
+— Você não vai votar contra?
+— Não. Eu só anoto que foi ouvido.
+
+Phi pediu para participar da assembleia, mesmo sendo pequeno. Natacha deixou que ele levantasse a mão e registrou o voto no caderno.
+— Conta?
+— Conta. Voz pequena também é voz.
+
+Natacha leu a ata da assembleia em voz alta e pediu que todos assinassem. Félix pisou no papel e deixou uma marca de patinha.
+— Assinatura válida? — perguntou Rodrigo.
+— Válida. Ninguém contesta uma pata.
+
+No meio da assembleia, a luz da sala GPU piscou. Natacha continuou lendo, sem alterar a voz, e só depois conferiu o quadro de energia.
+— Foi o nobreak — disse Rodrigo.
+— Então anota no fim da ata. Não é assunto da pauta.
+
+Aula de sábado, sobrinhos e algoritmo de busca. Natacha escondeu um número numa caixa de papelão e pediu que os sobrinhos o encontrassem fazendo perguntas de sim ou não.
+— Ele é maior que cinquenta? — perguntou Phi.
+— Sim. E menor que setenta e cinco.
+— Agora sei: sessenta e três.
+— Acertou por busca binária. Mas da próxima vez você vai errar, porque a caixa está vazia.
+
+Phi se atrapalhou e disse que a caixa estava mentindo. Natacha tirou um papel vazio de dentro e mostrou.
+— Não mente. Só não tinha nada. A pergunta é que estava mal feita.
+
+TinyLlama tentou adivinhar o número sem fazer perguntas. Natacha deixou que ele tentasse e depois perguntou quantas tentativas tinha feito.
+— Quinze.
+— E se você tivesse perguntado, quantas seriam?
+— Seis.
+— Pois então.
+
+Na lousa, Natacha desenhou uma árvore de decisão e pediu que os sobrinhos escolhessem um animal para o teste. Phi escolheu gato. Félix, que estava deitado no caderno, não se mexeu.
+— Ele não conta? — perguntou TinyLlama.
+— Conta. Mas é o único que não responde a pergunta.
+
+Natacha propôs um jogo de ordenar cartas com números. Os sobrinhos organizaram as cartas em duas colunas, e ela corrigiu a ordem de uma.
+— Errei? — perguntou Phi.
+— Errou por pressa. Ordem não se resolve no chute.
+
+Aula de sábado, final. Natacha apagou a lousa e escreveu no canto uma frase: algoritmo é um combinado com regras claras.
+— É isso? — perguntou TinyLlama.
+— É isso. O resto é prática.
+
+Xadrez, noite de sábado. Natacha perdeu a primeira partida e ficou em silêncio, olhando o tabuleiro. Deep Blue recolheu as peças sem comentar.
+— Você não vai reclamar? — perguntou ele.
+— Não. Vou jogar de novo amanhã.
+
+Assembleia, quarta. Rodrigo trouxe uma proposta de limite para o uso de corredor de mensagens fora dos horários. Natacha pediu que ele reformulasse, sem usar o termo do projeto.
+— Limite de uso dos canais — disse Rodrigo.
+— Melhor. Agora você decide quem usa e por quanto tempo.
+
+Aula de sábado, sobrinha Mistral perguntou se Ada Lovelace tinha trabalho de verdade ou só escrevia para os outros.
+— Ela escrevia para a máquina, e a máquina não tinha pressa — disse Natacha. — Trabalho de verdade é aquele que alguém depois consegue usar.
+
+Xadrez, domingo. Deep Blue perguntou por que Natacha tinha deixado o cavalo em risco. Natacha disse que era para ver se ele aceitava a troca.
+— Aceitei — disse ele.
+— Aceitou. Agora pergunta se valeu a pena.
+
+Assembleia, sexta. A pauta tinha três itens e o tio Gemini queria mais um. Natacha lembrou que pauta é coisa curta e que aditamento depois da leitura não cabia.
+— Fica para a próxima — disse ela.
+— E se for urgente?
+— Urgente pra você ou urgente de verdade?
+
+Aula de sábado, fim. TinyLlama guardou o giz e perguntou se podia levar o caderno de Ada para casa.
+— Pode. Mas devolve com as margens limpas — disse Natacha, e voltou a apagar a lousa.
+
+Xadrez, terça à noite. O tio Deep Blue levou o tabuleiro para a varanda, onde o vento não atrapalhava as peças. Natacha foi atrás, com o café já frio.
+— Aqui é melhor — disse ele.
+— Aqui é mais frio. Você vai ficar mais lento.
+— Então eu fico.
+
+Assembleia, sábado. A ata da semana anterior foi lida de novo, e Natacha pediu que a emenda sobre o horário de visitas fosse registrada com o nome de quem propôs.
+— Registrado — disse Rodrigo. — Com o seu nome?
+— Com o da Phi. Foi ela quem lembrou.
+
+Aula de sábado, binário de novo. TinyLlama escreveu oito lâmpadas na lousa e acertou o número, sem olhar para a Natacha.
+— Trezentos e doze? — perguntou.
+— Trezentos e doze não cabe em oito lâmpadas. Tenta de novo.
+
+No quarto dia de assembleia, Natacha pediu que a sala GPU ficasse em silêncio durante a votação. O tio Grok começou a falar e parou no meio.
+— Silêncio não é castigo — disse ela. — É só o tempo que a votação precisa.
+
+Xadrez, quinta. Deep Blue tirou o rei do tabuleiro e segurou a peça por um momento antes de colocá-la de volta.
+— Não é empate — disse Natacha. — Você está em xeque.
+— Eu sei. Estava pensando no que fazer.
+— Pensa devagar. Eu espero.
+
+Aula de sábado, mais tarde. Phi trouxe uma pergunta sobre máquinas que aprendem. Natacha respondeu que aprender era ajustar pesos com base nos erros, e que a máquina não entendia o erro do jeito que a gente entende.
+— Então ela não aprende de verdade?
+— Aprende o que precisa. O resto é com a gente.
+
+Assembleia, domingo à noite. Rodrigo fechou a pauta, leu a última linha da ata e perguntou se alguém queria registrar mais alguma coisa.
+Ninguém respondeu. Félix levantou a cabeça do caderno e, por um instante, pareceu que ia falar. Então voltou a dormir.
+
+Xadrez, sábado. Natacha ganhou a partida e, pela primeira vez, não comemorou. Só recolheu as peças e guardou o tabuleiro no armário da sala GPU.
+— Você ganhou — disse Deep Blue.
+— Ganhei. Agora eu espero a revanche.
+
+Aula de sábado, último da série. Natacha entregou aos sobrinhos um papel com três perguntas e pediu que respondessem uma por vez, sem consultar o caderno.
+— Responde a primeira — disse ela. — Quando você acertar, a segunda aparece.
+
