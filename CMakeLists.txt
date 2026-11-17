@@ -22,6 +22,38 @@ add_executable(natacha
 # Inclui headers
 target_include_directories(natacha PRIVATE ${INCLUDE_DIR})
 
+# ---------------------------------------------------------------------------
+# Chat de terminal (CLI) — protótipo Fases 4/5
+#
+# Usa a LSTM treinada (Fase 4) para gerar respostas e, como fallback,
+# o TransformerBlock (Fase 5) em modo demonstração.
+# ---------------------------------------------------------------------------
+add_executable(natacha_chat
+    ${CMAKE_SOURCE_DIR}/chat_cli.cpp
+    ${SRC_DIR}/attention/TransformerBlock.cpp
+    ${SRC_DIR}/attention/MultiHeadAttention.cpp
+    ${SRC_DIR}/attention/AttentionLayer.cpp
+    ${SRC_DIR}/attention/LayerNorm.cpp
+    ${SRC_DIR}/attention/FeedForward.cpp
+    ${SRC_DIR}/embeddings/EmbeddingManager.cpp
+    ${SRC_DIR}/rnn/RNNLayer.cpp
+    ${SRC_DIR}/rnn/LSTMCell.cpp
+    ${SRC_DIR}/rnn/OutputLayer.cpp
+)
+
+target_include_directories(natacha_chat PRIVATE
+    ${INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}          # para "src/..."
+    ${SRC_DIR}/embeddings        # para "json.hpp"
+)
+
+target_link_libraries(natacha_chat PRIVATE Eigen3::Eigen)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(natacha_chat PRIVATE -O3 -march=native -fopenmp)
+    target_link_options(natacha_chat PRIVATE -fopenmp)
+endif()
+
 # Flags de compilacao (debug + otimizacao basica)
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(natacha PRIVATE -Wall -Wextra -O2)

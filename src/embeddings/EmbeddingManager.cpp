@@ -3,8 +3,40 @@
 #include <fstream>
 #include <iostream>
 #include <cstddef>
+#include <cstdint>
+#include <cstring>
+#include <filesystem>
+#include <system_error>
+#include <utility>
 
 using json = nlohmann::json;
+
+namespace {
+
+// Identificador do cache binário. Se mudar o formato, mude a versão
+// (o cache antigo será ignorado e regenerado a partir do JSON).
+constexpr char MAGIC[5] = {'N', 'E', 'M', 'B', '1'};
+
+/**
+ * Retorna true se o cache existe e foi modificado depois do JSON.
+ * Um cache mais velho que o JSON está obsoleto e deve ser regenerado.
+ */
+bool cache_valido(const std::string& cache, const std::string& origem) {
+    namespace fs = std::filesystem;
+    std::error_code ec;
+
+    if (!fs::exists(cache, ec) || ec) return false;
+    if (!fs::exists(origem, ec) || ec) return false;
+
+    auto t_cache = fs::last_write_time(cache, ec);
+    if (ec) return false;
+    auto t_origem = fs::last_write_time(origem, ec);
+    if (ec) return false;
+
+    return t_cache >= t_origem;
+}
+
+}  // namespace
 
 // Carrega embeddings treinados de um arquivo JSON.
 // O formato esperado é:
@@ -19,6 +51,18 @@ using json = nlohmann::json;
 // Isso permite que a Natacha carregue vetores de palavras treinados
 // (Word2Vec) sem precisar retreinar do zero toda vez que inicia.
 bool EmbeddingManager::carregarEmbeddings(const std::string& caminho) {
+    // Atalho: se existe um cache binário atualizado, usa ele.
+    // Ler ~96 MB de JSON com o nlohmann leva ~12 s; o binário leva <100 ms.
+    const std::string caminho_cache = caminho + ".bin";
+    if (cache_valido(caminho_cache, caminho)) {
+        if (carregarCacheBinario(caminho_cache)) {
+            std::cout << "  (cache binario) " << total << " palavras, "
+                      << dimensao << " dimensoes" << std::endl;
+            return true;
+        }
+        std::cerr << "AVISO: cache binario invalido; recarregando do JSON." << std::endl;
+    }
+
     std::ifstream arquivo(caminho);
     if (!arquivo.is_open()) {
         std::cerr << "ERRO: nao consegui abrir '" << caminho << "'" << std::endl;
@@ -77,6 +121,91 @@ bool EmbeddingManager::carregarEmbeddings(const std::string& caminho) {
     std::cout << "  Embeddings carregados: " << total
               << " palavras, " << dimensao << " dimensoes" << std::endl;
 
+    // Grava o cache binário para a próxima inicialização ser instantânea.
+    if (!salvarCacheBinario(caminho_cache)) {
+        // Falha ao gravar cache não é fatal: o JSON continua funcionando.
+        std::cerr << "AVISO: nao foi possivel gravar o cache binario." << std::endl;
+    }
+
+    return true;
+}
+
+// Formato do cache binário (little-endian, gerado e lido na mesma máquina):
+//   magic[5] = "NEMB1"
+//   uint32 dimensao
+//   uint32 total
+//   repetido total vezes:
+//     uint32 tamanho_da_palavra
+//     bytes  da_palavra (UTF-8)
+//     float  vetor[dimensao]
+bool EmbeddingManager::salvarCacheBinario(const std::string& caminho) const {
+    std::ofstream saida(caminho, std::ios::binary);
+    if (!saida.is_open()) return false;
+
+    uint32_t dim32 = static_cast<uint32_t>(dimensao);
+    uint32_t total32 = static_cast<uint32_t>(total);
+
+    saida.write(MAGIC, sizeof(MAGIC));
+    saida.write(reinterpret_cast<const char*>(&dim32), sizeof(dim32));
+    saida.write(reinterpret_cast<const char*>(&total32), sizeof(total32));
+
+    for (const std::string& palavra : id_para_palavra) {
+        auto it = vetores.find(palavra);
+        if (it == vetores.end()) continue;
+
+        uint32_t tam = static_cast<uint32_t>(palavra.size());
+        saida.write(reinterpret_cast<const char*>(&tam), sizeof(tam));
+        saida.write(palavra.data(), tam);
+
+        const std::vector<float>& v = it->second;
+        saida.write(reinterpret_cast<const char*>(v.data()),
+                    static_cast<std::streamsize>(v.size() * sizeof(float)));
+    }
+
+    return saida.good();
+}
+
+bool EmbeddingManager::carregarCacheBinario(const std::string& caminho) {
+    std::ifstream entrada(caminho, std::ios::binary);
+    if (!entrada.is_open()) return false;
+
+    char magic[sizeof(MAGIC)];
+    entrada.read(magic, sizeof(magic));
+    if (!entrada.good() || std::memcmp(magic, MAGIC, sizeof(MAGIC)) != 0) {
+        return false;
+    }
+
+    uint32_t dim32 = 0, total32 = 0;
+    entrada.read(reinterpret_cast<char*>(&dim32), sizeof(dim32));
+    entrada.read(reinterpret_cast<char*>(&total32), sizeof(total32));
+    if (!entrada.good()) return false;
+
+    vetores.clear();
+    palavra_para_id.clear();
+    id_para_palavra.clear();
+    id_para_palavra.reserve(total32);
+
+    for (uint32_t i = 0; i < total32; ++i) {
+        uint32_t tam = 0;
+        entrada.read(reinterpret_cast<char*>(&tam), sizeof(tam));
+        if (!entrada.good() || tam > 4096) return false;
+
+        std::string palavra(tam, '\0');
+        entrada.read(palavra.data(), tam);
+        if (!entrada.good()) return false;
+
+        std::vector<float> v(dim32);
+        entrada.read(reinterpret_cast<char*>(v.data()),
+                     static_cast<std::streamsize>(dim32 * sizeof(float)));
+        if (!entrada.good()) return false;
+
+        vetores[palavra] = std::move(v);
+        palavra_para_id[palavra] = static_cast<int>(i);
+        id_para_palavra.push_back(std::move(palavra));
+    }
+
+    dimensao = dim32;
+    total = total32;
     return true;
 }
 

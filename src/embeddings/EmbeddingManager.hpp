@@ -36,6 +36,15 @@ private:
     size_t dimensao = 0;
     size_t total = 0;
 
+    /**
+     * Cache binário: evita reparsear o JSON gigante (~96 MB) a cada
+     * inicialização do chat. O arquivo fica ao lado do JSON, com
+     * extensão ".bin", e é regenerado automaticamente quando o JSON
+     * for mais novo.
+     */
+    bool carregarCacheBinario(const std::string& caminho);
+    bool salvarCacheBinario(const std::string& caminho) const;
+
 public:
     /**
      * Carrega embeddings de um arquivo JSON.
@@ -95,6 +104,12 @@ public:
      * Retorna o tamanho do vocabulário carregado.
      */
     size_t getVocabSize() const { return total; }
+
+    /**
+     * Retorna a dimensionalidade dos vetores carregados
+     * (ex: 64 para o Word2Vec v39). Retorna 0 se nada foi carregado.
+     */
+    size_t getDimensao() const { return dimensao; }
 };
 
 #endif // EMBEDDING_MANAGER_HPP

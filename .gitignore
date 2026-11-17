@@ -11,6 +11,17 @@
 *.dylib
 
 # Binários da raiz
+chat_cli
+test_attention
+test_block
+test_eigen
+test_frase
+test_gradiente
+test_grad_ln
+test_grad_ff
+test_ln_ff
+test_mha
+test_overfit
 main_fase4
 main_fase4_narrativo
 natacha_geracao
