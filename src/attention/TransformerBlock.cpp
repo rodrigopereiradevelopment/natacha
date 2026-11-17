@@ -11,7 +11,7 @@ TransformerBlock::TransformerBlock(int d_model, int num_heads, int d_ff)
 }
 
 Eigen::MatrixXd TransformerBlock::forward(const Eigen::MatrixXd& x) {
-    // Guarda entrada para o backward (preparação para Fase 6+)
+    // Guarda entrada para o backward
     x_cache = x;
 
     // 1. ATENÇÃO COM PRE-NORM E CONEXÃO RESIDUAL
@@ -32,4 +32,38 @@ Eigen::MatrixXd TransformerBlock::forward(const Eigen::MatrixXd& x) {
     //   out = res1 + ff_out
     Eigen::MatrixXd out = res1_cache + ff_out;
     return out;
+}
+
+Eigen::MatrixXd TransformerBlock::backward(const Eigen::MatrixXd& dY) {
+    // dY é o gradiente que chega na saída do bloco (seq_len x d_model)
+
+    // ==========================================
+    // 1. CAMINHO DO FEEDFORWARD (Topo)
+    // ==========================================
+    // O gradiente passa pelo FeedForward
+    Eigen::MatrixXd d_ff_out = ff.backward(dY);
+    
+    // O gradiente passa pelo LayerNorm2
+    Eigen::MatrixXd d_ln2_in = ln2.backward(d_ff_out);
+
+    // O gradiente que vai descer pra res1 tem duas partes:
+    // - O gradiente que veio pela identidade (dY)
+    // - O gradiente que voltou pela camada transformada (d_ln2_in)
+    Eigen::MatrixXd d_res1 = dY + d_ln2_in;
+
+    // ==========================================
+    // 2. CAMINHO DA ATENÇÃO (Base)
+    // ==========================================
+    // O gradiente passa pela Atenção
+    Eigen::MatrixXd d_attn_out = attn.backward(d_res1);
+    
+    // O gradiente passa pelo LayerNorm1
+    Eigen::MatrixXd d_ln1_in = ln1.backward(d_attn_out);
+
+    // O gradiente final de entrada (dX) também tem duas partes:
+    // - O gradiente que veio pela identidade (d_res1)
+    // - O gradiente que voltou pela camada transformada (d_ln1_in)
+    Eigen::MatrixXd dX = d_res1 + d_ln1_in;
+
+    return dX;
 }

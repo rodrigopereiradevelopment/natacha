@@ -33,8 +33,8 @@ MatrixXd LayerNorm::backward(const MatrixXd& dY) {
     const int N = dY.cols();
 
     // Gradientes de beta e gamma (vectors de tamanho d)
-    VectorXd dbeta = dY.colwise().sum();
-    VectorXd dgamma = (dY.array() * xhat_cache.array()).colwise().sum();
+    dbeta = dY.colwise().sum();
+    dgamma = (dY.array() * xhat_cache.array()).colwise().sum();
 
     // dxhat = dY * gamma^T (broadcast coluna)
     MatrixXd dxhat = dY.array().rowwise() * gamma.transpose().array();

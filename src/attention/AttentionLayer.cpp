@@ -187,3 +187,55 @@ void testar_gradiente() {
         cout << "[ERRO] Gradiente incorreto." << endl;
     }
 }
+
+/**
+ * Backward do single-head attention.
+ * 
+ * @param Q     Queries usadas no forward (seq_len x d_k)
+ * @param K     Keys usadas no forward (seq_len x d_k)
+ * @param V     Values usadas no forward (seq_len x d_v)
+ * @param A     Pesos de atenção salvos (seq_len x seq_len)
+ * @param dO    Gradiente da saída (seq_len x d_v)
+ * @param dQ    Gradiente de Q (seq_len x d_k)  [saída]
+ * @param dK    Gradiente de K (seq_len x d_k)  [saída]
+ * @param dV    Gradiente de V (seq_len x d_v)  [saída]
+ */
+void single_head_attention_backward(
+    const Eigen::MatrixXd& Q,
+    const Eigen::MatrixXd& K,
+    const Eigen::MatrixXd& V,
+    const Eigen::MatrixXd& A,
+    const Eigen::MatrixXd& dO,
+    Eigen::MatrixXd& dQ,
+    Eigen::MatrixXd& dK,
+    Eigen::MatrixXd& dV
+) {
+    int seq_len = Q.rows();
+    int d_k = K.cols();
+    int d_v = V.cols();
+
+    // 1. Gradiente de V: dV = A^T * dO   (d_v x seq_len * seq_len x d_v = d_v x d_v)
+    dV = A.transpose() * dO;
+
+    // 2. Gradiente de A: dA = dO * V^T   (seq_len x d_v * d_v x seq_len = seq_len x seq_len)
+    MatrixXd dA = dO * V.transpose();
+
+    // 3. Gradiente do softmax: dS_ij = A_ij * (dA_ij - sum_k(dA_ik * A_ik))
+    MatrixXd dS(A.rows(), A.cols());
+    for (int i = 0; i < A.rows(); ++i) {
+        double soma = 0.0;
+        for (int k = 0; k < A.cols(); ++k) {
+            soma += dA(i, k) * A(i, k);
+        }
+        for (int j = 0; j < A.cols(); ++j) {
+            dS(i, j) = A(i, j) * (dA(i, j) - soma);
+        }
+    }
+
+    // 4. Gradiente dos scores: ajuste da escala 1/sqrt(d_k)
+    dS = dS / std::sqrt(static_cast<double>(d_k));
+
+    // 5. Gradientes de Q e K
+    dQ = dS * K;                    // (seq_len x d_k)
+    dK = dS.transpose() * Q;        // (d_k x seq_len)
+}

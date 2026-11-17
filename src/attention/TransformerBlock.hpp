@@ -54,4 +54,17 @@ public:
      * @return  Saída (seq_len x d_model)
      */
     Eigen::MatrixXd forward(const Eigen::MatrixXd& x);
+
+    /**
+     * Backward pass do bloco Transformer (Pre-Norm).
+     * 
+     * Fluxo:
+     *   dY -> FF.backward -> LN2.backward -> d_res1
+     *   d_res1 -> MHA.backward -> LN1.backward -> dX
+     *   Com conexões residuais: dX = d_res1 + d_ln1_in
+     * 
+     * @param dY Gradiente da saída (seq_len x d_model)
+     * @return   Gradiente da entrada (seq_len x d_model)
+     */
+    Eigen::MatrixXd backward(const Eigen::MatrixXd& dY);
 };

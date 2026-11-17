@@ -12,7 +12,7 @@
  * 
  * Implementa atenção multi-cabeça conforme descrito em "Attention Is All You Need".
  * 
- * Fluxo:
+ * Fluxo forward:
  *   1. Projeta input (seq_len x d_model) para Q_global, K_global, V_global
  *      usando matrizes (d_model x d_model).
  *   2. Para cada cabeça h em [0, num_heads):
@@ -35,6 +35,24 @@ public:
     Eigen::MatrixXd Wv;  // (d_model x d_model)
     Eigen::MatrixXd Wo;  // (d_model x d_model)
 
+    // Caches para o backward
+    Eigen::MatrixXd input_cache;        // (seq_len x d_model) - entrada original
+    Eigen::MatrixXd Q_global_cache;   // (seq_len x d_model)
+    Eigen::MatrixXd K_global_cache;   // (seq_len x d_model)
+    Eigen::MatrixXd V_global_cache;   // (seq_len x d_model)
+    std::vector<Eigen::MatrixXd> Q_head_cache;   // [num_heads] cada (seq_len x d_k)
+    std::vector<Eigen::MatrixXd> K_head_cache;   // [num_heads] cada (seq_len x d_k)
+    std::vector<Eigen::MatrixXd> V_head_cache;   // [num_heads] cada (seq_len x d_k)
+    std::vector<Eigen::MatrixXd> A_head_cache;   // [num_heads] cada (seq_len x seq_len)
+    Eigen::MatrixXd concat_cache;           // (seq_len x d_model)
+    std::vector<Eigen::MatrixXd> heads_output_cache; // [num_heads] cada (seq_len x d_k)
+
+    // Gradientes (preenchidos durante o backward)
+    Eigen::MatrixXd dWq;   // (d_model x d_model)
+    Eigen::MatrixXd dWk;   // (d_model x d_model)
+    Eigen::MatrixXd dWv;   // (d_model x d_model)
+    Eigen::MatrixXd dWo;   // (d_model x d_model)
+
     /**
      * Construtor. Inicializa as matrizes de peso aleatoriamente.
      * 
@@ -50,4 +68,12 @@ public:
      * @return      Saída (seq_len x d_model)
      */
     Eigen::MatrixXd forward(const Eigen::MatrixXd& input);
+
+    /**
+     * Backward pass da Multi-Head Attention.
+     * 
+     * @param dO Gradiente da saída (seq_len x d_model)
+     * @return   Gradiente da entrada (seq_len x d_model)
+     */
+    Eigen::MatrixXd backward(const Eigen::MatrixXd& dO);
 };
