@@ -92,9 +92,6 @@ dados/embeddings/cc.pt.*.vec
 dados/embeddings/cc.pt.*.vec.gz
 dados/embeddings/natacha_embeddings_*.json
 
-# EXCEÇÃO: manter o embeddings oficial v17 (se for essencial para o TCC)
-!dados/embeddings/natacha_embeddings_v17_121k_32d_OFICIAL.json
-
 # ============================================================
 # 5b. DADOS DE TREINO — ORIGINAL vs DERIVADOS
 # ============================================================
