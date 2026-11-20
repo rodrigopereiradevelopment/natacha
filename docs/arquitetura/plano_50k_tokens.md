@@ -8,6 +8,15 @@ Documentos canônicos relacionados: REQUISITOS.md v3.0, ARQUITETURA.md v2.0, GLO
 
 ---
 
+> **⚠️ Documento histórico (Setembro/2026).** Este plano tinha como meta 50k tokens
+> quando o corpus tinha ~3,5k. O corpus atual tem 10,7M tokens (v39), então as metas abaixo
+> foram superadas. Os comandos citam `dados/embeddings/corpus.txt`, que não existe
+> mais; a fonte atual é `dados/embeddings/original/corpus_natacha_220k.txt` e os
+> derivados ficam em `limpo/` e `acentuado/` (ver `dados/embeddings/README.md`).
+> Mantido como registro da metodologia, **não** como instrução operacional.
+
+---
+
 1. INTRODUÇÃO
 
 1.1 Propósito
