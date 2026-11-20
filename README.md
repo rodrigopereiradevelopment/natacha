@@ -372,6 +372,24 @@ g++ -std=c++17 -O2 \
     -o natacha_engine_fase4 -lm
 
 ./natacha_engine_fase4
+
+### Chat de terminal — Fases 4/5
+
+O `natacha_chat` conversa no terminal usando a LSTM treinada (Fase 4) e, se os
+pesos não estiverem disponíveis, cai para o `TransformerBlock` em modo
+demonstração.
+
+```bash
+cd ~/natacha
+cmake -B build -S .
+cmake --build build --target natacha_chat -j4
+./build/natacha_chat
+```
+
+Comandos dentro do chat: `sair`, `ajuda`, `limpar` (zera o contexto) e `debug`
+(mostra tempo e detalhes técnicos). Na primeira execução o `EmbeddingManager`
+grava um cache binário ao lado do JSON; as próximas abrem em ~0,1 s.
+
 Dica da casa: antes de compilar, confira git status. Antes de treinar, confira os caminhos. Antes de culpar o compilador, leia a mensagem de erro inteira. Sim, inteira. Eu também queria que fosse só apertar Enter.
 
 ## 🗂️ Estrutura do projeto
