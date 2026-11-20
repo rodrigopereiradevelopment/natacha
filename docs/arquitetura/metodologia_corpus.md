@@ -1,3 +1,33 @@
+PARTE 0 — Pipeline de arquivos (estado atual)
+
+O corpus vive em `dados/embeddings/`, em quatro estágios:
+
+| Pasta | Papel | Vai no git? |
+|---|---|---|
+| `original/` | Fonte da verdade. Textos autorais (cenas, Félix, casa). | ✅ sim (autorais) |
+| `limpo/` | Deduplicado e filtrado. | ❌ não (derivado) |
+| `acentuado/` | Acentuação aplicada. | ❌ não (derivado) |
+| `relatorios/` | Auditoria pequena (`.txt`). | ✅ sim |
+
+Ordem dos scripts, a partir da raiz do projeto:
+
+```bash
+python3 scripts/normalizacao/limpar_corpus.py     # original/ -> limpo/
+python3 scripts/normalizacao/colocar_acentos.py   # limpo/ -> acentuado/
+```
+
+Conferência rápida depois de cada etapa:
+
+```bash
+wc -l dados/embeddings/limpo/corpus_natacha_limpo.txt
+grep -o 'ate' dados/embeddings/limpo/corpus_natacha_limpo.txt | wc -l
+```
+
+**Regra:** nunca editar `limpo/` ou `acentuado/` à mão — são regeneráveis a
+partir de `original/`. Se a correção for de conteúdo, corrija a fonte.
+
+---
+
 PARTE 1 — Contexto e Regras (fixa, cola sempre)
 
 Você vai me ajudar a gerar conteúdo para o corpus de treino de uma IA chamada Natacha.
