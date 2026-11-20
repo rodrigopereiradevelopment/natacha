@@ -8,8 +8,9 @@ Estado real do documento em Novembro/2026. Este arquivo lista o que está conclu
 | Fase 2 — Neurônio Perceptron | Concluída | Treinamento OR lógico |
 | Fase 3 — Escalonamento do Corpus | Concluída | 10,7M tokens, 72.075 palavras |
 | Fase 4 — RNN/LSTM + BPTT | Concluída | Perplexidade 884,5 → 176,7 |
-| Fase 5 — Self-Attention | Em andamento | Mecanismo Query, Key, Value |
-| Fase 6 — Transformer | Planejada | Base para o modelo completo |
+| Chat CLI (Fases 4/5) | Concluída (protótipo) | `natacha_chat`: LSTM treinada, cache binário, fallback Transformer |
+| Fase 5 — Self-Attention | Concluída | Attention, MHA, LayerNorm e FeedForward; backward validado por gradiente numérico (erro < 1e-9) |
+| Fase 6 — Transformer | Em andamento | Bloco Pre-Norm pronto e validado (overfit 99,99%); falta modelo completo (posicional + head + treino) |
 | Fase 7 — SLM (Small Language Model) | Planejada | 10M–50M parâmetros |
 | Fases 8 a 10 | Planejadas / Longo Prazo | Escala GPU, Sótão Quântico, LLM Completa |
 | Fase A — Persona | Documentada, implementação pendente | PERSONALIDADE.md v3.1 |

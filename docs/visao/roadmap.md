@@ -163,11 +163,14 @@ FASE 5 — Self-Attention
 
 Objetivo: implementar mecanismo de atenção (Query, Key, Value).
 
-☐ Operação matricial de Self-Attention
-☐ Multi-Head Attention (base)
-☐ Testes unitários com matrizes conhecidas
+✅ Operação matricial de Self-Attention
+✅ Multi-Head Attention (4 cabeças, d_k = d_model / num_heads)
+✅ Layer Normalization (forward + backward)
+✅ Feed-Forward Network (forward + backward)
+✅ Testes unitários com matrizes conhecidas
+✅ Backward validado por gradiente numérico (erro máximo < 1e-9)
 
-Critério de conclusão: forward pass validado em teste unitário.
+Critério de conclusão: forward e backward validados em teste unitário. — CONCLUÍDO.
 
 Referência: RF-33 em REQUISITOS.md.
 
@@ -175,12 +178,17 @@ FASE 6 — Transformer
 
 Objetivo: construir bloco funcional de Transformer completo.
 
-☐ Multi-Head Attention
-☐ Feed-Forward Network
-☐ Add & Norm (residual + layer normalization)
-☐ Forward pass completo
+✅ Multi-Head Attention
+✅ Feed-Forward Network
+✅ Add & Norm (residual + layer normalization, esquema Pre-Norm)
+✅ Forward pass completo
+✅ Backward completo (conexões residuais encadeadas)
+✅ Teste de overfit do bloco (perda 35,75 → 0,0007; redução de 99,99%)
+☐ Embeddings posicionais
+☐ Cabeça de saída (vocabulário) + função de perda
+☐ Loop de treino no corpus e geração autoregressiva
 
-Critério de conclusão: forward pass completo validado.
+Critério de conclusão: forward pass completo validado; bloco treinável de ponta a ponta.
 
 Referência: RF-34 em REQUISITOS.md.
 
@@ -457,13 +465,13 @@ Total: ~2 dias por semana dedicados ao projeto.
 
 7.2 O que está em andamento
 
-· 🚧 Fase 5: Self-Attention (Query, Key, Value)
+· 🚧 Fase 6: Transformer — bloco Pre-Norm concluído; falta o modelo completo (posicional, head e treino)
 
 7.3 Próximo passo imediato
 
-Foco atual: Fase 5 — Self-Attention (mecanismo de atenção e base para o Transformer).
+Foco atual: Fase 6 — montar o modelo completo sobre o bloco já validado (embeddings posicionais, cabeça de saída e loop de treino).
 
-Meta paralela: consolidar o corpus narrativo da LSTM e preparar a infraestrutura para o Transformer (Fase 6).
+Meta paralela: normalizar o corpus em `original/ → limpo/ → acentuado/` e preparar o vocabulário do Transformer.
 
 ---
 
@@ -523,7 +531,7 @@ Versão 3.0 | Outubro/2026
 - Adição da Fase F.1 (Modo Offline e Quantização Mista).
 - Adição da Fase G (Segurança e Sandbox).
 - Adição da FASE Z — Controle Motor e Aprendizado de Dança (Visão de Longo Prazo)
-3.1 Novembro/2026 Revisão de estado: Fase 3 concluída (corpus v39, 10,7M tokens, 72.075 palavras, 64d) e Fase 4 concluída (4.1 forward pass + 4.2 BPTT, perplexidade 884,5 → 176,7); Estado Atual em novembro/2026 com Fase 5 como próximo passo.
+3.1 Novembro/2026 Revisão de estado: Fase 3 concluída (corpus v39, 10,7M tokens, 72.075 palavras, 64d), Fase 4 concluída (4.1 forward pass + 4.2 BPTT, perplexidade 884,5 → 176,7) e Fase 5 concluída (Self-Attention, MHA, LayerNorm e FeedForward com backward validado por gradiente numérico). Estado Atual: Fase 6 em andamento — bloco Transformer validado por overfit; falta o modelo completo.
 
 "Neurônio por neurônio, até o infinito."
 
