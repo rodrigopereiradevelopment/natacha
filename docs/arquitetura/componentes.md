@@ -554,45 +554,53 @@ Camada Mecanismo
 
 ```
 NATACHA/
-├── .git/
-├── .vscode/
-├── dados/                    ← corpus, datasets, embeddings
-│   ├── corpus.txt
-│   ├── embeddings/
-│   └── weights/
-├── docs/                     ← worldbuilding (fonte canônica narrativa)
-│   ├── ARQUITETURA.md        ← este documento
-│   ├── CASA.md
-│   ├── FELIX.md
-│   ├── GLOSSARIO.md
-│   ├── INTEGRACOES.md
-│   ├── PERSONALIDADE.md
-│   ├── PLANO_50K_TOKENS.md
-│   ├── QUANTUM_THEORY.md
-│   ├── REQUISITOS.md
-│   └── ROADMAP.md
-├── historico/                ← versões antigas, logs de treino
-├── include/                  ← headers C++
-│   ├── core/
-│   ├── neural/
-│   ├── embeddings/
-│   └── bus/
-├── src/
-│   ├── core/                 ← Event Bus, Scheduler, threads
-│   ├── neural/               ← Perceptron, MLP, RNN, Transformer
-│   ├── embeddings/           ← Skip-gram, vocabulário, tokenizer
-│   │   ├── analogias.py
-│   │   ├── avaliar_completo.py
-│   │   ├── avaliar_modelos.py
-│   │   └── baixar_fasttext.sh
-│   ├── house/                ← HouseStateMap, cômodos
-│   ├── felix/                ← Thread Felix (P0)
-│   ├── chat/                 ← Pipeline VCS
-│   └── agent/                ← Modo Agente
-├── tests/                    ← Google Test
+├── src/                      ← CÓDIGO (versionado)
+│   ├── core/                 ← neurônio, MLP
+│   ├── embeddings/           ← Skip-gram, EmbeddingManager, tokenizer
+│   ├── rnn/                  ← LSTMCell, RNNLayer, OutputLayer
+│   ├── attention/            ← Fase 5/6: Attention, MHA, LayerNorm, FeedForward, TransformerBlock
+│   ├── agent/                ← Modo Agente (especificado)
+│   └── vision/               ← experimentos de visão
+├── include/natacha/          ← headers públicos
+├── scripts/                  ← CÓDIGO (versionado)
+│   ├── normalizacao/         ← limpar_corpus.py, colocar_acentos.py
+│   ├── treino/               ← Word2Vec
+│   ├── exportacao/
+│   ├── manutencao/
+│   ├── dados/                ← extração (Wikipédia, GigaVerbo)
+│   ├── inspecao/
+│   └── limpeza/
+├── dados/
+│   ├── pesos/                ← pesos treinados (.json)
+│   └── embeddings/
+│       ├── original/         ← fonte da verdade (autorais versionados)
+│       ├── limpo/            ← derivado — fora do git
+│       ├── acentuado/        ← derivado — fora do git
+│       ├── relatorios/       ← auditoria pequena — versionada
+│       └── *.json / *.bin    ← embeddings e pesos — fora do git
+├── docs/                     ← DOCUMENTAÇÃO (versionada)
+│   ├── visao/                ← personalidade, casa, Félix, roadmap
+│   ├── requisitos/           ← requisitos e licenças de dados
+│   ├── arquitetura/          ← este documento e planos técnicos
+│   ├── assets/               ← banners, logos, figurinhas
+│   ├── STATUS.md             ← estado real por fase
+│   ├── REFERENCIAS.md
+│   ├── DIAGRAMAS.md
+│   └── LEIGOS.md
+├── pessoal/                  ← RECORDAÇÃO PESSOAL — fora do git
+│   └── galeria/              ← imagens afetivas da Casa
+├── historico/                ← versões antigas (histórico local)
+├── tests/                    ← testes unitários
+├── build/                    ← gerado pelo CMake (fora do git)
+├── chat_cli.cpp              ← chat de terminal (Fases 4/5)
 ├── CMakeLists.txt
 └── README.md
 ```
+
+**Regra dos três níveis:** `src/`, `scripts/` e `docs/` são versionados. Dados
+derivados (`limpo/`, `acentuado/`), arquivos grandes (`*.json`, `*.bin`) e a
+recordação pessoal (`pessoal/`) ficam fora do git. Detalhes em
+`dados/embeddings/README.md`.
 
 ---
 
