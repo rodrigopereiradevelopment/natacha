@@ -53,7 +53,7 @@ int main() {
     if (!embManager.carregarEmbeddings("dados/embeddings/word2vec_v38.json")) return 1;
 
     // Lê o corpus de texto completo para treinamento da LSTM
-    std::ifstream arquivoTexto("dados/embeddings/corpus_natacha_220k.txt");
+    std::ifstream arquivoTexto("dados/embeddings/original/corpus_natacha_220k.txt");
     if (!arquivoTexto.is_open()) {
         std::cerr << "Erro: corpus_natacha_220k.txt nao encontrado." << std::endl;
         return 1;

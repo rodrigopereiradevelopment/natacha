@@ -43,13 +43,14 @@ def carregar_frases(caminho, repeticoes=1, nome=""):
     print(f"  {len(frases):,} frases")
     return frases
 
+# Os corpora vivem em dados/embeddings/original/ (fonte da verdade).
 FONTES = [
-    ("../dados/embeddings/corpus_natacha_220k.txt", 8, "Natacha"),
-    ("../dados/embeddings/natacha_corpus_ponte.txt", 8, "Ponte"),
-    ("../dados/embeddings/corpus_opencode.txt", 8, "OpenCode"),
-    ("../dados/embeddings/corpus_felix_62.txt", 8, "Felix"),
-    ("../dados/embeddings/corpus_rnn_lstm.txt", 8, "RNN/LSTM"),
-    ("../dados/embeddings/corpus_casa_expandida.txt", 2, "Casa Exp"),
+    ("../dados/embeddings/original/corpus_natacha_220k.txt", 8, "Natacha"),
+    ("../dados/embeddings/original/natacha_corpus_ponte.txt", 8, "Ponte"),
+    ("../dados/embeddings/original/corpus_opencode.txt", 8, "OpenCode"),
+    ("../dados/embeddings/original/corpus_felix_62.txt", 8, "Felix"),
+    ("../dados/embeddings/original/corpus_rnn_lstm.txt", 8, "RNN/LSTM"),
+    ("../dados/embeddings/original/corpus_casa_expandida.txt", 2, "Casa Exp"),
     ("../gigaverbo_filtrado.txt", 1, "GigaVerbo"),
 ]
 

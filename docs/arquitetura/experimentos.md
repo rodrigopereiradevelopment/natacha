@@ -12,7 +12,7 @@ Este documento descreve a origem e a licença de cada componente do corpus da Na
 
 | Componente | Origem | Licença | Uso comercial |
 |---|---|---|---|
-| `corpus_natacha_220k.txt` | Rodrigo Pereira (autoral) | CC BY-SA 4.0 | Requer autorização |
+| `dados/embeddings/original/corpus_natacha_220k.txt` | Rodrigo Pereira (autoral) | CC BY-SA 4.0 | Requer autorização |
 | `natacha_corpus_ponte.txt` | Gerado por IA (Kimi, Grok, Qwen, Nemotron) | Uso acadêmico | Requer regeneração com modelo open-weight |
 | `corpus_etapa1_wikipedia_v3.txt` | Wikimedia (dump 20231101.pt) | CC BY-SA 3.0 | Permitido com atribuição |
 | Embeddings treinados | Derivados dos corpora acima | Mesma dos corpora | Requer revisão |

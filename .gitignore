@@ -96,6 +96,31 @@ dados/embeddings/natacha_embeddings_*.json
 !dados/embeddings/natacha_embeddings_v17_121k_32d_OFICIAL.json
 
 # ============================================================
+# 5b. DADOS DE TREINO — ORIGINAL vs DERIVADOS
+# ============================================================
+# Regra dos três níveis:
+#   original/   -> fonte da verdade. Textos escritos à mão ficam versionados;
+#                  os grandes/importados ficam fora (regeneráveis ou baixáveis).
+#   limpo/      -> derivado do original por scripts/normalizacao/  (fora do git)
+#   acentuado/  -> derivado do limpo                              (fora do git)
+#   relatorios/ -> auditoria pequena                              (no git)
+dados/embeddings/limpo/
+dados/embeddings/acentuado/
+
+# Corpora grandes/importados (não escritos à mão)
+dados/embeddings/original/corpus_natacha_220k.txt
+dados/embeddings/original/corpus_opencode.txt
+dados/embeddings/original/corpus_wikipedia_dominio.txt
+
+# ============================================================
+# 5c. RECORDAÇÃO PESSOAL (fora do repositório)
+# ============================================================
+# Imagens da galeria e arquivos afetivos não pertencem ao código.
+# Ficam só no disco local (ou em backup externo).
+pessoal/
+docs/assets/galeria/
+
+# ============================================================
 # 6. LOGS E ARQUIVOS TEMPORÁRIOS
 # ============================================================
 *.log

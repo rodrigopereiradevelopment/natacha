@@ -98,7 +98,7 @@ def extrair_wikipedia(corpus_natacha, saida, meta_tokens=8_500_000):
 
 if __name__ == "__main__":
     extrair_wikipedia(
-        corpus_natacha="dados/embeddings/corpus_natacha_220k.txt",
+        corpus_natacha="dados/embeddings/original/corpus_natacha_220k.txt",
         saida="dados/embeddings/corpus_etapa1_wikipedia_v4.txt",
         meta_tokens=8_500_000
     )

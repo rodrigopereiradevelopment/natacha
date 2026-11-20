@@ -217,7 +217,7 @@ def extrair_wikipedia(saida, meta_tokens=500_000, debug=True):
 
 if __name__ == "__main__":
     extrair_wikipedia(
-        saida="dados/embeddings/corpus_wikipedia_dominio.txt",
+        saida="dados/embeddings/original/corpus_wikipedia_dominio.txt",
         meta_tokens=500_000,
         debug=True,
     )

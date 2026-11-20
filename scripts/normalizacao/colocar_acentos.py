@@ -5,10 +5,11 @@ import language_tool_python
 # ==============================================================================
 # 1. CONFIGURAÇÕES
 # ==============================================================================
-ENTRADA = "dados/embeddings/teste/amostra.txt"
-SAIDA = "dados/embeddings/teste/amostra_acentuada.txt"
-RELATORIO_APLICADAS = "dados/embeddings/teste/acentos_aplicados.txt"
-RELATORIO_REJEITADAS = "dados/embeddings/teste/sugestoes_rejeitadas.txt"
+# Pipeline: limpo/ -> acentuado/  (os relatorios vao para relatorios/)
+ENTRADA = "dados/embeddings/limpo/corpus_natacha_limpo.txt"
+SAIDA = "dados/embeddings/acentuado/corpus_natacha_acentuado.txt"
+RELATORIO_APLICADAS = "dados/embeddings/relatorios/acentos_aplicados.txt"
+RELATORIO_REJEITADAS = "dados/embeddings/relatorios/sugestoes_rejeitadas.txt"
 
 # Lista fechada: palavras mais comuns que o LanguageTool pode errar.
 SUBSTITUICOES = {

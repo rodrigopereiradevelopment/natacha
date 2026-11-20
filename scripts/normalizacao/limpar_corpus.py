@@ -5,8 +5,10 @@ from difflib import SequenceMatcher
 # ==============================================================================
 # 1. CONFIGURAÇÕES DO SISTEMA
 # ==============================================================================
-# Nome do arquivo que será lido. O script criará um novo arquivo com "_limpo" no nome.
-ARQUIVO_ENTRADA = "dados/embeddings/corpus_natacha_220k.txt"
+# Pipeline: original/ -> limpo/
+# A entrada é a fonte da verdade (nunca alterada); a saída é derivada.
+ARQUIVO_ENTRADA = "dados/embeddings/original/corpus_natacha_220k.txt"
+ARQUIVO_SAIDA = "dados/embeddings/limpo/corpus_natacha_limpo.txt"
 
 # Limiar de similaridade (0.0 a 1.0). 
 # 0.88 significa: se a frase for 88% parecida com uma já aprovada, ela é descartada.
@@ -68,13 +70,18 @@ def eh_quase_identica(frase_norm: str, historico: list[str], limiar: float) -> b
 # ==============================================================================
 # 3. FLUXO PRINCIPAL DE LIMPEZA
 # ==============================================================================
-def limpar_corpus(arquivo_entrada: str):
+def limpar_corpus(arquivo_entrada: str, arquivo_saida=None):
     # Verifica se o arquivo original existe antes de começar
     if not os.path.exists(arquivo_entrada):
         print(f"[ERRO] Arquivo não encontrado: {arquivo_entrada}")
         return
 
-    arquivo_saida = gerar_nome_saida(arquivo_entrada)
+    # Sem saída explícita, mantém o comportamento antigo (sufixo "_limpo"
+    # ao lado da entrada). Com saída explícita, respeita o layout do projeto.
+    if arquivo_saida is None:
+        arquivo_saida = gerar_nome_saida(arquivo_entrada)
+
+    os.makedirs(os.path.dirname(arquivo_saida) or ".", exist_ok=True)
 
     # Lê todo o conteúdo original (sem alterar o arquivo no disco)
     with open(arquivo_entrada, "r", encoding="utf-8") as f:
@@ -153,4 +160,4 @@ def limpar_corpus(arquivo_entrada: str):
 # 4. PONTO DE ENTRADA
 # ==============================================================================
 if __name__ == "__main__":
-    limpar_corpus(ARQUIVO_ENTRADA)
+    limpar_corpus(ARQUIVO_ENTRADA, ARQUIVO_SAIDA)

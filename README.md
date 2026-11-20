@@ -377,37 +377,34 @@ Dica da casa: antes de compilar, confira git status. Antes de treinar, confira o
 ## 🗂️ Estrutura do projeto
 Estrutura resumida conforme a documentação disponível; os arquivos podem variar entre versões.
 
-text
+```text
 natacha/
-├── assets/             # Imagens e banners do projeto
-├── src/
-│   ├── core/           # Neurônio, MLP e camadas
-│   ├── embeddings/     # Word2Vec, corpus e scripts de análise
-│   └── rnn/            # LSTM, RNNLayer e main_fase4
+├── src/                     # CÓDIGO — versionado
+│   ├── core/                # Neurônio, MLP e camadas
+│   ├── embeddings/          # Word2Vec, tokenizer, EmbeddingManager
+│   ├── rnn/                 # LSTM, RNNLayer, main_fase4
+│   └── attention/           # Fase 5: Attention, MHA, LayerNorm, FF, Block
+├── include/natacha/         # Headers públicos
+├── scripts/                 # CÓDIGO — normalização, treino, exportação
+├── tests/                   # Testes unitários
+├── docs/                    # DOCUMENTAÇÃO — versionada (SDD)
 ├── dados/
-│   ├── pesos/          # Pesos treinados (.json)
-│   └── embeddings/     # Corpus e vetores de palavras
-├── tests/
-├── docs/
-│   ├── PERSONALIDADE.md
-│   ├── FELIX.md
-│   ├── CASA.md
-│   ├── ARQUITETURA.md
-│   ├── INTEGRACOES.md
-│   ├── REQUISITOS.md
-│   ├── GLOSSARIO.md
-│   ├── QUANTUM_THEORY.md
-│   ├── METODOLOGIA_CORPUS.md
-│   ├── ROADMAP.md
-│   ├── PLANO_500K_v2.md
-│   ├── PLANO_CORPUS_EXTERNO.md
-│   ├── EXPERIMENTOS.md
-│   ├── DATA_LICENSES.md
-│   ├── MOBILE_FIRST.md
-│   ├── MODO_AGENTE.md
-│   ├── MONETIZACAO.md
-│   └── FASE4.md
+│   ├── pesos/               # Pesos treinados (.json)
+│   └── embeddings/
+│       ├── original/        # Fonte da verdade (textos autorais versionados)
+│       ├── limpo/           # Derivado — fora do git
+│       ├── acentuado/       # Derivado — fora do git
+│       └── relatorios/      # Auditoria pequena — versionada
+├── pessoal/                 # RECORDAÇÃO PESSOAL — fora do git
+│   └── galeria/             # Imagens afetivas da Casa da Natacha
+├── chat_cli.cpp             # Chat de terminal (Fases 4/5)
 └── CMakeLists.txt
+```
+
+**Regra dos três níveis:** `src/`, `scripts/` e `docs/` vão para o git. Os dados
+derivados (`limpo/`, `acentuado/`), os arquivos grandes (`*.json`, `*.bin`) e a
+recordação pessoal (`pessoal/`) ficam fora — são regeneráveis ou privados.
+Detalhes em [`dados/embeddings/README.md`](dados/embeddings/README.md).
 ## 🛠️ Tecnologias
 Camada	Tecnologia	Situação
 Linguagem principal	C++17	Em uso

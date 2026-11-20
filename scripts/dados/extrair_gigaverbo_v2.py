@@ -108,6 +108,6 @@ def extrair(corpus_natacha, saida, meta_tokens=4_000_000, lote=100,
 
 if __name__ == "__main__":
     extrair(
-        corpus_natacha="dados/embeddings/corpus_natacha_220k.txt",
+        corpus_natacha="dados/embeddings/original/corpus_natacha_220k.txt",
         saida="dados/embeddings/corpus_etapa1_externo_v2.txt"
     )
